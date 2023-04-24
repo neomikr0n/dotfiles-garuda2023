@@ -3717,9 +3717,9 @@ git init
 git add .
 git commit -m 'First Git commit of my dotfiles :D'
 git branch -M master
-git remote add origin git@github.com:username/dotfiles.git
-<!-- git remote add origin https://github.com/neomikr0n/dotfiles.git -->
-git push -u origin master
+git remote add origin https://github.com/neomikr0n/dotfiles.git
+git config --global credential.helper store
+git push origin master
 ```
 ```
 cd ~/.dotfiles && git init
@@ -3734,10 +3734,16 @@ git push origin master
 1. Go to Settings >> Developer Settings >> Personal access tokens >> [Tokens](https://github.com/settings/tokens) (classic)
 2. Generate a new Personal Access Token (also classic). Make sure you copy the Personal Access Token as soon as it gets generated — you won’t be able to see it again!
 3. Paste the Personal Access Token into the “Password” field when you authenticate via the command line.
+
+[How to fix Git always asking for user credentials](https://www.freecodecamp.org/news/how-to-fix-git-always-asking-for-user-credentials/)
+
+git config --global credential.helper store
+
+[Other useful commands:]()
 ```
-```
-4. Other useful commands:
-```
+git push -u origin master
+
+git remote add origin git@github.com:username/dotfiles.git
 
 git config pull.rebase true
 git config credential.interactive false
