@@ -3710,10 +3710,8 @@ Note that turning off a display using DPMS does not shut down your computer or t
 
 > # **[dotfiles git](https://blog.smalleycreative.com/using-git-and-github-to-manage-your-dotfiles/)**
 
-
-
 ```
-git init
+cd ~/.dotfiles && git init
 git add .
 git commit -m 'First Git commit of my dotfiles :D'
 git branch -M master
@@ -3721,38 +3719,30 @@ git remote add origin https://github.com/neomikr0n/dotfiles.git
 git config --global credential.helper store
 git push origin master
 ```
-```
-cd ~/.dotfiles && git init
-git add .
-git commit -m 'First Git commit of my dotfiles :D'
 
-git remote add origin https://github.com/neomikr0n/dotfiles.git
-git push origin master
+- [GitHub Error: Authentication Failed from the Command Line](https://ginnyfahs.medium.com/github-error-authentication-failed-from-command-line-3a545bfd0ca8)
+  1. Go to Settings >> Developer Settings >> Personal access tokens >> [Tokens](https://github.com/settings/tokens) (classic)
+  2. Generate a new Personal Access Token (also classic). Make sure you copy the Personal Access Token as soon as it gets generated — you won’t be able to see it again!
+  3. Paste the Personal Access Token into the “Password” field when you authenticate via the command line.
 
-```
-[GitHub Error: Authentication Failed from the Command Line](https://ginnyfahs.medium.com/github-error-authentication-failed-from-command-line-3a545bfd0ca8)
-1. Go to Settings >> Developer Settings >> Personal access tokens >> [Tokens](https://github.com/settings/tokens) (classic)
-2. Generate a new Personal Access Token (also classic). Make sure you copy the Personal Access Token as soon as it gets generated — you won’t be able to see it again!
-3. Paste the Personal Access Token into the “Password” field when you authenticate via the command line.
+- [How to fix Git always asking for user credentials](https://www.freecodecamp.org/news/how-to-fix-git-always-asking-for-user-credentials/)
 
-[How to fix Git always asking for user credentials](https://www.freecodecamp.org/news/how-to-fix-git-always-asking-for-user-credentials/)
+      git config --global credential.helper store
 
-git config --global credential.helper store
+- [Other useful commands:]()
+  ```
+  git push -u origin master
 
-[Other useful commands:]()
-```
-git push -u origin master
+  git remote add origin git@github.com:username/dotfiles.git
 
-git remote add origin git@github.com:username/dotfiles.git
+  git config pull.rebase true
+  git config credential.interactive false
 
-git config pull.rebase true
-git config credential.interactive false
+  git pull -f origin main
 
-git pull -f origin main
-
-git push -f origin master
-git config --global init.defaultBranch master
-```
+  git push -f origin master
+  git config --global init.defaultBranch master
+  ```
 
 > # **[chezmoi](https://www.chezmoi.io/)**
 
@@ -4285,3 +4275,71 @@ An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fo
 
 
 ```
+
+
+╭─n30@n30 in repo: .dotfiles on  master [!?] took 950ms
+[🔴] × ag scriptsdir ~/.dotfiles
+/home/n30/.dotfiles/config/hypr/scripts/spotify-session.sh
+3:scriptsDir="$HOME"/.config/hypr/scripts
+5:"$scriptsDir"/videowallpaper-change music &
+9:# kitty --title spotify-glava --hold -e $scriptsDir/misc --glava &
+14:"$scriptsDir"/videowallpaper-change test &
+
+/home/n30/.dotfiles/config/hypr/scripts/startup
+3:scriptsDir=$HOME/.config/hypr/scripts
+22:bash "$scriptsDir"/videowallpaper-change code &
+23:# ${SCRIPTSDIR}/wall $HOME/.config/hypr/wallpapers/dreams.png &   #static wallpaper
+
+/home/n30/.dotfiles/config/hypr/scripts/startup-2022
+3:SCRIPTSDIR=$HOME/.config/hypr/scripts
+14:# ${SCRIPTSDIR}/gtkthemes &
+17:${SCRIPTSDIR}/notifications &
+20:${SCRIPTSDIR}/statusbar &
+26:${SCRIPTSDIR}/tools/dynamic &
+27:${SCRIPTSDIR}/wall $HOME/.config/hypr/wallpapers/dreams.png & # for the transitions of swww_fork
+28:${SCRIPTSDIR}/rgb &
+
+/home/n30/.dotfiles/config/hypr/hyprland.conf
+8:$scriptsDir = $HOME/.config/hypr/scripts
+13:# source = $scriptsDir/hyprlandconf-enviroment.sh
+110:exec-once = $scriptsDir/startup
+111:exec-once = $scriptsDir/startup
+112:exec-once = $scriptsDir/videowallpaper-change test
+115:exec-once = $scriptsDir/statusbar
+118:exec-once = $scriptsDir/notifications
+145:# exec-once = $scriptsDir/portal
+165:$menu = $scriptsDir/menu
+166:$powermenu = $scriptsDir/powermenu
+167:$volume = $scriptsDir/volume
+168:$exit = $scriptsDir/exit
+169:$backlight = $scriptsDir/brightness
+170:$screenshot = $scriptsDir/screenshot
+172:$colorpicker = $scriptsDir/colorpicker
+173:$wofi_beats = $scriptsDir/wofi-beats
+216:bind = WIN, F1, exec, $scriptsDir/gamemode.sh
+292:bind=CTRL,space,exec,pkill wofi || $scriptsDir/volume_audio_changer.py
+311:bind= $triMod,G,exec, $scriptsDir/misc --gamescope2560
+317:# bind= SUPER, Tab,exec,sh $scriptsDir/sway-select-window # TODO: 3 years old, not working?😔354:bind= $triMod,S,exec,sh $scriptsDir/spotify-session.sh
+435:bind=KEY_CAPSLOCK,n, exec, $scriptsDir/notifications & swaync-client -rs
+511:bind= $triMod,1,exec,bash $scriptsDir/videowallpaper-change code
+512:bind= $triMod,2,exec,bash $scriptsDir/videowallpaper-change music
+513:bind= $triMod,3,exec,bash $scriptsDir/videowallpaper-change test
+516:bind = $triMod, H, exec, $scriptsDir/misc --heroic
+573:exec-once = bash $scriptsDir/misc --openbrowser
+574:exec-once = bash $scriptsDir/misc --heroic
+
+/home/n30/.dotfiles/wiki-wayland-0.9beta.md
+3837:ag scriptsdir ~/.dotfiles --ignore-dir={google-chrome-backup,Code - OSS,History}
+
+/home/n30/.dotfiles/ideas-hyprland.txt
+126:exec-once = $scriptsDir/portal
+133:# ${SCRIPTSDIR}hotkeys &
+188:# bindr = $mainMod SHIFT, C, exec, pkill bemenu || $scriptsDir/bemenu_input -l        #?
+195:# bind = $mainMod, L, exec, $scriptsDir/changeLayout
+206:bind = $triMod, F, exec, hyprctl keyword decoration:screen_shader $scriptsDir/flux.glsl
+626:# ${SCRIPTSDIR}/tools/dynamic &   # for the transitions of swww_fork??
+627:# ${SCRIPTSDIR}/rgb &   # TODO file missing? I'm not sure what this does lol
+633:# ${SCRIPTSDIR}/gtkthemes & # TODO: ? nwg-look seems working fine tho
+
+╭─n30@n30 in repo: .dotfiles on  master [!?] took 11ms
+╰─λ

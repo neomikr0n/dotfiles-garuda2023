@@ -1,6 +1,6 @@
 #!/bin/bash
 
-scriptsDir=$HOME/.config/hypr/scripts
+scriptsDir="$HOME"/.dotfiles/bin
 wallsDir=$HOME/Videos/Hidamari
 
 # Kill already running processes
