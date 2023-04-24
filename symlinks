@@ -8,9 +8,10 @@
 
 dir=~/.dotfiles/config                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files_config="alacritty btop copyq easyeffects fish flameshot foot Genymobile glava goverlay hypr kdedefaults kitty MangoHud mpv qBittorrent safeeyes solaar swappy spicetify swaylock swaync thefuck Thunar vlc wezterm"    # list of files/folders to symlink in .config
+files_config="alacritty btop corectrl easyeffects fish flameshot foot Genymobile glava goverlay hypr kitty MangoHud mpv qBittorrent safeeyes solaar spicetify  swaylock swaync thefuck Thunar vlc wezterm"    # list of files/folders to symlink in .config
 
-##########
+########## temp for another repo? TODO:
+# copyq kdedefaults
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."

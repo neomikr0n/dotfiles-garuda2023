@@ -3714,8 +3714,8 @@ Note that turning off a display using DPMS does not shut down your computer or t
 
 ```
 git init
-git commit -m 'First Git commit of my dotfiles :D'
 git add .
+git commit -m 'First Git commit of my dotfiles :D'
 git branch -M master
 git remote add origin https://github.com/neomikr0n/dotfiles.git
 git push -u origin master
@@ -3731,15 +3731,12 @@ git push origin master
 
 ```
 [GitHub Error: Authentication Failed from the Command Line](https://ginnyfahs.medium.com/github-error-authentication-failed-from-command-line-3a545bfd0ca8)
-
-
-
 1. Go to Settings >> Developer Settings >> Personal access tokens >> [Tokens](https://github.com/settings/tokens) (classic)
 2. Generate a new Personal Access Token (also classic). Make sure you copy the Personal Access Token as soon as it gets generated — you won’t be able to see it again!
 3. Paste the Personal Access Token into the “Password” field when you authenticate via the command line.
 ```
 ```
-4. <!-- git push -f origin main -->
+4. <!-- git push -f origin master -->
 
 ```
 git config pull.rebase true
