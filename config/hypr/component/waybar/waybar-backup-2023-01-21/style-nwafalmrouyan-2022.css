@@ -1,0 +1,174 @@
+* {
+  font-family: Symbols Nerd Font, IosevkaLyteTerm, monospace;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+}
+
+#backlight,
+#battery,
+#clock,
+#cpu,
+#disk,
+#mode,
+#memory,
+#tray,
+#pulseaudio,
+#custom-menu,
+#custom-power,
+#custom-weather,
+#custom-updater,
+#custom-vpn_check,
+#custom-uptime,
+#custom-cputemp,
+#window,
+#network {
+  border-radius: 5px;
+  padding: 0px 4px;
+  margin-bottom: 4px;
+  color: #313244;
+  border: 2px solid #313244;
+}
+
+#workspaces {
+  border-radius: 5px;
+  margin-bottom: 4px;
+  padding: 0;
+  color: #313244;
+}
+
+#backlight {
+  background-color: #87b0f9;
+}
+
+#battery {
+  background-color: #a6e3a1;
+}
+
+@keyframes blink {
+  to {
+    color: #313244;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f38ba8;
+  color: #f38ba8;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#clock {
+  background-color: #f9e2af;
+}
+
+#cpu {
+  background-color: #a6e3a1;
+}
+
+#memory {
+  background-color: #89dceb;
+}
+
+#disk {
+  background-color: #74c7ec;
+}
+
+#tray {
+  background-color: #fab387;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+#workspaces button {
+  background-color: #f9e2af;
+  color: #313244;
+  border: 2px solid #313244;
+  margin-left: 3px;
+  border-radius: 5px;
+}
+
+#workspaces button.active {
+  background-color: #fab387;
+  color: #313244;
+}
+
+#workspaces button.urgent {
+  background-color: #f38ba8;
+  color: #313244;
+}
+
+#workspaces button:hover {
+  background: #f2cdcd;
+  color: #313244;
+}
+
+#custom-menu {
+  background-color: #f5e0dc;
+}
+
+#custom-power {
+  background-color: #f38ba8;
+  margin-right: 3px;
+}
+
+#custom-updater {
+  background-color: #a6e3a1;
+}
+
+#custom-uptime {
+  background-color: #87b0f9;
+}
+
+#custom-weather {
+  background-color: #b4befe;
+}
+
+#custom-vpn_check {
+  background-color: #89dceb;
+}
+#custom-cputemp {
+  background-color: #94e2d5;
+}
+
+#pulseaudio {
+  background-color: #74c7ec;
+}
+
+#pulseaudio.bluetooth {
+  background-color: #f5c2e7;
+}
+#pulseaudio.muted {
+  background-color: #f38ba8;
+}
+
+#window {
+  background-image: linear-gradient(45deg, #87b0f9 0%, #b4befe 100%);
+}
+
+#network {
+  background-color: #94e2d5;
+}
+#network.disconnected,
+#network.disabled {
+  background-color: #313244;
+  color: #cdd6f4;
+}

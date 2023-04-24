@@ -1,0 +1,13 @@
+# !/bin/sh
+
+# more info in:
+# https://www.youtube.com/watch?v=NNyJcYrHgmI
+
+tl;dr
+dunst passes the notification details when it calls the script in the form of
+script appname summary body icon urgency
+
+# play -v 0.8 /usr/share/sounds/freedesktop/stereo/message.oga
+# paplay /usr/share/sounds/freedesktop/stereo/message.oga
+if [ "$1" != "Spotify" ]; then paplay /usr/share/sounds/freedesktop/stereo/message.oga ; fi
+# if [ "$1" != "Whatsapp" ]; then mpv "notification.ogg" ; fi

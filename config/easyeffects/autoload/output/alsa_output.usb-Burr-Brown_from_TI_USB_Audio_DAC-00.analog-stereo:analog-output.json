@@ -1,0 +1,6 @@
+{
+    "device": "alsa_output.usb-Burr-Brown_from_TI_USB_Audio_DAC-00.analog-stereo",
+    "device-description": "PCM2704 16-bit stereo audio DAC Analog Stereo",
+    "device-profile": "analog-output",
+    "preset-name": "Bocinas"
+}

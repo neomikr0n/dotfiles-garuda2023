@@ -1,0 +1,57 @@
+#!/bin/bash
+# WHY THESE SCRIPT?
+# it's a must at 2022-12-31, because of slow apps loading and other issues (see wiki)
+# for a startup system those lines need to be exec'd on hyprland.conf before this script:
+# exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# for terminal testing this command would be usefull (uncomment and comment again tho):
+# dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP & /
+# systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && /
+# sh /home/n30/.config/hypr/scripts/portal &
+
+# script starts here:
+sleep 2
+killall xdg-desktop-portal-hyprland
+killall xdg-desktop-portal
+/usr/lib/xdg-desktop-portal -vr        # -vr it's in case you want to see verbose+replace mode running this portal.sh on terminal, it's very helpful in case somethig goes wrong.
+# sleep 2
+/usr/libexec/xdg-desktop-portal-hyprland -l DEBUG 2>&1 | tee xdpw.log   # added verbose options too.
+sleep 4
+systemctl --user restart xdg-desktop-portal.service
+# script ends here:
+
+# killall xdg-desktop-portal-wlr        # uncomment in case you are using "wlr" portal instead of the "Hyprland-git" fork
+# /usr/lib/xdg-desktop-portal-wlr &     # uncomment in case you are using "wlr" portal instead of the "Hyprland-git" fork
+
+# ALTERNATIVE
+# script starts here:
+# sleep 2
+# systemctl --user stop xdg-desktop-portal-hyprland
+# systemctl --user stop xdg-desktop-portal
+# /usr/libexec/xdg-desktop-portal-hyprland &      # these starts XDPH
+# # https://aur.archlinux.org/packages/xdg-desktop-portal-hyprland-git
+# # This installs into /usr/libexec which should be avoided by packages on arch. Please add --libexecdir lib like arch-meson does
+# /usr/lib/xdg-desktop-portal &           # these starts XDPH
+
+
+# TEST if they are active
+# systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal
+
+
+# LIBRARY (just random information found on the internet)
+# ---------------------------------------------------------------------
+# comment on reddit
+# https://www.reddit.com/r/hyprland/comments/zwfofu/how_do_you_print_screen_in_hyprland/
+# exec-one=systemctl --user restart xdg-desktop-portal.service
+# exec-once=sleep 2 && /usr/libexec/xdg-desktop-portal-hyprland -r
+
+
+# alternative script of nawfalmrouyan
+# https://github.com/nawfalmrouyan/hyprland
+# sleep 2
+# systemctl --user stop xdg-desktop-portal-hyprland
+# systemctl --user stop xdg-desktop-portal
+# systemctl --user start xdg-desktop-portal-hyprland
+# sleep 2
+# systemctl --user start xdg-desktop-portal

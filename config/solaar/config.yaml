@@ -1,0 +1,17 @@
+- 1.1.8
+- _NAME: Wireless Keyboard ERGO K860
+  _absent: [hi-res-scroll, lowres-scroll-mode, hires-smooth-invert, hires-smooth-resolution, hires-scroll-mode, scroll-ratchet, smart-shift, thumb-scroll-invert,
+    thumb-scroll-mode, onboard_profiles, report_rate, pointer_speed, dpi, speed-change, backlight, backlight-timed, reprogrammable-keys, persistent-remappable-keys,
+    crown-smooth, divert-crown, divert-gkeys, m-key-leds, mr-key-led, gesture2-gestures, gesture2-divert, gesture2-params, sidetone, equalizer]
+  _battery: 4096
+  _modelId: B35940880000
+  _sensitive: {fn-swap: false, multiplatform: false}
+  _serial: 35F4E9F3
+  _unitId: 35F4E9F3
+  _wpid: '4088'
+  change-host: null
+  disable-keyboard-keys: {1: false, 2: false, 4: false, 8: false, 16: false}
+  divert-keys: {10: 0, 110: 0, 111: 0, 191: 0, 199: 0, 200: 0, 209: 0, 210: 0, 211: 0, 212: 0, 224: 0, 228: 0, 229: 0, 230: 0, 231: 0, 232: 0, 233: 0, 234: 0,
+    235: 0, 236: 0, 256: 0, 257: 0}
+  fn-swap: true
+  multiplatform: 0

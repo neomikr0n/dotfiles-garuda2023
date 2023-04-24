@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# OLD AND USELESS
+# variables
+config=$HOME/.config/hypr
+scripts=$config/scripts
+
+# daemons
+/usr/bin/numlockx on &
+dunst &
+# killall dunst
+# dunst > /dev/null 2> /dev/null &
+# thunar --daemon &
+
+# waybar
+$scripts/launch_waybar &
+$scripts/tools/dynamic &
+
+# wallpaper
+$scripts/wall $config/wallpapers/dreams.png &
+
+# effects
+$scripts/rgb &
+
+# other
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+export _JAVA_AWT_WM_NONREPARENTING=1 #solves the grey windows when starting a java application?
+
+# dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus #use it en case you are using elogind, you might need to manually start a dbus user session to use mako notifications

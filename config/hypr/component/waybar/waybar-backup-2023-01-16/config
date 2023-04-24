@@ -1,0 +1,302 @@
+//     "width": 3440, // Waybar width FOR WIDESCREEN 3440pX1440p
+//    "margin-bottom":-15, //defalt was -11
+//    "modules-left": ["wlr/workspaces","custom/dynamic_pill"],
+//     "modules-right": ["temperature","network","battery","custom/ss","custom/cycle_wall","custom/expand","cpu"],
+//     "modules-center": ["clock"],
+//    "clock": {
+//        "max-length": 33
+
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 50, // Waybar height (to be removed for auto height)
+    "width": 3440, // Waybar width FOR WIDESCREEN 3440pX1440p
+    "spacing": 5, // Gaps between modules (4px)
+    // Choose the order of the modules
+    // "margin-left":25,
+    // "margin-right":25,
+    "margin-bottom":-15,
+    //"margin-top":5,
+
+    // Modules configuration
+    "modules-center": ["clock"],
+    "modules-left": ["wlr/workspaces","custom/dynamic_pill","custom/wall","custom/cava-internal"],
+    "modules-right": ["custom/pacman","tray","custom/ss","custom/cycle_wall","custom/expand","custom/weather","memory","network","pulseaudio","custom/keyboard-layout","cpu"],
+//    "modules-right": ["temperature","network","battery","custom/ss","custom/cycle_wall","custom/expand","cpu"],
+
+    // https://github.com/Ruixi-rebirth/nixos-config/blob/main/modules/programs/waybar/hyprland_waybar.nix
+//        "custom/cava-internal": {
+//          "exec": "sleep 1s && cava-internal";
+//         "tooltip": false;
+//        },
+
+
+    // CUSTOM  Garuda Sway modules ////////////////
+     "custom/pacman": {
+        "format": " {}",   //  <--- alternative icon
+        "interval": 900,                     // every 15 minutes
+        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "konsole -e garuda-update", // update system
+        "signal": 8
+    },
+    "custom/power": {
+        "format": " <span color='#6a92d7'>⏻ </span>",
+       	"on-click": "nwg-bar",
+      	"tooltip": false,
+   },
+   "custom/keyboard-layout": {
+      	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+      	// Interval set only as a fallback, as the value is updated by signal
+      	"interval": 30,
+      	"format": "  {}", // Icon: keyboard
+      	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
+      	"signal": 1, // SIGHUP
+      	"tooltip": false,
+        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+},
+     "custom/launcher": {
+    	"format":" ",
+    	"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+    	"tooltip": false,
+},
+
+
+    // CUSTOM AURORA modules ////////////////
+    "custom/dynamic_pill": {
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/tools/start_dyn",
+        "escape":true
+    },
+    "custom/ss":{
+        "format":"{}",
+        "exec":"~/.config/hypr/scripts/tools/expand ss-icon",
+        "on-click": "~/.config/hypr/scripts/screenshot_full"
+//grimblast [--notify] [--cursor] (copy|save|copysave) [active|screen|output|area|window] [FILE|-]
+        //        "on-click": "~/.config/hypr/scripts/screenshot_full"
+
+    },
+    "custom/cycle_wall":{
+        "format":"{}",
+        "exec": "~/.config/hypr/scripts/tools/expand wall",
+        // "interval": 1,
+        "on-click": "~/.config/hypr/scripts/tools/expand cycle"
+    },
+    "custom/expand":{
+        "on-click":"~/.config/hypr/scripts/expand_toolbar",
+        "format":"{}",
+        "exec":"~/.config/hypr/scripts/tools/expand arrow-icon"
+    },
+    // "custom/waybar-mpris": {
+    //     "return-type": "json",
+    //     "exec": "echo '   '",
+    //     "on-click": "waybar-mpris --send toggle",
+    //     // This option will switch between players on right click.
+    //         "on-click-right": "waybar-mpris --send player-next",
+    //     // The options below will switch the selected player on scroll
+    //         // "on-scroll-up": "waybar-mpris --send player-next",
+    //         // "on-scroll-down": "waybar-mpris --send player-prev",
+    //     // The options below will go to next/previous track on scroll
+    //         // "on-scroll-up": "waybar-mpris --send next",
+    //         // "on-scroll-down": "waybar-mpris --send prev",
+    //     "escape": true
+    // },
+    //////////////////////////////////
+
+
+      // CUSTOM iamverysimp1e's modules ////////////////
+      //https://github.com/iamverysimp1e/dots/blob/main/.config/waybar/config
+      "custom/weather": {
+      "exec": "python3 ~/.config/waybar/scripts/weather.py",
+      "restart-interval": 300,
+      "return-type": "json",
+      "on-click": "xdg-open https://www.meteored.mx/clima_Morelia-America+Norte-Mexico-Michoacan-MMMM-1-22372.html"
+    },
+   "custom/spotify": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    },
+
+  "gamemode": {
+  	"format": "{glyph}",
+  	"format-alt": "{glyph} {count}",
+  	"glyph": "",
+  	"hide-not-running": true,
+  	"use-icon": true,
+  	"icon-name": "input-gaming-symbolic",
+  	"icon-spacing": 4,
+  	"icon-size": 20,
+  	"tooltip": true,
+  	"tooltip-format": "Games running: {count}"
+  },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "wlr/workspaces": {
+        "format": "{icon}",
+        "format-active": " {icon} ",
+        "on-click": "activate",
+        // https://github.com/iamverysimp1e/dots/blob/main/.config/waybar/config
+        "format-icons": {
+          "1": "ー",
+          "2": "二",
+          "3": "三",
+          "4": "四",
+          "5": "五",
+          "6": "六",
+          "7": "七",
+          "8": "八",
+          "9": "九",
+          "10": "十"
+      },
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "show-passive-items": true,
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60,
+        "format": "{:%I:%M}",
+        "max-length": 33
+    },
+
+    "cpu": {
+        "interval":2,
+        "format": "",
+        "format": " {icon0} {icon1} {icon2} {icon3} ",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "on-click": "konsole -e htop"
+    },
+    "memory": {
+        "format": "{used:0.1f}G} {}% "
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C",
+        "format": ""
+    },
+    "backlight": {
+        "device": "DP-3",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "",
+    },
+    "battery": {
+        "states": {
+            "warning": 50,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+//        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+//        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+//        "format-ethernet": "",
+//        "tooltip-format": "via {gwaddr} {ifname}",
+//        "format-linked": "",
+//        "format-disconnected": "wifi",
+//        "format-alt": "   "
+        "on-click": "konsole -e nmtui"
+//        "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+    },
+    "pulseaudio": {
+        //"scroll-step": 5,
+        // "scroll-step": 1, // %, can be a float
+        //"format": "{format_source}",
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        "format": "<span font='12'>{icon}</span>  {volume}%",
+        "format-source-muted": "<span font='12'>婢</span>",
+        "format-muted": "<span font='12'>婢</span>",
+        "format-icons": {
+            "alsa_output.usb-Topping_D30-00.pro-output-0": "",
+            "default": ["", "", ""],
+            "muted": "lol"
+        },
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock",
+//        "on-click-middle": "pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock && notify-send -h  int:value:66 " MUTE "",
+//        "on-click": "pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock && notify-send -h  int:value:66 " MUTE "", // this fails
+//        "on-click": "pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ]",
+        "on-click-middle": "pavucontrol",
+       "on-click": "~/.config/hypr/scripts/volume-wob.sh togglemute "
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}
