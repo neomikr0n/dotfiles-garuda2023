@@ -3717,10 +3717,10 @@ git init
 git add .
 git commit -m 'First Git commit of my dotfiles :D'
 git branch -M master
-git remote add origin https://github.com/neomikr0n/dotfiles.git
+git remote add origin git@github.com:username/dotfiles.git
+<!-- git remote add origin https://github.com/neomikr0n/dotfiles.git -->
 git push -u origin master
 ```
-git config --global init.defaultBranch master
 ```
 cd ~/.dotfiles && git init
 git add .
@@ -3736,13 +3736,16 @@ git push origin master
 3. Paste the Personal Access Token into the “Password” field when you authenticate via the command line.
 ```
 ```
-4. <!-- git push -f origin master -->
-
+4. Other useful commands:
 ```
+
 git config pull.rebase true
 git config credential.interactive false
 
 git pull -f origin main
+
+git push -f origin master
+git config --global init.defaultBranch master
 ```
 
 > # **[chezmoi](https://www.chezmoi.io/)**
