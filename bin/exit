@@ -43,6 +43,8 @@ closing() {
   hyprctl dispatch closewindow thunar
   hyprctl dispatch closewindow firedragon
   hyprctl dispatch closewindow code
+  hyprctl dispatch closewindow dolphin
+
 }
 
 exiting() {
@@ -88,7 +90,7 @@ suspend() {
 }
 
 logout() {
-  cya=(systemctl suspend)
+  cya=(killall Hyprland)
   message="⌛ LOGing-OFF..."
   countdown "$timeout" &
   check

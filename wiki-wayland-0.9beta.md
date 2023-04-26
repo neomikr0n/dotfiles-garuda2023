@@ -4113,59 +4113,59 @@ Show keys you typed on screen. A screenkey alternative that works under Wayland 
 - ## [lf](https://github.com/gokcehan/lf):
   (as in "list files") is a terminal file manager written in Go with a heavy inspiration from ranger file manager.
 
-  - ## [backgroundremover](https://github.com/nadermx/backgroundremover): The Silver Searcher
+- ## [backgroundremover](https://github.com/nadermx/backgroundremover): The Silver Searcher
     
-    pip install --upgrade pip
-    pip install backgroundremover
-    
-    backgroundremover -i "/path/to/image.jpeg" -o "output.png"
-    backgroundremover -i "/path/to/video.mp4" -tv -o "output.mov"
+  pip install --upgrade pip
+  pip install backgroundremover
+  
+  backgroundremover -i "/path/to/image.jpeg" -o "output.png"
+  backgroundremover -i "/path/to/video.mp4" -tv -o "output.mov"
 
-    ffmpeg -i /home/n30/Pictures/welita-sandia.MOV -vcodec h264 -acodec mp2 /home/n30/Pictures/welita-sandia.mp4
+  ffmpeg -i /home/n30/Pictures/welita-sandia.MOV -vcodec h264 -acodec mp2 /home/n30/Pictures/welita-sandia.mp4
 
-### Usage as a cli
-Remove the background from a local file image
-backgroundremover -i "/path/to/image.jpeg" -o "output.png"
+  - ### Usage as a cli
+  Remove the background from a local file image
+  backgroundremover -i "/path/to/image.jpeg" -o "output.png"
 
-### Advance usage for image background removal
-Sometimes it is possible to achieve better results by turning on alpha matting. Example:
-backgroundremover -i "/path/to/image.jpeg" -a -ae 15 -o "output.png"
+  - ### Advance usage for image background removal
+  Sometimes it is possible to achieve better results by turning on alpha matting. Example:
+  backgroundremover -i "/path/to/image.jpeg" -a -ae 15 -o "output.png"
 
-change the model for diferent background removal methods between u2netp, u2net, or u2net_human_seg
-backgroundremover -i "/path/to/image.jpeg" -m "u2net_human_seg" -o "output.png"
+  change the model for diferent background removal methods between u2netp, u2net, or u2net_human_seg
+  backgroundremover -i "/path/to/image.jpeg" -m "u2net_human_seg" -o "output.png"
 
-### Video
-remove background from video and make transparent mov
-backgroundremover -i "/path/to/video.mp4" -tv -o "output.mov"
+  - ### Video
+  remove background from video and make transparent mov
+  backgroundremover -i "/path/to/video.mp4" -tv -o "output.mov"
 
-remove background from local video and overlay it over other video
-backgroundremover -i "/path/to/video.mp4" -tov "/path/to/videtobeoverlayed.mp4" -o "output.mov"
+  remove background from local video and overlay it over other video
+  backgroundremover -i "/path/to/video.mp4" -tov "/path/to/videtobeoverlayed.mp4" -o "output.mov"
 
-remove background from local video and overlay it over an image
-backgroundremover -i "/path/to/video.mp4" -toi "/path/to/videtobeoverlayed.mp4" -o "output.mov"
+  remove background from local video and overlay it over an image
+  backgroundremover -i "/path/to/video.mp4" -toi "/path/to/videtobeoverlayed.mp4" -o "output.mov"
 
-remove background from video and make transparent gif
-backgroundremover -i "/path/to/video.mp4" -tg -o "output.gif"
+  remove background from video and make transparent gif
+  backgroundremover -i "/path/to/video.mp4" -tg -o "output.gif"
 
-Make matte key file (green screen overlay)
-Make a matte file for premier
-backgroundremover -i "/path/to/video.mp4" -mk -o "output.matte.mp4"
+  Make matte key file (green screen overlay)
+  Make a matte file for premier
+  backgroundremover -i "/path/to/video.mp4" -mk -o "output.matte.mp4"
 
-### Advance usage for video
-Change the framerate of the video (default is set to 30)
-backgroundremover -i "/path/to/video.mp4" -fr 30 -tv -o "output.mov"
+  - ### Advance usage for video
+  Change the framerate of the video (default is set to 30)
+  backgroundremover -i "/path/to/video.mp4" -fr 30 -tv -o "output.mov"
 
-Set total number of frames of the video (default is set to -1, ie the remove background from full video)
-backgroundremover -i "/path/to/video.mp4" -fl 150 -tv -o "output.mov"
+  Set total number of frames of the video (default is set to -1, ie the remove background from full video)
+  backgroundremover -i "/path/to/video.mp4" -fl 150 -tv -o "output.mov"
 
-Change the gpu batch size of the video (default is set to 1)
-backgroundremover -i "/path/to/video.mp4" -gb 4 -tv -o "output.mov"
+  Change the gpu batch size of the video (default is set to 1)
+  backgroundremover -i "/path/to/video.mp4" -gb 4 -tv -o "output.mov"
 
-Change the number of workers working on video (default is set to 1)
-backgroundremover -i "/path/to/video.mp4" -wn 4 -tv -o "output.mov"
+  Change the number of workers working on video (default is set to 1)
+  backgroundremover -i "/path/to/video.mp4" -wn 4 -tv -o "output.mov"
 
-change the model for diferent background removal methods between u2netp, u2net, or u2net_human_seg and limit the frames to 150
-backgroundremover -i "/path/to/video.mp4" -m "u2net_human_seg" -fl 150 -tv -o "output.mov"
+  change the model for diferent background removal methods between u2netp, u2net, or u2net_human_seg and limit the frames to 150
+  backgroundremover -i "/path/to/video.mp4" -m "u2net_human_seg" -fl 150 -tv -o "output.mov"
 
 
   
@@ -4278,7 +4278,10 @@ backgroundremover -i "/path/to/video.mp4" -m "u2net_human_seg" -fl 150 -tv -o "o
   ```
 
  - ## [lolcat](https://github.com/busyloop/lolcat)
-timer -l 98 | lolcat -a -d 1 -s 999 -t
+ timer -l 98 | lolcat -a -d 1 -s 999 -t
+
+ - ## [fkill](https://github.com/sindresorhus/fkill)
+ Fabulously kill processes. Cross-platform.
 
 # **[SDDM]()**
 
@@ -4498,3 +4501,34 @@ JetBrainsMono Nerd Font
 
 
 # **[palera1n](https://palera.in/latest-release/)**
+
+
+
+# Toolkit Backend Variables
+env GDK_BACKEND,"wayland;x11"
+env SDL_VIDEODRIVER,wayland
+env CLUTTER_BACKEND,wayland
+
+# XDG Specifications
+# XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
+env XDG_CURRENT_DESKTOP,Hyprland
+env XDG_SESSION_TYPE,wayland
+env XDG_SESSION_DESKTOP,Hyprland
+
+# QT Variables
+env QT_AUTO_SCREEN_SCALE_FACTOR,1
+env QT_QPA_PLATFORM,"wayland;xcb"
+env QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+env QT_QPA_PLATFORMTHEME,qt5ct
+
+# Theming Related Variables
+env XCURSOR_SIZE,32
+
+# for flameshot:
+# export SDL_VIDEODRIVER=wayland
+env _JAVA_AWT_WM_NONREPARENTING,1
+
+# https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap   #adendum, clean dots tho
+env SDL_VIDEODRIVER,wayland
+env GDK_BACKEND,"wayland,x11"
+env CLUTTER_BACKEND,wayland
