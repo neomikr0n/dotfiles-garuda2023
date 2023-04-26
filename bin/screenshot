@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+
+
 iDIR="$HOME/.config/hypr/mako/icons"
 
 time=$(date +%Y-%m-%d-%H-%M%S)

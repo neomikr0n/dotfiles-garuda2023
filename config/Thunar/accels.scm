@@ -121,6 +121,7 @@
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/c1f863d3e9ec26c4b8446e21598e630f" "")
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/025d9a2f447fa00119ec7cf812e31505" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/create-folder" "<Primary><Shift>n")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/c04f9a619b3c1aed70d87d72359f8909" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/open-home" "<Alt>Home")
 ; (gtk_accel_path "<Actions>/ThunarWindow/switch-focused-split-view-pane" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/show-hidden" "<Primary>h")

@@ -32,26 +32,134 @@ thunar libwebp tumbler \
 cli-visualizer cava glava foot kitty the_silver_searcher
 ```
 
-TODO:
 
->> sway-audio-idle-inhibit-git  sway-alttab-bin
->>
+# **[Environment Variables](https://wiki.hyprland.org/Configuring/Environment-variables/)**
+You can use the env keyword to set environment variables prior to the initialization of the Display Server, e.g.:
+`env = GTK_THEME,Nord`
 
-idk if they work
+Can be checked with:
+```
+env | grep -iE '(desk|kde|gnome|xfce|lxde|gtk|QT_|cursor)'
+```
+3 ways of setting those up:
 
->> mako dunst swaync
->>
+1. `hyprland.conf`: ️TODO: (not working atm)
+    ```
+    # Toolkit Backend Variables
+    env = GDK_BACKEND=wayland,x11
+    env = SDL_VIDEODRIVER=wayland
+    env = CLUTTER_BACKEND=wayland
 
---> choose just one
+    # XDG Specifications
+    # XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
+    env = XDG_CURRENT_DESKTOP,Hyprland
+    env = XDG_SESSION_TYPE,wayland
+    env = XDG_SESSION_DESKTOP,Hyprland
 
->> kvantum-qt5-git
->>
+    # QT Variables
+    env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+    env = QT_QPA_PLATFORM,"wayland;xcb"
+    env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+    env = QT_QPA_PLATFORMTHEME,qt5ct
 
->> nemo nemo-emblems nemo-megasync nemo-pdf-tools nemo-previe nemo-terminal
->>
+    # Theming Related Variables
+    env = XCURSOR_SIZE,32
+
+    # for flameshot:
+    # export SDL_VIDEODRIVER=wayland
+    env = _JAVA_AWT_WM_NONREPARENTING,1
+
+    # https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap   #adendum, clean dots tho
+    env = SDL_VIDEODRIVER,wayland
+    env = GDK_BACKEND,"wayland,x11"
+    env=CLUTTER_BACKEND,wayland
+
+    ```
+2. /etc/environment
+      
+    Hyprlnd wiki says:
+    ```
+    Please avoid putting those environment variables in `/etc/environment`. That will cause all sessions (including Xorg ones) to pick up your wayland-specific environment on traditional Linux distros. 
+    ```
+    It works for hyprland exclusive installations tho, just like mine:
+
+    `sudo nano /etc/environment`: ️✔️
+
+    ```
+    # Toolkit Backend Variables
+    GDK_BACKEND=wayland,x11
+    SDL_VIDEODRIVER=wayland
+    CLUTTER_BACKEND=wayland
+
+    # XDG Specifications
+    # XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
+    XDG_CURRENT_DESKTOP=Hyprland
+    XDG_SESSION_TYPE=wayland
+    XDG_SESSION_DESKTOP=Hyprland
+
+    # QT Variables
+    QT_AUTO_SCREEN_SCALE_FACTOR=1
+    QT_QPA_PLATFORM="wayland;xcb"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    QT_QPA_PLATFORMTHEME=qt5ct
+
+    # Theming Related Variables
+    XCURSOR_SIZE=32
+
+    # for flameshot:
+    # export SDL_VIDEODRIVER=wayland
+    _JAVA_AWT_WM_NONREPARENTING=1
+
+    # https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap   #adendum, clean dots tho
+    SDL_VIDEODRIVER=wayland
+    GDK_BACKEND="wayland,x11"
+    CLUTTER_BACKEND=wayland
+    ```
+3. startup script:
+
+    ```
+    # Toolkit Backend Variables
+        export GDK_BACKEND=wayland,x11 #- GTK: Use wayland if available, fall back to x11 if not.
+        # export QT_QPA_PLATFORM="wayland;xcb" #- QT: Use wayland if available, fall back to x11 if not.
+        export SDL_VIDEODRIVER=wayland #- Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause compatibility issues
+        export CLUTTER_BACKEND=wayland #- Clutter package already has wayland enabled, this variable will force Clutter applications to try and use the Wayland backend
+
+    # XDG Specifications
+    # XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
+        export XDG_CURRENT_DESKTOP=Hyprland
+        export XDG_SESSION_TYPE=wayland
+        export XDG_SESSION_DESKTOP=Hyprland
+        
+    # QT Variables
+        export QT_AUTO_SCREEN_SCALE_FACTOR=1 #- (From the QT documentation) enables automatic scaling, based on the monitor’s pixel density
+        export QT_QPA_PLATFORM="wayland;xcb" #- Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1 #- Disables window decorations on QT applications
+        export QT_QPA_PLATFORMTHEME=qt5ct #- Tells QT based applications to pick your theme from qt5ct, use with Kvantum.
+
+    # Theming Related Variables
+        export XCURSOR_SIZE=32
+
+    # for flameshot:
+        # export SDL_VIDEODRIVER=wayland
+        export _JAVA_AWT_WM_NONREPARENTING=1
+
+    # https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap   #adendum, clean dots tho
+        export SDL_VIDEODRIVER=wayland
+        export GDK_BACKEND="wayland,x11"
+        export CLUTTER_BACKEND=wayland
+    ```
+Kde applications can be personalized with these argumments, not 
+- qdirstat -style kvantum-dark
+- dolphin -style kvantum-dark
+
+community/qgnomeplatform-qt5 0.9.0-10 (151.2 KiB 514.3 KiB) (Installed)
+QPlatformTheme for a better Qt5 application inclusion in GNOME
+community/qgnomeplatform-qt6 0.9.0-10 (128.4 KiB 453.3 KiB) (Installed)
+QPlatformTheme for a better Qt6 application inclusion in GNOME
+
+
 
 > # **[foot](https://codeberg.org/dnkl/foot)**
->
 
 
 ---
@@ -1461,9 +1569,17 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
 6. Combine this with xinit to login to bspwm from boot.
    https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login
 
-# VISUAL STUDIO
+# [vscode VISUAL STUDIO CODE]()
 
 ---
+- Configure Visual Studio code to use fish shell
+
+    Open User Settings or shortcut key `[Control + ,]`
+    Copy following User Settings to configure Visual studio code to use fish shell as default:
+
+  `"terminal.integrated.shell.linux": "/usr/bin/fish" `
+  Terminal > External
+
 
 - Set Jetbrain Mono Font in Visual Studio Code
 
@@ -1703,7 +1819,7 @@ W	Decrease the picture cropping for the currently playing media.
 V	Either display or hide subtitles for the currently playing media.
 J	Select the next subtitle file available.
 
-# FIREDRAGON setup (or firefox)
+# [FIREDRAGON]() (or firefox)
 
 ## General
 - JetBrainsMono Nerd Font
@@ -1722,19 +1838,46 @@ J	Select the next subtitle file available.
     Open previous windows and tabs  # check this option
     ``` 
 
-- settings need to be set to ***FALSE*** on `about:config`
-:
+
+- Disable custom fonts: 
+
+  Go to the Firefox menu and select "Options" or "Preferences". Then, click on the "Language and Appearance" tab and scroll down to the "Fonts and Colors" section. Click on the "Advanced" button next to "Fonts" and uncheck the box next to `"Allow pages to choose their own fonts, instead of my selections above"`. This works for todoist spaced font for example.
+
+- To check whether [Firefox is reading your system time properly](https://support.mozilla.org/en-US/questions/1253204), Open Firefox's Web Console using either:
+
+      - "3-bar" menu button > Web Developer > Web Console
+      - (menu bar) Tools > Web Developer > Web Console
+      - (Windows) Ctrl+Shift+k 
+
+    Then type or paste the following script next to the caret (») and press Enter to execute it:
+
+    `new Date().toString();`
+
+    The first time you use the console, Firefox may ask you to take action to confirm. Mine was:
+    `"Tue Apr 25 2023 05:42:03 GMT+0000 (Coordinated Universal Time)"`
+    If isn't correct, set to false resist fingerprinting (check down here): 👇
+
+- settings need to be set to ***TRUE*** in `about:config`
   ```
+  # create the entry if it doesnt exists, set it to true:
+  xdg.use-xdg-desktop-portal 
+  ```
+
+
+- settings need to be set to ***FALSE*** in `about:config`
+
+  ```
+  # self explanatory
   browser.sessionstore.restore_on_demand
   browser.sessionstore.restore_pinned_tabs_on_demand
   services.sync.prefs.sync.browser.sessionstore.restore_on_demand
 
-  # create the entry if it doesnt exists, set it to true:
-  xdg.use-xdg-desktop-portal 
-
-  # to 0
+  # set to 0:
   widget.use-xdg-desktop-portal.file-picker 
   
+  🏆
+  # When [resist fingerprinting](https://support.mozilla.org/en-US/questions/1253204) (RFP) is enabled then some items are spoofed (TimeZone: UTC, etc), so let's disable it:
+  privacy.resistFingerprinting = false 
   ```
 
 ## [WAVEFOX](https://github.com/QNetITQ/WaveFox)
@@ -2045,34 +2188,34 @@ La función de cada uno de los parámetros de compartición es la siguiente:
 
 # Finalmente en comentarios podemos introducir un texto para definir el contenido de la carpeta que compartimos.
 
-## WAYDROID for Garuda
+## [WAYDROID](https://wiki.archlinux.org/title/Waydroid)
 
 ---
 
-# https://wiki.archlinux.org/title/Waydroid
 
-# it's linux zen running?
-
-uname -r
+it's linux zen running?
+`uname -r`
 
 
-yay -S waydroid
+`yay -S waydroid`
 
-# yay -S waydroid-image-gapps
+`yay -S waydroid-image-gapps`
 
-# or install the images manually:
+or install the images manually:
 
-# sudo mkdir -p /usr/share/waydroid-extra/images && cd ~/Downloads/
+`sudo mkdir -p /usr/share/waydroid-extra/images && cd ~/Downloads/`
 
-# sudo cp system.img vendor.img /usr/share/waydroid-extra/images
+`sudo cp system.img vendor.img /usr/share/waydroid-extra/images`
 
-# Setting up a shared folder will allow the user to copy/paste files from the host and they appear inside waydroid/android.
+Setting up a shared folder will allow the user to copy/paste files from the host and they appear inside waydroid/android.
 
+```
 sudo mount --bind ~/Downloads ~/.local/share/waydroid/data/media/0/Download
 sudo mount --bind ~/Documents ~/.local/share/waydroid/data/media/0/Documents
 sudo mount --bind ~/Music ~/.local/share/waydroid/data/media/0/Music
 sudo mount --bind ~/Pictures ~/.local/share/waydroid/data/media/0/Pictures
 sudo mount --bind ~/Videos ~/.local/share/waydroid/data/media/0/Movies
+```
 
 # sudo mount --bind <source> ~/.local/share/waydroid/data/media/0/<target>
 
@@ -4190,52 +4333,25 @@ Some GTK applications running via XWayland, and some Java applications, need an 
 
 One implementation [ON SWAY](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland) is xsettingsd.
 
+---
 
 screenshot: 621*413
 
 gifgen -o /home/n30/Videos/Kooha/lol.gif /home/n30/Videos/Kooha/Kooha-2023-04-03-21-11-31.mp4
 
-Window d8385420 -> GLava:
-at: 21,-5
-size: 3403,61
-workspace: 2 (2)
-floating: 1
-monitor: 0
-class: GLava
-title: GLava
-pid: 25711
-xwayland: 1
-pinned: 0
-fullscreen: 0
-fullscreenmode: 0
-fakefullscreen: 0
-grouped: 0
-swallowing: 0
 
-Window d7fa0f90 -> cava:
-at: -7,-61
-size: 3464,110
-workspace: 2 (2)
-floating: 1
-monitor: 0
-class: kitty
-title: cava
-pid: 1113351
-xwayland: 0
-pinned: 0
-fullscreen: 0
-fullscreenmode: 0
-fakefullscreen: 0
-grouped: 0
-swallowing: 0
+---
+
 
 gamescope /run/media/n30/nvme_chivos/Heroic/DyingLight/DyingLightGame.exe -AUTH_LOGIN=unused -AUTH_PASSWORD=6937¢84ba5be428898 1922124645bc12 -AUTH_TYPE=exchangecode -epicapp=04a54ed532ce4fbfbfsfd5833f60defd -epicenv=Prod -EpicPortal -epicusername=n30mikron -epicuserid=0e442¢779fd94a688e0ba07fef2b459b -epiclocale=en -epicsandboxid=2¢42520d342a46d7a6e0cfa77b4715de
 
 gamescope -w 3440 -h 1440 -f -r 144 -- heroic
 
 "dying light" communication problem with epic online services occurred
+
 ----------------------------------
 
+poe 3.21 leaguestart
 For the league start on acts, alerdy tested too, the Explosive trap + Frost Blink + Heralds still fine. On lvl 32(act 3) swap the Explosive Trap with Eye of Winter + Inspiration + Cold Pen and in the end of act 4 link with Unleash.
 
 For wands, Now we need to craft the prefixes at Craft Bench and the recipes for added elemental damage to spells can be found on:
@@ -4273,10 +4389,39 @@ An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fo
 1 chaotic-aur/path-of-building-community-git 2.26.3.r6914.60.517-1 (106.1 MiB 185.2 MiB)
 An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fork
 
+---
+[Quick setup](https://github.com/neomikr0n/dotfiles) — if you’ve done this kind of thing before
+`https://github.com/neomikr0n/dotfiles.git`
+or
+`git@github.com:neomikr0n/dotfiles.git`
+
+Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+
+…or create a new repository on the command line
+```
+echo "# dotfiles" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/neomikr0n/dotfiles.git
+git push -u origin main
+```
+…or push an existing repository from the command line
+```
+git remote add origin https://github.com/neomikr0n/dotfiles.git
+git branch -M main
+git push -u origin main
+```
+…or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+---
+`mv {startup,videowallpaper-change,statusbar,notifications,gamemode.sh,volume_audio_changer.py,volume,exit,colorpicker,} ~/.dotfiles/bin`
+
 
 ```
-
-
 ╭─n30@n30 in repo: .dotfiles on  master [!?] took 950ms
 [🔴] × ag scriptsdir ~/.dotfiles
 /home/n30/.dotfiles/config/hypr/scripts/spotify-session.sh
@@ -4340,6 +4485,16 @@ An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fo
 626:# ${SCRIPTSDIR}/tools/dynamic &   # for the transitions of swww_fork??
 627:# ${SCRIPTSDIR}/rgb &   # TODO file missing? I'm not sure what this does lol
 633:# ${SCRIPTSDIR}/gtkthemes & # TODO: ? nwg-look seems working fine tho
+```
+---
+exec-once = hyprctl dispatch exec "sleep 15s && telegram-desktop"
+exec-once = hyprctl dispatch exec "sleep 15s && qbittorrent"
 
-╭─n30@n30 in repo: .dotfiles on  master [!?] took 11ms
-╰─λ
+on QT5 Configuration:
+
+qt5 garuda default font
+fira Sans. to restore default fonts, just copy etc/skel/.config/kdeglobals to ~/.config/kdeglobals 
+JetBrainsMono Nerd Font
+
+
+# **[palera1n](https://palera.in/latest-release/)**
