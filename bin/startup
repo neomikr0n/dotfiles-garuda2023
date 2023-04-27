@@ -1,7 +1,6 @@
 #!/bin/bash
 
 scriptsDir="$HOME"/.dotfiles/bin
-wallsDir=$HOME/Videos/Hidamari
 
 # Kill already running processes
 # _ps=(mpvpaper mako dunst swaync swaybg swayidle waybar mpd xdg-desktop-portal-hyprland xdg-desktop-portal xfce-polkit)

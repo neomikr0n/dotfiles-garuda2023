@@ -1,6 +1,6 @@
 # [**GARUDA Post Install Guide**](https://gitlab.com/garuda-linux)
 
-**JUS A RANDOM, MESSY AND RIDICULOUS ATTEMPT OF A PERSONAL WIKI**
+**JUS A RANDOM, RIDICULOUS AND MESSY ATTEMPT OF A PERSONAL WIKI**
 
 ```
 sudo pacman -S yay
@@ -190,7 +190,7 @@ gammastep -l 19.6:-101.1 -m wayland     # TODO: not working?
 
 ---
 
-> # [`plymouth`](https://www.freedesktop.org/wiki/Software/Plymouth/)
+> # [plymouth](https://www.freedesktop.org/wiki/Software/Plymouth/)
 
 ---
 
@@ -214,7 +214,7 @@ sudo plymouth-set-default-theme -R garuda-purple
 
 ---
 
-> # [`nwg-look`](https://github.com/nwg-piotr/nwg-look)
+> # [nwg-look](https://github.com/nwg-piotr/nwg-look)
 
 ---
 
@@ -253,7 +253,7 @@ XCURSOR_SIZE=32 konsole
 
 ---
 
-> # [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
+> # [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 
 ---
 
@@ -520,7 +520,7 @@ whereis tmatrix
 
 ---
 
-> # **[`swaylock`](https://www.mankier.com/1/swaylock)**
+> # **[swaylock](https://www.mankier.com/1/swaylock)**
 
 ---
 
@@ -550,7 +550,7 @@ sh wallhelper -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
 sh setwall -a 884899737     # lol
 ```
 
-> # **[`navi`](https://github.com/denisidoro/navi)**
+> # **[navi](https://github.com/denisidoro/navi)**
 
 An interactive cheatsheet tool for the command-line.
 
@@ -1463,6 +1463,13 @@ env XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway QT_QPA_PLATFORM=wayland fl
 ```
 grim -g "$(slurp)" - | swappy -f -
 ```
+
+* [shotman](https://git.sr.ht/~whynothugo/shotman)
+
+
+
+* [Hyprshotgun](https://github.com/Zeioth/hyprshotgun/blob/main/)
+
 
 * [Hyprshot](https://github.com/Gustash/Hyprshot)
 
@@ -3196,7 +3203,7 @@ wdisplays discocss eog celluloid file-roller
 
 zsh zsh-theme-powerlevel10k zoxide neovim zsh-autosuggestions fzf lf trash-cli exa ripgrep btop zsh-autopair-git zsh-vi-mode fzf-tab-git zsh-syntax-highlighting lazygit bat lesspipe fd nodejs-neovim python-neovim
 
-# rice's
+# [rice's 🍚]()
 
 ## 🍚 hyprland-dotfiles- PROxZIMA 🍚
 
@@ -3412,29 +3419,14 @@ export SDL_VIDEODRIVER=wayland
 exec Hyprland
 ```
 
-# amazon
+## [🍚 JaKooLit 🍚](https://github.com/JaKooLit/Ja_HyprLanD-dots/tree/main/config/hypr): 
 
-* 09 Dic 	AMAZON MX MARKETPLACE ANE 140618P37MX 	+$ 680.00
+- [scripts](https://github.com/JaKooLit/Ja_HyprLanD-dots/tree/main/config/hypr/scripts)
+- [modular configs](https://github.com/JaKooLit/Ja_HyprLanD-dots/tree/main/config/hypr/configs)
 
-<!-- https://www.amazon.com.mx/spr/returns/cart?_encoding=UTF8&orderId=701-5450397-6543436 -->
 
-* 07 Dic 	AMAZON MX A MESES ANE 140618P37MX 	+$ 9,540.60
-* 07 Dic 	AMAZON MX A MESES ANE 140618P37MX 	+$ 3,540.86
-* 07 Dic 	AMAZON MX A MESES M ANE 140618P37MX 	+$ 1,177.80
-* 07 Dic 	AMAZON MX ANE 140618P37MX 	         +$ 445.54
-* +$ 11,002.59
-* 16 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 7,118.91
-* 16 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 3,216.00
-* 16 Dic 	AMAZON MX A MESESANE 140618P37MX 	+$ 4,399.00
-* 21 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 3,147.35
 
-<!-- https://www.amazon.com.mx/spr/returns/cart?_encoding=UTF8&orderId=701-8312313-3482615 -->
-
-* 21 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 46.35
-  Gamegenic MPG GUNGNIR 110R WHITE... $3,166.53
-  https://www.amazon.com.mx/spr/returns/cart?_encoding=UTF8&orderId=701-7191623-6014607
-
-> # **[`wayab`](https://github.com/chux0519/wayab)**
+> # **[wayab](https://github.com/chux0519/wayab)**
 
 wayab(wayland animated background) allows user to set animated background on Linux(wayland).
 
@@ -3484,13 +3476,13 @@ To see the Wayland events generated when a key is pressed first, you'll need to 
 ```
 sudo evtest /dev/input/event3
 ```
-> # **[`bash tools`]()**
+> # **[bash tools]()**
 
 * [ShellCheck](https://www.shellcheck.net/)
   is a static analysis tool for shell scripts
 * [ChatGPT](https://chat.openai.com/chat) is a static analysis tool for shell scripts
 
-> # **[`keyboard tools`](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#on-screen-keyboards)**
+> # **[keyboard tools](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#on-screen-keyboards)**
 
 * [Binds WIKI for Hyprland:](https://wiki.hyprland.org/Configuring/Binds/)
 
@@ -3533,12 +3525,12 @@ xremap is a key remapper for Linux. Unlike xmodmap, it supports app-specific rem
 transforming the most useless key ever in the most useful one
 By moving the CAPSLOCK function to the far ESC location
 
-> # **[`Locking`](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#locking)**
+> # **[Locking](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#locking)**
 
 * [chayang](https://git.sr.ht/~emersion/chayang)
   Gradually dim the screen. Can be used to implement a grace period before locking the session.
 
-> # **[`Avizo`](https://github.com/misterdanb/avizo)**
+> # **[Avizo](https://github.com/misterdanb/avizo)**
 >
 > ![.](https://raw.githubusercontent.com/misterdanb/avizo/master/github/screenshot.png)
 > a simple notification daemon, mainly intended to be used for multimedia keys
@@ -3563,7 +3555,7 @@ bindsym XF86MonBrightnessDown exec lightctl down
 
 exec "avizo-service"
 ```
-> # **[`SwayOSD`](https://github.com/ErikReider/SwayOSD)**
+> # **[SwayOSD](https://github.com/ErikReider/SwayOSD)**
 >
 > ![](https://user-images.githubusercontent.com/35975961/200685357-fb9697ae-a32d-4c60-a2ae-7791e70097b9.png)
 >
@@ -3617,7 +3609,7 @@ Notifications are automatically sized (with the possibility of limiting their ma
 
 > ![lol](https://codeberg.org/dnkl/fnott/media/branch/master/screenshot-2.png)
 
-> # [cute-sway-recorder](https://github.com/it-is-wednesday/cute-sway-recorder) & **[`wf-recorder`](https://github.com/ammen99/wf-recorder)**
+> # [cute-sway-recorder](https://github.com/it-is-wednesday/cute-sway-recorder) & **[wf-recorder](https://github.com/ammen99/wf-recorder)**
 
 > ![lol](https://github.com/it-is-wednesday/cute-sway-recorder/blob/master/screenshots/done.png?raw=true)
 
@@ -3717,7 +3709,7 @@ WARNING: The script cute-sway-recorder is installed in '/home/n30/.local/bin' wh
 Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
 Successfully installed PySide6-6.4.3 PySide6-Addons-6.4.3 PySide6-Essentials-6.4.3 cute-sway-recorder-0.1.10 shiboken6-6.4.3
 ```
-> # **[`green-recorder`](https://github.com/dvershinin/green-recorder)**
+> # **[green-recorder](https://github.com/dvershinin/green-recorder)**
 >
 > `yaourt -S green-recorder-git`
 
@@ -4352,45 +4344,6 @@ gamescope -w 3440 -h 1440 -f -r 144 -- heroic
 
 "dying light" communication problem with epic online services occurred
 
-----------------------------------
-
-poe 3.21 leaguestart
-For the league start on acts, alerdy tested too, the Explosive trap + Frost Blink + Heralds still fine. On lvl 32(act 3) swap the Explosive Trap with Eye of Winter + Inspiration + Cold Pen and in the end of act 4 link with Unleash.
-
-For wands, Now we need to craft the prefixes at Craft Bench and the recipes for added elemental damage to spells can be found on:
-
-The Solaris Temple Level 2 (act 3): Adds (12-16) to (23-27) Fire Damage to Spells;
-
-The Crystal Veins (act 4): Adds (10-13) to (19-22) Cold Damage to Spells;
-
-The Causeway (act 7): Adds (17-23) to (34-40) Cold Damage to Spells.
-
-It's all you need to reach A10 kitava under 6 hours and do some Heists at lvl 50-65!
-
-The character atest_III on my profile still working fine just need minor ajusts.
-
-
-
-10 aur/durian 0.6.0-2 (+0 0.00) (Orphaned)
-An open source fan-made tool for easier search of Path of Exile items.
-9 aur/oshabi-bin 0.0.28-1 (+0 0.00)
-A scanner for Path of Exile harvest horticrafting stations and sacred grove.
-8 aur/acquisition-git 0.8b.r6.gbea4121-2 (+1 0.00)
-Inventory management tool for Path of Exile.
-7 aur/exilence-next-git 1.1.7.r38.g91d273e6-1 (+4 0.27)
-Desktop application that helps you summarize your wealth in Path of Exile
-6 aur/poe-overlay-community-bin 0.8.12-1 (+3 0.00) (Orphaned)
-An overlay for Path of Exile. Built with Electron and Angular.
-5 aur/acquisition 0.8b-1 (+5 0.00)
-Inventory management tool for Path of Exile.
-4 aur/awakened-poe-trade-git 3.17.10005.r0.gda02a7d-1 (+7 0.22)
-Path of Exile trading app for price checking
-3 aur/path-of-building-git 1.4.170.r1028.37.479-4 (+1 0.00)
-An offline build planner for Path of Exile using PoBFrontent
-2 aur/path-of-building-community-git 2.23.0.r6564.60.517-2 (+22 0.99)
-An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fork
-1 chaotic-aur/path-of-building-community-git 2.26.3.r6914.60.517-1 (106.1 MiB 185.2 MiB)
-An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fork
 
 ---
 [Quick setup](https://github.com/neomikr0n/dotfiles) — if you’ve done this kind of thing before
@@ -4467,7 +4420,7 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 216:bind = WIN, F1, exec, $scriptsDir/gamemode.sh
 292:bind=CTRL,space,exec,pkill wofi || $scriptsDir/volume_audio_changer.py
 311:bind= $triMod,G,exec, $scriptsDir/misc --gamescope2560
-317:# bind= SUPER, Tab,exec,sh $scriptsDir/sway-select-window # TODO: 3 years old, not working?😔354:bind= $triMod,S,exec,sh $scriptsDir/spotify-session.sh
+317:# bind= SUPER, Tab,exec,sh $scriptsDir/sway-select-window # TODO: 3 years old, perhaps not working?😔354:bind= $triMod,S,exec,sh $scriptsDir/spotify-session.sh
 435:bind=KEY_CAPSLOCK,n, exec, $scriptsDir/notifications & swaync-client -rs
 511:bind= $triMod,1,exec,bash $scriptsDir/videowallpaper-change code
 512:bind= $triMod,2,exec,bash $scriptsDir/videowallpaper-change music
@@ -4502,8 +4455,10 @@ JetBrainsMono Nerd Font
 
 # **[palera1n](https://palera.in/latest-release/)**
 
+---
 
-
+# ENVIROMENT VARIABLES but for script:
+```
 # Toolkit Backend Variables
 env GDK_BACKEND,"wayland;x11"
 env SDL_VIDEODRIVER,wayland
@@ -4532,3 +4487,25 @@ env _JAVA_AWT_WM_NONREPARENTING,1
 env SDL_VIDEODRIVER,wayland
 env GDK_BACKEND,"wayland,x11"
 env CLUTTER_BACKEND,wayland
+```
+
+---
+[How to one-line with & ?](https://www.reddit.com/r/bash/comments/12xuacc/how_to_oneline_with/)
+FYI - there are a few ways to get bash -c to accept multi-line commands, which sort of bypasses this entirely.
+
+Option 1 - dont close quotes between lines
+
+bash -c "sleep 1000 &
+echo 'Say this now'"
+
+Option 2 - use cat<<EOF in a variable substitution. This is sort of nice if you have quotes in the command you are running with bash -c, since you dont need to modify them so that they work nested inside a quoted string.
+
+bash -c "$(cat<<EOF
+sleep 1000 &
+echo 'Say this now'
+EOF
+)"
+
+---
+
+

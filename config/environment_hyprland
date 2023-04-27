@@ -2,11 +2,11 @@
 # ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░ # specifically for hyprland/amd tho!!
 # ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░ # shouldn't be used for x11, gnome,etc.
 
-# can be checked with these command:
+# ENVIRONMENT VARIABLES
+# loaded variables can be checked with these command:
 env | grep -iE '(desktop|kde|gnome|xfce|lxde|gtk|QT_|cursor|xdg_|GDK_BACKEND|QT_|SDL_VIDEODRIVER|_JAVA_AWT|CLUTTER_BACKEND)'
 
 # XDG Specifications
-# XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
 XDG_CURRENT_DESKTOP=Hyprland
 XDG_SESSION_TYPE=wayland
 XDG_SESSION_DESKTOP=Hyprland
@@ -24,7 +24,10 @@ XCURSOR_SIZE=32
 SDL_VIDEODRIVER=wayland
 _JAVA_AWT_WM_NONREPARENTING=1
 
-#adendum, clean dots tho
+# misc, clean dots tho, founded here:
 # https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap
 GDK_BACKEND="wayland,x11"
 CLUTTER_BACKEND=wayland
+
+# Log WLR errors and logs to the hyprland log.
+HYPRLAND_LOG_WLR=1

@@ -1,7 +1,10 @@
-#!/bin/bash
+# ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░   # HYPRLAND SETTINGS FOR NOSVAGOR's THEME
+# ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░   # to apply, add the following to hyprland.conf:
+# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░   # source=~/.config/hypr/configs/NAMEOFTHECONFIGFILE
 
+# source:
+# https://github.com/nosvagor/dotfiles/blob/main/config/hypr/hyprland.conf
 
-#CONFIGS
 input {
     # http://wiki.hyprland.org/Configuring/Uncommon-tips--tricks/#switchable-keyboard-layouts
     kb_layout=latam         #because mexican 🇲🇽
