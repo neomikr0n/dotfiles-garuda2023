@@ -1,6 +1,6 @@
 # ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░ # this goes in /etc/environment
 # ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░ # specifically for hyprland/amd tho!!
-# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░ # shouldn't be used for x11, gnome,etc.
+# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░ # shouldn't be used for x11,etc.
 
 # ENVIRONMENT VARIABLES
 # loaded variables can be checked with these command:

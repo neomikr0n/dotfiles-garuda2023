@@ -5,7 +5,7 @@
 
 iDIR="$HOME/.config/hypr/mako/icons"
 
-time=$(date +%Y-%m-%d-%H-%M%S)
+time=$(date +%Y-%m-%d_%H-%M_%S)
 dir="$(xdg-user-dir PICTURES)/Screenshots"
 file="ss_${time}_garuda.png"
 swappyfy="swappy -f ${dir}/$file -o ${dir}/$file"

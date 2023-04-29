@@ -5,7 +5,7 @@
 # ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░
 
 # VARIABLES:
-timeout=5  # how many seconds will pass until it's the end.
+timeout=3  # how many seconds will pass until it's the end.
 soundsDir="$HOME/.config/hypr/sounds"
 end_time=$(($(date +%s) + $timeout))
 # whatdateisit=$(date +%Y-%m-%d-%H-%M%S)
@@ -19,7 +19,7 @@ countdown() { # Displays a message
 
   while (( $i > 0 )); do
     play -v 0.1 "$soundsDir/remove.wav"
-    (( h -= 19 )) || true
+    (( h -= 29 )) || true
     notify-send --app-name exit -t $t -e -h int:value:$h \
     -u 'normal' \
     -i $icon \

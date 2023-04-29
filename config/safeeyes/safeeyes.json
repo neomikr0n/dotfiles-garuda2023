@@ -108,7 +108,7 @@
     "pre_break_warning_time": 10,
     "random_order": true,
     "rpc_port": 7200,
-    "short_break_duration": 30,
+    "short_break_duration": 60,
     "short_break_interval": 10,
     "short_breaks": [
         {

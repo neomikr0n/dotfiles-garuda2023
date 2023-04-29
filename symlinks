@@ -31,6 +31,8 @@ for file in $files_config; do
     ln -s $configDir/$file ~/.config/$file
 done
 
-
+# another symlinks
 ln -s $configDir/starship.toml ~/.config/starship.toml
 sudo ln -s $configDir/environment_hyprland /etc/environment
+ln -s ~/MEGAsync/Pictures ~/Pictures
+ln -s ~/MEGAsync/Documents ~/Documents

@@ -6,6 +6,9 @@
 sudo pacman -S yay
 ```
 
+You can clean the cached packages by running 
+`sudo pacman -Sc`
+
 <!-- TODO: -->
 
 > - garuda
@@ -1467,8 +1470,18 @@ grim -g "$(slurp)" - | swappy -f -
 * [shotman](https://git.sr.ht/~whynothugo/shotman)
 
 
+```
+cd ~/Documents/forks
+git clone https://git.sr.ht/~whynothugo/shotman
+cargo build --release
+```
+The resulting binary will be located in ./target/release/shotman. Copy this into your $PATH.
 
-* [Hyprshotgun](https://github.com/Zeioth/hyprshotgun/blob/main/)
+'/home/n30/Documents/forks/shotman/target/release/shotman' --capture region
+
+
+
+* [Hyprshotgun](https://github.com/Zeioth/hyprshotgun/blob/main/hyprshotgun)
 
 
 * [Hyprshot](https://github.com/Gustash/Hyprshot)
@@ -3855,6 +3868,18 @@ git config --global credential.helper store
 git push origin master
 ```
 
+- The default branch has been renamed!
+
+main is now named master
+
+If you have a local clone, you can update it by running the following commands.
+```
+git branch -m main master
+git fetch origin
+git branch -u origin/master master
+git remote set-head origin -a
+```
+
 - [GitHub Error: Authentication Failed from the Command Line](https://ginnyfahs.medium.com/github-error-authentication-failed-from-command-line-3a545bfd0ca8)
   1. Go to Settings >> Developer Settings >> Personal access tokens >> [Tokens](https://github.com/settings/tokens) (classic)
   2. Generate a new Personal Access Token (also classic). Make sure you copy the Personal Access Token as soon as it gets generated — you won’t be able to see it again!
@@ -4060,7 +4085,13 @@ can be found at http://geoff.greer.fm/ag
   a general-purpose, highly configurable OpenGL audio spectrum visualizer 
 
 - ## [showmethekey](https://github.com/AlynxZhou/showmethekey): 
-Show keys you typed on screen. A screenkey alternative that works under Wayland via libinput.
+  Show keys
+
+- ## [0x0Uploader](https://codeberg.org/MorsMortium/0x0uploader): 
+  Uploader for the 0x0 file sharing service.
+
+  `0x0uploader '/home/n30/Pictures/Screenshots/ss_2023-04-26-18-2149_garuda.png'`
+
 
 - ## [tldr](https://github.com/tldr-pages/tldr): 
   collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional man pages.
