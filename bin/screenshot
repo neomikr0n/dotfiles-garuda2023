@@ -1,7 +1,7 @@
 #!/bin/bash
 
-
-
+# original?
+# https://github.com/sadikeey/dotfiles/blob/main/.local/bin/bemenu-shot
 
 iDIR="$HOME/.config/hypr/mako/icons"
 
@@ -17,7 +17,7 @@ notify_cmd_shot="notify-send -h string:x-canonical-private-synchronous:shot-noti
 
 # --action=[$swappyfy=]Text
 notify_view() {
-  ${notify_cmd_shot} "Copied to clipboard."
+  ${notify_cmd_shot} "📋 Copied to clipboard."
   
   # if [[ -e "$dir/$file" ]]; then
   #   ${notify_cmd_shot} "Screenshot Saved."

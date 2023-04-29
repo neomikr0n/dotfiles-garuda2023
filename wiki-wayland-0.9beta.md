@@ -164,6 +164,11 @@ QPlatformTheme for a better Qt6 application inclusion in GNOME
 
 > # **[foot](https://codeberg.org/dnkl/foot)**
 
+> # **[kate](https://codeberg.org/dnkl/foot)**
+If you want to back up your Kate theme, you can follow these steps:
+    1. Open Kate and go to the "Settings">"Configure Kate">"Fonts & Colors" 
+    2. Select the theme you want to back up from the list of installed themes.
+    3. Click the "Export" button at the bottom of the window..
 
 ---
 
@@ -1900,6 +1905,12 @@ J	Select the next subtitle file available.
   privacy.resistFingerprinting = false 
   ```
 
+ ## [Stylish](https://addons.mozilla.org/en-US/firefox/addon/stylish/)
+ Stylish lets you customize any website with custom user styles
+- [Youtube RetroWave](https://userstyles.org/styles/191573/youtube-retrowave)
+- [Amazon - Dark slate](https://userstyles.org/styles/133725/amazon-dark-slate)
+
+---
 ## [WAVEFOX](https://github.com/QNetITQ/WaveFox)
 
   [[Reddit/Hyprland] Frosted Glass Everywhere](https://www.reddit.com/r/unixporn/comments/105mdur/hyprland_frosted_glass_everywhere/)
@@ -3084,18 +3095,19 @@ any of those will work:
 # [[whatsie](https://github.com/keshavbhatt/whatsie) WHATSAPP]
 
 [old](https://www.youtube.com/watch?v=c-QlxNduPLg)
+Trizen AUR Package Manager: lightweight pacman wrapper and AUR helper.
 
-# Trizen AUR Package Manager: lightweight pacman wrapper and AUR helper.
+install trizen
+trizen whatsapp
+20?
 
-# install trizen
+## [alternative](https://github.com/sadikeey/dotfiles/blob/main/.local/bin/whatsapp)
+/usr/bin/brave --app=https://web.whatsapp.com/
 
-# trizen whatsapp
-
-# 20?
 
 # ELDEN RING wine ------------------------------------
 
-# add in symbolic links from your WINEPREFIX to the root of a mounted drive, or subdirectory, you want to mount as a Wine virtual Windows drive.
+## add in symbolic links from your WINEPREFIX to the root of a mounted drive, or subdirectory, you want to mount as a Wine virtual Windows drive.
 
 cd "${WINEPREFIX:-${HOME}/.wine}/dosdevices"
 
@@ -4539,4 +4551,7 @@ EOF
 
 ---
 
-
+sym: Return       (65293), utf8: ''
+[14:     wl_keyboard] key: serial: 45429; time: 15318239; key: 49; state: 1 (pressed)
+sym: bar          (124), utf8: '|'
+[14:     wl_keyboard] key: serial: 45430; time: 15318321; key: 49; state: 0 (released)

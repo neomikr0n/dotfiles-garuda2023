@@ -32,8 +32,9 @@ general {
 #     main_mod=SUPER
     gaps_in=5
     gaps_out=15
-    border_size=8
-    col.active_border=rgba(cba6f7ff) rgba(89b4faff) rgba(94e2d5ff) 10deg
+    border_size=7
+    # col.active_border=rgba(cba6f7ff) rgba(89b4faff) rgba(94e2d5ff) 10deg
+    col.active_border=rgba(89b4faff) rgba(ffffff00) rgba(ffffff00) rgba(cba6f7ff) rgba(ffffff00) rgba(ffffff00) rgba(89b4faff) 30deg
     col.inactive_border=0xff45475a
     apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
     layout = dwindle        #TODO: change for master? 🤔
@@ -46,7 +47,7 @@ decoration {
 
     blur_new_optimizations = true
     drop_shadow = true
-    shadow_range=100
+    shadow_range=99
     shadow_render_power=5
     col.shadow= 0x33000000
     col.shadow_inactive=0x22000000
@@ -65,10 +66,16 @@ animations {
     enabled=1
     # bezier=overshot,0.05,0.9,0.1,1.1
     bezier=overshot,0.13,0.99,0.29,1.1
-    animation=windows,1,4,overshot,slide
-    animation=border,1,10,default
+    # bezier=workspace_swipe,0.55,0.85,0.68,0.53
+    # bezier=workspace_swipe,0.79,0.33,0.14,0.53
+    bezier=workspace_swipe,0.87,0,0.13,1
+    animation=windows,1,3,overshot,slide
+    #animation=borderangle,1,100,default,loop
+    animation=border,1,1,overshot
     animation=fade,1,10,default
-    animation=workspaces,1,6,overshot,slide
+    animation=workspaces,1,2,workspace_swipe,slide
+    animation=specialWorkspace,1,2,overshot,slidevert
+#   animation= borderangle, 1, 100, default, loop
 }
 
 dwindle {
@@ -77,11 +84,13 @@ dwindle {
     col.group_border=0xff89dceb
     col.group_border_active=0xfff9e2af
     preserve_split = true       # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
+    special_scale_factor=0.88
 
 }
 
 master {
 # https://wiki.hyprland.org/Configuring/Master-Layout/
+# special_scale_factor=0.9
 
 }
 

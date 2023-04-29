@@ -101,7 +101,7 @@
 // GAMMA RELAY TEMPERATURE MODULES
 // https://github.com/jeremija/wl-gammarelay
     "custom/wl-gammarelay-temperature": {
-    "format": "<span font='18' rise='-2222'></span> <span font='11' rise='+2222'>{}k</span>",      //  🌡️️🧊  🕶️ ♨️
+    "format": "<span font='18' rise='-2222'></span> <span font='11' rise='+2222'>{}k</span>",      //  🌡️️🧊  🕶️ ♨️ 
     "exec": "wl-gammarelay --subscribe Temperature",
     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
