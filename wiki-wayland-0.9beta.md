@@ -196,6 +196,12 @@ https://ipapi.co/
 
 gammastep -l 19.6:-101.1 -m wayland     # TODO: not working?
 
+I used the following on hyprconf for a long time:
+```
+# exec = busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 2500     # similar to "f.lux", prefered "temperature", 6500 is neutral, 2500 is for night time.
+# exec = set temperature (cat ~/.config/gammarelay.temperature)
+# exec = busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q $temperature
+```
 ---
 
 > # [plymouth](https://www.freedesktop.org/wiki/Software/Plymouth/)
@@ -3210,6 +3216,41 @@ https://www.balena.io/etcher/
 rm ~/.mcfly/history.db
 
 # [SWHKD](https://github.com/waycrate/swhkdd)
+
+## - To have systemd automatically start swhkd for you:
+  -  Copy hotkeys.sh into your preferred directory
+    chmod +x hotkeys.sh
+  -  Copy hotkeys.service into your $XDG_CONFIG_DIR/systemd/user directory
+    Using a text editor, uncomment line 7 of hotkeys.service and change the path accordingly
+  -  In a terminal: systemctl --user enable hotkeys.service
+
+```
+cp ~/Downloads/hotkeys.sh ~/.dotfiles/bin
+cp ~/Downloads/hotkeys.service /usr/lib/systemd/ ????
+journalctl /usr/lib/systemd/systemd ????
+```
+
+## - Configuration
+Swhkd closely follows sxhkd syntax, so most existing sxhkd configs should be functional with swhkd.
+
+The default configuration file is in `/etc/swhkd/swhkdrc`. If you don't like having to edit the file as root every single time, you can create a symlink from `~/.config/swhkd/swhkdrc` to `/etc/swhkd/swhkdrc`:
+
+```
+mkdir ~/.config/swhkd/
+mkdir /etc/swhkd/
+touch ~/.config/swhkd/swhkdrc
+sudo ln -s ~/.config/swhkd/swhkdrc /etc/swhkd/swhkdrc
+```
+If you use Vim, you can get swhkd config syntax highlighting with the `swhkd-vim plugin`. Install it in vim-plug with Plug `waycrate/swhkd-vim`.
+
+All supported key and modifier names are listed in man 5 swhkd-keys.
+
+## - Runtime signals:
+After opening swhkd, you can control the program through signals:
+
+    sudo pkill -USR1 swhkd - Pause key checking
+    sudo pkill -USR2 swhkd - Resume key checking
+    sudo pkill -HUP swhkd - Reload config file
 
 
 # [rice's 🍚]()
