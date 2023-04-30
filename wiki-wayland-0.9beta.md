@@ -3206,12 +3206,20 @@ mv ~/Downloads/*.json ~/.config/easyeffects/output/
 
 https://www.balena.io/etcher/
 
-# export custom keboard shortcuts
-
+## export custom keboard shortcuts
 rm ~/.mcfly/history.db
 
-AmitGolden dotfiles
-https://github.com/AmitGolden/dotfiles
+# [SWHKD](https://github.com/waycrate/swhkdd)
+
+
+# [rice's 🍚]()
+
+## 🍚 [hyprland-dotfiles- Moerliy](https://github.com/Moerliy/dotfiles/blob/master/) 🍚
+- [SWHKD](https://github.com/Moerliy/dotfiles/blob/master/.config/hypr/scripts/hotkeys)
+- [grimblast](https://github.com/Moerliy/dotfiles/blob/master/.config/hypr/scripts/grimblast)
+
+
+## [AmitGolden dotfiles](https://github.com/AmitGolden/dotfiles)
 
 # paru -S hyprland-bin waybar-hyprland-git sddm sddm-sugar-candy-git wlogout wofi dunst papirus-icon-theme catppuccin-gtk-theme-mocha polkit-gnome wlsunset swayidle udev-block-notify blueman-applet brightnessctl swaylock-effects wofi-emoji wofi-calc wofi-wifi-menu-git playerctl grim slurp pipewire wireplumber xdg-desktop-portal-wlr wl-copy networkmanager
 
@@ -3228,7 +3236,6 @@ wdisplays discocss eog celluloid file-roller
 
 zsh zsh-theme-powerlevel10k zoxide neovim zsh-autosuggestions fzf lf trash-cli exa ripgrep btop zsh-autopair-git zsh-vi-mode fzf-tab-git zsh-syntax-highlighting lazygit bat lesspipe fd nodejs-neovim python-neovim
 
-# [rice's 🍚]()
 
 ## 🍚 hyprland-dotfiles- PROxZIMA 🍚
 
