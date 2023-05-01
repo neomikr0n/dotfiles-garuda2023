@@ -1395,6 +1395,31 @@ bindsym {
 Ctrl+$mod+Alt+t exec konsole
 }
 ```
+# **[ksnip](https://github.com/ksnip/ksnip)**
+ss_$Y-$M-$D_$h-$m_$s_garuda.png
+
+## Imgur API
+### Register an Application (IMPORTANT)
+Each client must register their application and receive the client_id and client_secret.
+
+For public read-only and anonymous resources, such as getting image info, looking up user comments, etc. all you need to do is send an authorization header with your client_id in your requests. This also works if you'd like to upload images anonymously (without the image being tied to an account), or if you'd like to create an anonymous album. This lets us know which application is accessing the API.
+Plain Text
+
+Authorization: Client-ID
+
+Registration Quickstart
+If you are just getting started, an easy way to explore the endpoints is by creating an application using following instructions below.
+
+    1. Download/Register/Sign-up on [Postman](https://www.postman.com/) and click the **Run in Postman** button at the [top of this page](https://apidocs.imgur.com/). This will load our collection of endpoints into Postman for easy debugging.
+    2. Import the data to "[My workspace](https://gold-equinox-599447.postman.co/workspace/My-Workspace~384271e5-ee01-4eb7-89aa-5fe39e7fe597/collection/27179996-d64957ce-9b8b-4d89-9944-2998884e12b2)"
+    3. [Register your application](https://api.imgur.com/oauth2/addclient) (named ksnip)using the "Authorization callback URL" postman callback URL: https://www.getpostman.com/oauth2/callback
+    4. In Postman, under the main request builder panel, click the Authorization tab. Click the Get New Access Token button. Set Auth URL to https://api.imgur.com/oauth2/authorize and Access Token URL to https://api.imgur.com/oauth2/token. Add the Client ID and Client Secret you received from registering your application above, then click Request Token
+    5. After logging in and granting access to your application, you should receive a refresh token.
+    6. Copy this refresh token, then click the gear icon in the top right of Postman. Click Manage Environments then Add, and add the refreshToken, clientId, and clientSecret fields as shown below
+    7. 
+    8. Inside the Account folder, run the Generate Access Token endpoint. The response you receive will give you an access token which will be valid for about a month. This token is automatically saved to your Postman environment via the JavaScript test for that endpoint as seen below. Whenever your token expires, just re-run this endpoint and a new token will be saved to your environment.
+    Run any endpoint within the collection. You have authorized your app and logged in with your username, so you are now making authenticated requests against the Imgur API. Happy hacking!
+
 
 # **[flameshot]()**
 Screenshot
@@ -1470,7 +1495,6 @@ env XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway QT_QPA_PLATFORM=wayland fl
 
 ## alternatives:
 
-* [ksnip](https://github.com/ksnip/ksnip)
 * [swappy](https://github.com/jtheoof/swappy)
   A Wayland native snapshot and editor tool, inspired by Snappy on macOS. Works great with grim, slurp and sway
 
@@ -1915,6 +1939,8 @@ J	Select the next subtitle file available.
  Stylish lets you customize any website with custom user styles
 - [Youtube RetroWave](https://userstyles.org/styles/191573/youtube-retrowave)
 - [Amazon - Dark slate](https://userstyles.org/styles/133725/amazon-dark-slate)
+- [Chatgpt](https://userstyles.org/styles/245057/openai-chatgpt-and-playground-redesign-razorglass)
+- [Responsive Whatsapp Windows 11 Style](https://userstyles.org/styles/228154/responsive-whatsapp-windows-11-style)
 
 ---
 ## [WAVEFOX](https://github.com/QNetITQ/WaveFox)
@@ -3219,18 +3245,19 @@ rm ~/.mcfly/history.db
 
 ## - To have systemd automatically start swhkd for you:
   -  Copy hotkeys.sh into your preferred directory
-    chmod +x hotkeys.sh
+  -  chmod +x hotkeys.sh
   -  Copy hotkeys.service into your $XDG_CONFIG_DIR/systemd/user directory
     Using a text editor, uncomment line 7 of hotkeys.service and change the path accordingly
   -  In a terminal: systemctl --user enable hotkeys.service
 
 ```
 cp ~/Downloads/hotkeys.sh ~/.dotfiles/bin
+chmod +x ~/.dotfiles/bin/hotkeys.sh
 cp ~/Downloads/hotkeys.service /usr/lib/systemd/ ????
 journalctl /usr/lib/systemd/systemd ????
 ```
 
-## - Configuration
+## - Configuration file
 Swhkd closely follows sxhkd syntax, so most existing sxhkd configs should be functional with swhkd.
 
 The default configuration file is in `/etc/swhkd/swhkdrc`. If you don't like having to edit the file as root every single time, you can create a symlink from `~/.config/swhkd/swhkdrc` to `/etc/swhkd/swhkdrc`:
@@ -3251,6 +3278,8 @@ After opening swhkd, you can control the program through signals:
     sudo pkill -USR1 swhkd - Pause key checking
     sudo pkill -USR2 swhkd - Resume key checking
     sudo pkill -HUP swhkd - Reload config file
+
+ExecStart=/usr/bin/swhkd
 
 
 # [rice's 🍚]()
@@ -3553,6 +3582,7 @@ sudo evtest /dev/input/event3
 
 * [ShellCheck](https://www.shellcheck.net/)
   is a static analysis tool for shell scripts
+
 * [ChatGPT](https://chat.openai.com/chat) is a static analysis tool for shell scripts
 
 > # **[keyboard tools](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#on-screen-keyboards)**
