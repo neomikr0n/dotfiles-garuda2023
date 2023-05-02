@@ -508,8 +508,8 @@ window#waybar {
 
     animation: gradient_f_nh 4s linear infinite;
     margin-right: 25px;
-    color: rgb(11, 5, 27);
     
+    color: #25105B;
     text-shadow: 0 0 25px rgba(0, 0, 0, 0.377);
 }
     
