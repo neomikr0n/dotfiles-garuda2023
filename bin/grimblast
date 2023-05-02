@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-## Author: Misterio (https://github.com/misterio77)
+# ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░   v1.0
+# ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░   screenshot wrapper for Hyprland
+# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░
+## ORIGINAL Author: Misterio (https://github.com/misterio77)
 ## https://github.com/swaywm/sway/blob/master/contrib/grimshot
 
 getTargetDirectory() {
