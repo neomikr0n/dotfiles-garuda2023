@@ -2166,96 +2166,9 @@ or only the colors on theme [sweet dark](https://addons.mozilla.org/es/firefox/a
 
 6.33 If no file chooser is shown when downloading files, even with the option "Always ask where to save files" enabled in Firefox's preferences, then you might not have both xdg-desktop-portal and a suitable implementation. Desktop environments usually provide an implementation, but if you are using a standalone window manager such as i3, then you may need to manually install one. Install xdg-desktop-portal and for example `xdg-desktop-portal-gtk`. (Worked on Hyprland!)
 
-
-# samba sharing thunar
-
-1. Primero nos logueamos como root ejecutando el siguiente comando en la terminal:
-
-su
-
-# A continuación definimos que la variable USERSHARES_DIR tenga el valor /var/lib/samba/usershares. La ruta /var/lib/samba/usershares será en la que se montarán las carpetas que queremos compartir. Para conseguir nuestro propósito ejecutamos el siguiente comando en la terminal:
-
-export USERSHARES_DIR="/var/lib/samba/usershares"
-
-# Seguidamente definimos que la variable USERSHARES_GROUP tenga el valor sambashare. Sambashare será el grupo al que pertenecerá el directorio en el que se montarán las carpetas que queremos compartir. Para conseguir nuestro objetivo ejecutamos el siguiente comando en la terminal:
-
-export USERSHARES_GROUP="sambashare"
-
-# El siguiente paso consiste en crear la carpeta /var/lib/samba/usershares ejecutando el siguiente comando en la terminal:
-
-mkdir -p ${USERSHARES_DIR}
-
-# A continuación creamos el grupo sambashare ejecutando el siguiente comando en la terminal:
-
-groupadd ${USERSHARES_GROUP}
-
-# A la carpeta /var/lib/samba/usershares le asignamos el usuario root y el grupo sambashare introduciendo el siguiente comando en la terminal:
-
-chown root:${USERSHARES_GROUP} ${USERSHARES_DIR}
-
-# Finalmente asignamos los permisos 01770 al directorio /var/lib/samba/usershares ejecutando el siguiente comando en la terminal:
-
-chmod 01770 ${USERSHARES_DIR}
-
-# De esta forma, en el directorio /var/lib/samba/usershares únicamente podrán acceder y escribir el usuario root y los usuarios pertenecientes al grupo sambashare. Además todos los usuarios que tengan permiso de lectura y escritura tan solo podrán borrar los archivos y directorios en que ellos son los propietarios.
-
-# CONFIGURAR SAMBA PARA COMPARTIR CARPETAS CON THUNAR
-
-# Una vez configurado thunar-shares-plugin configuraremos samba. Para ello editamos el archivo smb.conf ejecutando el siguiente comando en la terminal:
-
-sudo nano /etc/samba/smb.conf
-
-# A continuación, dentro del apartado global del archivo de configuración tenemos que introducir y/o comprobar que estén disponibles los siguientes parámetros de configuración:
-
-[global]
-usershare path = /var/lib/samba/usershares
-usershare max shares = 100
-usershare allow guests = yes
-usershare owner only = yes
-
-workgroup = WORKGROUP
-
-# El significado de cada uno de los parámetros del fichero configuración es el siguiente:
-
-# Línea 1: Se define la ruta donde se montarán las carpetas que queremos compartir. En nuestro caso la ruta es /var/lib/samba/usershares
-
-# Línea 2: Se establece el número máximo de carpetas que puede compartir un usuario. En mi caso defino 100 carpetas.
-
-# Línea 3: Seleccionando el valor yes se permite que en la carpetas compartidas puedan acceder usuarios sin introducir ningún tipo de contraseña.
-
-# Línea 4: Elegimos el valor yes. De esta forma únicamente podremos compartir las carpetas en que seamos los propietarios.
-
-# Línea 5: Introducimos el nombre del grupo de trabajo de nuestros equipos Windows. Por lo tanto en mi caso elijo WORKGROUP. En vuestro caso deberéis escribir el nombre de vuestro grupo de trabajo.
-
-# Seguidamente añadimos nuestro usuario al grupo sambashare. Para ello en mi caso tengo que ejecutar el siguiente comando en la terminal:
-
-usermod -a -G ${USERSHARES_GROUP} n30
-
-# Nota: En vuestro caso deberéis reemplazar joan por vuestro nombre de usuario.
-
-# Finalmente tan solo tenemos que reiniciar samba ejecutando el siguiente comando en la terminal:
-
-sudo service smbd restart
-
-# En estos momento el proceso ha finalizado y podemos empezar a compartir carpetas:
-
-La función de cada uno de los parámetros de compartición es la siguiente:
-
-# Para compartir la carpeta en cualquier equipo Windows, Linux o en una SmartTV tenemos que tildar la opción Compartir esta carpeta.
-
-# A continuación tenemos que escribir el nombre que queramos que tenga el recurso compartido. En mi caso simplemente escribo Descargas.
-
-# En mi caso tildo la opción Permitir escritura a todos los usuarios. De esta forma todos los usuarios que accedan a la carpeta de forma remota podrán tener permisos y escritura si el administrador del servidor lo permite. Si queremos que los usuarios no tengan acceso a modificar el contenido de nuestros archivos, no los puedan borrar ni cambiar de nombre simplemente dejaremos destilada esta opción.
-
-# El cuarto paso es definir si los usuarios tienen que introducir un nombre de usuario y contraseña para acceder a la carpeta de forma remota. Como en mi caso no quiero que tengan que introducir ningún usuario ni contraseña tildo la casilla Permitir acceso a invitados.
-
-# Finalmente en comentarios podemos introducir un texto para definir el contenido de la carpeta que compartimos.
-
 ## [WAYDROID](https://wiki.archlinux.org/title/Waydroid)
 
 ---
-
-
 it's linux zen running?
 `uname -r`
 
@@ -4827,4 +4740,13 @@ error: command failed to execute correctly
 ```
 
 ---
+FIREFOX THEME error:
+extensions.activeThemeID
+{e7e228a2-e4dc-4652-b9a1-e985442d584e}
 
+browser.theme.toolbar-theme
+0
+
+layout.css.has-selector.enabled false > true
+
+---
