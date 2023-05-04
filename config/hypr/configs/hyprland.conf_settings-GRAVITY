@@ -15,6 +15,10 @@ input {
     touchpad {
         natural_scroll=no
     }
+    
+    # to change the key repeat rate
+    # repeat_delay = 300
+    # repeat_rate = 50
 }
 
 misc {

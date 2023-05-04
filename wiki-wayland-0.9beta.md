@@ -2586,24 +2586,28 @@ windowrulev2 = tile, class:^(Spotify)$
 windowrulev2 = workspace 9, class:^(Spotify)$
 ```
 
-## Motschen / [Retroblur](https://github.com/Motschen/Retroblur) NOT working!
+## Themes:
 
+### [purple_Lines](https://github.com/JamesIsWack/purple_Lines)
+Modified version of Retroblur Spicetify theme.
+
+### [Retroblur](https://github.com/Motschen/Retroblur)
 ```
 cd ~/Downloads && \
 wget https://github.com/Motschen/Retroblur/archive/refs/heads/main.zip \
-cp /Retroblur ~/.config/spicetify/Themes/ \
+cp /Retroblur ~/.dotfiles/spicetify/Themes/ \
 spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 current_theme Retroblur color_scheme purple && \
 spicetify apply
 ```
 To change the color of the background, edit the link on the first line of **user.css**
-`/home/n30/.config/spicetify/Themes/Retroblur/user.css`, [like this one](https://i.pinimg.com/originals/09/64/b6/0964b64d7c0a214da7efb4e4ee7959c7.jpg):
+`/home/n30/.dotfiles/spicetify/Themes/Retroblur/user.css`, [like this one](https://i.pinimg.com/originals/09/64/b6/0964b64d7c0a214da7efb4e4ee7959c7.jpg):
 
 Its sadly not possible to change the background together with the color scheme automatically due to the limitations of CSS.
 
-## Themes:
 - ### [DefaultDynamic](https://github.com/JulienMaille/spicetify-dynamic-theme) for Spicetify
 ```
 curl -fsSL https://raw.githubusercontent.com/JulienMaille/spicetify-dynamic-theme/master/install.sh | sh
+spicetify apply
 ```
 
 - ### [Frostify](https://github.com/Ramlord/Frostify): (not worked!)
@@ -4576,8 +4580,138 @@ JetBrainsMono Nerd Font
 
 # **[palera1n](https://palera.in/latest-release/)**
 
----
+Telling device with udid 879c9f69a0e8151beb06152e967511efbb097d90 to enter recovery mode
 
+- **If you are using a USB-C to Lightning cable** to do this process, you may run into issues entering into DFU mode
+```
+sudo systemctl stop usbmuxd
+sudo usbmuxd -f -p
+sudo palera1n -fc
+sudo palera1n -f
+```
+Once the device boots up, open the palera1n loader app and tap Install. After a bit of time, you'll be prompted to respring and Sileo should be on your home screen.
+
+
+[EXAMPLES](https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.1/palera1n.1.html)
+```
+To (re-)jailbreak in rootless mode:
+palera1n
+
+To setup fakefs for rootful mode:
+palera1n -fc
+
+After the device has rebooted, follow the following example.
+To re-jailbreak in rootful mode:
+palera1n -f
+
+To remove the jailbreak in rootful mode:
+palera1n --force-revert -f
+
+To remove the jailbreak in rootless mode:
+palera1n --force-revert
+
+To verbose boot in rootful mode:
+palera1n -Vf
+
+To exit recovery mode:
+palera1n -n
+```
+```
+Usage: palera1n [-cCdDEfhIlLnOpRsSvV] [-e boot arguments] [-k Pongo image] [-o overlay file] [-r ramdisk file] [-K KPF file] [-i checkra1n file]
+Copyright (C) 2023, palera1n team, All Rights Reserved.
+
+iOS/iPadOS 15.0-16.3.1 arm64 jailbreaking tool
+
+	--version				Print version
+	--force-revert				Remove jailbreak
+	-B, --setup-partial-fakefs		Setup partial fakefs
+	-c, --setup-fakefs			Setup fakefs
+	-d, --demote				Demote
+	-D, --dfuhelper			Exit after entering DFU
+	-e, --boot-args <boot arguments>	XNU boot arguments
+	-E, --enter-recovery			Enter recovery mode
+	-f, --fakefs 				Boots fakefs
+	-h, --help				Show this help
+	-i, --override-checkra1n <file>		Override checkra1n
+	-k, --override-pongo <file>		Override Pongo image
+	-K, --override-kpf <file>		Override kernel patchfinder
+	-l, --rootless				Boots rootless. This is the default
+	-L, --jbinit-log-to-file		Make jbinit log to /cores/jbinit.log (can be read from sandbox while jailbroken)
+	-n, --exit-recovery			Exit recovery mode
+	-I, --device-info			Print info about the connected device
+	-o, --override-overlay <file>		Override overlay
+	-p, --pongo-shell			Boots to PongoOS shell
+	-P, --pongo-full			Boots to a PongoOS shell with default images already uploaded
+	-r, --override-ramdisk <file>		Override ramdisk
+	-R, --reboot-device			Reboot connected device in normal mode
+	-s, --safe-mode				Enter safe mode
+	-S, --no-colors			Disable colors on the command line
+	-v, --debug-logging			Enable debug logging
+		This option can be repeated for extra verbosity.
+	-V, --verbose-boot			Verbose boot
+```
+  
+  To hard reset an iPhone X, follow these steps:
+    ```
+    Press and quickly release the Volume Up button.
+    Press and quickly release the Volume Down button.
+    Press and hold the Side button until the Apple logo appears.
+    ```
+
+✔️ **resources**:
+
+https://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
+
+https://www.reddit.com/r/jailbreak/comments/11mt9sv/discussion_1631_tweak_compatibility_list/
+
+https://www.reddit.com/r/jailbreak
+
+
+✔️ **iOS 16.1.2 FREE**:
+- SnowBoard
+- [uyou](https://github.com/MiRO92/uYou-for-YouTube)
+- AppStore++
+- Shadow https://ios.jjolano.me/
+- [cask3](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.cask3/) - Animated table scrolling - Orion Runtime (iOS 14 - 16)
+[Locker](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.p2kdev.locker/) Enable passcode for A11!
+
+
+
+**iOS 16.1.2 $$$**
+
+$4 [DYNAMICPENINSULA](https://www.ios-repo-updates.com/repository/bigboss/package/net.limneos.dynamicpeninsula/)
+$3 [WhoozItPro](https://www.ios-repo-updates.com/repository/iarrays/package/com.iarrays.whoozit/)
+$3 [CheckL0ck](https://www.ios-repo-updates.com/repository/havoc/package/com.foxfort.checkl0ck/)
+
+
+
+**just ok :|**
+
+[dodo](https://www.ios-repo-updates.com/repository/ginsu-tweaks/package/com.ginsu.dodo/) - perfect Lock Screen tweak - 
+[everest](https://www.ios-repo-updates.com/repository/havoc/package/com.christopher.everest/) - App icon animations -
+[ezswipe](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.imkpatil.ezswipe/) - Give your hand a rest by using gestures instead! -
+[laetus](https://www.ios-repo-updates.com/repository/sparkdev/package/com.spark.laetus/) - Unparalleled Keyboard Customisation -
+[fakepass](https://www.ios-repo-updates.com/repository/nyuszika7h-s-repo/package/net.cadoth.fakepass/) - Fake passcode for checkm8 jailbreaks on iOS 14+ on A11 -
+aquaboard xs - Amazing Water Effects On SpringBoard - 
+dragspring - Drag down from the top of settings to respring -
+Liberty Pass - bypass detection
+settingscollapse
+Carrierizer2 - Custom Text/Options for your Carrier! -
+
+
+
+**nope**
+YellowPages - not working :(
+betterccxi
+A-Bypass
+island - not found :(
+shuffle - organize settings
+Ampere: Velvet 2, PreferenceLoader, Substitute, Substrate Safe Mode
+Phoenix -  contacts info
+
+
+
+---
 # ENVIROMENT VARIABLES but for script:
 ```
 # Toolkit Backend Variables
@@ -4633,3 +4767,64 @@ sym: Return       (65293), utf8: ''
 [14:     wl_keyboard] key: serial: 45429; time: 15318239; key: 49; state: 1 (pressed)
 sym: bar          (124), utf8: '|'
 [14:     wl_keyboard] key: serial: 45430; time: 15318321; key: 49; state: 0 (released)
+
+---
+
+# GARUDA-UPDATE error: 
+failed to commit transaction (conflicting files installed with pip a long time ago)
+
+## ERROR:
+```
+error: failed to commit transaction (conflicting files)
+python-tqdm: /usr/bin/tqdm exists in filesystem
+python-numpy: /usr/bin/f2py exists in filesystem
+python-numpy: /usr/bin/f2py3 exists in filesystem
+python-numpy: /usr/share/licenses/python-numpy/LICENSE.txt exists in filesystem
+Errors occurred, no packages were upgraded.
+```
+## FIX:
+1. sudo pip uninstall tqdm :
+```
+Found existing installation: tqdm 4.65.0
+Uninstalling tqdm-4.65.0:
+  Would remove:
+    /usr/bin/tqdm
+    /usr/lib/python3.10/site-packages/tqdm-4.65.0.dist-info/*
+    /usr/lib/python3.10/site-packages/tqdm/*
+```
+2. sudo pip uninstall numpy :
+```
+Found existing installation: numpy 1.23.5
+Uninstalling numpy-1.23.5:
+  Would remove:
+    /home/n30/.local/bin/f2py
+    /home/n30/.local/bin/f2py3
+    /home/n30/.local/bin/f2py3.10
+    /home/n30/.local/lib/python3.10/site-packages/numpy-1.23.5.dist-info/*
+    /home/n30/.local/lib/python3.10/site-packages/numpy.libs/libgfortran-040039e1.so.5.0.0
+    /home/n30/.local/lib/python3.10/site-packages/numpy.libs/libopenblas64_p-r0-742d56dc.3.20.so
+    /home/n30/.local/lib/python3.10/site-packages/numpy.libs/libquadmath-96973f99.so.0.0.0
+    /home/n30/.local/lib/python3.10/site-packages/numpy/*
+```
+3. Also:
+```
+sudo rm /usr/share/licenses/python-numpy/LICENSE.txt
+```
+## THEN:
+4. garuda-update :
+```
+warning: dwarfs: local (0.6.2-6) is newer than chaotic-aur (0.6.2-1.2)
+warning: xwinwrap-git: local (r20.539fc47-1) is newer than archlinuxcn (r5.ec32e9b-2)
+resolving dependencies...
+looking for conflicting packages...
+warning: dependency cycle detected:
+warning: libcamera-ipa will be installed before its libcamera dependency
+```
+5. small error tho, doesn't look important:
+```
+Failed to write file "/sys/module/pcie_aspm/parameters/policy": Operation not permitted
+error: command failed to execute correctly
+```
+
+---
+
