@@ -1,3 +1,3 @@
 config/qBittorrent/qBittorrent-data.conf
-config/copyq/copyq_tab_JmNsaXBib2FyZA==.dat
-config/copyq/copyq_tab_aW1wb3J0YW50.dat
+copyq_tab_*
+copyq/copyq_tab_*
