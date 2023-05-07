@@ -188,7 +188,7 @@ The service can be introspected:
 
 ---
 
-> # [**`Geolocation`**](https://rumpelsepp.org/blog/geolocation-for-gammastep/) for [**`gammastep`**](https://gitlab.com/chinstrap/gammastep)
+> # *[Geolocation](https://rumpelsepp.org/blog/geolocation-for-gammastep/)* for **[gammastep](https://gitlab.com/chinstrap/gammastep)**
 
 ---
 
@@ -332,7 +332,12 @@ exec_after=swaync-client --inhibitor-remove "xdg-desktop-portal-wlr"
 
 ---
 
-> # [**`ulauncher`**](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
+
+> # [****](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
+
+
+---
+> # **[ulauncher**](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)**
 
 ---
 
@@ -514,7 +519,7 @@ File pattern: *
 Appears if selection contains: Directories, Text files, Other files
 -------------------------------------------------------------------
 
-> # **`tmatrix`**
+> # **[tmatrix](https://github.com/M4444/TMatrix)**
 
 ---
 
@@ -522,11 +527,9 @@ Appears if selection contains: Directories, Text files, Other files
 
 ## - Colors
 
->>> green
->>>
->>
-
 ```
+tmatrix -s 33 -f 0.6,0.9 -t THE-MATRIX -C magenta -c default
+
 tmatrix -s 60 -f 0.3,0.6
 tmatrix -s 33 -f 0.3,0.6 -t THE-MATRIX -C magenta
 whereis tmatrix
@@ -544,7 +547,7 @@ whereis tmatrix
 >>>
 >>
 
-> # **`Video Wallpaper Scripts`**
+> # **Video Wallpaper Scripts**
 
 >>> https://github.com/zeroruka/video-wallpaper-scripts
 >>>
@@ -4090,6 +4093,16 @@ can be found at http://geoff.greer.fm/ag
 
 - ## [glava](https://github.com/jarcode-foss/glava): 
   a general-purpose, highly configurable OpenGL audio spectrum visualizer 
+
+- ## [lavat](https://github.com/AngelJumbo/lavat): 
+lavat -c yellow -R1 -k red![lavat -c yellow -R1 -k red](https://github.com/AngelJumbo/demos/raw/main/lavat/5.gif?raw=true)
+
+- ## [neofetch]: 
+neofetch | lolcat -a -d 1 -s 999 -t
+
+- ## [pfetch]: 
+pfetch | lolcat -a -d 1 -s 999 -t
+
 
 - ## [showmethekey](https://github.com/AlynxZhou/showmethekey): 
   Show keys
