@@ -1,2 +1,3 @@
 config/qBittorrent/qBittorrent-data.conf
-copyq_tab_*
+copyq_tab_*.dat
+config/copyq/copyq_tab_*.dat
