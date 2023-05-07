@@ -4573,7 +4573,7 @@ iOS/iPadOS 15.0-16.3.1 arm64 jailbreaking tool
 
 ✔️ **resources**:
 
-https://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
+httpcs://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
 
 https://www.reddit.com/r/jailbreak/comments/11mt9sv/discussion_1631_tweak_compatibility_list/
 
@@ -4586,8 +4586,10 @@ https://www.reddit.com/r/jailbreak
 - AppStore++
 - Shadow https://ios.jjolano.me/
 - [cask3](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.cask3/) - Animated table scrolling - Orion Runtime (iOS 14 - 16)
-[Locker](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.p2kdev.locker/) Enable passcode for A11!
-
+- [Locker](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.p2kdev.locker/) Enable passcode for A11!
+- Shuffle - configuration revamped *-*
+- ShakeItOff - shake the phone to activate funtions
+- FloatingDockXVI 
 
 
 **iOS 16.1.2 $$$**
