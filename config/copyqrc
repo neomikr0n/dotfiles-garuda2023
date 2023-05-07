@@ -1,0 +1,7 @@
+[FileDialogSize]
+3440x1440 screen: Window-Maximized=true
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/.config/copyq/themes/gravity,file:$HOME/.config/copyq/themes/gravity
+Recent URLs[$e]=file:$HOME/.config/copyq/themes/
+iconViewIconSize=64
