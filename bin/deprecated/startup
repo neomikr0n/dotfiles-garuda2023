@@ -10,12 +10,6 @@ scriptsDir="$HOME"/.dotfiles/bin
 #   fi
 # done
 
-# daemons
-/usr/bin/numlockx on &
-exec mpd &
-xdg-user-dirs &
-foot --server &
-
 # video wallpaper
 bash "$scriptsDir"/videowallpaper-change code &
 # ${SCRIPTSDIR}/wall $HOME/.config/hypr/wallpapers/dreams.png &   #static wallpaper
