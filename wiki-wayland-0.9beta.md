@@ -161,10 +161,56 @@ community/qgnomeplatform-qt6 0.9.0-10 (128.4 KiB 453.3 KiB) (Installed)
 QPlatformTheme for a better Qt6 application inclusion in GNOME
 
 
+> # **[msigd](https://github.com/couriersud/msigd)**
+
+MPG341QR
+
+[🔴] × g++ --version
+g++ (GCC) 13.1.1 20230429
+
+ ╰─λ sudo pacman -S libusb hidapi
+warning: libusb-1.0.26-2 is up to date -- reinstalling
+warning: hidapi-0.13.1-2 is up to date -- reinstalling
+
+[🔴] × libusb-config --version
+0.1.12
+
+1. Requeried packages:
+```
+sudo pacman -S libusb hidapi
+```
+You just want libusb and hidapi.  Arch linux does not split its packages into foo and foo-dev. This means:
+```
+yay -S libusb-dev libhidapi-dev libusb-devel hidapi-devel
+ -> No AUR package found for libusb-dev
+ -> No AUR package found for libhidapi-dev
+ -> No AUR package found for libusb-devel
+ -> No AUR package found for hidapi-devel
+```
+
+2. This program needs root privilidges. Use with care.
+sudo pacman -S libusb hidapi
+sudo nano /etc/udev/rules.d/51-msi-gaming-device.rules
+
+# Allow access to members of plugdev - both for usb and hidraw access
+SUBSYSTEM=="usb", ATTR{idVendor}=="1462", ATTR{idProduct}=="3fa4", GROUP="plugdev", TAG+="uaccess"
+KERNEL=="hidraw*", ATTRS{idVendor}=="1462", ATTRS{idProduct}=="3fa4", GROUP="plugdev", TAG+="uaccess"
+
+sudo udevadm control --reload-rules
+
+3. Compile
+
+cd ~/Documents/forks/
+git clone https://github.com/couriersud/msigd.git
+make 
+profit?
+
+libtool --finish /usr/lib
+
 
 > # **[foot](https://codeberg.org/dnkl/foot)**
 
-> # **[kate](https://codeberg.org/dnkl/foot)**
+> # **[kate]()**
 If you want to back up your Kate theme, you can follow these steps:
     1. Open Kate and go to the "Settings">"Configure Kate">"Fonts & Colors" 
     2. Select the theme you want to back up from the list of installed themes.
@@ -2294,6 +2340,37 @@ sudo umount /run/media/n30/iphone
 # **[GENYMOTION]()**
 
 
+>## install genymotion:
+- automatically:
+```
+sudo pacman -S genymotion
+```
+- or manually
+```
+cd ~/Downloads/ && chmod -x genymotion-*.bin && sudo sh genymotion-*.bin
+```
+
+>## configure
+
+- install opengapps:
+
+  1. click on "Open GAPS" button at the side of emulator
+  2. login in on google
+  3. download chrome & keep
+
+- Genymotion [ARM translation](https://github.com/m9rco/Genymotion_ARM_Translation) for 7.0:
+    If failure:
+  1. adb shell
+  2. cd /sdcard/Download/
+  3. sh /system/bin/flash-archive.sh /sdcard/Download/Genymotion-ARM-Translation.zip
+  4. adb reboot
+
+- killing the annoying emoji keyboard:
+
+settings > keyboard >keyboard & input > Virtual keyboard > android keyboard setting > Advanced > Emoji for physical keyboard
+
+- [beta testing](https://www.genymotion.com/download-beta/)
+
 >## pre-requisites: install virtualbox
 - manually:
 
@@ -2314,31 +2391,97 @@ sudo umount /run/media/n30/iphone
   nope /run/media/n30/xxx/linuxsaurio/VirtualBox
   ```
 
->## install genymotion:
-- automatically:
-```
-sudo pacman -S genymotion
-```
-- or manually
-```
-cd ~/Downloads/ && chmod -x genymotion-*.bin && sudo sh genymotion-*.bin
-```
+
   Installing to folder `/opt/genymobile/genymotion`. Are you sure `[y/n]` ? yepity yep
 
->## configure
+needs apkmirror from appstore, works tho:
+599mb [apkmirror](https://www.apkmirror.com/apk/jam-city-inc/jurassic-world-alive/jurassic-world-alive-2-23-32-release/jurassic-world-alive-2-23-32-android-apk-download/#safeDownload)
 
-- install Genymotion ARM translation for 9.0
+99mb [apkmirror](https://www.apkmirror.com/apk/jam-city-inc/jurassic-world-alive/jurassic-world-alive-2-23-32-release/jurassic-world-alive-2-23-32-android-apk-download/download/?key=453a5f1bd71cac8674ba1d2b1ff528dc95129c1c&forcebaseapk=true)
 
-  1. click on "Open GAPS" button at the side of emulator
-  2. login in on google
-  3. download chrome & keep
+>## v11 arm compatibility:
+How to install:
 
-- killing the annoying emoji keyboard
+    1. Open the Android 11 emulator
+    2. edit build.prop in step 3 but you need adb installed:
+```
+adb shell
+su
+mount -o rw,remount /
+vi /system/build.prop
+vi /system/vendor/build.prop
 
-settings > keyboard >keyboard & input > Virtual keyboard > android keyboard setting > Advanced > Emoji for physical keyboard
+ The Vi editor has two modes: **Command** and **Insert**. When you first open a file with Vi, you are in Command mode. Command mode means you can use keyboard keys to navigate, delete, copy, paste, and do a number of other tasks—except entering text. ***To enter Insert mode, press i*** .
+```
+    3. Copy and paste CS-v(Control+Shift+v) this to /system/build.prop and /system/vendor/build.prop
+```
+ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+ro.product.cpu.abilist64=x86_64,arm64-v8a
+ro.vendor.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+ro.vendor.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+ro.vendor.product.cpu.abilist64=x86_64,arm64-v8a
+ro.odm.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+ro.odm.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+ro.odm.product.cpu.abilist64=x86_64,arm64-v8a
+ro.dalvik.vm.native.bridge=libhoudini.so
+ro.enable.native.bridge.exec=1
+ro.enable.native.bridge.exec64=1
+ro.dalvik.vm.isa.arm=x86
+ro.dalvik.vm.isa.arm64=x86_64
+ro.zygote=zygote64_32
+```
 
-- [beta testing](https://www.genymotion.com/download-beta/)
+To save a file in Vim / vi, press Esc key, type :w and hit Enter key. 
 
+    Download [libhoudini](https://github.com/niizam/Genymotion_A11_libhoudini/releases/download/1.0/system.zip) from releases page.
+    Drag and drop system.zip to emulator
+    Restart the emulator
+
+
+
+
+>## RUN !
+```
+genymotion-shell
+devices select 1
+devices select 0
+
+gps setstatus enabled
+gps setlatitude 19.68196
+3+```
+
+
+1. ### Get list of vms with:
+```
+genymotion-shell -c "devices list"
+
+Available devices:
+
+ Id | Select |    Status     |   Type   |   IP Address    |      Name
+----+--------+---------------+----------+-----------------+---------------
+  0 |        |            On |  virtual |       127.0.0.1 | mini-MI
+  1 |        |            On |  virtual |       127.0.0.1 | n30
+  2 |        |           Off |  virtual |       127.0.0.1 | test
+```
+alternative:
+```
+adb devices
+
+List of devices attached
+127.0.0.1:5562         device product:vbox86p model:Phone device:genymotion transport_id:32
+127.0.0.1:5569         device product:vbox86p model:Phone device:genymotion transport_id:33
+```
+177.240.130.113 
+adb -s 127.0.0.1:5562 shell
+
+2. select device n30:
+genymotion-shell -c "devices select 1"
+
+3. #add gps to mini-Mi (oxxo campestre)
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setstatus enabled"
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlatitude 19.68196"
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlongitude -101.16097"
 
 >## uninstall (by script)
 
@@ -2355,9 +2498,10 @@ sudo rm -rf /opt/genymobile
 rm -rf $HOME/.Genymobile $HOME/.config/Genymobile/Genymotion.conf
 sudo rm -f /usr/share/applications/genymobile-genymotion.desktop
 ```
->## RUN!
+>## RUN (VIRTUAL BOX edition!
 1. ### Get list of vms with:
 ```
+adb devices
 VBoxManage list vms
 ```
 2. ### Start of Virtual Machines Headless
