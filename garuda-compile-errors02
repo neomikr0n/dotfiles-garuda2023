@@ -1,0 +1,82 @@
+Linking msigd...
+g++ -o msigd  src/msigd.o -lusb-1.0 -lhidapi-hidraw
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::control_msg_write(int, int, int, int, void*, int, int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: src/msigd.o:/home/n30/Documents/forks/msigd/src/pusb.h:101: more undefined references to `usb_control_msg' follow
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::write(unsigned int, void const*, unsigned long, unsigned int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:157: undefined reference to `usb_bulk_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:168: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:152: undefined reference to `usb_interrupt_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:157: undefined reference to `usb_bulk_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:168: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:152: undefined reference to `usb_interrupt_write'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::control_msg_write(int, int, int, int, void*, int, int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::write(unsigned int, void const*, unsigned long, unsigned int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:157: undefined reference to `usb_bulk_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:157: undefined reference to `usb_bulk_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:157: undefined reference to `usb_bulk_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:152: undefined reference to `usb_interrupt_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:168: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:152: undefined reference to `usb_interrupt_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:168: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:152: undefined reference to `usb_interrupt_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:168: undefined reference to `usb_strerror'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::control_msg_write(int, int, int, int, void*, int, int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::usbGetDescriptorString(usb_dev_handle*, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)':
+/home/n30/Documents/forks/msigd/src/pusb.h:455: undefined reference to `usb_control_msg'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::write(unsigned int, void const*, unsigned long, unsigned int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:157: undefined reference to `usb_bulk_write'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:168: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:152: undefined reference to `usb_interrupt_write'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::read(unsigned int, void*, unsigned int, unsigned int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:216: undefined reference to `usb_bulk_read'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:205: undefined reference to `usb_interrupt_read'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::cleanup()':
+/home/n30/Documents/forks/msigd/src/pusb.h:269: undefined reference to `usb_release_interface'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:285: undefined reference to `usb_close'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:269: undefined reference to `usb_release_interface'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:285: undefined reference to `usb_close'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::build_device_list(logger_t&, unsigned int, unsigned int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:319: undefined reference to `usb_init'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:321: undefined reference to `usb_find_busses'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:322: undefined reference to `usb_find_devices'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:331: undefined reference to `usb_get_busses'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::find_device(device_info const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/n30/Documents/forks/msigd/src/pusb.h:515: undefined reference to `usb_open'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::usbGetDescriptorString(usb_dev_handle*, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)':
+/home/n30/Documents/forks/msigd/src/pusb.h:455: undefined reference to `usb_control_msg'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::find_device(device_info const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/n30/Documents/forks/msigd/src/pusb.h:524: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:530: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:535: undefined reference to `usb_strerror'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:548: undefined reference to `usb_close'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:517: undefined reference to `usb_strerror'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::init(device_info const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:396: undefined reference to `usb_set_configuration'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:400: undefined reference to `usb_get_driver_np'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:403: undefined reference to `usb_detach_kernel_driver_np'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:409: undefined reference to `usb_set_configuration'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:419: undefined reference to `usb_claim_interface'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:421: undefined reference to `usb_strerror'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::cleanup()':
+/home/n30/Documents/forks/msigd/src/pusb.h:269: undefined reference to `usb_release_interface'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:285: undefined reference to `usb_close'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:269: undefined reference to `usb_release_interface'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:285: undefined reference to `usb_close'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::read(unsigned int, void*, unsigned int, unsigned int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:216: undefined reference to `usb_bulk_read'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:205: undefined reference to `usb_interrupt_read'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::control_msg_write(int, int, int, int, void*, int, int)':
+/home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: /home/n30/Documents/forks/msigd/src/pusb.h:101: undefined reference to `usb_control_msg'
+/usr/bin/ld: src/msigd.o: in function `usbdev_t::control_msg_read(int, int, int, int, void*, int, int, int&)':
+/home/n30/Documents/forks/msigd/src/pusb.h:118: undefined reference to `usb_control_msg'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:82: msigd] Error 1

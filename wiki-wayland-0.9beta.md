@@ -175,7 +175,7 @@ warning: hidapi-0.13.1-2 is up to date -- reinstalling
 [🔴] × libusb-config --version
 0.1.12
 
-1. Requeried packages:
+1. ## Requeried packages:
 ```
 sudo pacman -S libusb hidapi
 ```
@@ -188,24 +188,33 @@ yay -S libusb-dev libhidapi-dev libusb-devel hidapi-devel
  -> No AUR package found for hidapi-devel
 ```
 
-2. This program needs root privilidges. Use with care.
+2. ## This program needs root privilidges. Use with care.
 sudo pacman -S libusb hidapi
 sudo nano /etc/udev/rules.d/51-msi-gaming-device.rules
 
-# Allow access to members of plugdev - both for usb and hidraw access
+####### Allow access to members of plugdev - both for usb and hidraw access
 SUBSYSTEM=="usb", ATTR{idVendor}=="1462", ATTR{idProduct}=="3fa4", GROUP="plugdev", TAG+="uaccess"
 KERNEL=="hidraw*", ATTRS{idVendor}=="1462", ATTRS{idProduct}=="3fa4", GROUP="plugdev", TAG+="uaccess"
 
 sudo udevadm control --reload-rules
 
-3. Compile
+3. ## Compile
 
 cd ~/Documents/forks/
 git clone https://github.com/couriersud/msigd.git
-make 
+make TARGETOS=arch
 profit?
 
 libtool --finish /usr/lib
+
+4. ## Errors?
+
+- save them to a external file
+make TARGETOS=arch &> out
+
+- diting makefile 
+changing "-lhidapi" to "lhidapi-hidraw" or "lhidapi-libusb" 
+
 
 
 > # **[foot](https://codeberg.org/dnkl/foot)**
