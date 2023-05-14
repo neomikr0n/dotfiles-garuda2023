@@ -171,13 +171,12 @@ alias jctl="journalctl -p 3 -xb"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # https://www.reddit.com/r/bash/comments/13h7fo8/huge_list_of_bash_aliases/
-# https://github.com/terminalforlife/BashConfig/
 alias joke='command wget -U "curl/7.55.1" -o /dev/null -qO - https://icanhazdadjoke.com || printf "No jokes today"; echo'
 # Play online drum and bass radio station.
 alias shh="pkill mpv; pkill mpv"
 alias dnb="shh; mpv --really-quiet https://dnbradio.com/hi.pls &"
 # Print each PATH entry on a separate line
-alias path="echo -e ${PATH//:/\\n}"
+alias path="echo -e {$PATH//:/\\n}"
 # Shell exit alias
 alias q="exit"
 alias :q="exit"
