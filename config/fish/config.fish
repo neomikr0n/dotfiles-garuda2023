@@ -170,4 +170,23 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
+# https://www.reddit.com/r/bash/comments/13h7fo8/huge_list_of_bash_aliases/
+# https://github.com/terminalforlife/BashConfig/
+alias joke='command wget -U "curl/7.55.1" -o /dev/null -qO - https://icanhazdadjoke.com || printf "No jokes today"; echo'
+# Play online drum and bass radio station.
+alias shh="pkill mpv; pkill mpv"
+alias dnb="shh; mpv --really-quiet https://dnbradio.com/hi.pls &"
+# Print each PATH entry on a separate line
+alias path="echo -e ${PATH//:/\\n}"
+# Shell exit alias
+alias q="exit"
+alias :q="exit"
+# Show which commands you use the most
+alias freq='cut -f1 -d" " $HOME/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+# Place above other sudo commands to enable aliases to be sudo-ed.
+alias sudo="sudo "
 
+# personal navigation
+alias cddow="cd ~/Downloads"
+alias cddot="cd ~/.dotfiles"
+alias cdcon="cd ~/.config"

@@ -4922,3 +4922,29 @@ browser.theme.toolbar-theme
 layout.css.has-selector.enabled false > true
 
 ---
+ ╭─n30@n30 in ~ as 🧙 took 1s
+✦ [🔴] × cleanup
+checking dependencies...
+:: kitty optionally requires python-pygments: syntax highlighting in kitty +kitten diff
+:: lv2 optionally requires python-pygments: for lv2specgen.py
+
+Packages (63) docbook-xml-4.5-9  docbook-xsl-1.79.2-7  faudio-23.05-1  glib2-docs-2.76.2-1  goocanvas-3.0.0-4  gtk-doc-1.33.2-1  lib32-libnsl-2.0.0-2  libotf-0.9.16-4  librest-0.9.1-2  libuninameslist-20221022-1  libwrap-7.6.31-4  m17n-db-1.8.2-1  m17n-lib-1.8.2-1  mingw-w64-binutils-2.38-3
+mingw-w64-crt-10.0.0-1  mingw-w64-headers-10.0.0-1  mingw-w64-winpthreads-10.0.0-1  potrace-1.16-2  python-anytree-2.8.0-6  python-dateutil-2.8.2-5  python-docutils-1:0.20-1  python-iniconfig-2.0.0-4  python-pluggy-1.0.0-4  python-pygments-2.15.1-1  7-zip-22.01-2  chrpath-0.16-4
+colord-1.4.6-1  cython-0.29.34-3  emacs-28.2-2  fontforge-20230101-3  geocode-glib-3.26.4-3  glib-perl-1.329.3-3  gnome-online-accounts-3.48.0-2  gupnp-dlna-0.12.0-2  intltool-0.51.0-6  lib32-faudio-23.04-1  lib32-libwrap-7.6.31-4  libappindicator-gtk2-12.10.0.r298-1
+libgda-5.2.10-5  libgee06-0.6.8-1  libvisual-0.4.2-1  lua-lpeg-1.0.2-4  mcfly-0.8.0-1  mingw-w64-gcc-12.2.0-1  perl-extutils-depends-0.8001-3  perl-extutils-pkgconfig-1.16-10  perl-parse-yapp-1.21-5  pnpm-8.5.0-1  python-exceptiongroup-1.1.1-2  python-jarowinkler-1.2.3-1
+python-kivy-2.1.0-2  python-pandas-1.5.3-3  python-pebble-5.0.3-1  python-pyparsing-3.0.9-3  python-pytest-7.3.1-4  run-parts-5.5-1  scdoc-1.11.2-5  scons-4.4.0-3  sharutils-4.15.2-4  tre-0.8.0-6  vala-0.56.7-1  webkit2gtk-5.0-2.38.6-1  webtorrent-cli-4.1.0-1
+
+Total Removed Size:  1812.76 MiB
+
+:: Do you want to remove these packages? [Y/n] 
+
+---
+
+find-the-command: "/usr/bin/mcfly" may be found in package "community/mcfly"
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mcfly-0.8.0-1
+
+---
+
