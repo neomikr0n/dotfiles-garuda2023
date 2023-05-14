@@ -2458,7 +2458,8 @@ devices select 0
 
 gps setstatus enabled
 gps setlatitude 19.68196
-3+```
+gps setlongitude -101.16097
+```
 
 
 1. ### Get list of vms with:
@@ -4258,7 +4259,10 @@ pfetch | lolcat -a -d 1 -s 999 -t
 
 
 - ## [showmethekey](https://github.com/AlynxZhou/showmethekey): 
-  Show keys
+gui only works for mouse, cli works for keyboard also:
+
+`showmethekey-cli`
+This part exists because of Wayland's security policy, which means you cannot run a GUI program with sudo. It's suggested to split your program into a GUI frontend and a CLI backend that do privileged operations, and this is the backend.
 
 - ## [0x0Uploader](https://codeberg.org/MorsMortium/0x0uploader): 
   Uploader for the 0x0 file sharing service.
