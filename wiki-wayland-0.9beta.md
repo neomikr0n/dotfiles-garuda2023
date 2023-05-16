@@ -2452,6 +2452,11 @@ To save a file in Vim / vi, press Esc key, type :w and hit Enter key.
 
 >## RUN !
 ```
+genymotion-shell -c "devices select 1"
+genymotion-shell -c "gps setstatus enabled"
+```
+
+```
 genymotion-shell
 devices select 1
 devices select 0
