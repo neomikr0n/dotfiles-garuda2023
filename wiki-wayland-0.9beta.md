@@ -2224,6 +2224,13 @@ or only the colors on theme [sweet dark](https://addons.mozilla.org/es/firefox/a
 
 6.33 If no file chooser is shown when downloading files, even with the option "Always ask where to save files" enabled in Firefox's preferences, then you might not have both xdg-desktop-portal and a suitable implementation. Desktop environments usually provide an implementation, but if you are using a standalone window manager such as i3, then you may need to manually install one. Install xdg-desktop-portal and for example `xdg-desktop-portal-gtk`. (Worked on Hyprland!)
 
+- [Dark Reader overwrites Firefox Themes](https://github.com/darkreader/darkreader/issues/1430)
+
+    - Open Darkreader preferences in the extensions toolbar
+    - Click More
+    - Toggle Change the browser theme to Default
+
+
 ## [WAYDROID](https://wiki.archlinux.org/title/Waydroid)
 
 ---
@@ -2380,7 +2387,7 @@ settings > keyboard >keyboard & input > Virtual keyboard > android keyboard sett
 
 - [beta testing](https://www.genymotion.com/download-beta/)
 
->## pre-requisites: install virtualbox
+>## old pre-requisites: install virtualbox
 - manually:
 
   ```
