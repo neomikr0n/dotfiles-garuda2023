@@ -208,19 +208,46 @@ make TARGETOS=arch
 ```
 libtool --finish /usr/lib
 
-1. ## Errors?
+4. ## Errors?
 
 - save them to a external file
+  
 make TARGETOS=arch &> out
 
-- diting makefile 
+- clone a specific branch:
+  ```
+  git branch -a
+  git clone -b 51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw https://github.com/couriersud/msigd.git
+  ```
+
+- [Compile errors, MSI MPG341QR on Garuda Linux (arch btw)](https://github.com/couriersud/msigd/issues/51)
+
+
+- ditching makefile 
+
 changing "-lhidapi" to "lhidapi-hidraw" or "lhidapi-libusb" 
 
-- clone a specific branch:
-```
-git branch -a
-git clone -b 51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw https://github.com/couriersud/msigd.git
-```
+5. LOGS:
+
+        MPG341QR
+      ---
+        [🔴] × g++ --version
+        g++ (GCC) 13.1.1 20230429
+
+        ╰─λ sudo pacman -S libusb hidapi
+        warning: libusb-1.0.26-2 is up to date -- reinstalling
+        warning: hidapi-0.13.1-2 is up to date -- reinstalling
+
+        [🔴] × libusb-config --version
+        0.1.12
+      ---
+
+
+      ---
+
+
+      ---
+
 
 > # **[foot](https://codeberg.org/dnkl/foot)**
 
@@ -4318,6 +4345,15 @@ This part exists because of Wayland's security policy, which means you cannot ru
   Begin at 3.5 seconds into the video, make the gif using the next 5.5 seconds
   $ gifgen -b 3.5 -d 5.5 screencap.mov
   ```
+
+- ## [joystickwake](https://github.com/foresto/joystickwake):
+A joystick-aware screen waker
+
+joystickwake --loglevel info --cooldown 1 --command "hyprctl dispatch dpms on"
+
+- ## [wljoywake](https://github.com/nowrep/wljoywake):
+Joystick
+
 - ## [thefuck](https://github.com/nvbn/thefuck):
   corrects errors in previous console commands.
 
@@ -4478,7 +4514,17 @@ This part exists because of Wayland's security policy, which means you cannot ru
 
 - ## [ranger](https://github.com/ranger/ranger):
   Console file manager with VI key bindings.
-  More information:
+
+SUPPORTS image previews on any terminal w/ sixel support, needs:
+foot
+ranger-git
+
+To enable it add this to ranger's config:
+```
+set preview_images true
+set preview_images_method sixel
+```
+
 - ## [edexUI](https://github.com/GitSquared/edex-ui/blob/master/README.md)
 
 - ## [timer](https://github.com/pando85/timer)

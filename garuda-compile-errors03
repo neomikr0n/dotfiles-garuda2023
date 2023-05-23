@@ -44,4 +44,4 @@ make: 'all' is up to date.
 
  ╭─n30@n30 in repo: msigd on  51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw as 🧙 took 3s
  ╰─λ msigd --help
-find-the-command: "msigd" is not found locally
+find-the-command: "msigd" is not found locally.
