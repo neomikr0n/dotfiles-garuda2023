@@ -13,8 +13,13 @@ My **Hyprland dotfiles** on (Garuda)[https://garudalinux.org/], (arch btw), Linu
 ***qbitorrent, btop***
 ![lol](https://0x0.st/HP3j.png)
 
+---
+## *Keywords*:
+- **$mainMod = SUPER*
 
-## KEYBINDS:
+- *$triMod = SUPER CTRL ALT*
+  
+## **Keybinds**:
 | Keybind | Dispatcher | Command |
 |---------|------------|---------|
 | <kbd>xf86audioraisevolume</kbd> | exec | $volume --inc |
@@ -130,4 +135,19 @@ My **Hyprland dotfiles** on (Garuda)[https://garudalinux.org/], (arch btw), Linu
 | <kbd>SUPER g</kbd> | togglegroup |  |
 | <kbd>SUPER tab</kbd> | focusUrgentOrLast     |  |
 
-
+## Complementary Keywords :
+- $scriptsDir = ~/.dotfiles/bin
+- $soundsDir = ~/.config/hypr/sounds
+- $picsDir = ~/Pictures/
+- #### $configDir = ~/.config/hypr/configs/
+- #### $files = dolphin
+- #### $browser = firedragon
+- #### $music = spotify
+- #### $term = foot
+- #### $menu = $scriptsDir/menu
+- #### $volume = $scriptsDir/volume
+- #### $exit = $scriptsDir/exit
+- #### $screenshot = $scriptsDir/grimblast
+- #### $colorpicker = $scriptsDir/hyprpicker.sh
+- #### $wofi_beats = $scriptsDir/wofi-beats
+- #### $test = notify-send --urgency=normal --icon=firedragon -t 555 -e "test..." "⌛0% [ █ █ █ █ █ █ █ ] 100%"
