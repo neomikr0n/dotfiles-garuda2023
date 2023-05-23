@@ -129,3 +129,5 @@ My **Hyprland dotfiles** on (Garuda)[https://garudalinux.org/], (arch btw), Linu
 | <kbd>SUPER mouse_up</kbd> | workspace | e-1 |
 | <kbd>SUPER g</kbd> | togglegroup |  |
 | <kbd>SUPER tab</kbd> | focusUrgentOrLast     |  |
+
+
