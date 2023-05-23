@@ -139,15 +139,15 @@ My **Hyprland dotfiles** on (Garuda)[https://garudalinux.org/], (arch btw), Linu
 - $scriptsDir = ~/.dotfiles/bin
 - $soundsDir = ~/.config/hypr/sounds
 - $picsDir = ~/Pictures/
-- #### $configDir = ~/.config/hypr/configs/
-- #### $files = dolphin
-- #### $browser = firedragon
-- #### $music = spotify
-- #### $term = foot
-- #### $menu = $scriptsDir/menu
-- #### $volume = $scriptsDir/volume
-- #### $exit = $scriptsDir/exit
-- #### $screenshot = $scriptsDir/grimblast
-- #### $colorpicker = $scriptsDir/hyprpicker.sh
-- #### $wofi_beats = $scriptsDir/wofi-beats
-- #### $test = notify-send --urgency=normal --icon=firedragon -t 555 -e "test..." "⌛0% [ █ █ █ █ █ █ █ ] 100%"
+- $configDir = ~/.config/hypr/configs/
+- $files = dolphin
+- $browser = firedragon
+- $music = spotify
+- $term = foot
+- $menu = $scriptsDir/menu
+- $volume = $scriptsDir/volume
+- $exit = $scriptsDir/exit
+- $screenshot = $scriptsDir/grimblast
+- $colorpicker = $scriptsDir/hyprpicker.sh
+- $wofi_beats = $scriptsDir/wofi-beats
+- $test = notify-send --urgency=normal --icon=firedragon -t 555 -e "test..." "⌛0% [ █ █ █ █ █ █ █ ] 100%"
