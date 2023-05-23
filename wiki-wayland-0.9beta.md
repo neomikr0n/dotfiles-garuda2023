@@ -1485,6 +1485,12 @@ bindsym {
 Ctrl+$mod+Alt+t exec konsole
 }
 ```
+
+# **[watershot](https://github.com/Kirottu/watershot)**
+watershot -c path ~/Pictures/Screenshots/ss_$Y-$M-$D_$h-$m_$s_garuda.png directory ~/Pictures/Screenshots/ss_$Y-$M-$D_$h-$m_$s_garuda.png
+
+
+
 # **[ksnip](https://github.com/ksnip/ksnip)**
 ss_$Y-$M-$D_$h-$m_$s_garuda.png
 
@@ -4301,6 +4307,41 @@ neofetch | lolcat -a -d 1 -s 999 -t
 - ## [pfetch]: 
 pfetch | lolcat -a -d 1 -s 999 -t
 
+- ## [Hyprkeys](https://github.com/hyprland-community/Hyprkeys): 
+
+A simple, scriptable keybind retrieval utility for Hyprand
+
+  1. Download Go. `yay go1`
+  2. `cd ~/Documents/forks/`
+  3. Clone this repository with `git clone https://github.com/notashelf/hyprkeys`
+  4. Install the application with `make build && sudo make install`
+  5. `hyprkeys -b -m`
+
+```
+Usage:
+hyprkeys [flags]
+hyprkeys [command]
+
+Available Commands:
+completion  Generate the autocompletion script for the specified shell
+help        Help about any command
+version     Prints current verison
+
+Flags:
+-a, --auto-start            Show autostarting programs
+-b, --binds                 output binds
+-l, --comments              Show comments in output
+-c, --config-file string    path to your hyprland config
+-f, --filter-binds string   get binding where command or dispatcher contains given string
+-t, --from-ctl              get binds from ctl
+-h, --help                  help for hyprkeys
+-j, --json                  Output in json
+-k, --keywords              Show keywords
+-m, --markdown              Output in markdown
+-o, --output string         path to output file
+-r, --raw                   Output in plain text
+-v, --variables             Show variables
+```
 
 - ## [showmethekey](https://github.com/AlynxZhou/showmethekey): 
 gui only works for mouse, cli works for keyboard also:
