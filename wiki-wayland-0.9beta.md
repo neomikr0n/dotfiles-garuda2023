@@ -199,15 +199,16 @@ KERNEL=="hidraw*", ATTRS{idVendor}=="1462", ATTRS{idProduct}=="3fa4", GROUP="plu
 sudo udevadm control --reload-rules
 
 3. ## Compile
-
+```
 cd ~/Documents/forks/
+sudo rm -r msigd/
 git clone https://github.com/couriersud/msigd.git
+cd msigd/
 make TARGETOS=arch
-profit?
-
+```
 libtool --finish /usr/lib
 
-4. ## Errors?
+1. ## Errors?
 
 - save them to a external file
 make TARGETOS=arch &> out
@@ -215,7 +216,11 @@ make TARGETOS=arch &> out
 - diting makefile 
 changing "-lhidapi" to "lhidapi-hidraw" or "lhidapi-libusb" 
 
-
+- clone a specific branch:
+```
+git branch -a
+git clone -b 51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw https://github.com/couriersud/msigd.git
+```
 
 > # **[foot](https://codeberg.org/dnkl/foot)**
 
