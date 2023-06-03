@@ -4778,6 +4778,8 @@ sudo palera1n -f
 ```
 Once the device boots up, open the palera1n loader app and tap Install. After a bit of time, you'll be prompted to respring and Sileo should be on your home screen.
 
+	-c, --setup-fakefs			Setup fakefs
+	-f, --fakefs 				    Boots fakefs
 
 [EXAMPLES](https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.1/palera1n.1.html)
 ```
@@ -4847,7 +4849,7 @@ iOS/iPadOS 15.0-16.3.1 arm64 jailbreaking tool
 
 ✔️ **resources**:
 
-httpcs://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
+https://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
 
 https://www.reddit.com/r/jailbreak/comments/11mt9sv/discussion_1631_tweak_compatibility_list/
 
@@ -4932,7 +4934,7 @@ env SDL_VIDEODRIVER,wayland
 env GDK_BACKEND,"wayland,x11"
 env CLUTTER_BACKEND,wayland
 ```
-
+ 
 
 ---
 [How to one-line with & ?](https://www.reddit.com/r/bash/comments/12xuacc/how_to_oneline_with/)
