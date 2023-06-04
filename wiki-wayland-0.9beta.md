@@ -4809,14 +4809,15 @@ palera1n -n
 Usage: palera1n [-cCdDEfhIlLnOpRsSvV] [-e boot arguments] [-k Pongo image] [-o overlay file] [-r ramdisk file] [-K KPF file] [-i checkra1n file]
 Copyright (C) 2023, palera1n team, All Rights Reserved.
 
-iOS/iPadOS 15.0-16.3.1 arm64 jailbreaking tool
+iOS/iPadOS 15.0-16.5 arm64 jailbreaking tool
 
-	--version				Print version
+  	--version				Print version
 	--force-revert				Remove jailbreak
 	-B, --setup-partial-fakefs		Setup partial fakefs
 	-c, --setup-fakefs			Setup fakefs
+	-C, --clean-fakefs			Clean fakefs
 	-d, --demote				Demote
-	-D, --dfuhelper			Exit after entering DFU
+	-D, --dfuhelper				Exit after entering DFU
 	-e, --boot-args <boot arguments>	XNU boot arguments
 	-E, --enter-recovery			Enter recovery mode
 	-f, --fakefs 				Boots fakefs
@@ -4834,13 +4835,13 @@ iOS/iPadOS 15.0-16.3.1 arm64 jailbreaking tool
 	-r, --override-ramdisk <file>		Override ramdisk
 	-R, --reboot-device			Reboot connected device in normal mode
 	-s, --safe-mode				Enter safe mode
-	-S, --no-colors			Disable colors on the command line
+	-S, --no-colors				Disable colors on the command line
 	-v, --debug-logging			Enable debug logging
 		This option can be repeated for extra verbosity.
 	-V, --verbose-boot			Verbose boot
 ```
   
-  To hard reset an iPhone X, follow these steps:
+##  To hard reset an iPhone X, follow these steps:
     ```
     Press and quickly release the Volume Up button.
     Press and quickly release the Volume Down button.
