@@ -4776,7 +4776,7 @@ sudo usbmuxd -f -p
 sudo palera1n -fc
 sudo palera1n -f
 ```
-Once the device boots up, open the palera1n loader app and tap Install. After a bit of time, you'll be prompted to respring and Sileo should be on your home screen.
+Once the device boots up (3min for "-fc" + another 20s "-f" + 1min for palera1n icon on homescreen), open the palera1n loader app and tap Install. After a bit of time, you'll be prompted to respring and Sileo should be on your home screen.
 
 	-c, --setup-fakefs			Setup fakefs
 	-f, --fakefs 				    Boots fakefs
@@ -4857,16 +4857,27 @@ https://www.reddit.com/r/jailbreak/comments/11mt9sv/discussion_1631_tweak_compat
 https://www.reddit.com/r/jailbreak
 
 
+sileo://source/https://sparkdev.me/
+sileo://source/https://miro92.com/repo
+sileo://source/https://cokepokes.github.io/
+sileo://source/https://ios.jjolano.me
+sileo://source/https://creaturecoding.com/repo/
+sileo://source/https://havoc.app/
+sileo://source/
+sileo://source/http://apt.thebigboss.org/repofiles/cydia/
+
 ✔️ **iOS 16.1.2 FREE**:
-- SnowBoard
+- [SnowBoard](https://www.ios-repo-updates.com/repository/sparkdev/package/com.spark.snowboard/)
 - [uyou](https://github.com/MiRO92/uYou-for-YouTube)
-- AppStore++
-- Shadow https://ios.jjolano.me/
+- [AppStore++](https://www.ios-repo-updates.com/repository/cokepokes/package/com.cokepokes.appstoreplusplus/)
+- [FloatingDockXVI](https://www.ios-repo-updates.com/repository/havoc/package/com.nahtedetihw.floatingdockxvi/) 
+- [Shuffle](https://www.ios-repo-updates.com/repository/creaturecoding/package/com.creaturecoding.shuffle/) - configuration revamped *-*
+- [Shadow](https://www.ios-repo-updates.com/repository/jjolano/package/me.jjolano.shadow/) 
 - [cask3](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.cask3/) - Animated table scrolling - Orion Runtime (iOS 14 - 16)
 - [Locker](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.p2kdev.locker/) Enable passcode for A11!
-- Shuffle - configuration revamped *-*
+
 - ShakeItOff - shake the phone to activate funtions
-- FloatingDockXVI 
+[EQE](https://www.ios-repo-updates.com/repository/bigboss/package/com.r333d.eqe/)
 
 
 **iOS 16.1.2 $$$**
