@@ -1970,6 +1970,11 @@ W	Decrease the picture cropping for the currently playing media.
 V	Either display or hide subtitles for the currently playing media.
 J	Select the next subtitle file available.
 
+# [EDGE]() (from Microsoft)
+- JetBrainsMono Nerd Font
+
+
+
 # [FIREDRAGON]() (or firefox)
 
 ## General
@@ -5068,8 +5073,73 @@ Packages (1) mcfly-0.8.0-1
 ---
 
 stuck on emergency mode:
+
+sudo blkid
+
 comment some lines on fstab, then restart
 ```
 sudo nano /etc/fstab
 reboot
 ```
+
+-----------------
+
+
+TLDR;
+
+    Get a list of the offending files (copy and paste pacman's output into a file).
+    Use awk to strip out everything but the file paths into a new list.
+    Use while to move the offending files out of the way, based on the list.
+    Run sudo pacman -Syu again.
+
+    edited to add TLDR and fix typos
+
+Although I'm pretty sure I haven't been doing anything stupid, I've had this problem maybe every other time I've tried to update since I've been using Manjaro; three or four times within two months. Point being, this fixes it.
+
+Get a list of your files.
+
+When the update fails in your terminal window, you get this:
+
+error: failed to commit transaction (conflicting files)
+evilfile: /usr/bin/evilfile exists in filesystem
+libx000: /usr/lib/libx000.so.f.u.loser exists in filesystem
+accountsservice: /usr/share/locale/ru/LC_MESSAGES/accounts-service.mo.yu.dnt.evn.spk.russian exists in filesystem
+
+... and a lot more.
+
+    Copy the output from the terminal, and put it in a file. I used nano, and named mine "files," as in ~/work/files.
+
+    Strip extraneous info:
+
+    cat files | awk '{print $2}' >> ~/work/files2
+
+    This takes the second "word" from each line and prints it to files2.
+
+Deal with the files
+
+    You could delete them, move them, or rename them.
+
+    If something breaks, it's easiest to fix if we break it by moving it instead of deleting or renaming it:
+    mkdir ~/work/oldfiles
+    while read -r file; do sudo mv -- "$file" ~/work/oldfiles/$file; done < files2
+
+    If you really want to delete them, which there is no reason to do (DANGER DANGER): while read -r file; do sudo rm -- "$file"; done < files2
+
+Updating
+
+    To get --overwrite to work, which we need to do to get pacman to realize the package isn't broken, you need the following syntax:
+
+    sudo pacman -S package_name --overwrite /location/of/thing
+        In my case: sudo pacman -S libidn2 --overwrite /usr/lib/libidn2.so.0
+        Following the example: sudo pacman -S libx000 --overwrite /usr/lib/libx000.so.f.u.loser
+
+    I had a cute problem where if I deleted the libidn2.so.0 symlink, nothing worked, and when I put it back, I got the "exists on filesystem" error. The above, with --overwrite, is all that worked for me.
+
+    Finally:
+
+    sudo pacman -Syu
+
+----------------
+
+pacman -Qkk linux-firmware
+sudo pacman -Qnq | sudo pacman -S -
