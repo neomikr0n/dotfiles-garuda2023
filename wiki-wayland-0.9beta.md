@@ -5067,3 +5067,9 @@ Packages (1) mcfly-0.8.0-1
 
 ---
 
+stuck on emergency mode:
+comment some lines on fstab, then restart
+```
+sudo nano /etc/fstab
+reboot
+```
