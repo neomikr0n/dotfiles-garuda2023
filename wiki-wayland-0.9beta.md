@@ -2471,6 +2471,7 @@ vi /system/build.prop
 vi /system/vendor/build.prop
 
  The Vi editor has two modes: **Command** and **Insert**. When you first open a file with Vi, you are in Command mode. Command mode means you can use keyboard keys to navigate, delete, copy, paste, and do a number of other tasks—except entering text. ***To enter Insert mode, press i*** .
+
 ```
     3. Copy and paste CS-v(Control+Shift+v) this to /system/build.prop and /system/vendor/build.prop
 ```
@@ -2491,7 +2492,7 @@ ro.dalvik.vm.isa.arm64=x86_64
 ro.zygote=zygote64_32
 ```
 
-To save a file in Vim / vi, press Esc key, type :w and hit Enter key. 
+To save a file in Vim / vi, press Esc key, type :wq and hit Enter key. 
 
     Download [libhoudini](https://github.com/niizam/Genymotion_A11_libhoudini/releases/download/1.0/system.zip) from releases page.
     Drag and drop system.zip to emulator
