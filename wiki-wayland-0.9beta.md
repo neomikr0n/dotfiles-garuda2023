@@ -2470,6 +2470,8 @@ mount -o rw,remount /
 vi /system/build.prop
 vi /system/vendor/build.prop
 
+
+
  The Vi editor has two modes: **Command** and **Insert**. When you first open a file with Vi, you are in Command mode. Command mode means you can use keyboard keys to navigate, delete, copy, paste, and do a number of other tasks—except entering text. ***To enter Insert mode, press i*** .
 
 ```
@@ -2498,7 +2500,27 @@ To save a file in Vim / vi, press Esc key, type :wq and hit Enter key.
     Drag and drop system.zip to emulator
     Restart the emulator
 
+>## TROUBLESHOT !
 
+houdini --version
+[4774] Houdini version: 11.0.1b_y.38765.m
+
+
+getprop | grep -i abi
+[init.svc.genymotion-abi-setup]: [stopped]
+[init.svc_debug_pid.genymotion-abi-setup]: []
+[ro.boottime.genymotion-abi-setup]: [2278406019]
+[ro.odm.product.cpu.abilist]: [x86_64,x86]
+[ro.odm.product.cpu.abilist32]: [x86]
+[ro.odm.product.cpu.abilist64]: [x86_64]
+[ro.product.cpu.abi]: [x86_64]
+[ro.product.cpu.abi2]: [armeabi-v7a]
+[ro.product.cpu.abilist]: [x86_64,x86,arm64-v8a,armeabi-v7a,armeabi]
+[ro.product.cpu.abilist32]: [x86,armeabi-v7a,armeabi]
+[ro.product.cpu.abilist64]: [x86_64,arm64-v8a]
+[ro.vendor.product.cpu.abilist]: [x86_64,x86,arm64-v8a,armeabi-v7a,armeabi]
+[ro.vendor.product.cpu.abilist32]: [x86,armeabi-v7a,armeabi]
+[ro.vendor.product.cpu.abilist64]: [x86_64,arm64-v8a]
 
 
 >## RUN !
@@ -5084,63 +5106,35 @@ reboot
 ```
 
 -----------------
+    sudo mvc -rp /usr/lib/firmware/yamaha/yss225_registers.bin.xz /run/media/n30/nvme_chivos/backup2023-07-01-garudaupdate/
+    cp: cannot create regular file No such file or directory
 
 
-TLDR;
+[pacman "exists on filesystem" error for linux-firmware](https://unix.stackexchange.com/questions/240252/pacman-exists-on-filesystem-error/505061);
+    ```
+    garuda-update | sudo tee ~/Documents/garudaupdate-errors.txt
+    
+    cat ~/Documents/garudaupdate-errors.txt | awk '{print $2}' >> ~/Documents/garudaupdate-errors-lite.txt
+    
+    mkdir /run/media/n30/nvme_chivos/backup2023-07-01-garudaupdate
 
-    Get a list of the offending files (copy and paste pacman's output into a file).
-    Use awk to strip out everything but the file paths into a new list.
-    Use while to move the offending files out of the way, based on the list.
-    Run sudo pacman -Syu again.
+    while read -r file; do sudo mv -- -R "$file" /run/media/n30/nvme_chivos/backup2023-07-01-garudaupdate/$file; done < ~/Documents/garudaupdate-errors-lite.txt
 
-    edited to add TLDR and fix typos
+    while read -L file; sudo rm -- $file; end < ~/Documents/garudaupdate-errors-lite.txt
+    ```
 
-Although I'm pretty sure I haven't been doing anything stupid, I've had this problem maybe every other time I've tried to update since I've been using Manjaro; three or four times within two months. Point being, this fixes it.
+    Wich is:
+    - Get a list of the offending files (copy and paste pacman's output into a file).
+    - Use awk to strip out everything but the file paths into a new list.
+    - Use while to move the offending files out of the way, based on the list.
+    - Run sudo pacman -Syu again.
 
-Get a list of your files.
+while read -L file; sudo cp -rp -- $file /run/media/n30/nvme_chivos/backup2023-07-01-garudaupdate$file; end < ~/Documents/garudaupdate-errors-lite.txt
 
-When the update fails in your terminal window, you get this:
-
-error: failed to commit transaction (conflicting files)
-evilfile: /usr/bin/evilfile exists in filesystem
-libx000: /usr/lib/libx000.so.f.u.loser exists in filesystem
-accountsservice: /usr/share/locale/ru/LC_MESSAGES/accounts-service.mo.yu.dnt.evn.spk.russian exists in filesystem
-
-... and a lot more.
-
-    Copy the output from the terminal, and put it in a file. I used nano, and named mine "files," as in ~/work/files.
-
-    Strip extraneous info:
-
-    cat files | awk '{print $2}' >> ~/work/files2
-
-    This takes the second "word" from each line and prints it to files2.
-
-Deal with the files
-
-    You could delete them, move them, or rename them.
-
-    If something breaks, it's easiest to fix if we break it by moving it instead of deleting or renaming it:
-    mkdir ~/work/oldfiles
-    while read -r file; do sudo mv -- "$file" ~/work/oldfiles/$file; done < files2
-
-    If you really want to delete them, which there is no reason to do (DANGER DANGER): while read -r file; do sudo rm -- "$file"; done < files2
-
-Updating
-
-    To get --overwrite to work, which we need to do to get pacman to realize the package isn't broken, you need the following syntax:
-
-    sudo pacman -S package_name --overwrite /location/of/thing
-        In my case: sudo pacman -S libidn2 --overwrite /usr/lib/libidn2.so.0
-        Following the example: sudo pacman -S libx000 --overwrite /usr/lib/libx000.so.f.u.loser
-
-    I had a cute problem where if I deleted the libidn2.so.0 symlink, nothing worked, and when I put it back, I got the "exists on filesystem" error. The above, with --overwrite, is all that worked for me.
-
-    Finally:
-
-    sudo pacman -Syu
+    
+pacman -Qkk linux-firmware
+sudo pacman -Qnq | sudo pacman -S -
 
 ----------------
 
-pacman -Qkk linux-firmware
-sudo pacman -Qnq | sudo pacman -S -
+
