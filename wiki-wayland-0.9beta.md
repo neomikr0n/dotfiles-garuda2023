@@ -1104,6 +1104,17 @@ sudo nano /etc/fstab
 UUID=98265bf8-8c98-4a94-b708-c150a40606b3 /run/media/n30/BLACKY01 ext4 defaults 0 0
 UUID=cf42ea71-973a-47cd-ab6e-7e0e167fa934 /run/media/n30/nvme_chivos ext4 defaults 0 0
 
+UUID=DEBCEBE1-9485-4DC0-8CDE-CE87F968D1F6 /run/media/n30/chivos_4t ext4 defaults 0 0
+
+GPT PMBR size mismatch (4294967294 != 7814037167) will be corrected by write.
+Disk /dev/sda: 3.64 TiB, 4000787030016 bytes, 7814037168 sectors
+Disk model: WDC WD42PURZ-85B
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: DEBCEBE1-9485-4DC0-8CDE-CE87F968D1F6
+
 ## 5. We always want to test the fstab before rebooting (an incorrect fstab can render a disk unbootable).  To test do:
 
 findmnt --verify

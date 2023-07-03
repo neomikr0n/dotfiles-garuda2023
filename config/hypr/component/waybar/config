@@ -1,9 +1,9 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 10, // Waybar height (to be removed for auto height)
-    "width": 3400, // Waybar width FOR WIDESCREEN 3440pX1440p
-    "spacing": 4, // Gaps between modules (4px)
+    //"height": 10, // Waybar height (to be removed for auto height)
+    "width": 3466, // Waybar width FOR WIDESCREEN 3440pX1440p
+    "spacing": 3, // Gaps between modules (4px)
     "margin-bottom":-22,
     // "margin-left":25,
     // "margin-right":25,
@@ -73,7 +73,7 @@
     // https://github.com/ErikReider/SwayNotificationCenter
     "custom/notification": {
         "tooltip": false,
-        "format": " <span font='12' rise='+5000'>{icon}</span><span font='14' rise='+3000'><sup>{}</sup></span>     ",
+        "format": " <span font='12' rise='+3333'>{icon}</span><span font='14' rise='+3000'><sup>{}</sup></span>     ",
         "format-icons": {
           "notification": "<span foreground='red'><sup></sup></span>",
           "none": "",
@@ -116,12 +116,13 @@
 //   }
 
 "hyprland/window": {
-    "format": "{}"
+    //"format": "{}"
+    "format": "<span font='9' rise='-4444'>{}</span>"
 },
 
 // CUSTOM  Garuda Sway modules ////////////////
     "custom/garuda-update": {
-        "format": "<span font='22'></span> <span font='9' rise='+4444'>{} </span>",   //   
+        "format": "<span font='25'></span> <span font='10' rise='+4444'>{} </span>",   //   
         // "restart-interval": 600,                     // 600=every 10 minutes.
         "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and details on tooltip
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
@@ -333,8 +334,9 @@
 
     },
     "tray": {
+        "format": "<span ></span>",
         "show-passive-items": true,
-        "icon-size": 18,
+        "icon-size": 19,
         "spacing": 10
         // "margin-right":25
 
@@ -344,13 +346,13 @@
         //"tooltip-format": "{:%Y %B}\n<tt>{calendar}</tt>",
         "tooltip-format": "<span font='9'>{:%Y %B}\n</span><tt>{calendar}</tt>",
         "interval": 60,
-        "format": "<span font='12' font-weight=\"700\">{:%I:%M}</span>",
+        "format": "<span font='12' font-weight=\"888\">{:%I:%M}</span>",
         "max-length": 10
     },
 
     "cpu#percentage": {
         "interval":2,
-        "format": "<span font='9' color=\"#e78a4e\">力 CPU</span> <span font='9'>{usage}%</span>"
+        "format": "<span font='9' rise='999' color=\"#e78a4e\">力 CPU</span> <span font='10' rise='777'>{usage}%</span>"
     },
 
     "cpu": {
@@ -411,10 +413,10 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "interval":2,
         "format-wifi": "",
-        "format-ethernet": "<span font='16'></span>", 
+        "format-ethernet": "<span font='17'></span>", 
         // <span rise='4444'> | {bandwidthDownBits}  | {bandwidthUpBits}  </span>"
         "tooltip-format-ethernet": " Connected Ethernet!!  :D",
-        "format-disconnected": "<span font='11'></span>",
+        "format-disconnected": "<span font='17'></span>",
 //        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
 //        "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "⚠ Disconnected ⚠",
@@ -432,8 +434,8 @@
         //"format-bluetooth": "{volume}% {icon} {format_source}",
         //"format-bluetooth-muted": " {icon} {format_source}",
         //"format-source-muted": "<span font='23'>婢</span>",
-        "format": "<span font='17'>{icon}</span> <span font='9' rise='2777'> {volume}%</span>",
-        "format-muted": "<span font='15'>婢</span>",    // 
+        "format": "<span font='17'>{icon}</span> <span font='10' rise='1900'>{volume}%</span>",
+        "format-muted": "<span font='17'>婢</span>",    // 
         "scroll-step": 5,       // can be a float, e.g. 10%, 20%.
 
         "format-icons": {
@@ -483,7 +485,7 @@
     // https://github.com/angelofallars/dotfiles
     "clock#date": {
         "tooltip-format": "<span rise=\"-12pt\"><big>{:%Y B}</big>\n<tt><big>{calendar}</big></tt></span>",
-        "format": "<span color=\"#f53c3c\" rise=\"-1.5pt\"></span><span color=\"#11111b\" font=\"10\" font-weight=\"700\">{:   %B %d, %A}</span>"
+        "format": "<span color=\"#f53c3c\" rise=\"-1.5pt\"></span><span color=\"#11111b\" font=\"10\" font-weight=\"777\">{: %B %d, %A}</span>"
     },
 
     "wlr/taskbar": { // The taskbar module displays the currently open applications. This module requires a compositor that implements the foreign-toplevel-manager interface.
@@ -497,7 +499,7 @@
         "markup": true,
         "ignore-list": [
            "kitty"
-        ],
+        ]
     },
     "custom/spotify-metadata": {
         // https://github.com/ldelossa/dotfiles/blob/master/config/waybar/config
@@ -510,6 +512,6 @@
         "on-scroll-up": "~/.config/hypr/component/waybar/ldelossa-custom/spotify/controls.sh next",
         "on-scroll-down": "~/.config/hypr/component/waybar/ldelossa-custom/spotify/controls.sh previous",
         "signal": 5,
-        "smooth-scrolling-threshold": 1.0,
-    },
+        "smooth-scrolling-threshold": 1.0
+    }
 }
