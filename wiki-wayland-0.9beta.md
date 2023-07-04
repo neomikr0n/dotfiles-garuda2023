@@ -1074,12 +1074,11 @@ TerminalEmulator=terminal
 apfs-fuse -o allow_other /dev/sda2 /media/<your userame>/macos
 
 # MOUNTING NVME SSD BLACKY
-
 ---
 
 ## 1. list down all the file systems by using this command
 
-lsblk
+`lsblk -l`
 
 ## 2. let's do this then: sudo mount NameOfFileSystem MountPoint
 
@@ -1088,8 +1087,7 @@ sudo umount /dev/nvme0n1p1
 
 ## 3. mount it at the startup
 
-quick check for UUID:
-
+### Or use these:
 cat -n /etc/fstab
 
 sudo fdisk -l
@@ -1097,14 +1095,65 @@ sudo fdisk -l
 sudo /sbin/tune2fs -l /dev/nvme0n1p4
 sudo /sbin/tune2fs -l /dev/nvme1n1p1
 
-## 4. let's edit it:
+### quick check for UUID:
+`ls -l /dev/disk/by-uuid/`
 
-sudo nano /etc/fstab
+lrwxrwxrwx 15 root  3 Jul 15:11  2cb20563-653d-4639-bf5e-5e29265701b6 -> ../../nvme1n1p2
+lrwxrwxrwx 10 root  3 Jul 15:11  3C8244DC82449BF0 -> ../../sdd1
+lrwxrwxrwx 15 root  3 Jul 15:11  6C74-DE17 -> ../../nvme0n1p5
+lrwxrwxrwx 10 root  3 Jul 15:11  22F0633DF0631677 -> ../../sdc1
+lrwxrwxrwx 10 root  3 Jul 15:11  67E3-17ED -> ../../sda1
+lrwxrwxrwx 10 root  3 Jul 15:11  280c85d9-c8c8-432a-b459-2f169c416f95 -> ../../sdc2
+lrwxrwxrwx 10 root  3 Jul 15:11  906E7C4B6E7C2BDA -> ../../sdd2
+*lrwxrwxrwx 10 root  3 Jul 09:18  6483-8269 -> ../../sda2*
+lrwxrwxrwx 10 root  3 Jul 15:11  78446E0B446DCC86 -> ../../sdc3
+lrwxrwxrwx 10 root  3 Jul 15:11  54737788-bb74-406c-88dc-e11b91cba5e3 -> ../../dm-0
+lrwxrwxrwx 15 root  3 Jul 15:11  aa27fbc1-e070-462d-8fee-db605f5b64c8 -> ../../nvme2n1p2
+lrwxrwxrwx 10 root  3 Jul 15:11  c2d95b30-e64e-45b6-9c68-5047eac1cff1 -> ../../dm-1
+lrwxrwxrwx 15 root  3 Jul 15:11  ca984f99-d5d8-4c8c-bf53-9408b0a19eb0 -> ../../nvme0n1p3
+lrwxrwxrwx 10 root  3 Jul 15:11  cda85eef-453b-4257-ae76-c76d6ffc5daa -> ../../sdd4
+lrwxrwxrwx 15 root  3 Jul 15:11  cf42ea71-973a-47cd-ab6e-7e0e167fa934 -> ../../nvme0n1p4
+lrwxrwxrwx 15 root  3 Jul 15:11  d42eba7e-8331-4f0c-8dcf-c6059b345be1 -> ../../nvme1n1p3
+lrwxrwxrwx 15 root  3 Jul 15:11  fb9178f5-508e-45ae-a900-61c2f9bbd6cf -> ../../nvme0n1p1
+lrwxrwxrwx 10 root  3 Jul 15:11  FE6CE0756CE029DB -> ../../sdd3
+lrwxrwxrwx 15 root  3 Jul 15:11  FE541A335419EEE1 -> ../../nvme0n1p2
+
+### very visual way:
+`lsblk -f`
+
+NAME FSTYPE FSVER LABEL                     UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
+sda                                                                                               
+├─sda1
+│    vfat   FAT32 EFI                       67E3-17ED                                             
+└─sda2
+     exfat  1.0   chivos_4t                 6483-8269                                 3.4T     7% /run/media/n30/chivos_4t
+
+
+### another option, messy tho:
+`blkid`:
+
+/dev/sda2: *LABEL="chivos_4t" UUID="6483-8269"* BLOCK_SIZE="512" TYPE="exfat" PARTUUID="ce0226f9-8128-42b0-b40c-40f416ee03f8"
+/dev/sda1: LABEL_FATBOOT="EFI" LABEL="EFI" UUID="67E3-17ED" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="EFI System Partition" PARTUUID="3c9e98ab-6bfd-4967-9d7b-aaef8edd0398"
+/dev/zram0: LABEL="zram0" UUID="39231984-0c1a-4865-b7f3-db863ab15fb2" TYPE="swap"
+
+### concise way when you know the device:
+`blkid /dev/sda2`
+/dev/sda2: LABEL="chivos_4t" UUID="6483-8269" BLOCK_SIZE="512" TYPE="exfat" PARTUUID="ce0226f9-8128-42b0-b40c-40f416ee03f8"
+
+## 4. let's edit fstab:
+`sudo nano /etc/fstab`
 
 UUID=98265bf8-8c98-4a94-b708-c150a40606b3 /run/media/n30/BLACKY01 ext4 defaults 0 0
 UUID=cf42ea71-973a-47cd-ab6e-7e0e167fa934 /run/media/n30/nvme_chivos ext4 defaults 0 0
+UUID=6483-8269       /run/media/n30/chivos_4t ext4 defaults 0 0
 
-UUID=DEBCEBE1-9485-4DC0-8CDE-CE87F968D1F6 /run/media/n30/chivos_4t ext4 defaults 0 0
+## 5. We always want to test the fstab before rebooting (an incorrect fstab can render a disk unbootable).  To test do:
+
+findmnt --verify
+systemctl daemon-reload
+
+
+## yapoa
 
 GPT PMBR size mismatch (4294967294 != 7814037167) will be corrected by write.
 Disk /dev/sda: 3.64 TiB, 4000787030016 bytes, 7814037168 sectors
@@ -1115,17 +1164,12 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 Disklabel type: gpt
 Disk identifier: DEBCEBE1-9485-4DC0-8CDE-CE87F968D1F6
 
-## 5. We always want to test the fstab before rebooting (an incorrect fstab can render a disk unbootable).  To test do:
 
-findmnt --verify
-systemctl daemon-reload
-
-AMD
+# AMD
 ---
 
-# Dealing with display
-
-# check if the kernel headers are compiled.
+Dealing with display
+check if the kernel headers are compiled.
 
 modinfo -F version amdgpu
 
@@ -1734,7 +1778,7 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
 # [vscode VISUAL STUDIO CODE]()
 
 ---
-- Configure Visual Studio code to use fish shell
+- ## Configure Visual Studio code to use fish shell
 
     Open User Settings or shortcut key `[Control + ,]`
     Copy following User Settings to configure Visual studio code to use fish shell as default:
@@ -1742,8 +1786,12 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
   `"terminal.integrated.shell.linux": "/usr/bin/fish" `
   Terminal > External
 
+- ## Changing the default path of Visual Studio Code's integrated terminal
+  go to: `Menu File → Preferences → Settings`
+  using the "Search Settings" bar across the top of the window paste or type this:  `terminal.integrated.cwd` and set whatever path you need.
 
-- Set Jetbrain Mono Font in Visual Studio Code
+
+- ## Set `Jetbrain Mono Font` in Visual Studio Code
 
   - In VS Code, use the command palette (ctrl + shift + p) to open the JSON version of the editor’s settings.
 
@@ -1754,7 +1802,7 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
     ```
   - Save the file
 
-- still not showing the propper unicode?
+- ## still not showing the propper unicode?
 
   - Try moving the files to (create the directory if it doesn't exist) on:
 
@@ -1984,7 +2032,8 @@ J	Select the next subtitle file available.
 # [EDGE]() (from Microsoft)
 - JetBrainsMono Nerd Font
 
-
+edge://flags/#enable-system-notifications
+edge://flags/#enable-force-dark
 
 # [FIREDRAGON]() (or firefox)
 
@@ -2428,7 +2477,12 @@ cd ~/Downloads/ && chmod -x genymotion-*.bin && sudo sh genymotion-*.bin
   2. login in on google
   3. download chrome & keep
 
-- Genymotion [ARM translation](https://github.com/m9rco/Genymotion_ARM_Translation) for 7.0:
+- Download custom?
+https://www.osboxes.org/android-x86/
+[ova+github](https://gist.github.com/runo280/e4be3e04c24b463b55ddf012c5cfbdc4)
+[softwareAndroid x86/x64 9.0 r2 (Pie)](https://archive.org/details/sjarb_android_9.0r2)
+
+- Genymotion [ARM translation](https://github.com/m9rco/Genymotion_ARM_Translation) for 4.3 to 9.0:
     If failure:
   1. adb shell
   2. cd /sdcard/Download/
@@ -2478,16 +2532,30 @@ How to install:
 adb shell
 su
 mount -o rw,remount /
+
+echo 'ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+ro.product.cpu.abilist64=x86_64,arm64-v8a
+ro.vendor.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+ro.vendor.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+ro.vendor.product.cpu.abilist64=x86_64,arm64-v8a
+ro.odm.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
+ro.odm.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+ro.odm.product.cpu.abilist64=x86_64,arm64-v8a
+ro.dalvik.vm.native.bridge=libhoudini.so
+ro.enable.native.bridge.exec=1
+ro.enable.native.bridge.exec64=1
+ro.dalvik.vm.isa.arm=x86
+ro.dalvik.vm.isa.arm64=x86_64
+ro.zygote=zygote64_32' | tee -a /system/build.prop >> /system/vendor/build.prop
+```
+ The Vi editor has two modes: **Command** and **Insert**. When you first open a file with Vi, you are in Command mode. Command mode means you can use keyboard keys to navigate, delete, copy, paste, and do a number of other tasks—except entering text. ***To enter Insert mode, press i*** .
+
+    3. OR Copy and paste CS-v(Control+Shift+v) this to /system/build.prop and /system/vendor/build.prop
+```
 vi /system/build.prop
 vi /system/vendor/build.prop
 
-
-
- The Vi editor has two modes: **Command** and **Insert**. When you first open a file with Vi, you are in Command mode. Command mode means you can use keyboard keys to navigate, delete, copy, paste, and do a number of other tasks—except entering text. ***To enter Insert mode, press i*** .
-
-```
-    3. Copy and paste CS-v(Control+Shift+v) this to /system/build.prop and /system/vendor/build.prop
-```
 ro.product.cpu.abilist=x86_64,x86,arm64-v8a,armeabi-v7a,armeabi
 ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
 ro.product.cpu.abilist64=x86_64,arm64-v8a
@@ -2515,7 +2583,6 @@ To save a file in Vim / vi, press Esc key, type :wq and hit Enter key.
 
 houdini --version
 [4774] Houdini version: 11.0.1b_y.38765.m
-
 
 getprop | grep -i abi
 [init.svc.genymotion-abi-setup]: [stopped]
@@ -3375,12 +3442,11 @@ firefox workrave easyeffects
 
 # Genymotion, ova, virtual machine
 
+
 Open VirtualBox on your source computer
 Right-click on the device you want to transfer and select Export to OCI...
-Desktop_Export_VD.gif
 Make sure to select the Open Virtualization Format 1.0 format and export the device
 On your target computer, open VirtualBox and select File > Import Appliance
-Import_Export_VD.gif
 Import the OVA file you exported earlier
 The imported device should then appear in Genymotion Desktop GUI.
 

@@ -20,7 +20,9 @@ openbrowser() {
   notify-send -e "Internet is available. Opening Browser :)"
   hyprctl dispatch workspace 2
   hyprctl dispatch exec [workspace 2] microsoft-edge-stable
-  hyprctl dispatch exec [workspace 1 silent] whatsapp-nativefier
+  hyprctl dispatch exec [workspace 1 silent] whatsie
+  hyprctl dispatch exec [workspace special silent] google-calendar-nativefier
+  hyprctl dispatch exec [workspace special silent] todoist-nativefier
 
 }
 
