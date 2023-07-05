@@ -1444,8 +1444,24 @@ mkdir ~/.config/hypr/themes && cd ~/.config/hypr/themes && git clone https://git
 
 cp -ri garden-hyprland-dotfiles/* $HOME/.config/
 
-# SWAY (meh)
+> # **[swayidle]()**
+exec-once= swayidle -w \
+timeout 120 'hyprctl dispatch dpms off' \
+resume 'hyprctl dispatch dpms on' \
+# before-sleep '$lock' \
+# after-resume '$test'
 
+swayidle -w timeout 1 'hyprctl dispatch dpms off' resume '
+hyprctl dispatch dpms on'
+
+[Splitting a long line in hyprland.conf config file](https://www.reddit.com/r/hyprland/comments/141nbr6/comment/jqk2ep2/?context=3)
+https://www.bing.com/search?q=backslash&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=backslash&sc=10-9&sk=&cvid=ABE58AA3398B48519C8DEEB75A8F1402&ghsh=0&ghacc=0&ghpl=
+https://www.thesaurus.com/e/grammar/slash/
+
+hyprland [Line 1074] Compositor doesn't support idle protocol
+
+
+# SWAY (meh)
 ---
 ```
 sudo pacman -S sway sway-git-debug sway-launcher-desktop swaybg swayidle swaylock-effects garuda-sway-settings autotiling grimshot i3status-rust-git nwg-bar nwg-dock nwg-drawer nwg-launchers nwg-menu wf-recorder swayidle swaybg
@@ -1485,57 +1501,32 @@ sudo pacman -S sway rofi waybar luajit slurp grim light playerctl pulseaudio-uti
 # +---------------------------+
 ```
 # KP_Begin	84	65437	The center key (same key as 5) on the keypad
-
 # KP_Decimal	91	65439	Decimal (.) on the keypad
-
 # KP_Delete	91	65439	delete on the keypad
-
 # KP_Divide	112	65455	/ on the keypad
-
 # KP_Down	88	65433	↓ on the keypad
-
 # KP_End	87	65436	end on the keypad
-
 # KP_Enter	108	65421	enter on the keypad
-
 # KP_Home	79	65429	home on the keypad
-
 # KP_Insert	90	65438	insert on the keypad
-
 # KP_Left	83	65430	← on the keypad
-
 # KP_Multiply	63	65450	× on the keypad
-
 # KP_Next	89	65435	PageDown on the keypad
-
 # KP_Prior	81	65434	PageUp on the keypad
-
 # KP_Right	85	65432	→ on the keypad
-
 # KP_Subtract	82	65453	- on the keypad
-
 # KP_Up	80	65431	↑ on the keypad
-
 # XF86Calculator
-
 ### Key bindings (REMEMBER)
-
 # $mod+Shift+c reload
-
 # Alt+space exec $menu
-
 # $mod+tab workspace back_and_forth
-
 # CUSTOM:
-
-#
 #
 exec swayidle -w
 timeout 2 'swaymsg "output * dpms off"'
 resume 'swaymsg "output * dpms on"'
 bindsym {
-
-
 # Konsole:
 Ctrl+$mod+Alt+t exec konsole
 }
@@ -4971,18 +4962,68 @@ sileo://source/https://havoc.app/
 sileo://source/
 sileo://source/http://apt.thebigboss.org/repofiles/cydia/
 
+https://onejailbreak.com/blog/best-cydia-repos/#:~:text=Chariz%20Repository%20Chariz%20repo%20is%20a%20great%20Cydia,can%20find%20here%20both%2C%20free%20and%20paid%20packages.
+sileo://source/https://repo.dynastic.co/
+sileo://source/https://ipogo.app/repo/
+sileo://source/https://repo.twickd.com/
+sileo://source/https://julioverne.github.io/
+sileo://source/https://repo.pixelomer.com/
+sileo://source/https://haoict.github.io/cydia/
+sileo://source/https://cydia.ichitaso.com/
+
+*cracked-cydia-repositories*
+https://onejailbreak.com/blog/best-cydia-repos/#cracked-cydia-repositories
+sileo://source/https://rejail.ru/
+sileo://source/http://repo.hackyouriphone.org/
+sileo://source/https://cydia.kiiimo.org/
+sileo://source/https://julio.hackyouriphone.org
+sileo://source/https://apt.pandahelp.vip/
+sileo://source/https://paxcex.github.io
+sileo://source/https://arab-cydia.com/repo/
+sileo://source/
+
+*altstore*
+step1 : just sign in altstore account in ios device (which you're using for sideloading apps)
+step2 : then delete older altstore and altstore sideloaded apps
+step3 : then install altstore and open altstore signin with the account that you're using for sideload
+step4 : after the installation and sign in of altstore you can install and refresh apps
+step 5: if you want to change your apple account you can change now ( older apple account / whichever account)
+
+
+[SpotilifeC](https://github.com/SpotCompiled/SpotilifeC/releases)
+[IPAspotifyhifi-8.8.26-zxcvbn.ipa](https://appdb.to/app/cydia/1900001145)
+
+
+✔️ **test**:
+
+[ArtFull](https://www.ios-repo-updates.com/repository/havoc/package/com.nahtedetihw.artfull/)
+Make the Apple Music app look like iOS 17!
+
+
+
+
 ✔️ **iOS 16.1.2 FREE**:
+- [Cylinder Reborn](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.cylinder/) 
 - [SnowBoard](https://www.ios-repo-updates.com/repository/sparkdev/package/com.spark.snowboard/)
 - [uyou](https://github.com/MiRO92/uYou-for-YouTube)
+- [Filza File Manager](https://www.ios-repo-updates.com/repository/bigboss/package/com.tigisoftware.filza/)
 - [AppStore++](https://www.ios-repo-updates.com/repository/cokepokes/package/com.cokepokes.appstoreplusplus/)
 - [FloatingDockXVI](https://www.ios-repo-updates.com/repository/havoc/package/com.nahtedetihw.floatingdockxvi/) 
 - [Shuffle](https://www.ios-repo-updates.com/repository/creaturecoding/package/com.creaturecoding.shuffle/) - configuration revamped *-*
+- [AppSync Unified](https://www.ios-repo-updates.com/repository/karen-s-repo/package/ai.akemi.appsyncunified/)
+- [Velvet 2](https://www.ios-repo-updates.com/repository/chariz/package/com.noisyflake.velvet2/) A fully customizable notification experience
+- [AltStore](https://www.ios-repo-updates.com/repository/ichitaso-repository/package/com.ichitaso.altstore/) Jailbroken version of AltStore with on device signing feauture.
+- [Felicity Pro](https://www.ios-repo-updates.com/repository/havoc/package/com.xandesign.felicitypro/) THEME a more colorful & detailed look for iOS
+- [SleepyTime](https://www.ios-repo-updates.com/repository/sparkdev/package/com.spark.sleepytime/) Displays the time until alarms in the stock iOS 'Clock' app.
+- [TapVideoConfig](https://www.ios-repo-updates.com/repository/poomsmart/package/com.ps.tapvideoconfig/) Change video configuration directly in Camera app.
+- [VolSkip11](https://www.ios-repo-updates.com/repository/rob311-s-beta-repo/package/com.rob311.volskip11/) Skip tracks by holding the Volume buttons. Play/Pause by holding both Volume Buttons
+- 
+
 - [Shadow](https://www.ios-repo-updates.com/repository/jjolano/package/me.jjolano.shadow/) 
 - [cask3](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.cask3/) - Animated table scrolling - Orion Runtime (iOS 14 - 16)
 - [Locker](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.p2kdev.locker/) Enable passcode for A11!
 
 - ShakeItOff - shake the phone to activate funtions
-[EQE](https://www.ios-repo-updates.com/repository/bigboss/package/com.r333d.eqe/)
 
 
 **iOS 16.1.2 $$$**
@@ -4990,7 +5031,9 @@ sileo://source/http://apt.thebigboss.org/repofiles/cydia/
 $4 [DYNAMICPENINSULA](https://www.ios-repo-updates.com/repository/bigboss/package/net.limneos.dynamicpeninsula/)
 $3 [WhoozItPro](https://www.ios-repo-updates.com/repository/iarrays/package/com.iarrays.whoozit/)
 $3 [CheckL0ck](https://www.ios-repo-updates.com/repository/havoc/package/com.foxfort.checkl0ck/)
-
+$1 [SixteenMusic](https://www.ios-repo-updates.com/repository/havoc/package/com.nahtedetihw.sixteenmusic/)
+$4 [Snapper 3](https://www.ios-repo-updates.com/repository/havoc/package/com.jontelang.snapper3/)
+$2 [ChromaFlow](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.chromaflow/)
 
 
 **just ok :|**
@@ -5009,6 +5052,7 @@ Carrierizer2 - Custom Text/Options for your Carrier! -
 
 
 **nope**
+[EQE](https://moreinfo.thebigboss.org/moreinfo/depiction.php?file=eqe2Dp) System-wide parametric equalizer (and more) Compatible with iOS 7-14 :'(
 YellowPages - not working :(
 betterccxi
 A-Bypass
