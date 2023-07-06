@@ -2020,6 +2020,11 @@ W	Decrease the picture cropping for the currently playing media.
 V	Either display or hide subtitles for the currently playing media.
 J	Select the next subtitle file available.
 
+# [Brave]() (from Microsoft)
+brave://flags/#enable-system-notifications
+brave://flags/#enable-force-dark *simple HSL*
+
+
 # [EDGE]() (from Microsoft)
 - JetBrainsMono Nerd Font
 
