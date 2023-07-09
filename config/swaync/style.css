@@ -183,3 +183,20 @@
 	border-bottom-right-radius:	0px;
 	border-top-right-radius:	30px;
 }
+
+/* hhttps://github.com/Alexays/Waybar/wiki/Module:-Hyprland#window */
+#window {
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+window#waybar.foot {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+window#waybar.chromium {
+  background-color: #eeeeee;
+  color: #000000;
+}

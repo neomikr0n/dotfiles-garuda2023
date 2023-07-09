@@ -118,6 +118,10 @@
 "hyprland/window": {
     //"format": "{}"
     "format": "<span font='9' rise='-4444'>{}</span>"
+    // "rewrite": {
+    //     "(.*) - YouTube - Brave": "🌎 $1",
+    //     "(.*) - Mozilla Firefox": "🌎 $1",
+    //     "(.*) - fish": "> [$1]"
 },
 
 // CUSTOM  Garuda Sway modules ////////////////

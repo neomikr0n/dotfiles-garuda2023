@@ -42,6 +42,7 @@ done
 closing() {
   hyprctl dispatch closewindow thunar
   hyprctl dispatch closewindow firedragon
+  hyprctl dispatch closewindow brave
   # hyprctl dispatch closewindow microsoft-edge-stable
   hyprctl dispatch closewindow code
   hyprctl dispatch closewindow dolphin
