@@ -94,7 +94,7 @@
             "enabled": false,
             "id": "healthstats",
             "settings": {
-                "statistics_reset_cron": "|"
+                "statistics_reset_cron": ""
             },
             "version": "0.0.3"
         },

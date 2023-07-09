@@ -1444,6 +1444,7 @@ mkdir ~/.config/hypr/themes && cd ~/.config/hypr/themes && git clone https://git
 
 cp -ri garden-hyprland-dotfiles/* $HOME/.config/
 
+
 > # **[swayidle]()**
 exec-once= swayidle -w \
 timeout 120 'hyprctl dispatch dpms off' \
@@ -1458,7 +1459,18 @@ hyprctl dispatch dpms on'
 https://www.bing.com/search?q=backslash&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=backslash&sc=10-9&sk=&cvid=ABE58AA3398B48519C8DEEB75A8F1402&ghsh=0&ghacc=0&ghpl=
 https://www.thesaurus.com/e/grammar/slash/
 
+
+## config directories:
+$XDG_CONFIG_HOME/swayidle/config
+$HOME/swayidle/config
+
+## test example:
+swayidle -dw timeout 1 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+
+## troubleshot:
+`swayidle-git`gives error:
 hyprland [Line 1074] Compositor doesn't support idle protocol
+
 
 
 # SWAY (meh)
@@ -2032,6 +2044,11 @@ edge://flags/#enable-system-notifications
 edge://flags/#enable-force-dark
 
 # [FIREDRAGON]() (or firefox)
+
+## Cleaning
+
+~/.firedragon
+~/.mozilla/firefox
 
 ## General
 - JetBrainsMono Nerd Font

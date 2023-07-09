@@ -3,6 +3,8 @@
 # ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░   # source=~/.config/hypr/configs/NAMEOFTHECONFIGFILE
 
 input {
+    sensitivity=1.0 #Prefer using input:sensitivity over general:sensitivity to avoid bugs, especially with Wine/Proton apps.
+    
     # http://wiki.hyprland.org/Configuring/Uncommon-tips--tricks/#switchable-keyboard-layouts
     kb_layout=latam         #because mexican 🇲🇽
     numlock_by_default=true
@@ -25,14 +27,15 @@ misc {
 disable_hyprland_logo = true
 disable_splash_rendering = true
 mouse_move_enables_dpms = true
-no_vfr = false # what does this do? o_o
+key_press_enables_dpms = true #TODO: not working :o
+#no_vfr = false # disables VFR (variable frame rate) - VFR increases battery life at the expense of possible issues on a few monitors.
 no_direct_scanout = true #for fullscreen games
 enable_swallow = true
 swallow_regex = ^()$
 }
 
 general {
-    sensitivity=1.0 # for mouse cursor
+#    sensitivity=1.0 # for mouse cursor, Prefer using input:sensitivity over general:sensitivity to avoid bugs, especially with Wine/Proton apps.
 #     main_mod=SUPER
     gaps_in=1
     gaps_out=13
@@ -50,10 +53,10 @@ decoration {
     dim_inactive = 0
     rounding = 16
     multisample_edges = true
-
+    inactive_opacity = .95
     blur_new_optimizations = true
     drop_shadow = true
-    shadow_range=99
+    shadow_range=19
     shadow_render_power=5
     col.shadow= 0x33000000
     col.shadow_inactive=0x22000000
@@ -61,8 +64,8 @@ decoration {
     blur=1
     blurls = rofi
     blurls = wofi
-    blur_size=5 # minimum 1
-    blur_passes=1 # minimum 1, more passes = more resource intensive.
+    blur_size=2 # minimum 1
+    blur_passes=2 # minimum 1, more passes = more resource intensive.
         # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
     # if you want heavy blur, you need to up the blur_passes.
     # the more passes, the more you can up the blur_size without noticing artifacts.
@@ -87,8 +90,8 @@ animations {
 dwindle {
     pseudotile=1 # enable pseudotiling on dwindle
     force_split=0
-    col.group_border=0xff89dceb
-    col.group_border_active=0xfff9e2af
+    #col.group_border=0xff89dceb
+    #col.group_border_active=0xfff9e2af
     preserve_split = true       # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
     special_scale_factor=0.88
 
@@ -96,11 +99,11 @@ dwindle {
 
 master {
 # https://wiki.hyprland.org/Configuring/Master-Layout/
-# special_scale_factor=0.9
+    special_scale_factor=0.88
 
 }
 
 gestures {
-    workspace_swipe=yes
-    workspace_swipe_fingers=4
+    workspace_swipe= yes
+    workspace_swipe_fingers= 4
 }

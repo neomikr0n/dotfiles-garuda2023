@@ -6,6 +6,13 @@
 # 
 # original deprecated= https://github.com/Kara-Zor-El/config-files/blob/d901ec388cfb9296dcc410705f5614ddc8ca8488/hypr/scripts/hyprpicker.sh
 
+# -f | --format=[fmt] specifies the output format (cmyk, hex, rgb, hsl, hsv)
+# -n | --no-fancy disables the "fancy" (aka. colored) outputting
+# -h | --help prints a help message
+# -a | --autocopy copies the output to the clipboard (requires wl-clipboard)
+# -r | --render-inactive render (freeze) inactive displays too
+# -z | --no-zoom disable the zoom lens
+
 color=$(hyprpicker -a)
 echo "$color" | head -c -1 | wl-copy
 tempFile=~/Pictures/color.png
