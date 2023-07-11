@@ -130,7 +130,7 @@
         // "restart-interval": 600,                     // 600=every 10 minutes.
         "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and details on tooltip
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "kitty --title garuda-update -e garuda-update; pkill -SIGRTMIN+8 waybar; notify-send -u 'critical' -t 99999 'The system has been updated  💯' ",
+        "on-click": "kitty --title garuda-update -e garuda-update; pkill -SIGRTMIN+8 waybar; notify-send -u 'normal' -t 9 'The system has been updated  💯' ",
         "signal": 1,
         "max-length": 11,        // enough for 999 updates
         "interval": 60,

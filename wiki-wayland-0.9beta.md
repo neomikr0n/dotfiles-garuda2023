@@ -2347,7 +2347,28 @@ or only the colors on theme [sweet dark](https://addons.mozilla.org/es/firefox/a
     - Toggle Change the browser theme to Default
 
 
-## [WAYDROID](https://wiki.archlinux.org/title/Waydroid)
+# [WAYDROID](https://wiki.archlinux.org/title/Waydroid)
+
+## [Waydroid Extras Script](https://github.com/casualsnek/waydroid_script)
+### requeriments:
+yay -s python-requests python-tqdm python-inquirerpy
+```
+git clone https://github.com/casualsnek/waydroid_script
+cd waydroid_script
+sudo python3 -m pip install -r requirements.txt
+# install something
+sudo python3 main.py install {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
+# uninstall something
+sudo python3 main.py uninstall {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
+# get Android device ID
+sudo python main.py certified
+# some hacks
+sudo python3 hack {nodataperm, hidestatusbar}
+```
+cd ~/Downloads/waydroid_script-main/
+sudo python3 main.py install libhoudini
+
+sudo python3 ~/Downloads/waydroid_script-main/main.py install libhoudini
 
 ---
 it's linux zen running?
@@ -2355,13 +2376,11 @@ it's linux zen running?
 
 
 `yay -S waydroid`
-
 `yay -S waydroid-image-gapps`
 
 or install the images manually:
 
 `sudo mkdir -p /usr/share/waydroid-extra/images && cd ~/Downloads/`
-
 `sudo cp system.img vendor.img /usr/share/waydroid-extra/images`
 
 Setting up a shared folder will allow the user to copy/paste files from the host and they appear inside waydroid/android.
