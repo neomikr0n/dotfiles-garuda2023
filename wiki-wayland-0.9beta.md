@@ -467,7 +467,7 @@ sudo git clone https://github.com/SirHades696/TokyoNight-Ulauncher-Theme \
 
 ---
 # [thunar]()
-
+yayu thunar-media-tags-plugin thunar-dropbox thunar-shares-plugin-git thunar-archive-plugin-git
 ## 1. Installation
 
 ```
@@ -653,10 +653,25 @@ sh setwall -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
 sh wallhelper -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
 sh setwall -a 884899737     # lol
 ```
+> # **[swww](https://github.com/Horus645/swww)**
+## yay -s swww-git
+
+## or compiled by:
+```
+git clone https://github.com/Horus645/swww
+cd swww
+cargo-msrv
+cargo build --release
+### I uninstalled rustc and replace it with rust
+```
+## use it with:
+swww img ~/Pictures/wallpapers-old/ili12smozv3a1.jpg --transition-type wipe --transition-angle 30 --transition-step 90 --transition-duration 5 --transition-fps 144
+swww img ~/Pictures/wallpapers-old/5mc86ztlsx6a1.png --transition-type wipe --transition-angle 30 --transition-step 90 --transition-duration 5 --transition-fps 144
 
 > # **[navi](https://github.com/denisidoro/navi)**
 
 An interactive cheatsheet tool for the command-line.
+
 
 > # **[`HYPRLAND Sweet Dreams / aurorasaurus *_*`](https://github.com/flick0/dotfiles/tree/aurora)**
 
@@ -4769,6 +4784,23 @@ Features:
     - Use a non-modifier key as a virtual modifier key.
 
 
+# **[Ianny](https://github.com/zer0-x/iann)**
+Simple, light-weight, easy to use, and effective Linux Wayland desktop utility helps preventing repetitive strain injuries RSI by keeping track of usage patterns and periodically informing user to take breaks.
+
+git clone https://github.com/zer0-x/ianny.git
+cd ianny
+
+Checkout to a release tag e.g. v1.0.1
+git checkout vx.x.x
+
+meson build
+meson compile -C build
+You will find the binary in ./build/src/ianny
+
+To install:
+meson install -C build
+
+
 
 # **[xsettingsd](https://github.com/derat/xsettingsd)**
 xsettingsd is a daemon that implements the XSETTINGS specification.
@@ -4901,7 +4933,43 @@ qt5 garuda default font
 fira Sans. to restore default fonts, just copy etc/skel/.config/kdeglobals to ~/.config/kdeglobals 
 JetBrainsMono Nerd Font
 
+# **[profe juan antonio](https://www.youtube.com/watch?v=_DEAD1NAnWk)**
 
+## [MÉTODO DEFINITIVO PARA BLOQUEAR LAS ACTUALIZACIONES DE iOS 16, 15 y 14](https://drive.google.com/drive/folders/10wk07Gj4dlQGTMQMNZ8ryj8LxFvVP4mR)
+⬇️ DESCARGA PERFIL TVOS16:
+· Fuente 1: https://bit.ly/tvOS16BlockOTA
+· Fuente 2: https://bit.ly/BlockOTAUpdateiOS16
+
+# [AltLinux](https://github.com/i-love-altlinux/AltLinux)
+
+## requeriments:
+sudo pacman -S binutils wget curl git python-pip libappindicator-gtk3 usbmuxd libimobiledevice avahi zlib unzip usbutils
+
+Run the following commands:
+git clone https://github.com/i-love-altlinux/AltLinux
+cd AltLinux
+python3 main.py
+
+
+## [Use Xcode to Enable Developer Mode](https://www.tenorshare.com/ios-16/ios-16-developer-mode-not-showing.html)
+Download and set up [Xcode](https://developer.apple.com/xcode/) on your Mac. You can get it from the Apple App Store. However, be noted that installing Xcode is long and tedious. It takes 10+ GBs of data to download, then some additional time to set up.
+Take your USB to Lightning cable and connect your iPhone to the Mac you’re using.
+If you’re connecting the phone to the computer for the first time, you will need to trust the computer. Tap “Trust This Computer” when prompted on your iPhone’s display.
+Now, open the Settings app and go to Privacy & Security > Developer Mode.
+Turn on the toggle and confirm that you want to enable the feature.
+
+altserver -u 879c9f69a0e8151beb06152e967511efbb097d90 -a nemonikronz@me.com -p Tower1986 
+
+
+## curl: (7) Failed to connect to 127.0.0.1 port 6969 after 0 ms: Couldn't connect to server
+curl 127.0.0.1:6969
+
+
+## Failed to handle request:Incorrect Content-Type: must be textual to extract_string, JSON to extract_json.
+
+
+
+---
 # **[palera1n](https://palera.in/latest-release/)**
 
 Telling device with udid 879c9f69a0e8151beb06152e967511efbb097d90 to enter recovery mode
@@ -5039,7 +5107,7 @@ step 5: if you want to change your apple account you can change now ( older appl
 
 [ArtFull](https://www.ios-repo-updates.com/repository/havoc/package/com.nahtedetihw.artfull/)
 Make the Apple Music app look like iOS 17!
-
+- [iSponsorBlock](https://www.ios-repo-updates.com/repository/icraze-s-repo/package/com.galacticdev.isponsorblock/)
 
 
 
@@ -5058,6 +5126,7 @@ Make the Apple Music app look like iOS 17!
 - [SleepyTime](https://www.ios-repo-updates.com/repository/sparkdev/package/com.spark.sleepytime/) Displays the time until alarms in the stock iOS 'Clock' app.
 - [TapVideoConfig](https://www.ios-repo-updates.com/repository/poomsmart/package/com.ps.tapvideoconfig/) Change video configuration directly in Camera app.
 - [VolSkip11](https://www.ios-repo-updates.com/repository/rob311-s-beta-repo/package/com.rob311.volskip11/) Skip tracks by holding the Volume buttons. Play/Pause by holding both Volume Buttons
+
 - 
 
 - [Shadow](https://www.ios-repo-updates.com/repository/jjolano/package/me.jjolano.shadow/) 
@@ -5299,4 +5368,13 @@ sudo pacman -Qnq | sudo pacman -S -
 
 ----------------
 
+λ git add . && git commit -m 'mcomplete: -n '__fish_git_using_command {/home/n30/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin//:/': Unexpected end of string, incomplete parameter expansion
+__fish_git_using_command {/home/n30/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin//:/
+                         ^
+complete: -n '__fish_git_using_command } basename': Unexpected '}' for unopened brace expansion
+__fish_git_using_command } basename
+                         ^
+i'                                 nor changes'
 
+
+---

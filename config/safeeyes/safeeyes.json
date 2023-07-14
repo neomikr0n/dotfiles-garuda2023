@@ -1,7 +1,7 @@
 {
     "allow_postpone": true,
     "long_break_duration": 300,
-    "long_break_interval": 50,
+    "long_break_interval": 60,
     "long_breaks": [
         {
             "name": "Walk for a while",
@@ -17,7 +17,7 @@
     "meta": {
         "config_version": "6.0.3"
     },
-    "persist_state": false,
+    "persist_state": true,
     "plugins": [
         {
             "enabled": true,
@@ -82,7 +82,7 @@
             "version": "0.0.3"
         },
         {
-            "enabled": true,
+            "enabled": false,
             "id": "screensaver",
             "settings": {
                 "command": "",
@@ -109,7 +109,7 @@
     "random_order": true,
     "rpc_port": 7200,
     "short_break_duration": 60,
-    "short_break_interval": 10,
+    "short_break_interval": 15,
     "short_breaks": [
         {
             "name": "Tightly close your eyes"
