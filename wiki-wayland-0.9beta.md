@@ -5378,3 +5378,84 @@ i'                                 nor changes'
 
 
 ---
+HSBC
+https://www.hsbc.com.mx/tarjetas-de-credito/condiciones-generales/
+
+Hay que tomar en cuenta que HSBC es de los peores bancos en cuanto a atención a clientes, la app seguido falla, al igual que su sistema en general, para todo te mandan a la sucursal, en fin sino tuvieran buenas promos ni siquiera lo hubiera tomado en cuenta. Un consejo para los que la piensen solicitar, es que sí les ofrecen la air, tomenla e inmediatamente después de activarla, llamen para realizar el cambio de producto, casi siempre te ofrecerán la 2now y la zero. En este banco mientras más línea mejor porque por casi todas las compras en línea te realizan cargos doble y sí quieres ocupar el resto de tu línea tienes que esperar minimo 3 días a que se libere.
+
+Hola soy Luis y puedo dar mi experiencia con la targeta hey banco y si puedo aprovechar el 2%  usando la billetera de Google y pagando con el móvil casi no uso la tarjeta ficica todo por contacto
+
+Para llegar a los 2,500, domicilie mi PPR (Plan Para el Retiro), entonces sin pedos cumplo la cuota mensual
+
+---
+# linux-wallpaperengine-wayland-git
+
+## install
+8 aur/linux-wallpaperengine-wayland-git r411.660f798-1 (+0 0.00) 
+
+[error: externally-managed-environment](https://github.com/python/cpython/issues/102134)
+```
+Traceback (most recent call last):
+  File "/home/n30/.local/bin/cmake", line 5, in <module>
+    from cmake import cmake
+ModuleNotFoundError: No module named 'cmake'
+==> ERROR: A failure occurred in build().
+    Aborting...
+ -> error making: linux-wallpaperengine-wayland-git-exit status 4
+checking dependencies...
+
+Packages (1) glm-0.9.9.8-1
+```
+yayu cmake
+yayui pipx
+pipx install cmake
+yayi linux-wallpaperengine-wayland-git
+
+Usage: linux-wallpaperengine [options] background_path/background_id
+
+where background_path/background_id can be:
+	the ID of the background (for autodetection on your steam installation)
+	a full path to the background's folder
+
+
+## options:
+```
+	--silent					Mutes all the sound the wallpaper might produce
+	--volume <amount>			Sets the volume for all the sounds in the background
+	--noautomute				Disables the automute when an app is playing sound
+	--screen-root <screen name>	Display as screen's background
+	--window <geometry>	Runs in window mode, geometry has to be XxYxWxH and sets the position and size of the window
+	--fps <maximum-fps>			Limits the FPS to the given number, useful to keep battery consumption low
+	--assets-dir <path>			Folder where the assets are stored
+	--screenshot				Takes a screenshot of the background
+	--list-properties			List all the available properties and their possible values
+	--set-property <name=value>	Overrides the default value of the given property
+	--no-fullscreen-pause	Prevents the background pausing when an app is fullscreen
+Cannot find directory for steam app wallpaper_engine: assets
+fish: Job 1, 'linux-wallpaperengine' terminated by signal SIGSEGV (Address boundary error)
+```
+## commands
+linux-wallpaperengine --silent /run/media/n30/nvme_chivos/SteamLibrary/steamapps/workshop/content/431960/1888636115/scene.pkg
+
+linux-wallpaperengine --assets-dir /run/media/n30/nvme_chivos/SteamLibrary/steamapps/workshop/content/431960 1888636115
+
+## error 
+```
+[⚡] × linux-wallpaperengine --assets-dir /run/media/n30/nvme_chivos/SteamLibrary/steamapps/workshop 
+1888636115
+Cannot find workshop directory for steam app 431960 and content 1888636115
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Cannot find workshop directory for steam app 431960 and content 1888636115
+fish: Job 1, 'linux-wallpaperengine --assets-…' terminated by signal SIGABRT (Abort)
+```
+
+# dolphin-git disaster:
+
+## finding when it was modified:
+grep -i dolphin /var/log/pacman.log
+
+## printing only the 4th word of the first 91 lines:
+grep -i 2023-07-13T01:15 /var/log/pacman.log | awk 'NR <= 91 {print $4}'
+
+## bard eliminated the line jump:
+yay -s dolphin kuserfeedback kactivities kparts kcmutils kdeclarative kio-extras kdsoap-ws-discovery-client kdsoap syntax-highlighting phonon-qt5 kdnssd knewstuff syndication kpackage attica kio kded ktextwidgets sonnet kcompletion kwallet kservice knotifications kbookmarks kxmlgui kitemviews kiconthemes karchive kconfigwidgets ki18n kguiaddons kcodecs kauth polkit-qt5 kglobalaccel kcrash kwindowsystem kconfig kdbusaddons kjobwidgets kwidgetsaddons kcoreaddons solid
