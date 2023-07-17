@@ -4978,8 +4978,7 @@ Telling device with udid 879c9f69a0e8151beb06152e967511efbb097d90 to enter recov
 ```
 sudo systemctl stop usbmuxd
 sudo usbmuxd -f -p
-sudo palera1n -fc
-sudo palera1n -f
+sudo palera1n
 ```
 Once the device boots up (3min for "-fc" + another 20s "-f" + 1min for palera1n icon on homescreen), open the palera1n loader app and tap Install. After a bit of time, you'll be prompted to respring and Sileo should be on your home screen.
 
@@ -5053,13 +5052,24 @@ iOS/iPadOS 15.0-16.5 arm64 jailbreaking tool
     Press and hold the Side button until the Apple logo appears.
     ```
 
+## List of Bypass Jailbreak Detection Tweaks on iPhone
+Tweak	Repo
+iHide	https://repo.kc57.com
+Choicy	https://www.ios-repo-updates.com/repository/opa334-s-repo/
+KernBypass	https://github.com/akusio/KernBypass-Public
+VNodeBypass	https://cydia.ichitaso.com/
+A-Bypass	https://repo.dynastic.co/
+https://repo.rpgfarm.com/
+Liberty Lite	https://ryleyangus.com/repo/
+Shadow	https://ios.jjolano.me/
+FlyJB X	https://repo.xsf1re.kr/
+UnSub	https://repo.packix.com/
+Hestia HideJB	https://repo.packix.com/
+
 ✔️ **resources**:
-
-https://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
-
-https://www.reddit.com/r/jailbreak/comments/11mt9sv/discussion_1631_tweak_compatibility_list/
-
-https://www.reddit.com/r/jailbreak
+- https://www.ios-repo-updates.com/search/?s=carrierizer&repository=&section=&order=date
+- https://www.reddit.com/r/jailbreak/comments/11mt9sv/discussion_1631_tweak_compatibility_list/
+- https://www.reddit.com/r/jailbreak
 
 
 sileo://source/https://sparkdev.me/
@@ -5071,7 +5081,7 @@ sileo://source/https://havoc.app/
 sileo://source/
 sileo://source/http://apt.thebigboss.org/repofiles/cydia/
 
-https://onejailbreak.com/blog/best-cydia-repos/#:~:text=Chariz%20Repository%20Chariz%20repo%20is%20a%20great%20Cydia,can%20find%20here%20both%2C%20free%20and%20paid%20packages.
+## https://onejailbreak.com/blog/best-cydia-repos/#:~:text=Chariz%20Repository%20Chariz%20repo%20is%20a%20great%20Cydia,can%20find%20here%20both%2C%20free%20and%20paid%20packages.
 sileo://source/https://repo.dynastic.co/
 sileo://source/https://ipogo.app/repo/
 sileo://source/https://repo.twickd.com/
@@ -5126,10 +5136,9 @@ Make the Apple Music app look like iOS 17!
 - [SleepyTime](https://www.ios-repo-updates.com/repository/sparkdev/package/com.spark.sleepytime/) Displays the time until alarms in the stock iOS 'Clock' app.
 - [TapVideoConfig](https://www.ios-repo-updates.com/repository/poomsmart/package/com.ps.tapvideoconfig/) Change video configuration directly in Camera app.
 - [VolSkip11](https://www.ios-repo-updates.com/repository/rob311-s-beta-repo/package/com.rob311.volskip11/) Skip tracks by holding the Volume buttons. Play/Pause by holding both Volume Buttons
-
 - 
-
 - [Shadow](https://www.ios-repo-updates.com/repository/jjolano/package/me.jjolano.shadow/) 
+
 - [cask3](https://www.ios-repo-updates.com/repository/chariz/package/com.ryannair05.cask3/) - Animated table scrolling - Orion Runtime (iOS 14 - 16)
 - [Locker](https://www.ios-repo-updates.com/repository/p2kdev-s-repo/package/com.p2kdev.locker/) Enable passcode for A11!
 
@@ -5171,7 +5180,26 @@ shuffle - organize settings
 Ampere: Velvet 2, PreferenceLoader, Substitute, Substrate Safe Mode
 Phoenix -  contacts info
 
+## [YTLitePlus](https://github.com/Balackburn/YTLitePlus#building-optional)
+- YTLite: +50 customization options for YouTube, YTLite enhances your viewing experience by removing ads, enabling background playback, and providing control over navigation, overlay, player, tab bar, and Shorts settings.
 
+- iSponsorBlock: Skips annoying sponsor ads inside videos. iSponsorBlock is based on SponsorBlock engine. Basically, this is the iOS version of the SponsorBlock extension.
+- YouPiP: enable YouTube's native PiP. More options are in YouTube Settings => General.
+- YTUHD: unlock VP9 codec and in effect, enables video quality of 2K and 4K. You can configure YTUHD in YouTube's Settings - Video quality preferences.
+- YouTube Dislike Return: brings back Dislike counts under YouTube videos using ReturnYoutubeDislike's API.
+
+and many more...!
+- YTABGoodies: allow you to disable some YouTube A/B testing features. It is a combination of several tweaks, such as:
+- YouAreThere: disable "Video paused. Continue watching?" popup in the YouTube app when you play a long video.
+- YouRememberCaption: make YouTube remember your video caption setting (if not already).
+- YTNoCheckLocalNetwork: block the Local Network permission popup.
+- YTSpeed: a toggleable tweak to add 2.25x, 2.5x, 2.75x, 3x, 3.25x, 3.5x, 3.75x, 4x & 5x playback speed options in the video player.
+- YTMiniplayerEnabler: enable Miniplayer for all YouTube videos.
+- DontEatMyContent: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
+- YTABConfig: allow user to control over YouTube A/B testing flags.
+- YouMute: Mute/unmute videos in the YouTube Video Player directly.
+- YTNoCommunityPosts: this can disable all the Community Posts on the YouTube app.
+- LowContrastMode: makes the YouTube Interface Low Contrast as possible to make it easier on the eyes.
 
 ---
 # ENVIROMENT VARIABLES but for script:
@@ -5459,3 +5487,174 @@ grep -i 2023-07-13T01:15 /var/log/pacman.log | awk 'NR <= 91 {print $4}'
 
 ## bard eliminated the line jump:
 yay -s dolphin kuserfeedback kactivities kparts kcmutils kdeclarative kio-extras kdsoap-ws-discovery-client kdsoap syntax-highlighting phonon-qt5 kdnssd knewstuff syndication kpackage attica kio kded ktextwidgets sonnet kcompletion kwallet kservice knotifications kbookmarks kxmlgui kitemviews kiconthemes karchive kconfigwidgets ki18n kguiaddons kcodecs kauth polkit-qt5 kglobalaccel kcrash kwindowsystem kconfig kdbusaddons kjobwidgets kwidgetsaddons kcoreaddons solid
+
+---
+# Promoción Tarjetas de Regalo Amazon Exclusiva para miembros Prime
+1. ¿Cuál es la mecánica de la promoción?
+
+Exclusiva para miembros Prime. Al realizar un pedido de $1,000 pesos o más en una Tarjeta de Regalo digital vendida por Amazon México, recibirás $200 pesos de saldo promocional. El monto debe ser en una sola tarjeta. Haz la compra de la Tarjeta de Regalo y 2 días después te llegará un correo confirmando la promoción. El saldo no será visible, pero se acreditará en tu siguiente compra de productos vendidos y enviados por Amazon México.
+
+2. ¿Cuál es la vigencia de la promoción?
+
+Para poder obtener el beneficio de $200 pesos en saldo promocional, deberás comprar una Tarjeta de Regalo vendida y enviada por Amazon México de al menos $1,000. La compra de la Tarjeta de Regalo deberá ser realizado entre las 00:00 horas (tiempo del Centro de México) del 11 de julio de 2023 y las 23:59 horas (tiempo del Centro de México) del 16 de julio de 2023.
+
+3. ¿Cuál es la fecha límite para canjear el saldo promocional?
+
+El saldo promocional se podrá utilizar hasta las 23:59 horas (tiempo del Centro de México) del 31 de agosto de 2023.
+
+4. ¿Cómo puedo participar en la promoción?
+
+Para poder acceder a la promoción, debes ser miembro Prime. Luego, debes ordenar al menos $1,000 pesos en una Tarjeta de Regalo Digital vendida por Amazon México. 2 días posteriores a la notificación del envío de la Tarjeta de Regalo recibirás un correo electrónico confirmando que tu saldo promocional ya se encuentra disponible en tu cuenta. El saldo promocional no será visible en la cuenta, pero será aplicado en la próxima compra.
+
+5. ¿Existen restricciones en la promoción?
+
+Sí. Esta promoción es exclusiva para miembros Prime. Además, no es posible combinar esta promoción con otros códigos promocionales, Ofertas del Día, Ofertas Relámpago, promociones bancarias o meses sin intereses. La compra de la Tarjeta de Regalo debe efectuarse solo con método de pago de tarjeta de débito y crédito. Válido una vez por cliente y por cuenta.
+
+6. ¿Cómo canjeo mi saldo promocional?
+
+El saldo promocional no será visible, pero se aplicará en automático en tu siguiente compra de productos vendidos y enviados por Amazon México.
+
+7. ¿Cuáles son las formas de pago que participan?
+
+Para comprar la tarjeta de regalo de $1,000 o más, participan casi todas las formas de pago aceptadas en Amazon.com.mx, incluyendo tarjetas de crédito y débito, tarjeta de débito Amazon Recargable. No participan las Tarjetas de Regalo, Paga en Efectivo en Oxxo y Prepago con Amazon Cash.
+
+8. ¿Puedo combinar esta promoción con otras promociones?
+
+No. Esta promoción no puede combinarse con otras promociones basadas en códigos promocionales, promociones bancarias, ni Ofertas del Día, Ofertas relámpago y Ofertas Destacadas de productos vendidos y enviados por Amazon México.
+
+9. ¿Puedo utilizar Meses Sin Intereses con la promoción?
+
+No, las Tarjetas de Regalo no son elegibles para pago a Meses sin Intereses.
+
+10. ¿Si tengo preguntas adicionales a quien puedo contactar?
+
+Si tienes dudas puedes entrar en contacto con Amazon.com.mx en https://www.amazon.com.mx/gp/help/customer/display.html?nodeId=508510
+
+Términos y Condiciones
+Promoción exclusiva para miembros Prime. Para hacer válida la promoción deberás ordenar al menos $1,000 pesos en Tarjetas de Regalo Digitales Amazon vendidas por Amazon México. Al realizar un pedido de $1,000 pesos o más en Tarjetas de Regalo Digitales Amazon México, recibirás $200 pesos de saldo promocional que serán acreditados a tu cuenta 2 días posteriores a la notificación del envío de tu pedido. Una vez cumplido el período de espera, recibirás vía e-mail una notificación sobre el cargo del saldo promocional a tu cuenta. El saldo promocional no será visible en tu cuenta, pero estará disponible para aplicarse en tus próximos pedidos de productos vendidos y enviados por Amazon México. El saldo promocional de $200 podrás redimirlo a partir de la fecha de su acreditación hasta las 23:59 horas (tiempo del Centro de México) del 31 de agosto de 2023. Esta es una promoción válida por tiempo limitado. Amazon se reserva el derecho de modificar o cancelar la promoción en cualquier momento, lo cual se comunicará en https://www.amazon.com.mx/b?ie=UTF8&node=117030933011. Promoción exclusiva para miembros Prime. Para participar en la promoción, el pedido de la Tarjeta de Regalo deberá ser realizado entre las 00:00 horas (tiempo del Centro de México) del 11 de julio de 2023 y las 23:59 horas (tiempo del Centro de México) del 16 de julio de 2023 o hasta agotar existencias. La promoción es aplicable una sola vez por cuenta. Si realizas varios pedidos de $1,000 pesos o más en Tarjetas de Regalo Digitales vendidas por Amazon México, sólo recibirás $200 pesos de descuento. La promoción aplica únicamente en Amazon.com.mx, al realizar un pedido de $1,000 pesos o más en una Tarjeta de Regalo Digital Amazon vendidas por Amazon México incluidos en esta sección https://www.amazon.com.mx/b?ie=UTF8&node=117030933011. No aplica para Tarjetas de regalo de otras marcas, productos en pre-venta, productos no disponibles, productos vendidos por Amazon EE.UU., terceros vendedores o en cualquier otra página web accesible a través de www.amazon.com.mx. Busca la etiqueta “Vendido y enviado por Amazon México” en la página de detalles del producto. La promoción aplica únicamente a productos comprados en un solo pedido. Esta promoción no puede combinarse con otras promociones basadas en códigos promocionales, promociones bancarias, ni como Ofertas del Día, Ofertas relámpago y Ofertas Destacadas de productos vendidos y enviados por Amazon México. Si alguno de los productos se devuelve, tu reembolso será igual al monto pagado por el producto, sujeto a las políticas de devoluciones aplicables. En caso de devolución total, no serás elegible para participar en la promoción. En caso de devolución parcial, únicamente se bonificará el porcentaje correspondiente al total de los productos no devueltos. Participan casi todas las formas de pago aceptadas en Amazon.com.mx, incluyendo tarjetas de crédito y débito, tarjeta de débito Amazon Recargable. No participan las Tarjetas de Regalo, Prepago con Amazon Cash o Paga en Efectivo en Oxxo. La promoción no es transferible y no podrá ser utilizada para reventa, canjeada por efectivo o tarjetas de regalo. Esta promoción no tendrá efectos en caso de existir restricciones legales y/o administrativas que le resulten aplicables. Si infringes los términos y condiciones de la promoción, no serás elegible para la promoción.
+
+---
+# KVM
+
+[EXT4 in Windows by Chris Titus Tech](https://www.youtube.com/watch?v=aX1vH1j7m7U)
+https://christitus.com/ext4-in-windows/
+
+## INSTALL on LINUX shennaningas
+[QEMU/KVM for absolute beginners](https://www.youtube.com/watch?v=BgZHbCDFODk)
+
+[🔴] × yayi qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
+:: openbsd-netcat and gnu-netcat are in conflict. Remove gnu-netcat? [y/N] n
+
+[🔴] × yayi ebtables iptables
+:: iptables and iptables-nft are in conflict. Remove iptables-nft? [y/N] 
+
+sudo systemctl start libvirtd.service
+systemctl status libvirtd.service
+
+yay -S virt-manager virt-viewer qemu bridge-utils libguestfs
+
+uncomment 2 lines on:
+sudo nano /etc/libvirt/libvirtd.conf
+unix_sock_group = "libvirt"
+unix_sock_ro_perms = "0770"
+
+
+add user:
+sudo usermod -a -G libvirt $(whoami)
+
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+
+restart service:
+sudo systemctl restart libvirtd
+
+[Setup Qemu in Debian Linux](https://christitus.com/vm-setup-in-linux/)
+Start Default Network for Networking
+VIRSH is a command to directly interact with our VMs from terminal. We use it to list networks, vm-status and various other tools when we need to make tweaks. Here is how we start the default and make it auto-start after reboot.
+
+sudo virsh net-start default
+
+Network default started
+sudo virsh net-autostart default
+
+Network default marked as autostarted
+
+Check status with:
+sudo virsh net-list --all
+
+ Name      State      Autostart   Persistent
+----------------------------------------------
+ default   active       yes          yes
+
+Add User to libvirt to Allow Access to VMs:
+sudo usermod -aG libvirt $USER & \
+sudo usermod -aG libvirt-qemu $USER & \
+sudo usermod -aG kvm $USER & \
+sudo usermod -aG input $USER & \
+sudo usermod -aG disk $USER
+
+
+## [Windows Inside of Linux](https://www.youtube.com/watch?v=6KqqNsnkDlQ)
+https://christitus.com/windows-inside-linux/
+- install the VirtIO tools, which can be difficult to track down. My favorite way is to run the exe file from https://github.com/virtio-win/virtio-win-pkg-scripts but many guides use the iso file also provided at this link.
+
+Another good resource for obtaining VirtIO drivers is from the proxmox wiki https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers
+
+- [Enable QEMU Guest Agent](http://wiki.stoney-cloud.org/wiki/Qemu_Guest_Agent_Integration)
+Now you need to modify the VM to make use of the guest agent drivers. We need to add the qemu agent channel. Add Hardware -> Channel OR *EDIT CURRENTLY "Channel"* and copy these settings on XML (must be enabled on preferences):
+<channel type="unix">
+  <source mode="bind"/>
+  <target type="virtio" name="org.qemu.guest_agent.0"/>
+</channel>
+
+original was:
+<channel type="spicevmc">
+  <target type="virtio" name="com.redhat.spice.0"/>
+  <address type="virtio-serial" controller="0" bus="0" port="1"/>
+</channel>
+
+On "details" -> Channel (qemu-ga) should be "state:connected"
+
+- Passing Devices Through
+
+
+- automatic logon:
+1. Open the Registry Editor using [Windows] + [R] and “regedit”.
+2. Enter HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\PasswordLess\Device.
+3. Double click on “DevicePasswordLessBuildVersion” and set the value to “0”.
+4. Open User Accounts using [Windows] + [R] and “netplwiz”.
+5. Uncheck the box beside “Users must enter a user name and password to use this computer”.
+
+[Setting Up the Ultimate Windows 10](https://christitus.com/setting-up-the-ultimate-windows-11/)
+
+irm christitus.com/win | iex
+
+user agent switcher to fake edge
+
+iniciar igpu
+deshabilitar iommu
+
+yayi qemu virt-manager virt-viewer dnsmasq bridge-utils
+
+[Hyprland First Look -- Wayland compositor and desktop](https://www.youtube.com/watch?v=sDmLCBI9L4E)
+
+03:10:06 two graphics cards, un gpu passthrougth
+
+[[GUIDE] Perfect GPU Passthrough - Say your prayers, Dual-Booters! [READ DESCRIPTION, IMPORTANT INFO]](https://www.youtube.com/watch?v=29S7KReCdu8)
+
+sudo dmesg | grep -i -e DMAR -e IOMMU
+ ╰─λ sudo dmesg | grep -i -e DMAR -e IOMMU
+[sudo] password for n30:    
+[    0.004732] ACPI: DMAR 0x0000000071FC9000 000050 (v02 INTEL  EDK2     00000002      01000013)
+[    0.004759] ACPI: Reserving DMAR table memory at [mem 0x71fc9000-0x71fc904f]
+[    0.098101] DMAR: Host address width 39
+[    0.098101] DMAR: DRHD base: 0x000000fed91000 flags: 0x1
+[    0.098105] DMAR: dmar0: reg_base_addr fed91000 ver 5:0 cap d2008c40660462 ecap f050da
+[    0.098107] DMAR-IR: IOAPIC id 2 under DRHD base  0xfed91000 IOMMU 0
+[    0.098108] DMAR-IR: HPET id 0 under DRHD base 0xfed91000
+[    0.098108] DMAR-IR: Queued invalidation will be enabled to support x2apic and Intr-remapping.
+[    0.099562] DMAR-IR: Enabled IRQ remapping in x2apic mode
+[    0.290130] iommu: Default domain type: Translated 
+[    0.290130] iommu: DMA domain TLB invalidation policy: lazy mode 
+[    0.351045] AMD-Vi: AMD IOMMUv2 functionality not available on this system - This is not a bug.
+
