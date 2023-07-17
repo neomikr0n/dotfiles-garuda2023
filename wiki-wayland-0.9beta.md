@@ -2371,8 +2371,11 @@ yay -s python-requests python-tqdm python-inquirerpy
 git clone https://github.com/casualsnek/waydroid_script
 cd waydroid_script
 sudo python3 -m pip install -r requirements.txt
-# install something
+- install something
 sudo python3 main.py install {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
+
+sudo python3 /home/n30/Downloads/waydroid_script-main/main.py install magisk
+
 # uninstall something
 sudo python3 main.py uninstall {gapps, magisk, libndk, libhoudini, nodataperm, smartdock, microg}
 # get Android device ID
@@ -2811,6 +2814,10 @@ rm -r $HOME/genymotion
   ```
   sudo rm -f /usr/share/applications/genymobile-genymotion.desktop
   ```
+
+>## [Pass SafetyNet On Rooted Android 12/Android 13](https://droidwin.com/how-to-pass-safetynet-on-rooted-android-12/)
+
+[Magisk Delta](https://huskydg.github.io/magisk-files/intro.html)
 
 ---------------------------------------------------------------
 # [SPOTIFY]()
@@ -5586,13 +5593,30 @@ sudo virsh net-list --all
 ----------------------------------------------
  default   active       yes          yes
 
-Add User to libvirt to Allow Access to VMs:
+### Add User to libvirt to Allow Access to VMs:
+sudo usermod -aG libvirt $(whoami) 
+sudo usermod -aG libvirt-qemu $(whoami)
+sudo usermod -aG kvm $(whoami)
+sudo usermod -aG input $(whoami)
+sudo usermod -aG disk $(whoami)
+### [checking groups](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF): 
+The following script should allow you to see how your various PCI devices are mapped to IOMMU groups. If it does not return anything, you either have not enabled IOMMU support properly or your hardware does not support it.
+`sh ~/.dotfiles/bin/test/iommu-groups.sh`
+
+sudo nano /etc/default/grub
+
+TODO:
+sudo usermod -aG libvirt $(whoami) & \
+sudo usermod -aG libvirt-qemu $(whoami) & \
+sudo usermod -aG kvm $(whoami) & \
+sudo usermod -aG input $(whoami) & \
+sudo usermod -aG disk $(whoami)
+TODO:
 sudo usermod -aG libvirt $USER & \
 sudo usermod -aG libvirt-qemu $USER & \
 sudo usermod -aG kvm $USER & \
 sudo usermod -aG input $USER & \
 sudo usermod -aG disk $USER
-
 
 ## [Windows Inside of Linux](https://www.youtube.com/watch?v=6KqqNsnkDlQ)
 https://christitus.com/windows-inside-linux/

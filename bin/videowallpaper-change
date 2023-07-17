@@ -4,7 +4,7 @@
 # based on... nosvagor's:
 # https://raw.githubusercontent.com/nosvagor/dotfiles/main/bin/change-bg
 
-DISPLAY="DP-3"
+DISPLAY="DP-4"
 VID_PATH="$HOME/Videos/Hidamari"
 
 background_choice=""
@@ -18,18 +18,18 @@ gravity () {
     mpvpaper -o "--loop --mute=yes --video-unscaled=yes" $DISPLAY "$VID_PATH/gravity.mp4" & disown
     # --brightness=6 --contrast=9 --saturation=-16 --hue=-24 
 }
-
 AlternateRealities () {
     mpvpaper -o "--loop --mute=yes --video-unscaled=yes" $DISPLAY "$VID_PATH/AlternateRealities.mp4" & disown
     # --brightness=-3 --contrast=10 --saturation=-42 --hue=69 
 }
-
 floatinginspace () {
     mpvpaper -o "--loop --mute=yes --video-unscaled=yes" $DISPLAY "$VID_PATH/floatinginspace.mp4" & disown
 }
-
 blackhole () {
     mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=-50  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/blackhole.webm" & disown
+}
+fifi () {
+    mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=0  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/fi.mp4" & disown
 }
 
 searchanddestroy () {
@@ -54,6 +54,12 @@ case "$background_choice" in
     "test")
         searchanddestroy
         floatinginspace & disown
+        sleep 2
+        searchanddestroy
+    ;;
+    "fifi")
+        searchanddestroy
+        fifi & disown
         sleep 2
         searchanddestroy
     ;;
