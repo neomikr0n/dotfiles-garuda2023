@@ -1,0 +1,114 @@
+Name: isort
+Module: isort
+Python extension loading
+Waiting for interpreter from python extension.
+Python extension loaded
+CWD Server: /home/n30/.dotfiles/bin
+sys.path used to run Server:
+   /home/n30/.vscode-oss/extensions/ms-python.isort-2022.8.0-universal/bundled/libs
+   /home/n30/.vscode-oss/extensions/ms-python.isort-2022.8.0-universal/bundled/tool
+   /usr/lib/python311.zip
+   /usr/lib/python3.11
+   /usr/lib/python3.11/lib-dynload
+   /usr/lib/python3.11/site-packages
+   /usr/lib/python3.11/site-packages/vboxapi-1.0-py3.11.egg
+Settings used to run Server:
+[
+    {
+        "check": false,
+        "workspace": "file:///home/n30/.config/hypr/scripts",
+        "logLevel": "error",
+        "args": [],
+        "severity": {
+            "W": "Warning",
+            "E": "Hint"
+        },
+        "path": [],
+        "interpreter": [
+            "/bin/python"
+        ],
+        "importStrategy": "useBundled",
+        "showNotifications": "off"
+    },
+    {
+        "check": false,
+        "workspace": "file:///home/n30/.dotfiles/bin",
+        "logLevel": "error",
+        "args": [],
+        "severity": {
+            "W": "Warning",
+            "E": "Hint"
+        },
+        "path": [],
+        "interpreter": [
+            "/bin/python"
+        ],
+        "importStrategy": "useBundled",
+        "showNotifications": "off"
+    },
+    {
+        "check": false,
+        "workspace": "file:///home/n30/.config/hypr/configs",
+        "logLevel": "error",
+        "args": [],
+        "severity": {
+            "W": "Warning",
+            "E": "Hint"
+        },
+        "path": [],
+        "interpreter": [
+            "/bin/python"
+        ],
+        "importStrategy": "useBundled",
+        "showNotifications": "off"
+    },
+    {
+        "check": false,
+        "workspace": "file:///home/n30/.dotfiles/config/hypr/component/waybar",
+        "logLevel": "error",
+        "args": [],
+        "severity": {
+            "W": "Warning",
+            "E": "Hint"
+        },
+        "path": [],
+        "interpreter": [
+            "/bin/python"
+        ],
+        "importStrategy": "useBundled",
+        "showNotifications": "off"
+    }
+]
+
+/bin/python -m isort --version-number
+CWD Linter: /home/n30/.config/hypr/scripts
+Version info for isort running for /home/n30/.config/hypr/scripts:
+5.10.1
+
+SUPPORTED isort>=5.10.1
+FOUND isort==5.10.1
+
+/bin/python -m isort --version-number
+CWD Linter: /home/n30/.dotfiles/bin
+Version info for isort running for /home/n30/.dotfiles/bin:
+5.10.1
+
+SUPPORTED isort>=5.10.1
+FOUND isort==5.10.1
+
+/bin/python -m isort --version-number
+CWD Linter: /home/n30/.config/hypr/configs
+Version info for isort running for /home/n30/.config/hypr/configs:
+5.10.1
+
+SUPPORTED isort>=5.10.1
+FOUND isort==5.10.1
+
+/bin/python -m isort --version-number
+CWD Linter: /home/n30/.dotfiles/config/hypr/component/waybar
+Version info for isort running for /home/n30/.dotfiles/config/hypr/component/waybar:
+5.10.1
+
+SUPPORTED isort>=5.10.1
+FOUND isort==5.10.1
+

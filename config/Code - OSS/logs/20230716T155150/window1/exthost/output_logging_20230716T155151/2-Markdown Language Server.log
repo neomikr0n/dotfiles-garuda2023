@@ -1,0 +1,657 @@
+[Trace 20:51:52.295] VsCodeClientWorkspace: TextDocument.onDidOpen: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:51:52.295] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:51:52.295] VsCodeClientWorkspace: TextDocument.onDidOpen: untitled:Untitled-1
+[Trace 20:51:52.295] VsCodeClientWorkspace: TextDocument.onDidChanceContent: untitled:Untitled-1
+[Trace 20:51:52.295] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:51:52.295] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 20:51:52.296] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:51:52.296] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 20:51:52.306] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:51:52.590] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 20:51:53.800] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 1
+[Debug 20:51:53.800] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:51:54.271] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 1
+[Trace 20:53:52.302] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:53:52.302] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 20:53:52.455] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 2
+[Debug 20:53:52.455] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:53:52.665] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 20:53:52.670] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:53:52.671] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 2
+[Trace 20:53:53.753] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:53:53.753] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 20:53:53.934] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 3
+[Debug 20:53:53.934] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:53:54.089] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 20:53:54.113] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 20:53:54.113] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 3
+[Trace 21:07:17.636] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:17.637] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:17.803] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 4
+[Debug 21:07:17.803] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:18.010] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:07:18.037] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 4
+[Debug 21:07:18.037] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:18.243] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:18.243] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:18.426] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 5
+[Debug 21:07:18.426] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:18.579] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:07:18.602] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 5
+[Debug 21:07:18.602] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:19.158] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:19.158] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:19.342] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 6
+[Debug 21:07:19.342] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:19.501] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:19.516] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:19.516] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 6
+[Trace 21:07:25.220] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:25.220] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:25.402] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 7
+[Debug 21:07:25.402] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:25.454] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:25.562] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:25.562] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 7
+[Trace 21:07:29.260] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:29.260] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:29.413] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:29.413] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:29.460] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:29.598] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 9
+[Debug 21:07:29.598] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:29.782] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 9
+[Debug 21:07:29.783] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:32.197] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:32.197] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:32.296] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:32.296] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:32.398] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:32.475] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 11
+[Debug 21:07:32.475] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:32.640] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:32.640] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 11
+[Trace 21:07:33.571] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:33.571] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:33.752] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 12
+[Debug 21:07:33.752] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:33.805] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:33.910] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:33.910] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 12
+[Trace 21:07:34.137] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:34.137] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:34.294] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:34.294] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:34.338] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:34.473] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 14
+[Debug 21:07:34.473] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:34.651] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:34.651] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 14
+[Trace 21:07:35.446] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:35.446] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:35.631] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 15
+[Debug 21:07:35.631] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:35.682] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:35.784] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:35.784] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 15
+[Trace 21:07:35.868] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:35.868] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:36.006] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:36.006] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:36.069] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:07:36.191] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 17
+[Debug 21:07:36.191] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:36.351] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:36.351] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 17
+[Trace 21:07:36.804] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:36.804] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:07:36.987] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 18
+[Debug 21:07:36.987] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:07:37.143] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:07:37.158] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 18
+[Debug 21:07:37.158] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.286] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.286] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.372] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.372] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.486] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:08:26.540] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 20
+[Debug 21:08:26.540] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:26.792] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.792] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:26.792] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:26.875] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 21
+[Debug 21:08:26.875] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:27.008] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:27.008] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:08:27.021] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:27.021] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:27.185] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 22
+[Debug 21:08:27.185] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:27.316] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:27.316] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:08:27.340] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 22
+[Trace 21:08:32.213] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:32.213] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:32.396] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 23
+[Debug 21:08:32.396] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:32.453] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:08:32.567] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:32.567] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 23
+[Trace 21:08:32.784] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:32.784] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:32.968] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 24
+[Debug 21:08:32.968] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.019] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:08:33.119] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.119] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 24
+[Trace 21:08:33.358] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.358] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.421] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.421] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.558] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:08:33.612] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.612] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.777] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.777] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:33.812] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:08:33.962] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 28
+[Debug 21:08:33.962] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:34.054] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:34.056] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:34.176] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 29
+[Debug 21:08:34.176] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:34.319] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:34.319] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:08:34.344] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 29
+[Trace 21:08:57.844] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:57.844] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:57.880] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:57.881] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:58.044] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:08:58.050] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 31
+[Debug 21:08:58.050] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:08:58.253] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:08:58.254] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 31
+[Trace 21:09:41.189] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:41.189] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:41.380] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 32
+[Debug 21:09:41.380] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:41.615] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:09:41.630] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 32
+[Debug 21:09:41.630] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:42.603] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:42.603] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:42.722] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:42.722] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:42.804] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:42.917] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 34
+[Debug 21:09:42.917] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.099] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 34
+[Debug 21:09:43.099] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.237] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.237] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.420] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.420] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.439] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:43.602] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 36
+[Debug 21:09:43.602] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:43.766] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:43.767] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 36
+[Trace 21:09:50.204] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.205] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:50.369] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 37
+[Debug 21:09:50.369] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.566] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:50.586] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.587] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 37
+[Trace 21:09:50.604] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.604] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:50.658] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.741] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.741] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:50.845] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:50.922] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 39
+[Debug 21:09:50.922] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:51.112] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.112] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.112] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.213] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.213] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.339] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:51.398] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 41
+[Debug 21:09:51.398] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.482] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.482] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.517] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.517] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:51.679] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 43
+[Debug 21:09:51.679] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.736] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:51.849] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.850] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:51.850] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:51.962] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 44
+[Debug 21:09:51.962] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.027] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.027] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.076] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:09:52.105] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.105] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:52.291] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 46
+[Debug 21:09:52.291] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.344] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:52.447] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.447] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 46
+[Trace 21:09:52.558] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.558] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.680] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.680] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.759] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:52.865] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 48
+[Debug 21:09:52.865] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.947] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:52.947] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:53.109] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 49
+[Debug 21:09:53.109] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.266] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:09:53.266] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 49
+[Debug 21:09:53.266] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.387] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.387] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.509] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.509] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.588] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:53.695] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 51
+[Debug 21:09:53.695] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.780] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:53.780] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:53.937] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 52
+[Debug 21:09:53.937] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.104] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:54.104] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.104] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.104] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.117] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.160] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:09:54.296] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 54
+[Debug 21:09:54.296] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.437] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:09:54.437] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:09:54.462] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 54
+[Trace 21:11:26.090] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:26.090] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:26.257] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 55
+[Debug 21:11:26.257] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:26.462] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:26.471] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:26.481] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 55
+[Trace 21:11:28.397] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:28.397] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:28.547] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:28.548] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:28.600] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:28.730] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 57
+[Debug 21:11:28.730] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:28.927] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:28.945] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 57
+[Trace 21:11:31.128] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.128] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.267] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.267] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.330] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:31.453] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 59
+[Debug 21:11:31.453] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.642] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 59
+[Debug 21:11:31.642] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.761] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.761] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.900] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.900] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:31.962] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:32.059] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:32.059] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:32.245] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 62
+[Debug 21:11:32.245] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:32.298] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:32.434] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 62
+[Debug 21:11:32.434] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:33.499] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:33.499] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:33.700] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:33.700] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:33.700] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:33.884] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 64
+[Debug 21:11:33.884] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:33.937] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:34.065] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.065] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 64
+[Trace 21:11:34.219] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.219] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.320] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.320] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.420] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:34.494] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.494] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.633] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.633] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.695] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:34.731] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:34.731] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:34.916] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 69
+[Debug 21:11:34.916] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.017] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:35.018] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.018] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:35.138] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 70
+[Debug 21:11:35.138] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:35.306] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.306] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:35.306] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 70
+[Trace 21:11:35.425] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.425] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:35.613] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 71
+[Debug 21:11:35.613] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.664] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:35.804] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.804] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:35.804] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:35.932] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 72
+[Debug 21:11:35.932] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:36.000] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:36.000] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:36.029] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:36.167] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:36.167] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:36.355] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 74
+[Debug 21:11:36.355] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:36.407] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:36.524] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:36.524] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 74
+[Trace 21:11:37.086] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:37.086] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:37.270] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 75
+[Debug 21:11:37.270] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:37.321] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:37.433] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:37.433] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 75
+[Trace 21:11:37.807] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:37.807] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:37.993] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 76
+[Debug 21:11:37.993] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.152] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:38.165] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.165] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 76
+[Trace 21:11:38.516] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.516] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.556] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.556] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.718] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:11:38.741] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 78
+[Debug 21:11:38.741] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:38.922] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:38.922] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 78
+[Trace 21:11:39.638] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:39.639] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:11:39.816] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 79
+[Debug 21:11:39.816] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:11:39.977] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:11:39.988] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 79
+[Debug 21:11:39.988] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:31.707] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:31.707] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:13:31.886] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 80
+[Debug 21:13:31.886] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:31.945] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:13:32.061] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 80
+[Debug 21:13:32.061] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:32.073] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:32.074] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:13:32.113] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:13:32.256] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 81
+[Trace 21:13:32.300] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:13:32.403] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:32.425] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 81
+[Trace 21:13:38.327] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:38.327] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:13:38.509] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 82
+[Debug 21:13:38.509] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:38.560] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:13:38.679] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:38.679] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 82
+[Trace 21:13:59.405] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:59.405] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:13:59.587] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 83
+[Debug 21:13:59.587] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:13:59.638] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:13:59.765] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 83
+[Debug 21:13:59.765] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:00.987] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:00.987] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.173] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.173] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.187] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:01.272] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.272] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.435] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.435] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.474] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:01.609] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.609] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:01.792] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 88
+[Debug 21:14:01.792] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.957] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:01.978] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:01.978] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:02.068] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 89
+[Debug 21:14:02.068] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:02.239] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.239] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:02.239] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 89
+[Trace 21:14:02.273] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.273] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.431] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.431] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.475] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:02.530] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.530] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:02.716] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 92
+[Debug 21:14:02.716] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.772] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:02.901] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:02.901] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 92
+[Trace 21:14:03.409] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:03.410] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:03.596] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 93
+[Debug 21:14:03.596] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:03.647] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:03.773] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:03.773] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:03.773] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:03.854] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 94
+[Debug 21:14:03.854] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:03.997] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:04.004] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 94
+[Debug 21:14:04.004] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:04.245] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:04.245] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:04.432] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 95
+[Debug 21:14:04.432] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:04.485] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:04.600] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:04.600] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 95
+[Trace 21:14:06.055] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.055] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:06.240] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 96
+[Debug 21:14:06.240] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.291] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:06.409] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 96
+[Debug 21:14:06.409] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.576] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.576] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:06.762] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 97
+[Debug 21:14:06.762] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.815] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:06.844] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:06.844] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.844] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.887] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:06.887] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.070] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:07.074] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 99
+[Debug 21:14:07.074] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:07.231] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.231] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 99
+[Trace 21:14:07.322] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.322] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:07.508] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 100
+[Debug 21:14:07.508] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.602] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.606] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.607] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:07.726] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 101
+[Debug 21:14:07.726] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:07.895] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:07.895] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 101
+[Debug 21:14:07.895] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:09.128] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:09.128] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:09.313] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 102
+[Debug 21:14:09.313] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:09.364] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:09.465] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:09.466] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 102
+[Trace 21:14:09.680] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:09.680] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:09.864] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 103
+[Debug 21:14:09.864] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:09.915] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:10.017] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:10.017] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 103
+[Trace 21:14:10.524] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:10.524] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:10.708] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 104
+[Debug 21:14:10.708] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:10.759] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:10.876] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:10.876] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:11.000] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 105
+[Debug 21:14:11.000] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:11.156] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:11.156] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:11.156] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 105
+[Trace 21:14:11.346] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:11.346] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:11.534] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 106
+[Debug 21:14:11.534] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:11.584] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:11.696] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:11.696] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:11.696] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:11.796] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 107
+[Debug 21:14:11.796] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:11.934] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:11.947] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 107
+[Debug 21:14:11.947] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:13.815] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:13.815] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:13.973] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:13.973] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.015] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:14.160] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 109
+[Debug 21:14:14.160] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.256] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.263] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:14.382] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 110
+[Debug 21:14:14.382] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:14.525] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.525] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:14.566] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.567] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:14.724] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 111
+[Debug 21:14:14.724] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.876] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:14.876] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:14.876] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 111
+[Trace 21:14:15.320] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:15.320] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:15.506] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 112
+[Debug 21:14:15.506] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:15.558] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:15.667] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 112
+[Debug 21:14:15.667] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:15.752] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:15.752] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:15.940] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 113
+[Debug 21:14:15.940] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:15.992] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:16.095] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:16.095] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 113
+[Trace 21:14:16.132] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:16.132] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:16.300] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 114
+[Debug 21:14:16.300] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:16.449] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:16.459] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:16.459] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 114
+[Trace 21:14:16.779] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:16.780] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:16.966] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 115
+[Debug 21:14:16.966] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:17.017] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:17.119] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 115
+[Debug 21:14:17.119] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:17.740] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:17.740] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:17.860] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:17.860] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:17.943] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:18.046] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 117
+[Debug 21:14:18.046] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:18.221] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:18.221] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:18.221] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:18.365] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:18.367] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:18.446] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:18.551] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 119
+[Debug 21:14:18.551] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:18.722] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:18.722] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 119
+[Trace 21:14:19.047] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:19.048] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:19.234] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 120
+[Debug 21:14:19.234] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:19.285] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:19.387] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:19.387] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 120
+[Trace 21:14:52.520] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:52.520] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:52.691] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 121
+[Debug 21:14:52.691] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:52.885] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Trace 21:14:52.908] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 121
+[Debug 21:14:52.908] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:53.039] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:53.039] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:14:53.218] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 122
+[Debug 21:14:53.218] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:53.370] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:14:53.382] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:14:53.382] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 122
+[Trace 21:15:05.202] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:05.202] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Debug 21:15:05.382] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 123
+[Debug 21:15:05.382] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:05.446] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:15:05.590] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:05.590] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 123
+[Trace 21:15:34.082] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:34.082] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:34.261] VsCodeClientWorkspace: TextDocument.onDidChanceContent: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:34.261] Server: connection.languages.diagnostics.on: file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:34.283] Server: connection.languages.diagnostics.on: untitled:Untitled-1
+[Debug 21:15:34.433] MdFoldingProvider: provideFoldingRanges — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 125
+[Debug 21:15:34.434] TableOfContentsProvider: create - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md
+[Trace 21:15:34.652] DocumentSymbolProvider: provideDocumentSymbols — file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md 125
+[Debug 21:15:34.652] LinkProvider: compute - file:///home/n30/.dotfiles/wiki-wayland-0.9beta.md

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+scriptsDir="$HOME"/.dotfiles/bin
+wallsDir=$HOME/Videos/Hidamari
+
+# Kill already running processes
+_ps=(mpvpaper mako dunst swaync swaybg swayidle waybar mpd xdg-desktop-portal-hyprland xdg-desktop-portal xfce-polkit)
+for _prs in "${_ps[@]}"; do
+  if [[ $(pidof "${_prs}") ]]; then
+    killall -9 "${_prs}"
+  fi
+done
+
+
+# daemons
+/usr/bin/numlockx on &
+exec mpd &
+xdg-user-dirs &
+foot --server &
+
+# video wallpaper
+bash "$scriptsDir"/videowallpaper-change code &
+# ${SCRIPTSDIR}/wall $HOME/.config/hypr/wallpapers/dreams.png &   #static wallpaper
+
+#!/bin/bash
+# Environment Variables
+# https://wiki.hyprland.org/Configuring/Environment-variables/
+

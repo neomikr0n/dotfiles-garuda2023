@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "/home/n30/.config/hypr/scripts"
+		},
+		{
+			"path": "../../../../.dotfiles/bin"
+		},
+		{
+			"path": "../../../hypr/configs"
+		},
+		{
+			"path": "../../../../.dotfiles/config/hypr/component/waybar"
+		}
+	],
+	"settings": {
+		"color-highlight.sass.includePaths": [
+		
+		]
+	}
+}

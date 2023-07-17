@@ -3,7 +3,7 @@
         "bass_enhancer#0": {
             "amount": 0.0,
             "blend": 0.0,
-            "bypass": true,
+            "bypass": false,
             "floor": 20.0,
             "floor-active": false,
             "harmonics": 8.5,
@@ -12,7 +12,7 @@
             "scope": 100.0
         },
         "bass_loudness#0": {
-            "bypass": true,
+            "bypass": false,
             "input-gain": 0.0,
             "link": -9.1,
             "loudness": -3.1,
@@ -26,7 +26,7 @@
             "input-gain": 0.0,
             "ir-width": 100,
             "kernel-path": "/home/n30/.config/easyeffects/irs/results_oratory1990_harman_over-ear_2018_Beyerdynamic DT 990 250 Ohm (worn earpads)_Beyerdynamic DT 990 250 Ohm (worn earpads) minimum phase 48000Hz.irs",
-            "output-gain": 0.0
+            "output-gain": -5.0
         },
         "equalizer#0": {
             "balance": 0.0,
@@ -223,17 +223,48 @@
             },
             "split-channels": false
         },
+        "filter#0": {
+            "bypass": true,
+            "frequency": 18000.0,
+            "inertia": 20.0,
+            "input-gain": 0.0,
+            "mode": "36dB/oct Highpass",
+            "output-gain": 0.0,
+            "resonance": -3.0
+        },
+        "limiter#0": {
+            "alr": false,
+            "alr-attack": 5.0,
+            "alr-knee": 0.0,
+            "alr-release": 50.0,
+            "attack": 5.0,
+            "bypass": true,
+            "dithering": "None",
+            "external-sidechain": false,
+            "gain-boost": true,
+            "input-gain": 0.0,
+            "lookahead": 5.0,
+            "mode": "Line Thin",
+            "output-gain": 0.0,
+            "oversampling": "None",
+            "release": 5.0,
+            "sidechain-preamp": 0.0,
+            "stereo-link": 100.0,
+            "threshold": 0.0
+        },
         "plugins_order": [
             "convolver#0",
             "equalizer#0",
             "bass_loudness#0",
             "bass_enhancer#0",
-            "reverb#0"
+            "reverb#0",
+            "filter#0",
+            "limiter#0"
         ],
         "reverb#0": {
             "amount": -10.716679676582991,
             "bass-cut": 514.079,
-            "bypass": true,
+            "bypass": false,
             "decay-time": 1.10354,
             "diffusion": 0.69,
             "dry": 0.0,

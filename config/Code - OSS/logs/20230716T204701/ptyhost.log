@@ -1,0 +1,4 @@
+2023-07-16 19:47:07.294 [warning] Persistent process "1": Process had no disconnect runners but was an orphan
+2023-07-16 19:47:07.295 [info] Persistent process reconnection "1"
+2023-07-16 19:47:07.298 [warning] Shell integration cannot be enabled for executable "/usr/bin/fish" and args undefined
+2023-07-16 19:47:07.313 [info] Persistent process "1": Replaying 6872 chars and 1 size events

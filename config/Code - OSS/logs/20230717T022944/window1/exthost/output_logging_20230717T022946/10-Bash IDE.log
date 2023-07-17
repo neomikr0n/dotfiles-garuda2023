@@ -1,0 +1,20 @@
+[Info  - 10:28:56 PM] 03:28:56.715 INFO BackgroundAnalysis: resolving glob "**/*@(.sh|.inc|.bash|.command)" inside "file:///home/n30/.config/hypr/scripts"...
+[Info  - 10:28:56 PM] 03:28:56.725 INFO BackgroundAnalysis: Glob resolved with 29 files after 0.01 seconds
+[Warn  - 10:28:56 PM] 03:28:56.729 WARNING ⛔️ file:///home/n30/.config/hypr/scripts/LXQt-Wayland.sh line 40: non-constant source not supported
+[Warn  - 10:28:56 PM] 03:28:56.737 WARNING ⛔️ file:///home/n30/.config/hypr/scripts/grimblast.sh line 22: non-constant source not supported
+[Warn  - 10:28:56 PM] 03:28:56.739 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/hyprlandconf-enviroment.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.745 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/sway-select-window.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.745 WARNING ⛔️ BackgroundAnalysis: Failed analyzing file:///home/n30/.config/hypr/scripts/swaysock.sh. Error: Cannot read properties of undefined (reading 'apply')
+[Warn  - 10:28:56 PM] 03:28:56.746 WARNING ⛔️ BackgroundAnalysis: Failed analyzing file:///home/n30/.config/hypr/scripts/weather.sh. Error: Cannot read properties of undefined (reading 'apply')
+[Warn  - 10:28:56 PM] 03:28:56.749 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/wob-startup.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.750 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/scripts-bspwm/updates.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.753 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/brightness.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.758 WARNING ⛔️ file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/colors.sh line 2: non-constant source not supported
+[Warn  - 10:28:56 PM] 03:28:56.762 WARNING ⛔️ file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/rofi.sh line 1: non-constant source not supported
+[Warn  - 10:28:56 PM] 03:28:56.762 WARNING ⛔️ BackgroundAnalysis: Failed analyzing file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/sounds.sh. Error: Cannot read properties of undefined (reading 'apply')
+[Warn  - 10:28:56 PM] 03:28:56.762 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/ss.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.764 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/toggle_float.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.765 WARNING ⛔️ Error while parsing file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/volume.sh: syntax error
+[Warn  - 10:28:56 PM] 03:28:56.767 WARNING ⛔️ file:///home/n30/.config/hypr/scripts/scripts-bspwm/bscripts/wal-spotify.sh line 2: non-constant source not supported
+[Info  - 10:28:56 PM] 03:28:56.770 INFO BackgroundAnalysis: Completed after 0.055 seconds.
+[Warn  - 10:29:38 PM] 03:29:38.460 WARNING ⛔️ ShellCheck: disabling linting as no executable was found at path 'shellcheck'

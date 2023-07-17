@@ -1,0 +1,46 @@
+ ╭─n30@n30 in repo: msigd on  51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw as 🧙 
+ ╰─λ make TARGETOS=arch
+creating .depend
+Compiling src/msigd.cpp...
+In file included from src/msigd.cpp:7:
+src/phid.h: In static member function ‘static int usbdev_t::get_device_list(logger_t&, unsigned int, unsigned int, device_info_list&)’:
+src/phid.h:63:46: warning: unused parameter ‘logger’ [-Wunused-parameter]
+   63 |         static int get_device_list(logger_t &logger, unsigned idVendor, unsigned idProduct,
+      |                                    ~~~~~~~~~~^~~~~~
+src/phid.h: In member function ‘int usbdev_t::control_msg_write(int, int, int, int, void*, int, int)’:
+src/phid.h:91:44: warning: unused parameter ‘timeout’ [-Wunused-parameter]
+   91 |                 void *bytes, int size, int timeout)
+      |                                        ~~~~^~~~~~~
+src/phid.h: In member function ‘int usbdev_t::control_msg_read(int, int, int, int, void*, int, int, int&)’:
+src/phid.h:111:44: warning: unused parameter ‘timeout’ [-Wunused-parameter]
+  111 |                 void *bytes, int size, int timeout, int &ret_size)
+      |                                        ~~~~^~~~~~~
+Linking msigd...
+g++ -o msigd  src/msigd.o -lusb-1.0 -lhidapi-hidraw
+
+ ╭─n30@n30 in repo: msigd on  51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw as 🧙 took 3s
+ ╰─λ msigd --help
+find-the-command: "msigd" is not found locally, searching in repositories...
+find-the-command: /var/cache/pkgfile/*.files are out of date, update? [Y/n] y
+:: Updating 9 repos...
+  download complete: community            [    45.0   B   222B/s  8 remaining]
+  download complete: multilib             [   210.9 KiB   685K/s  7 remaining]
+  download complete: pirate-arch-repo     [   615.0   B  1865B/s  6 remaining]
+  download complete: rumpowered           [    94.3 KiB   257K/s  5 remaining]
+  download complete: core                 [  1011.0 KiB  1875K/s  4 remaining]
+  download complete: garuda               [   266.4 KiB   344K/s  3 remaining]
+  download complete: extra                [    37.7 MiB  4.45M/s  2 remaining]
+  download complete: chaotic-aur          [    41.2 MiB  4.18M/s  1 remaining]
+  download complete: archlinuxcn          [    32.2 MiB  1068K/s  0 remaining]
+:: download complete in 30.84s            <   112.6 MiB  3.65M/s  9 files    >
+:: waiting for 1 process to finish repacking repos...
+find-the-command: command not found: "msigd"
+
+ ╭─n30@n30 in repo: msigd on  51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw as 🧙 took 1m5s
+[🔍] × make TARGETOS=arch
+make: 'all' is up to date.
+
+ ╭─n30@n30 in repo: msigd on  51-compile-errors-msi-mpg341qr-on-garuda-linux-arch-btw as 🧙 took 1ms
+ ╰─λ msigd
+find-the-command: "msigd" is not found locally, searching in repositories...
+find-the-command: command not found: "msigd"

@@ -1,0 +1,74 @@
+{
+    "workbench.colorCustomizations": {
+// non-standard, transparency patched version only
+"workbench.background": "#00000080",
+
+// VSC colors
+// ref: https://code.visualstudio.com/api/references/theme-color
+
+
+"minimap.findMatchHighlight": "#c205df50",
+"minimapGutter.modifiedBackground": "#c205df50",
+// "minimapSlider.background": "#c404e61f",
+"minimap.selectionHighlight": "#c205df50",
+
+"activityBar.background": "#46575e5e",
+"button.background": "#00000040",
+"button.hoverBackground": "#00000080",
+
+"editor.background": "#00000029",
+"editor.lineHighlightBackground": "#7e047831",
+// "editor.lineHighlightBackground": "#04207e31",           //"#ffffff15",
+"editorGroupHeader.tabsBackground": "#00000050",
+
+"tab.activeBackground": "#c205df50",
+"tab.inactiveBackground": "#00000020",
+"tab.border": "#00000000",
+
+"list.activeSelectionBackground": "#00000040",
+"list.hoverBackground": "#00000040",
+"list.inactiveSelectionBackground": "#00000040",
+
+"panel.background": "#00000080",
+"panel.border": "#00000000",
+
+"sideBar.background": "#00000080",
+"sideBarSectionHeader.background": "#00000000",
+
+"statusBar.background": "#00000080",
+"statusBar.noFolderBackground": "#00000080",
+"terminal.background": "#0000",
+"titleBar.activeBackground": "#00000030"
+},
+
+"workbench.colorTheme": "Sweet Dracula Monokai",
+"editor.wordWrap": "on",
+"files.autoSave": "afterDelay",
+
+"debug.javascript.defaultRuntimeExecutable": {
+"pwa-node": "node",
+},
+
+"liveServer.settings.AdvanceCustomBrowserCmdLine": "firedragon",
+
+"terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+"terminal.integrated.fontSize": 16,
+"editor.fontFamily": "JetBrainsMono Nerd Font",
+"editor.fontSize": 22,
+"editor.fontLigatures": true,
+"editor.mouseWheelZoom": true,
+"editor.minimap.showSlider": "always",
+"files.associations": {
+    "*.ini": "ini"
+},
+"markdown.preview.fontSize": 23,
+"markdown.extension.print.theme": "dark",
+"terminal.integrated.shellIntegration.history": 1000,
+"terminal.integrated.defaultProfile.linux": "fish",
+"terminal.external.linuxExec": "foot",
+"terminal.integrated.cursorBlinking": true,
+"security.workspace.trust.untrustedFiles": "open",
+"window.zoomLevel": -1,
+}
+
+

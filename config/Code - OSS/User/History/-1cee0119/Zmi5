@@ -1,0 +1,7 @@
+#!/bin/bash
+
+COLOR=$(hyprpicker)
+
+echo "${COLOR}" | wl-copy -n 
+# notify-send -e -u "low" "Color copied!" "$COLOR" # TODO:
+notify-send "Color copied!" "$COLOR" -t 1

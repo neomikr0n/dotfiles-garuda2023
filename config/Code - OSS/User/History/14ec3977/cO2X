@@ -1,0 +1,7 @@
+genymotion-shell
+devices select 1
+devices select 0
+
+gps setstatus enabled
+gps setlatitude 19.68196
+gps setlongitude -101.16097

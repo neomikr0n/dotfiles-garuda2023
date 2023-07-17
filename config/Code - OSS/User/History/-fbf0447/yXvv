@@ -1,0 +1,12 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# https://github.com/terminalforlife/BashConfig/
+alias joke='command wget -U "curl/7.55.1" -o /dev/null -qO - https://icanhazdadjoke.com || printf "No jokes today"; echo'

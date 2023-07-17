@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+config                                      bulknew
+etc                                         change-bg                                                                                SOUND_PATH="$HOME/dotfiles/share/sounds"
+share                                       eww-open                                                                                 # dunsitfy arguments ⮯
+LICENSE                                     hyprstart                                                                                app="$1"
+README.md                                   hyprwrap                                                                                 # summary="$2"
+import-gsettings                                                                         # body="$3"
+layout                                                                                   # icon_path="$4"
+lock                                                                                     urgency="$5"
+relink
+renamer                                                                                  case "$urgency" in
+touchsh                                                                                      LOW) sound="none" ;;
+NORMAL) sound="moondrop" ;;
+CRITICAL) sound="gems" ;;
+esac
+
+case "$app" in
+timer) sound="jackpot" ;;
+attention) sound="discovery" ;;
+chat) sound="reward" ;;
+work) sound="fruit" ;;
+Spotify) sound="none" ;;
+discord) sound="none" ;;
+esac
+
+if [ "$sound" == "none" ]; then
+exit 0
+fi
+
+paplay "$SOUND_PATH/$sound.ogg" & disown
+
+exit 0

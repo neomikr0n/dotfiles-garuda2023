@@ -1,0 +1,37 @@
+#!/bin/bash
+/home/n30
+shutdown() {
+  notify-send -t 909 -u low -h int:value:80 '⌛ POWERing-OFF... (2)' &&
+
+    # "$notification"
+    # notification= notify-send -t 909 -u low -h int:value:80 "⌛ POWERing-OFF... (2)"
+    notify-send -t 909 -u low -h int:value:80 "⌛ POWERing-OFF... (3)" &
+    # sleep 1 && \
+    # $notification 50 "⏳ POWERing-OFF... (2)" && \
+    # sleep 1 && \
+    # $notification 15 "⌛ POWERing-OFF... (1)" && \
+  # notify-send -h string:x-canonical-private-synchronous:sys-notify -u "$(get_urgency)" -i "$(get_icon)" -h  int:value:$(get_volume) "Volume : $(get_volume)%"
+}
+
+# Restart
+restart() {
+notify-send -t 909 -u low -h int:value:80 "⌛ POWERing-OFF... (2)" && \
+}
+
+# Logout
+logout() {
+notify-send -t 909 -u low -h int:value:80 "⌛ POWERing-OFF... (2)" && \
+}
+
+notification= notify-send -t 909 -u low -h int:value:80 '⌛ POWERing-OFF... (1)'
+
+# Execute accordingly
+if [[ "$1" == "--shutdown" ]]; then
+  shutdown
+elif [[ "$1" == "--restart" ]]; then
+  restart
+elif [[ "$1" == "--logout" ]]; then
+  logout
+elif [[ "$1" == "--lock" ]]; then
+  lock
+fi

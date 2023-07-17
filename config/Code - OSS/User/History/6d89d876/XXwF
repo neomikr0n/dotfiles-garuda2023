@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# by neomikr0n
+
+count() {
+timer -l $2 | lolcat -a -d 1 -s 999 -t &
+}
+
+
+# Execute accordingly
+if [[ "$1" == "--count" ]]; then
+  count
+
+elif [[ "$1" == "--notify" ]]; then
+  notify_user
+else
+  notify_user
+fi

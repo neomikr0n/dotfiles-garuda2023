@@ -1,0 +1,39 @@
+2023-07-16 05:12:12.177 [info] Extension host with pid 7466 started
+2023-07-16 05:12:12.177 [info] Skipping acquiring lock for /home/n30/.config/Code - OSS/User/workspaceStorage/1feba4cd03760bc246259d32580ab904.
+2023-07-16 05:12:12.225 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 05:12:12.225 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 05:12:12.225 [info] ExtensionService#_doActivateExtension Sycl.markdown-command-runner, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 05:12:12.225 [info] ExtensionService#_doActivateExtension yzhang.markdown-all-in-one, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 05:12:12.225 [info] ExtensionService#_doActivateExtension zaaack.markdown-editor, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 05:12:12.226 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-07-16 05:12:12.226 [info] ExtensionService#_doActivateExtension naumovs.color-highlight, startup: true, activationEvent: '*'
+2023-07-16 05:12:12.226 [info] ExtensionService#_doActivateExtension wayou.vscode-todo-highlight, startup: true, activationEvent: '*'
+2023-07-16 05:12:12.354 [info] ExtensionService#_doActivateExtension vscode.markdown-math, startup: false, activationEvent: 'api', root cause: yzhang.markdown-all-in-one
+2023-07-16 05:12:12.428 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-07-16 05:12:12.428 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-07-16 05:12:12.454 [info] ExtensionService#_doActivateExtension ms-python.python, startup: true, activationEvent: 'workspaceContains:*.py', root cause: ms-python.isort
+2023-07-16 05:12:12.671 [info] ExtensionService#_doActivateExtension ms-python.isort, startup: true, activationEvent: 'workspaceContains:*.py'
+2023-07-16 05:12:12.725 [info] Eager extensions activated
+2023-07-16 05:12:12.751 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 05:12:12.751 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 05:12:12.751 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 05:12:12.751 [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 05:12:12.751 [info] ExtensionService#_doActivateExtension Gruntfuggly.todo-tree, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 05:12:12.751 [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 05:12:13.333 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 05:12:13.680 [error] Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at m (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:88:44793)
+	at get testResults [as testResults] (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:113:36138)
+	at P.activate (/home/n30/.vscode-oss/extensions/ms-python.python-2022.18.2-universal/out/client/extension.js:2:764843)
+	at /home/n30/.vscode-oss/extensions/ms-python.python-2022.18.2-universal/out/client/extension.js:2:2251
+	at Array.map (<anonymous>)
+	at f.activateWorkspace (/home/n30/.vscode-oss/extensions/ms-python.python-2022.18.2-universal/out/client/extension.js:2:2241)
+	at process.processTicksAndRejections (node:internal/process/task_queues:96:5)

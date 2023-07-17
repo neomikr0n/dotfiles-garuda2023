@@ -1,0 +1,543 @@
+2023-07-16 14:51:51.930 [info] Extension host with pid 530285 started
+2023-07-16 14:51:51.930 [info] Skipping acquiring lock for /home/n30/.config/Code - OSS/User/workspaceStorage/1feba4cd03760bc246259d32580ab904.
+2023-07-16 14:51:52.015 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension Sycl.markdown-command-runner, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension yzhang.markdown-all-in-one, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension zaaack.markdown-editor, startup: false, activationEvent: 'onLanguage:markdown'
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension naumovs.color-highlight, startup: true, activationEvent: '*'
+2023-07-16 14:51:52.016 [info] ExtensionService#_doActivateExtension wayou.vscode-todo-highlight, startup: true, activationEvent: '*'
+2023-07-16 14:51:52.154 [info] ExtensionService#_doActivateExtension vscode.markdown-math, startup: false, activationEvent: 'api', root cause: yzhang.markdown-all-in-one
+2023-07-16 14:51:52.250 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-07-16 14:51:52.250 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-07-16 14:51:52.251 [info] ExtensionService#_doActivateExtension ms-python.python, startup: true, activationEvent: 'workspaceContains:*.py', root cause: ms-python.isort
+2023-07-16 14:51:52.464 [info] ExtensionService#_doActivateExtension ms-python.isort, startup: true, activationEvent: 'workspaceContains:*.py'
+2023-07-16 14:51:52.506 [info] Eager extensions activated
+2023-07-16 14:51:52.539 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 14:51:52.539 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 14:51:52.539 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 14:51:52.539 [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 14:51:52.539 [info] ExtensionService#_doActivateExtension Gruntfuggly.todo-tree, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 14:51:52.539 [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer, startup: false, activationEvent: 'onStartupFinished'
+2023-07-16 14:51:53.119 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 14:51:53.502 [error] Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at m (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:88:44793)
+	at get testResults [as testResults] (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:113:36138)
+	at P.activate (/home/n30/.vscode-oss/extensions/ms-python.python-2022.18.2-universal/out/client/extension.js:2:764843)
+	at /home/n30/.vscode-oss/extensions/ms-python.python-2022.18.2-universal/out/client/extension.js:2:2251
+	at Array.map (<anonymous>)
+	at f.activateWorkspace (/home/n30/.vscode-oss/extensions/ms-python.python-2022.18.2-universal/out/client/extension.js:2:2241)
+	at process.processTicksAndRejections (node:internal/process/task_queues:96:5)
+2023-07-16 14:53:52.769 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 14:53:54.243 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 14:53:55.319 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:18.113 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:18.735 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:19.649 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:20.731 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:25.714 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:26.789 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:29.901 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:30.976 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:32.783 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:34.061 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:34.780 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:36.498 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:37.294 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:07:38.379 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:27.512 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:28.569 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:32.704 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:33.275 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:34.492 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:35.559 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:58.354 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:08:59.431 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:09:41.691 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:09:43.224 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:09:43.910 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:09:44.991 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:09:54.604 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:09:55.680 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:26.566 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:27.644 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:29.039 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:30.124 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:32.553 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:34.191 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:36.660 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:37.578 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:38.300 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:39.048 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:40.146 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:11:41.200 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:13:32.566 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:13:33.649 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:13:38.819 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:13:39.893 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:13:59.897 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:00.968 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:03.023 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:04.738 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:05.814 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:06.547 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:08.040 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:09.108 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:09.621 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:10.174 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:12.166 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:13.213 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:15.037 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:16.607 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:17.272 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:18.859 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:19.540 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:20.616 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:52.999 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:53.529 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:14:54.604 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:15:05.694 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:15:06.767 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:15:34.745 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)
+2023-07-16 15:15:35.824 [error] TypeError: Class constructor Yt cannot be invoked without 'new'
+	at p (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:15012)
+	at /home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18316
+	at Array.forEach (<anonymous>)
+	at Timeout.k [as _onTimeout] (/home/n30/.vscode-oss/extensions/gruntfuggly.todo-tree-0.0.215-universal/dist/extension.js:99:18289)
+	at listOnTimeout (node:internal/timers:561:11)
+	at process.processTimers (node:internal/timers:502:7)

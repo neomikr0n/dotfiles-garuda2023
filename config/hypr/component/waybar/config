@@ -20,7 +20,6 @@
     "modules-left": [
         // "custom/launcher"
         "wlr/workspaces", 
-        "idle_inhibitor",
         // "custom/media",
         // "custom/spotify",
         // "custom/dynamic_pill",
@@ -32,6 +31,7 @@
     "modules-right": [
         // "wlr/taskbar",
         // "custom/spotify-metadata",
+        "idle_inhibitor",
         "custom/garuda-update",
         // "custom/ss",
         // "custom/cycle_wall",

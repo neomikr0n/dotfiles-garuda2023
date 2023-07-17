@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# by neomikr0n
+
+countdown() {
+
+}
+
+
+# Execute accordingly
+if [[ "$1" == "--get" ]]; then
+  get_volume
+
+elif [[ "$1" == "--notify" ]]; then
+  notify_user
+else
+  get_volume & notify_user
+fi

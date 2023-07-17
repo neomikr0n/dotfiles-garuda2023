@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+CONFIG="$HOME/.config/mako/config"
+
+# if [[ ! $(pidof mako) ]]; then
+#   mako -c ${CONFIG}
+# fi
+
+
+
+
+
+
+# NOTIFICATIONS (mako)
+# CONFIG="$HOME/.config/mako/config"
+
+# if [[ ! $(pidof mako) ]]; then
+#   mako -c ${CONFIG}
+# fi

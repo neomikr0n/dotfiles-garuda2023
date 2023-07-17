@@ -1,0 +1,521 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    //"height": 10, // Waybar height (to be removed for auto height)
+    "width": 3466, // Waybar width FOR WIDESCREEN 3440pX1440p
+    "spacing": 3, // Gaps between modules (4px)
+    "margin-bottom":-22,
+    // "margin-left":25,
+    // "margin-right":25,
+    "margin-top":-8,
+
+    // Modules configuration
+    "modules-center": [
+        // "custom/music",
+        // "clock",
+        "custom/music"
+        // "mpd"
+    ],
+
+    "modules-left": [
+        // "custom/launcher"
+        "wlr/workspaces", 
+        "idle_inhibitor",
+        // "custom/media",
+        // "custom/spotify",
+        // "custom/dynamic_pill",
+        "hyprland/window",   //shows name of focused window, just in case you want to know, 'hyprctl clients' on a terminal for way more info...
+        // "custom/wall",
+        "custom/cava-internal"  //TODO: not working
+    ],
+
+    "modules-right": [
+        // "wlr/taskbar",
+        // "custom/spotify-metadata",
+        "custom/garuda-update",
+        // "custom/ss",
+        // "custom/cycle_wall",
+        // "custom/expand",
+        // "memory",
+        // "temperature",
+        "network",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "custom/keyboard-layout",
+        "custom/weather",
+        "cpu#percentage",
+        // "cpu",
+        "custom/wl-gammarelay-temperature",
+        "tray",
+        "custom/notification",    
+        "clock#date",
+        "clock"
+    ],
+
+    "custom/music": {
+        "format": "{}",
+        "format-icons": {
+            "Playing": "<span font='19' foreground='#FD3EFC' rise='-4000'>  </span>",
+            "Paused": "<span font='19' foreground='#FD3EFC' rise='-4000'>  </span>",
+            "Stopped": "<span font='19' foreground='#FD3EFC' rise='-4000'>ﭥ  </span>" 
+        },
+        "escape": true,
+        "tooltip": true,
+        "exec": "~/.config/hypr/scripts/caway -b 20 -f 35",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "max-length": 95
+    },
+
+    // swaync
+    // https://github.com/ErikReider/SwayNotificationCenter
+    "custom/notification": {
+        "tooltip": false,
+        "format": " <span font='12' rise='+3333'>{icon}</span><span font='14' rise='+3000'><sup>{}</sup></span>     ",
+        "format-icons": {
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+      },
+
+    // https://github.com/Ruixi-rebirth/nixos-config/blob/main/modules/programs/waybar/hyprland_waybar.nix
+       "custom/cava-internal": {
+         "exec": "sleep 1s && cava-internal",
+        "tooltip": false
+       },
+
+// GAMMA RELAY TEMPERATURE MODULES
+// https://github.com/jeremija/wl-gammarelay
+    "custom/wl-gammarelay-temperature": {
+    "format": "<span font='15' rise='-3000w'></span> <span font='9' rise='+1111'>{}k</span>",      //  🌡️️🧊  🕶️ ♨️ 
+    "exec": "wl-gammarelay --subscribe Temperature",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+    // "on-click": "wl-gammarelay --subscribe Temperature"
+  },
+
+//   "custom/wl-gammarelay-brightness": {
+//     "format": "{} ",
+//     "exec": "wl-gammarelay --subscribe Brightness",
+//     "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+//     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
+//   }
+
+"hyprland/window": {
+    //"format": "{}"
+    "format": "<span font='9' rise='-4444'>{}</span>"
+    // "rewrite": {
+    //     "(.*) - YouTube - Brave": "🌎 $1",
+    //     "(.*) - Mozilla Firefox": "🌎 $1",
+    //     "(.*) - fish": "> [$1]"
+},
+
+// CUSTOM  Garuda Sway modules ////////////////
+    "custom/garuda-update": {
+        "format": "<span font='25'></span> <span font='10' rise='+4444'>{} </span>",   //   
+        // "restart-interval": 600,                     // 600=every 10 minutes.
+        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and details on tooltip
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "kitty --title garuda-update -e garuda-update; pkill -SIGRTMIN+8 waybar; notify-send -u 'normal' -t 9 'The system has been updated  💯' ",
+        "signal": 1,
+        "max-length": 11,        // enough for 999 updates
+        "interval": 60,
+        "on-click-right": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'"
+    },
+
+    "custom/power": {
+        "format": " <span color='#6a92d7'>⏻ </span>",
+       	"on-click": "nwg-bar",
+      	"tooltip": false
+   },
+
+   "custom/keyboard-layout": {
+      	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+      	// Interval set only as a fallback, as the value is updated by signal
+      	"interval": 30,
+      	"format": "  {}", // Icon: keyboard
+      	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
+      	"signal": 1, // SIGHUP
+      	"tooltip": false,
+        "on-click": "~/.config/waybar/scripts/keyhint.sh"
+    },
+
+     "custom/launcher": {
+    	"format":" ",
+    	"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+    	"tooltip": false
+    },
+
+
+    // CUSTOM AURORA modules ////////////////
+    "custom/dynamic_pill": {
+        "format": "<span color=\"#11111b\" font=\"10\" font-weight=\"400\"><big>{}</big></span>",
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/tools/start_dyn",
+        "escape":true
+    },
+
+    "custom/ss":{
+        "format":"{}",
+        "exec":"~/.config/hypr/scripts/tools/expand ss-icon",
+        "on-click": "~/.config/hypr/scripts/screenshot_full"
+//grimblast [--notify] [--cursor] (copy|save|copysave) [active|screen|output|area|window] [FILE|-]
+        //        "on-click": "~/.config/hypr/scripts/screenshot_full"
+    },
+
+    "custom/cycle_wall":{
+        "format":"<span font=\"22\">🖼</span>",
+        "exec": "~/.config/hypr/scripts/tools/expand wall",
+        // "exec": "~/.config/hypr/scripts/tools/expand wall && echo 'lol test'",
+        // "interval": 1,
+        "on-click": "~/.config/hypr/scripts/tools/expand cycle",
+        "tooltip-format": "{} Click to change to static wallpaper"        //TODO doesn't work
+
+    },
+
+    "custom/expand":{
+        "on-click":"~/.config/hypr/scripts/expand_toolbar",
+        "format":"{}",
+        "exec":"~/.config/hypr/scripts/tools/expand arrow-icon"
+    },
+    // "custom/waybar-mpris": {
+    //     "return-type": "json",
+    //     "exec": "echo '   '",
+    //     "on-click": "waybar-mpris --send toggle",
+    //     // This option will switch between players on right click.
+    //         "on-click-right": "waybar-mpris --send player-next",
+    //     // The options below will switch the selected player on scroll
+    //         // "on-scroll-up": "waybar-mpris --send player-next",
+    //         // "on-scroll-down": "waybar-mpris --send player-prev",
+    //     // The options below will go to next/previous track on scroll
+    //         // "on-scroll-up": "waybar-mpris --send next",
+    //         // "on-scroll-down": "waybar-mpris --send prev",
+    //     "escape": true
+    // },
+    //////////////////////////////////
+
+
+      // CUSTOM iamverysimp1e's modules ////////////////
+    //   https://github.com/iamverysimp1e/dots/blob/main/.config/waybar/config
+    //   "custom/weather": {
+    //   "exec": "python3 ~/.config/waybar/scripts/weather.py",
+    //   "restart-interval": 300,
+    //   "return-type": "json",
+    //   "on-click": "xdg-open https://www.meteored.mx/clima_Morelia-America+Norte-Mexico-Michoacan-MMMM-1-22372.html"
+    // },
+
+
+    // https://github.com/linuxmobile/hyprland-dots
+    // "custom/weather" : {
+    //     "tooltip" : true,
+    //     "format" : "<span font='13'>{}</span>",
+    //     // "restart-interval" : 1,      # TODO this ain't doing nothing
+    //     "exec" : "~/.config/hypr/scripts/waybar-wttr.py",
+    //     "return-type" : "json",      
+    // "on-click": "xdg-open https://www.meteored.mx/clima_Morelia-America+Norte-Mexico-Michoacan-MMMM-1-22372.html"
+    // },
+    
+    // https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.config/waybar/default-modules.jsonc
+    "custom/weather": {
+        "exec": "$HOME/.config/hypr/scripts/weather.py -l $(jq -r '.weathergov | \"(.location)\"' ~/weather_config.json)",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600
+      },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "tooltip": true,        
+        "format-source": "<span font='12'></span> {volume}%",
+        "format-source-muted": "<span font='16'></span>",
+        "tooltip-format-muted": " silenced",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+
+   "custom/spotify": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+    },
+
+  "gamemode": {
+  	"format": "{glyph}",
+  	"format-alt": "{glyph} {count}",
+  	"glyph": "",
+  	"hide-not-running": true,
+  	"use-icon": true,
+  	"icon-name": "input-gaming-symbolic",
+  	"icon-spacing": 4,
+  	"icon-size": 20,
+  	"tooltip": true,
+  	"tooltip-format": "Games running: {count}"
+  },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "wlr/workspaces": {
+        "format": "<span font='9' font-weight=\"900\">{icon}</span>",
+        "format-active": "<span font='9'> {icon} </span>",
+        "on-click": "activate",
+        // https://github.com/iamverysimp1e/dots/blob/main/.config/waybar/config
+        "format-icons": {
+          "1": "ー",
+          "2": "二",
+          "3": "三",
+          "4": "四",
+          "5": "五",
+          "6": "六",
+          "7": "七",
+          "8": "八",
+          "9": "九",
+          "10": "十"
+      }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "▶️",
+            "playing": "⏸"
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+    "idle_inhibitor": {
+        "format": "<span font='9'>{icon}</span>",
+        // "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+
+    },
+    "tray": {
+        "format": "<span ></span>",
+        "show-passive-items": true,
+        "icon-size": 19,
+        "spacing": 10
+        // "margin-right":25
+
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        //"tooltip-format": "{:%Y %B}\n<tt>{calendar}</tt>",
+        "tooltip-format": "<span font='9'>{:%Y %B}\n</span><tt>{calendar}</tt>",
+        "interval": 60,
+        "format": "<span font='12' font-weight=\"888\">{:%I:%M}</span>",
+        "max-length": 10
+    },
+
+    "cpu#percentage": {
+        "interval":2,
+        "format": "<span font='9' rise='999' color=\"#e78a4e\">力 CPU</span> <span font='10' rise='777'>{usage}%</span>"
+    },
+
+    "cpu": {
+        "interval":2,
+        // "format": "",
+        "format": " {icon0} {icon1} {icon2} {icon3} ",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "on-click": "konsole -e btop"
+    },
+
+    "memory": {
+        "format": "<span color=\"#a9b665\"> RAM</span> {used:0.1f}G/{total:0.1f}G"
+    },
+
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C",
+        "format": ""
+    },
+
+    "backlight": {
+        "device": "DP-3",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": ""
+    },
+    
+    // "battery": {
+    //     "states": {
+    //         "warning": 50,
+    //         "critical": 20
+    //     },
+    //     "format": "{icon}",
+    //     "format-charging": "",
+    //     "format-plugged": "",
+    //     // "format-good": "", // An empty format will hide the module
+    //     // "format-full": "",
+    //     "format-icons": ["", "", "", "", ""]
+    // },
+    // "battery#bat2": {
+    //     "bat": "BAT2"
+    // },
+ 
+
+    // https://github.com/Revdep/Wayland-dotfiles/blob/master/waybar/.config/waybar/config
+    // "network": {
+    //     "tooltip-format": "{ipaddr}",
+    //     "format": "{icon}{essid}",
+    //     "format-wifi": "  {essid} | {bandwidthDownBits}  | {bandwidthUpBits} ",
+    //     "format-ethernet": "{ipaddr}/{cidr} ",
+    //     "format-disconnected": "Disconnected ⚠",
+    //     "on-click": "$HOME/.config/wofi-wifi.sh",	// https://raw.githubusercontent.com/cristobaltapia/dotfiles_sway/master/home/.config/wofi/scripts/wofi-wifi.sh
+    // },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interval":2,
+        "format-wifi": "",
+        "format-ethernet": "<span font='17'></span>", 
+        // <span rise='4444'> | {bandwidthDownBits}  | {bandwidthUpBits}  </span>"
+        "tooltip-format-ethernet": " Connected Ethernet!!  :D",
+        "format-disconnected": "<span font='17'></span>",
+//        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+//        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "⚠ Disconnected ⚠",
+        "max-length": 50,
+//        "format-ethernet": "",
+//        "tooltip-format": "via {gwaddr} {ifname}",
+//        "format-linked": "",
+//        "format-disconnected": "wifi",
+//        "format-alt": "   "
+        // "on-click": "konsole -e nmtui"
+        "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh"
+    },
+    
+    "pulseaudio": {
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        //"format-source-muted": "<span font='23'>婢</span>",
+        "format": "<span font='17'>{icon}</span> <span font='10' rise='1900'>{volume}%</span>",
+        "format-muted": "<span font='17'>婢</span>",    // 
+        "scroll-step": 5,       // can be a float, e.g. 10%, 20%.
+
+        "format-icons": {
+            "alsa_output.usb-Topping_D30-00.analog-stereo": "<span font='9'>🎧🎶</span>",  // 🎛🔌🎶
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "<span font='13' rise='2222'>🎧</span>",
+            "alsa_output.usb-Burr-Brown_from_TI_USB_Audio_DAC-00.analog-stereo": ["", "", ""],
+            "default": ["", "", "","⚠"],
+            "muted": "lol",
+            "Easy" : "😀"
+        },
+        "max-volume": 150,
+        "on-click-middle": "/usr/bin/pavucontrol",
+        "on-click": "~/.config/hypr/scripts/volume_audio_changer.py",
+        "on-scroll-up": "~/.config/hypr/scripts/volume --up",
+        "on-scroll-down": "~/.config/hypr/scripts/volume --down",
+        "on-click-right": "~/.config/hypr/scripts/volume --toggle"
+    // experimental stuff w/ amixer + wob
+    // "exec": "~/.config/hypr/scripts/custom-alsa.sh",
+
+    // it's posibble to work with wob using these commands and setting up the socket:
+    // "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock",
+    // "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock",
+
+    // "pamixer" command is an option too...
+    // "on-click-middle": "pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock && notify-send -h  int:value:66 " MUTE "",
+    //    "on-click": "pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock && notify-send -h  int:value:66 " MUTE "", // this fails
+    //    "on-click": "pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ]",
+    },
+
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "<span foreground='#46c880'> </span>",
+            "default": "<span foreground='#8cb6ff'> </span>"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Filter player based on name
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous"
+    },
+
+    // Angelo's Waybar config
+    // https://github.com/angelofallars/dotfiles
+    "clock#date": {
+        "tooltip-format": "<span rise=\"-12pt\"><big>{:%Y B}</big>\n<tt><big>{calendar}</big></tt></span>",
+        "format": "<span color=\"#f53c3c\" rise=\"-1.5pt\"></span><span color=\"#11111b\" font=\"10\" font-weight=\"777\">{: %B %d, %A}</span>"
+    },
+
+    "wlr/taskbar": { // The taskbar module displays the currently open applications. This module requires a compositor that implements the foreign-toplevel-manager interface.
+        "format": "{icon}",
+        "sort-by-app-id": true,
+        "icon-size": 13,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-right": "close",
+        "markup": true,
+        "ignore-list": [
+           "kitty"
+        ]
+    },
+    "custom/spotify-metadata": {
+        // https://github.com/ldelossa/dotfiles/blob/master/config/waybar/config
+        "format": " {}  ",
+        "max-length": 60,
+        "interval": 30,
+        "return-type": "json",
+        "exec": "~/.config/hypr/component/waybar/ldelossa-custom/spotify/metadata.sh",
+        "on-click": "~/.config/hypr/component/waybar/ldelossa-custom/spotify/controls.sh",
+        "on-scroll-up": "~/.config/hypr/component/waybar/ldelossa-custom/spotify/controls.sh next",
+        "on-scroll-down": "~/.config/hypr/component/waybar/ldelossa-custom/spotify/controls.sh previous",
+        "signal": 5,
+        "smooth-scrolling-threshold": 1.0
+    }
+}

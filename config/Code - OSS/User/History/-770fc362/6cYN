@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# NOTIFICATIONS (swaync)
+CONFIG="$HOME/.config/swaync/config.json"
+STYLE="$HOME/.config/swaync/style.css"
+
+killall -q swaync dunst mako & sleep 0.5 
+if [[ ! $(pidof swaync) ]]; then
+  swaync -c ${CONFIG} -s ${STYLE}
+fi
+
+notify-send --urgency=normal --icon=google-chrome "test..." "               ⌛0% [ █ █ █ █ █ █ █ ] 100%   "
+
+# NOTIFICATIONS (mako)
+# CONFIG="$HOME/.config/mako/config"
+
+# if [[ ! $(pidof mako) ]]; then
+#   mako -c ${CONFIG}
+# fi

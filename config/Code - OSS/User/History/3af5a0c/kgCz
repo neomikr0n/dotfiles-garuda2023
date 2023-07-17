@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+# by neomikr0n
+# based on... nosvagor's:
+# https://raw.githubusercontent.com/nosvagor/dotfiles/main/bin/change-bg
+
+DISPLAY="DP-3"
+VID_PATH="$HOME/Videos/Hidamari"
+
+background_choice=""
+if [[ $# -eq 0 ]]; then
+    background_choice="default"
+else
+    background_choice="$1"
+fi
+
+gravity () {
+    mpvpaper -o "--loop --mute=yes --video-unscaled=yes" $DISPLAY "$VID_PATH/gravity.mp4" & disown
+    # --brightness=6 --contrast=9 --saturation=-16 --hue=-24 
+}
+
+AlternateRealities () {
+    mpvpaper -o "--loop --mute=yes --video-unscaled=yes" $DISPLAY "$VID_PATH/AlternateRealities.mp4" & disown
+    # --brightness=-3 --contrast=10 --saturation=-42 --hue=69 
+}
+
+floating () {
+    mpvpaper -o "--loop --mute=yes --video-unscaled=yes" $DISPLAY "$VID_PATH/floatinginspace.mp4" & disown
+
+blackhole () {
+    mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=-50  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/blackhole.webm" & disown
+}
+
+
+case "$background_choice" in
+    "default" )
+        ps -ef | rg "record|blackhole" | rg -v rg | awk '{print $2}' | xargs kill
+        exit 0
+    ;;
+    "code")
+        gravity & disown
+        sleep 2
+        ps -ef | rg "mpvpaper" | rg -v rg | awk '{print $2}' | head -n -1 | xargs kill
+    ;;
+    "music")
+        AlternateRealities & disown
+        ps -ef | rg "blackhole" | rg -v rg | awk '{print $2}' | xargs kill
+    ;;
+    "lock")
+        blackhole & disown
+        ps -ef | rg "record" | rg -v rg | awk '{print $2}' | xargs kill
+    ;;
+    *)
+        echo "invalid choice; choices: code | music | lock"
+        exit 1
+    ;;
+esac
+
+exit 0
+
+# README
+# This is a Bash script that changes the desktop background of the user by using the mpvpaper tool. The script defines three functions: gravity, AlternateRealities, and blackhole, which start playing a video file in a loop on the user's screen with different visual effects. The gravity function plays the gravity.mp4 video file, the AlternateRealities function plays the AlternateRealities.mp4 video file, and the blackhole function plays the blackhole.webm video file.
+
+# The script accepts one argument which can be either "default", "code", "music", or "lock". If no argument is provided, the script sets the background to the default setting. The different arguments correspond to the different background video effects that can be set by running the appropriate function.
+
+# For example, if the argument "code" is passed, the script will run the gravity function and after 2 seconds, it will stop the previously playing video (if there is any) by killing the process that runs mpvpaper. The disown command is used to detach the background video process from the terminal, allowing the script to exit without stopping the video.
+
+# If the argument "lock" is passed, the script will run the blackhole function and kill any process that is recording the screen.
+
+# The script sets the DISPLAY and VID_PATH variables to specify the display and the location of the video files, respectively. The kill command is used to stop any running mpvpaper processes that might interfere with setting the new background.
+
+# The last line of the script exits with status 0 to indicate successful completion.

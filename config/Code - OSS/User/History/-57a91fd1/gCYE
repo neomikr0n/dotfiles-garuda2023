@@ -1,0 +1,993 @@
+2022
+
+## GARUDA Post Install Guide
+https://gitlab.com/garuda-linux
+sudo pacman -S yay
+# garuda                                 garuda-boot-options                    garuda-common-settings                 garuda-fastfetch-git                   garuda-hotfixes                        garuda-live-portable-efi               garuda-network-assistant-git           garuda-qtile-settings                  garuda-settings-manager-knotifier-git  garuda-system-maintenance-git          garuda-virtualmachine-guest-config     garuda-welcome
+# garuda-assistant                       garuda-boot-options-git                garuda-common-settings-git             garuda-firefox                         garuda-hyprland-settings               garuda-live-skel                       garuda-nvidia-470xx-config             garuda-reduce-verbosity                garuda-settings-manager-notifier       garuda-tools-base-git                  garuda-wallpapers                      garuda-welcome-git
+# garuda-assistant-git                   garuda-boot-repair                     garuda-downloader-git                  garuda-fish-config                     garuda-i3-settings                     garuda-live-systemd                    garuda-nvidia-470xx-prime-config       garuda-settings-manager                garuda-settings-manager-notifier-git   garuda-tools-iso-git                   garuda-wallpapers-2021                 garuda-xfce-kwin-settings
+# garuda-backgrounds                     garuda-boot-repair-git                 garuda-dr460nized                      garuda-gamer                           garuda-icons                           garuda-lxqt-kwin-settings              garuda-nvidia-config                   garuda-settings-manager-git            garuda-setup-assistant                 garuda-tools-pkg-git                   garuda-wallpapers-2022                 garuda-xfce-settings
+# garuda-bash-config                     garuda-browser-settings                garuda-dr460nized-git                  garuda-gamer-git                       garuda-librewolf                       garuda-mate-settings                   garuda-nvidia-prime-config             garuda-settings-manager-kcm            garuda-starship-prompt                 garuda-tools-yaml-git                  garuda-wallpapers-extra                garuda-zsh-config
+# garuda-blackarch                       garuda-bspwm-settings                  garuda-dr460nized-next                 garuda-gnome-settings                  garuda-libs                            garuda-migrations                      garuda-optimus-manager-470xx-config    garuda-settings-manager-kcm-git        garuda-sway-settings                   garuda-update                          garuda-wallpapers-honeycombs
+# garuda-bootctl-dracut                  garuda-cinnamon-settings               garuda-dracut-support                  garuda-hooks                           garuda-live-base                       garuda-network-assistant               garuda-optimus-manager-config          garuda-settings-manager-knotifier      garuda-system-maintenance              garuda-video-linux-config              garuda-wayfire-settings
+
+# performance tricks on GARUDA ASSISTANT
+# Packages (10) ananicy-cpp-1.0.2-1  ananicy-rules-git-2.2.1.r320.g62771a8-1  fmt-9.1.0-3  hdparm-9.65-1
+# irqbalance-1.9.2-1  nlohmann-json-3.11.2-1  numactl-2.0.16-1  preload-0.6.4-7  spdlog-1.11.0-1
+# performance-tweaks-2.1.2-1
+# Total Download Size:   1.32 MiB
+# Total Installed Size:  4.77 MiB
+
+
+
+# INSTALLATION
+# :: garuda-sway-settings and garuda-dr460nized are in conflict (garuda-desktop-settings). Remove garuda-dr460nized? [y/N] y
+#
+# Packages (31) capitaine-cursors-4-2  garuda-dr460nized-2.0.12-3 [removal]  grim-1.4.0-2  gtk-engine-murrine-0.98.2-4  gtk-layer-shell-0.8.0-1
+# kvantum-theme-nordic-git-2.2.0.r33.g1f34166-1  nlohmann-json-3.11.2-1  nordic-darker-theme-2.2.0-1  python-i3ipc-2.2.1-3  qt5ct-1.5-2
+# seatd-0.7.0-2  slurp-1.4.0-1  tela-circle-icon-theme-git-2022.11.06.r26.g1aac9cf5-1  wlroots-0.15.1-6  xcb-util-errors-1.0.1-1  autotiling-1.8-1.1
+# garuda-sway-settings-1.1.9-1  grimshot-1.6.1-1.1  i3status-rust-git-0.30.0.r2976.gb19d9a12-1  nwg-bar-0.1.0-1.1  nwg-dock-0.3.3-1
+# nwg-drawer-0.3.6-1  nwg-launchers-0.7.1-1.1  nwg-menu-0.1.1-1.1  sway-1:1.7-10  sway-git-debug-r7036.fbf9191f-1  sway-launcher-desktop-1.6.0-1
+# swaybg-1.2.0-1  swayidle-1.8.0-1  swaylock-effects-1.6.10-1.1  wf-recorder-0.3.0-2
+#
+# Total Download Size:   105.31 MiB
+# Total Installed Size:  349.23 MiB
+# Net Upgrade Size:      346.15 MiB
+
+
+
+
+## ANBOX for Garuda
+-------------------------------------------------
+# You need to have dkms and linux-headers on your system.
+sudo pacman -S linux-zen-headers dkms
+yay -S --noconfirm --needed snapd
+
+# old: sudo pacman -S anbox-modules-dkms
+yay -S anbox-modules-dkms
+reboot
+# sudo pacman -S anbox-git
+
+# 4. Enable Anbox services:
+sudo yay -S anbox-support
+# OR MANUALLY
+# automated with installing anbox-support
+## i) Configure Networking:
+systemctl enable --now systemd-networkd
+#
+# ii) Enable the Container Manager Service:
+systemctl enable --now anbox-container-manager.service
+#
+# iii) Enable the Session Manager Service:
+systemctl --user enable --now anbox-session-manager.service
+# if runned with sudo will show the following error:
+# Failed to connect to bus: No medium found
+
+# 5. Setting up Kernel Modules
+# i) To automatically load the ashmem & binder modules on boot(Kernel module - ArchWiki 7):
+# Create a file inside /etc/modules-load.d/, which contains the lines:
+sudo nano /etc/modules-load.d/anbox.conf
+# copy these 2 lines on /etc/modules-load.d/anbox.conf
+binder_linux
+ashmem_linux
+# (Save and exit)
+
+# ii) To automatically create mount points for the ashmem & binder modules at boot
+# (systemd - ArchWiki):
+# Create a file in /etc/tmpfiles.d/ with the content:
+sudo nano /etc/tmpfiles.d/anbox.conf
+# copy these 2 lines on /etc/tmpfiles.d/anbox.conf
+d! /dev/binderfs 0755 root root
+d! /dev/ashmem 0755 root root
+# (Save and exit)
+
+# iii) To automatically mount the binder modules on boot, add a line in the fstab 1. Using the option nofail here will not greet you with a recovery shell when you are booting a kernel without binderfs support (such as the standard kernel):
+sudo nano /etc/fstab
+# copy these line at the end of /etc/fstab
+none                         /dev/binderfs binder   nofail  0      0
+# (Save and exit)
+
+You can skip iv) & v) steps if you reboot after the iii) one.
+# iv) Load ashmem and binder modules (Kernel module - ArchWiki 2)
+sudo modprobe -a ashmem_linux binder_linux
+
+# v) Mount the binder modules:
+# (mkdir(1) — Arch manual pages)
+# (mount(8) — Arch manual pages)
+# reload fstab (if not reboot already) and then make and mount binder
+systemctl daemon-reload
+sudo mkdir -p /dev/binderfs
+sudo mount -t binder none /dev/binderfs
+
+6. Now to check the required modules are loaded and mounted automatically on boot, run:
+ls -1 /dev/{ashmem,binderfs}
+# It should give a somewhat similar output may even vary, its ok:
+# ls -1 /dev/{ashmem,binder}
+# /dev/ashmem
+#
+# /dev/binder
+# binder
+# binder-control
+# features
+# hwbinder
+# vndbinder
+
+# (The ashmem directory wouldnt show any modules.)
+# If the modules are all up and running, you should now be able to launch Anbox from your application menu!
+# running ls -1 /dev/{ashmem,binder} gives this error tho:
+"/dev/binder": No such file or directory (os error 2)
+
+# 7. If you want to use adb to debug, install android-tools:
+sudo pacman -S android-tools
+
+# 8. Once you have the APK package for the application, you can install it into the Android container with the following command:
+adb install my-app.apk
+
+# This post is a simplified version of this one: https://forum.garudalinux.org/t/a-little-help-with-anbox/
+#            There you are, enjoy Android Apps in Garuda Linux!
+
+#
+# ## ANBOX for Arch (generic)
+# -------------------------------------------------
+# # Mounting binderfs
+# # If your kernel uses binderfs, there is one more step to do: Mounting a binder filesystem.
+# # Firstly, you will need a mountpoint. By default, Anbox will look at /dev/binderfs. You can create that directory now, but it will be removed at boot time.
+# # You can use systemd-tmpfiles to create this directory at boot time. For that, create a file in /etc/tmpfiles.d/ with the content:
+# /etc/tmpfiles.d/anbox.conf
+# d! /dev/binderfs 0755 root root
+#
+# # Secondly, you need to mount the binder filesystem. This can be done by
+# mount -t binder none /dev/binderfs
+#
+# # To mount it always at boot, add a line in the fstab. Using the option nofail here will not greet you with a recovery shell when you are booting a kernel without binderfs support (such as the standard kernel).
+# /etc/fstab
+#
+# none                         /dev/binderfs binder   nofail  0      0
+
+
+
+# ## ANBOX ALTERNATIVE (not worked)
+# -------------------------------------------------
+# # https://wiki.archlinux.org/title/Anbox
+# # Install required packages
+# yay -S anbox-git android-tools linux-headers anbox-modules-dkms
+#
+#
+# # Kernel Modules
+# # Modprobe
+# sudo modprobe binder_linux devices=binder,hwbinder,vndbinder,anbox-binder,anbox-hwbinder,anbox-vndbinder
+#
+# sudo modprobe ashmem_linux
+# Mount binder
+#
+# mkdir -p /dev/binderfs sudo mount -t binder binder /dev/binderfs
+# Enable modules on startup
+#
+# sudo nano /etc/modules-load.d/anbox.conf And paste the following: ashmem_linux binder_linux
+# Enable Network via NetworkManager
+#
+# nmcli con add type bridge ifname anbox0 -- connection.id anbox-net ipv4.method shared ipv4.addresses 192.168.250.1/24
+# Enable anbox service
+#
+# sudo systemctl enable anbox-container-manager.service
+# You should probably reboot here!
+# Install apps
+#
+# adb install /path/to/app.apk
+
+
+
+
+# aurora errors 
+
+# some errors
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:28:38: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:28:40: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:28:42: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:66:38: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:66:40: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:66:42: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:80:38: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:80:40: Not using units is deprecated. Assuming 'px'.
+# (waybar:329372): Gtk-WARNING **: 18:18:38.115: Theme parsing error: style.css:80:42: Not using units is deprecated. Assuming 'px'.
+[2022-12-22 18:19:03.143] [warning] As using a timezone, some format args may be missing as the date library havent got a release since 2018.
+[2022-12-22 18:19:03.144] [warning] No batteries.
+[2022-12-22 18:19:03.266] [warning] Requested height: 50 is less than the minimum height: 51 required by the modules
+[2022-12-22 18:19:03.266] [info] Bar configured (width: 3440, height: 51) for output: DP-3
+[2022-12-22 18:22:52.563] [info] Bar configured (width: 3440, height: 50) for output: DP-3
+[2022-12-22 18:22:52.598] [warning] Requested height: 50 is less than the minimum height: 51 required by the modules
+[2022-12-22 18:22:52.598] [info] Bar configured (width: 3440, height: 51) for output: DP-3
+[2022-12-22 18:22:54.397] [info] Bar configured (width: 3440, height: 50) for output: DP-3
+[2022-12-22 18:22:54.431] [warning] Requested height: 50 is less than the minimum height: 51 required by the modules
+[2022-12-22 18:22:54.431] [info] Bar configured (width: 3440, height: 51) for output: DP-3
+[2022-12-22 18:22:59.292] [info] Bar configured (width: 3440, height: 50) for output: DP-3
+[2022-12-22 18:22:59.327] [warning] Requested height: 50 is less than the minimum height: 51 required by the modules
+[2022-12-22 18:22:59.327] [info] Bar configured (width: 3440, height: 51) for output: DP-3
+
+
+
+# NVIDIA 2022
+-------------------------------------------------
+
+
+# uninstalled recently
+error: target not found: lib32-libvdpau
+error: target not found: libvdpau
+error: target not found: xf86-video-nouveau
+
+#Install vdpau and vaapi
+sudo dnf install vdpauinfo libva-vdpau-driver libva-utils
+    Reboot
+# if not installed:
+#     sudo dnf install akmod-nvidia
+# #Install this if you use applications that use CUDA i.e. Davinci Resolve, Blender etc.
+#     sudo dnf install xorg-x11-drv-nvidia-cuda
+
+#yet another form to check if NVIDIA driver installed and loaded into the kernel
+cat /proc/driver/nvidia/version
+
+# Nvidia Settings (app)
+sudo nvidia-settings
+Viewportin:  1920x1080
+Viewportout: 1842x1036+39+21
+#############1830x1030+42+22
+Panning:     1920x1080
+
+inxi -Gx of GARUDA (NVIDIA + BSPWM)
+# 2022 - 09 - 23
+# Device-1: NVIDIA GP106 [GeForce GTX 1060 6GB] vendor: ASUSTeK
+# driver: nvidia v: 515.76 arch: Pascal bus-ID: 01:00.0
+# Display: x11 server: X.Org v: 21.1.4 with: Xwayland v: 22.1.3
+# driver: X: loaded: nvidia unloaded: modesetting,nouveau gpu: nvidia resolution:
+# 1: 1920x1080~60Hz 2: 1822x1024~60Hz
+# OpenGL: renderer: NVIDIA GeForce GTX 1060 6GB/PCIe/SSE2 v: 4.6.0
+# NVIDIA 515.76 direct render: Yes
+
+inxi -Gx of GARUDA (AMD + BSPWM)
+# # 2022 - 10 - 06 NVIDIA (last)
+# Device-1: NVIDIA GP106 [GeForce GTX 1060 6GB] vendor: ASUSTeK
+# driver: nvidia v: 515.76 arch: Pascal bus-ID: 01:00.0
+# Display: x11 server: X.Org v: 21.1.4 with: Xwayland v: 22.1.3 driver: X:
+# loaded: nvidia unloaded: modesetting,nouveau gpu: nvidia resolution:
+# 1: 1920x1080~60Hz 2: 1920x1080~60Hz
+# OpenGL: renderer: NVIDIA GeForce GTX 1060 6GB/PCIe/SSE2 v: 4.6.0 NVIDIA
+# 515.76 direct render: Yes
+#
+# # UNINSTALLING NVIDIA
+# sudo pacman -Rdd nvidia-dkms nvidia-utils
+# # or if installed via nvidia installer
+# #sudo sh ~/Downloads/NVIDIA*.run --uninstall
+# sudo pacman -Rdd garuda-nvidia-config gwe lib32-nvidia-utils lib32-opencl-nvidia libvdpau libxnvctrl mhwd-nvidia mhwd-nvidia-390xx mhwd-nvidia-470xx nvidia-settings opencl-nvidia lib32-libvdpau egl-wayland lib32-libvdpau libvdpau xf86-video-nouveau
+#
+# #time to blacklist previous packages on:
+# kate /etc/pacman.conf
+# # UNNCOMMENT AND THEN:
+# IgnorePkg   = garuda-nvidia-config gwe lib32-nvidia-utils lib32-opencl-nvidia libvdpau libxnvctrl mhwd-nvidia mhwd-nvidia-390xx mhwd-nvidia-470xx nvidia-settings opencl-nvidia lib32-libvdpau egl-wayland lib32-libvdpau libvdpau xf86-video-nouveau nvidia-dkms nvidia-utils garuda-settings-manager-git mhwd-db-garuda-git
+
+#or for a susint info, from  : https://github.com/smxi/inxi
+inxi -Gx FEDORA 36
+#
+#   Device-1: NVIDIA GP106 [GeForce GTX 1060 6GB] vendor: ASUSTeK
+#     driver: nvidia v: 515.65.01 arch: Pascal bus-ID: 01:00.0
+#   Display: wayland server: X.Org v: 1.22.1.3 with: Xwayland v: 22.1.3
+#     compositor: gnome-shell v: 42.4 driver: X: loaded: nvidia
+#     unloaded: fbdev,modesetting,nouveau,vesa gpu: nvidia,nvidia-nvswitch
+#     resolution: 1: 1920x1080~60Hz 2: 1920x1080~60Hz
+#   OpenGL: renderer: NVIDIA GeForce GTX 1060 6GB/PCIe/SSE2
+#     v: 4.6.0 NVIDIA 515.65.01 direct render: Yes
+
+  inxi -Gx GARUDA:
+# 2022 - 09 - 18?
+# Device-1: NVIDIA GP106 [GeForce GTX 1060 6GB] vendor: ASUSTeK
+# driver: nvidia v: 515.65.01 arch: Pascal bus-ID: 01:00.0
+# Display: x11 server: X.Org v: 21.1.4 with: Xwayland v: 22.1.3
+# driver: X: loaded: nvidia unloaded: modesetting gpu: nvidia resolution:
+# 1: 1920x1080~60Hz 2: 1920x1080~60Hz
+# OpenGL: renderer: NVIDIA GeForce GTX 1060 6GB/PCIe/SSE2 v: 4.6.0
+# NVIDIA 515.65.01 direct render: Yes
+
+# 2022 - 09 - 23
+# Device-1: NVIDIA GP106 [GeForce GTX 1060 6GB] vendor: ASUSTeK
+# driver: nvidia v: 515.76 arch: Pascal bus-ID: 01:00.0
+# Display: x11 server: X.Org v: 21.1.4 with: Xwayland v: 22.1.3
+# driver: X: loaded: nvidia unloaded: modesetting,nouveau gpu: nvidia resolution:
+# 1: 1920x1080~60Hz 2: 1822x1024~60Hz
+# OpenGL: renderer: NVIDIA GeForce GTX 1060 6GB/PCIe/SSE2 v: 4.6.0
+# NVIDIA 515.76 direct render: Yes
+
+inxi -Gx BSPWM?
+# 2022 - 11 - 23 AMD (first)
+Device-1: AMD Navi 23 [Radeon RX 6650 XT] vendor: Micro-Star MSI
+driver: amdgpu v: kernel arch: RDNA-2 bus-ID: 03:00.0
+Display: x11 server: X.Org v: 21.1.4 with: Xwayland v: 22.1.5 driver: X:
+loaded: amdgpu unloaded: modesetting,radeon dri: radeonsi gpu: amdgpu
+resolution: 3440x1440
+API: OpenGL v: 4.6 Mesa 22.2.3 renderer: AMD Radeon RX 6650 XT (navi23
+LLVM 14.0.6 DRM 3.48 6.0.9-zen1-1-zen) direct render: Yes
+
+inxi -Gx Hyprland
+# 2022 - 12 - 21
+Device-1: AMD Navi 23 [Radeon RX 6650 XT] vendor: Micro-Star MSI
+driver: amdgpu v: kernel arch: RDNA-2 bus-ID: 03:00.0
+Display: wayland server: X.Org v: 22.1.7 with: Xwayland v: 22.1.7
+compositor: Hyprland driver: X: loaded: amdgpu unloaded: modesetting,radeon
+dri: radeonsi gpu: amdgpu resolution: 3440x1440~144Hz
+API: OpenGL v: 4.6 Mesa 22.3.1 renderer: AMD Radeon RX 6650 XT (navi23
+LLVM 14.0.6 DRM 3.49 6.1.1-zen1-1-zen) direct render: Yes
+
+
+
+--------------------------------------
+# LOGS
+--------------------------------------
+
+
+╭─n30@n30 in ~ as 🧙 took 146ms
+╰─λ sudo mhwd -a pci free 0300
+
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/hybrid-intel-nvidia-390xx-dkms-bumblebee/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/nvidia-390xx-dkms/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/nvidia-470xx-dkms/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/nvidia-470xx-prime-render-offload/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/nvidia-dkms/MHWDCONFIG' isinvalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/nvidia-prime-render-offload/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/optimus-manager-470xx/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/db/pci/graphic_drivers/optimus-manager/MHWDCONFIG' is invalid!
+Warning: config '/var/lib/mhwd/local/pci/video-nvidia-dkms/MHWDCONFIG' is invalid!
+> Using config 'video-linux' for device: 0000:03:00.0 (0300:1002:73ef) Display controller ATI Technologies Inc
+> Installing video-linux...
+Sourcing /etc/mhwd-x86_64.conf
+Has lib32 support: true
+Sourcing /var/lib/mhwd/db/pci/graphic_drivers/video-linux/MHWDCONFIG
+Processing classid: 0300
+Sourcing /var/lib/mhwd/scripts/include/0300
+Processing classid: 0380
+Processing classid: 0302
+:: Synchronizing package databases...
+garuda downloading...
+core downloading...
+extra downloading...
+community downloading...
+multilib downloading...
+chaotic-aur downloading...
+rumpowered downloading...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (21) intel-gmmlib-22.1.4-2  intel-media-driver-22.4.4-2  lib32-libva-intel-driver-2.4.1-1  lib32-libva-mesa-driver-22.2.3-1  lib32-libva-vdpau-driver-0.7.4-6  lib32-libvdpau-1.5-1  lib32-mesa-vdpau-22.2.3-1  lib32-vulkan-intel-22.2.3-1  lib32-vulkan-mesa-layers-22.2.3-1  lib32-vulkan-radeon-22.2.3-1  libva-intel-driver-2.4.1-2  libva-mesa-driver-22.2.3-1  libva-vdpau-driver-0.7.4-6  libvdpau-va-gl-0.4.2-3  mesa-vdpau-22.2.3-1  vulkan-intel-22.2.3-1  vulkan-mesa-layers-22.2.3-1  vulkan-swrast-22.2.3-1  xf86-video-ati-1:19.1.0.r15.g7a6a34af-1  xf86-video-nouveau-1.0.17-2  garuda-video-linux-config-1:r63.2f652e8-1
+
+Total Download Size:    30.23 MiB
+Total Installed Size:  132.45 MiB
+
+:: Proceed with installation? [Y/n]
+:: Retrieving packages...
+intel-media-driver-22.4.4-2-x86_64 downloading...
+lib32-mesa-vdpau-22.2.3-1-x86_64 downloading...
+libva-mesa-driver-22.2.3-1-x86_64 downloading...
+lib32-libva-mesa-driver-22.2.3-1-x86_64 downloading...
+mesa-vdpau-22.2.3-1-x86_64 downloading...
+lib32-vulkan-intel-22.2.3-1-x86_64 downloading...
+vulkan-intel-22.2.3-1-x86_64 downloading...
+lib32-vulkan-radeon-22.2.3-1-x86_64 downloading...
+vulkan-swrast-22.2.3-1-x86_64 downloading...
+lib32-libva-intel-driver-2.4.1-1-x86_64 downloading...
+libva-intel-driver-2.4.1-2-x86_64 downloading...
+lib32-vulkan-mesa-layers-22.2.3-1-x86_64 downloading...
+vulkan-mesa-layers-22.2.3-1-x86_64 downloading...
+intel-gmmlib-22.1.4-2-x86_64 downloading...
+xf86-video-ati-1:19.1.0.r15.g7a6a34af-1-x86_64 downloading...
+xf86-video-nouveau-1.0.17-2-x86_64 downloading...
+libvdpau-va-gl-0.4.2-3-x86_64 downloading...
+lib32-libva-vdpau-driver-0.7.4-6-x86_64 downloading...
+libva-vdpau-driver-0.7.4-6-x86_64 downloading...
+garuda-video-linux-config-1:r63.2f652e8-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Performing snapper pre snapshots for the following configurations...
+==> root: 279
+:: Processing package changes...
+installing xf86-video-ati...
+installing xf86-video-nouveau...
+installing vulkan-intel...
+Optional dependencies for vulkan-intel
+vulkan-mesa-layers: additional vulkan layers [pending]
+installing intel-gmmlib...
+installing intel-media-driver...
+installing libvdpau-va-gl...
+installing libva-intel-driver...
+installing libva-mesa-driver...
+installing libva-vdpau-driver...
+installing mesa-vdpau...
+installing vulkan-mesa-layers...
+installing vulkan-swrast...
+Optional dependencies for vulkan-swrast
+vulkan-mesa-layers: additional vulkan layers [installed]
+installing lib32-vulkan-intel...
+Optional dependencies for lib32-vulkan-intel
+lib32-vulkan-mesa-layers: additional vulkan layers [pending]
+installing lib32-vulkan-radeon...
+Optional dependencies for lib32-vulkan-radeon
+lib32-vulkan-mesa-layers: additional vulkan layers [pending]
+installing lib32-mesa-vdpau...
+installing lib32-libva-intel-driver...
+installing lib32-libva-mesa-driver...
+installing lib32-libvdpau...
+installing lib32-libva-vdpau-driver...
+installing lib32-vulkan-mesa-layers...
+installing garuda-video-linux-config...
+Optional dependencies for garuda-video-linux-config
+opencl-mesa
+lib32-opencl-mesa
+intel-compute-runtime
+:: Running post-transaction hooks...
+(1/6) Arming ConditionNeedsUpdate...
+(2/6) Foreign/AUR package notification
+alsa-utils-git v1.2.7+6+gf37ef47-1
+checkupdates-aur 0.04-1
+colorpicker 1.0.f5d441a-2
+eww-git 0.4.0.r10.g7a0e1b7-1
+i3lock-color-git r905.aeb9982-1
+lib32-openssl-1.0 1.0.2.u-2
+mantablockscreen 0.4-1
+metis 5.1.0.p10-2
+otf-san-francisco 1:2-1
+perl-checkupdates-aur 0.04-1
+perl-www-aur 0.22-3
+picom-animations-git 1770_Next.208.g51b2135_2022.05.29-1
+rootactions-servicemenu 2.7.3-1
+spicetify-themes-git r322.ba29a17-1
+ttf-abel-regular 1.0-3
+wpgtk-git r880.4fee320-1
+xtitle 0.4.4-2
+(3/6) Orphaned package notification...
+asciidoc 10.2.0-2
+eglexternalplatform 1.1-2
+electron19 19.1.4-3
+fontforge 20220308-1
+geocode-glib 3.26.4-2
+gobject-introspection 1.74.0-1
+gperf 3.1-3
+intltool 0.51.0-6
+lib32-openssl-1.0 1.0.2.u-2
+libdazzle 3.44.0-1
+metis 5.1.0.p10-2
+perl-module-install 1.19-6
+python-injector 0.20.1-2.1
+python-peewee 3.15.4-1
+python-py3nvml 0.2.7-1.1
+python-pyxdg 0.28-1
+python-requests 2.28.1-1
+python-rx 3.2.0-3
+ripgrep 13.0.0-2
+uthash 2.3.0-1
+vte-common 0.70.1-1
+(4/6) Checking for .pacnew and .pacsave files...
+.pac* files found:
+/usr/lib/firedragon/firedragon.cfg.pacnew
+Please check and merge
+(5/6) Performing snapper post snapshots for the following configurations...
+==> root: 280
+(6/6) Syncing all file systems...
+garuda-video-linux-config: install reason has been set to 'explicitly installed'
+==> Building image from preset: /etc/mkinitcpio.d/linux-zen.preset: 'default'
+-> -k /boot/vmlinuz-linux-zen -c /etc/mkinitcpio.conf -g /boot/initramfs-linux-zen.img
+==> Starting build: 6.0.9-zen1-1-zen
+-> Running build hook: [base]
+-> Running build hook: [udev]
+-> Running build hook: [autodetect]
+-> Running build hook: [modconf]
+-> Running build hook: [block]
+-> Running build hook: [keyboard]
+-> Running build hook: [keymap]
+-> Running build hook: [consolefont]
+-> Running build hook: [plymouth]
+-> Running build hook: [filesystems]
+-> Running build hook: [grub-btrfs-overlayfs]
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image: /boot/initramfs-linux-zen.img
+==> Image generation successful
+==> Building image from preset: /etc/mkinitcpio.d/linux-zen.preset: 'fallback'
+-> -k /boot/vmlinuz-linux-zen -c /etc/mkinitcpio.conf -g /boot/initramfs-linux-zen-fallback.img -S autodetect
+==> Starting build: 6.0.9-zen1-1-zen
+-> Running build hook: [base]
+-> Running build hook: [udev]
+-> Running build hook: [modconf]
+-> Running build hook: [block]
+==> WARNING: Possibly missing firmware for module: aic94xx
+==> WARNING: Possibly missing firmware for module: bfa
+==> WARNING: Possibly missing firmware for module: qed
+==> WARNING: Possibly missing firmware for module: qla1280
+==> WARNING: Possibly missing firmware for module: qla2xxx
+==> WARNING: Possibly missing firmware for module: wd719x
+==> WARNING: Possibly missing firmware for module: xhci_pci
+-> Running build hook: [keyboard]
+-> Running build hook: [keymap]
+-> Running build hook: [consolefont]
+-> Running build hook: [plymouth]
+-> Running build hook: [filesystems]
+-> Running build hook: [grub-btrfs-overlayfs]
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image: /boot/initramfs-linux-zen-fallback.img
+==> Image generation successful
+
+# all bspwm dependecies
+acpi alsa-utils blueman brave bspwm colorpicker dunst eww flameshot hsetroot imagemagick jq kitty mantablockscreen network-manager-appler pa-applet picom-animations-git playerctl polkit-gnome polybar pulseaudio python3 rofi scrot sox spicetify-cli sxhkd thunar wmctrl wpgtk xclip xdotool xprintidle xwinfo
+
+# # all bspwm dependecies FOR MY GARUDA
+acpi blueman brave bspwm colorpicker dunst eww flameshot hsetroot imagemagick jq kitty mantablockscreen network-manager-appler pa-applet picom-animations-git playerctl polkit-gnome polybar python3 rofi scrot sox spicetify-cli sxhkd thunar wmctrl wpgtk xclip xdotool xprintidle xwinfo
+
+# yay errors
+Could not find all required packages:
+network-manager-appler (Target)
+pa-applet (Target)
+xwinfo (Target)
+
+warning: acpi-1.7-3 is up to date -- reinstalling
+warning: blueman-2.3.5-1 is up to date -- reinstalling
+warning: brave-bin-1:1.46.134-1 is up to date -- reinstalling
+warning: bspwm-0.9.10-2 is up to date -- reinstalling
+error: target not found: colorpicker
+warning: dunst-1.9.0-1 is up to date -- reinstalling
+error: target not found: eww
+warning: flameshot-12.1.0-1 is up to date -- reinstalling
+warning: hsetroot-1.0.5-1 is up to date -- reinstalling
+warning: jq-1.6-4 is up to date -- reinstalling
+warning: kitty-0.26.5-1 is up to date -- reinstalling
+error: target not found: mantablockscreen
+error: target not found: network-manager-appler
+error: target not found: pa-applet
+error: target not found: picom-animations-git
+warning: playerctl-2.4.1-3 is up to date -- reinstalling
+warning: polkit-gnome-0.105-9 is up to date -- reinstalling
+warning: polybar-3.6.3-2 is up to date -- reinstalling
+warning: python-3.10.8-3 is up to date -- reinstalling
+warning: rofi-1.7.5-1 is up to date -- reinstalling
+warning: scrot-1.7-1 is up to date -- reinstalling
+warning: sox-14.4.2+r182+g42b3557e-2 is up to date -- reinstalling
+warning: spicetify-cli-2.14.3-1 is up to date -- reinstalling
+warning: sxhkd-0.6.2-2 is up to date -- reinstalling
+warning: thunar-4.16.11-2 is up to date -- reinstalling
+warning: wmctrl-1.07-6 is up to date -- reinstalling
+error: target not found: wpgtk
+warning: xclip-0.13-3 is up to date -- reinstalling
+warning: xdotool-3.20211022.1-1 is up to date -- reinstalling
+warning: xprintidle-0.2.5-1 is up to date -- reinstalling
+error: target not found: xwinfo
+
+
+# error: failed to commit transaction (conflicting files)
+# python-cairo: /usr/lib/python3.10/site-packages/cairo/__pycache__/__init__.cpython-310.pyc exists in filesystem
+# Errors occurred, no packages were upgraded.
+sudo mv /usr/lib/python3.10/site-packages/cairo/__pycache__/__init__.cpython-310.pyc /usr/lib/python3.10/site-packages/cairo/__pycache__/__init__.cpython-310.pyc.BACKUP
+
+# error: failed to commit transaction (conflicting files)
+# anbox-modules-dkms: /etc/modules-load.d/anbox.conf exists in filesystem
+sudo mv /etc/modules-load.d/anbox.conf /etc/modules-load.d/anbox.conf.BACKUP
+
+# error: failed to commit transaction (conflicting files)
+# anbox-modules-dkms: /usr/src/ashmem-1/ashmem_linux.ko exists in filesystem
+# Errors occurred, no packages were upgraded.
+# -> exit status 1
+sudo mv /usr/src/ashmem-1/ashmem_linux.ko /usr/src/ashmem-1/ashmem_linux.ko.BACKUP
+
+
+
+
+
+--------------------------------------
+sudo btrfs scrub start -Bd /dev/nvme0n1p1
+btrfs scrub start [-BdqrRf] [-c ioprio_class -n ioprio_classdata] /dev/nvme0n1p1
+sudo btrfs scrub start -BdqrRf -c ioprio_class -n ioprio_classdata /dev/nvme0n1p1
+
+
+--------------------------------------
+~ 🞈 sudo btrfs check --check-data-csum /dev/nvme0n1p1
+[sudo] password for n30:
+Opening filesystem to check...
+Checking filesystem on /dev/nvme0n1p1
+UUID: fb9178f5-508e-45ae-a900-61c2f9bbd6cf
+[1/7] checking root items
+[2/7] checking extents
+[3/7] checking free space tree
+# there is no free space entry for 54786482176-54786486272
+# cache appears valid but isn't 53717499904
+# there is no free space entry for 134244159488-134245138432
+# cache appears valid but isn't 133174394880
+# there is no free space entry for 139532091392-139616800768
+# cache appears valid but isn't 138543104000
+# there is no free space entry for 146058268672-146058338304
+# cache appears valid but isn't 144985554944
+# there is no free space entry for 234106118144-234106126336
+# cache appears valid but isn't 233032384512
+# free space info recorded 1 extents, counted 0
+# there is no free space entry for 246688456704-246688460800
+# cache appears valid but isn't 245917286400
+# there is no free space entry for 250135519232-250135523328
+# cache appears valid but isn't 249138511872
+# there is no free space entry for 254657298432-254657302528
+# cache appears valid but isn't 254507220992
+# there is no free space entry for 649637814272-649637818368
+# cache appears valid but isn't 648570470400
+# there is no free space entry for 663401279488-663401291776
+# cache appears valid but isn't 662529114112
+# there is no free space entry for 670984830976-671118557184
+# cache appears valid but isn't 670045306880
+# wanted bytes 24576, found 20480 for off 673193852928
+# cache appears valid but isn't 672192790528
+# there is no free space entry for 675297067008-675392798720
+# cache appears valid but isn't 674340274176
+[4/7] checking fs roots
+[5/7] checking csums against data
+[6/7] checking root refs
+[7/7] checking quota groups skipped (not enabled on this FS)
+found 681422811136 bytes used, error(s) found
+total csum bytes: 652203072
+total tree bytes: 1003978752
+total fs tree bytes: 156467200
+total extent tree bytes: 58458112
+btree space waste bytes: 163181570
+file data blocks allocated: 832211603456
+referenced 679045206016
+
+
+
+
+wayland socketpath
+--------------------------------------
+# https://www.mankier.com/7/sway-ipc
+# sway-ipc - Man Page
+# # IPC protocol for sway
+# Description
+#
+# This details the interprocess communication (IPC) protocol for sway(1). This IPC protocol can be used to control or obtain information from a sway process.
+#
+# The IPC protocol uses a UNIX socket as the method of communication. The path to the socket is stored in the environment variable SWAYSOCK and, for backwards compatibility with i3, I3SOCK. You can also retrieve the socket path by calling sway --get-socketpath.
+
+[🔴] × swaymsg -t get_outputs -r
+00:00:00.007 [swaymsg/main.c:419] Unable to retrieve socket path
+
+╰─λ sway --get-socketpath
+sway socket not detected.
+
+╰─λ systemctl --user import-environment SWAYSOCK && systemctl --user start libinput-gestures
+Environment variable $SWAYSOCK not set, ignoring.
+
+# https://github.com/swaywm/sway/issues/4398
+# In the meantime, I managed to fix this issue for myself by moving the exec call out of the system config file (/etc/sway/config.d/10-systemd) into my own user config file (~/.config/sway/config). I kept the line exactly the same:
+# File: ~/.config/sway/config
+# ...
+# exec "systemctl --user import-environment; systemctl --user start sway-session.
+# target"
+# so... ???
+systemctl --user import-environment && systemctl --user start xdg-desktop-portal-wlr
+
+# https://github.com/NixOS/nixpkgs/issues/91218
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
+
+✦  ╰─λ systemctl --user import-environment && systemctl --user start xdg-desktop-portal-wlr
+# Calling import-environment without a list of variable names is deprecated.
+# Job for xdg-desktop-portal-wlr.service failed because the control process exited with error code.
+# See "systemctl --user status xdg-desktop-portal-wlr.service" and "journalctl --user -xeu xdg-desktop-portal-wlr.service" for details.
+
+systemctl --user status xdg-desktop-portal-wlr.service
+# × xdg-desktop-portal-wlr.service - Portal service (wlroots implementation)
+# Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal-wlr.service; static)
+# Active: failed (Result: exit-code) since Sun 2023-01-01 14:02:20 CST; 22s ago
+# Process: 334923 ExecStart=/usr/lib/xdg-desktop-portal-wlr (code=exited, status=1/FAILURE)
+# Main PID: 334923 (code=exited, status=1/FAILURE)
+# CPU: 13ms
+# Jan 01 14:02:20 n30-garuda systemd[1011]: xdg-desktop-portal-wlr.service: Scheduled restart job, restart counter is at 5.
+# Jan 01 14:02:20 n30-garuda systemd[1011]: Stopped Portal service (wlroots implementation).
+# Jan 01 14:02:20 n30-garuda systemd[1011]: xdg-desktop-portal-wlr.service: Start request repeated too quickly.
+# Jan 01 14:02:20 n30-garuda systemd[1011]: xdg-desktop-portal-wlr.service: Failed with result 'exit-code'.
+# Jan 01 14:02:20 n30-garuda systemd[1011]: Failed to start Portal service (wlroots implementation).
+
+✦ [🧱] × journalctl --user -xeu xdg-desktop-portal-wlr.service
+Jan 01 14:02:19 n30-garuda systemd[1011]: Failed to start Portal service (wlroots implementation).
+░░ Subject: A start job for unit UNIT has failed
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ A start job for unit UNIT has finished with a failure.
+░░
+░░ The job identifier is 580 and the job result is failed.
+Jan 01 14:02:20 n30-garuda systemd[1011]: xdg-desktop-portal-wlr.service: Scheduled restart job, restart counter is at 5.
+░░ Subject: Automatic restarting of a unit has been scheduled
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ Automatic restarting of the unit UNIT has been scheduled, as the result for
+░░ the configured Restart= setting for the unit.
+Jan 01 14:02:20 n30-garuda systemd[1011]: Stopped Portal service (wlroots implementation).
+░░ Subject: A stop job for unit UNIT has finished
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ A stop job for unit UNIT has finished.
+░░
+░░ The job identifier is 600 and the job result is done.
+Jan 01 14:02:20 n30-garuda systemd[1011]: xdg-desktop-portal-wlr.service: Start request repeated too quickly.
+Jan 01 14:02:20 n30-garuda systemd[1011]: xdg-desktop-portal-wlr.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ The unit UNIT has entered the 'failed' state with result 'exit-code'.
+Jan 01 14:02:20 n30-garuda systemd[1011]: Failed to start Portal service (wlroots implementation).
+░░ Subject: A start job for unit UNIT has failed
+░░ Defined-By: systemd
+░░ Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+░░
+░░ A start job for unit UNIT has finished with a failure.
+░░
+░░ The job identifier is 600 and the job result is failed.
+lines 213-250/250 (END)
+
+
+✦2  ╰─λ systemctl --user status xdg-desktop-portal
+○ xdg-desktop-portal.service - Portal service
+Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal.service; static)
+Active: inactive (dead)
+Jan 01 12:50:13 n30-garuda systemd[1011]: Starting Portal service...
+Jan 01 12:50:14 n30-garuda xdg-desktop-por[1414]: No skeleton to export
+Jan 01 12:50:15 n30-garuda systemd[1011]: Started Portal service.
+Jan 01 12:50:16 n30-garuda systemd[1011]: Starting Portal service...
+Jan 01 12:50:16 n30-garuda xdg-desktop-por[2119]: No skeleton to export
+Jan 01 12:50:16 n30-garuda systemd[1011]: Started Portal service.
+
+# https://github.com/emersion/xdg-desktop-portal-wlr/issues/68
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+# exec dbus-update-activation-environment 2>/dev/null && \
+#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+# so....??...
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP && \
+dbus-update-activation-environment 2>/dev/null && \
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+# Environment variable $SWAYSOCK not set, ignoring.
+# ok, now trying these:
+/usr/lib/xdg-desktop-portal -vr & /usr/lib/xdg-desktop-portal-wlr -l DEBUG 2>&1 | tee xdpw.log
+# will result in:
+✦2  ╰─λ /usr/lib/xdg-desktop-portal -vr & /usr/lib/xdg-desktop-portal-wlr -l DEBUG 2>&1 | tee xdpw.log
+2023/01/01 14:31:34 [INFO] - config: no config file found, using the default config
+2023/01/01 14:31:34 [DEBUG] - config: outputname:  (null)
+2023/01/01 14:31:34 [DEBUG] - config: max_fps:  0.000000
+2023/01/01 14:31:34 [DEBUG] - config: exec_before:  (null)
+2023/01/01 14:31:34 [DEBUG] - config: exec_after:  (null)
+2023/01/01 14:31:34 [DEBUG] - config: chooser_cmd: (null)
+2023/01/01 14:31:34 [DEBUG] - config: chooser_type: default
+2023/01/01 14:31:34 [DEBUG] - config: force_mod_linear: 0
+2023/01/01 14:31:34 [DEBUG] - dbus: connected
+2023/01/01 14:31:34 [DEBUG] - wlroots: wl_display connected
+2023/01/01 14:31:34 [DEBUG] - pipewire: pw_loop created
+2023/01/01 14:31:34 [DEBUG] - pipewire: establishing connection to core
+XDP: load portals from /usr/share/xdg-desktop-portal/portals
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_shm  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: |-- registered to interface wl_shm (Version 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_drm  (Version: 2)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_linux_dmabuf_v1  (Version: 4)
+2023/01/01 14:31:34 [DEBUG] - wlroots: |-- registered to interface zwp_linux_dmabuf_v1 (Version 4)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_compositor  (Version: 5)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_subcompositor  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_data_device_manager  (Version: 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_export_dmabuf_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_screencopy_manager_v1  (Version: 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: |-- registered to interface zwlr_screencopy_manager_v1 (Version 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_data_control_manager_v1  (Version: 2)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_gamma_control_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_primary_selection_device_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wp_viewporter  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_output_power_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register xdg_wm_base  (Version: 5)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_seat  (Version: 8)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wp_presentation  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register org_kde_kwin_idle  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_layer_shell_v1  (Version: 4)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register org_kde_kwin_server_decoration_manager  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zxdg_decoration_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zxdg_output_manager_v1  (Version: 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: |-- registered to interface zxdg_output_manager_v1 (Version 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_output_manager_v1  (Version: 4)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_input_inhibit_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_keyboard_shortcuts_inhibit_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zext_workspace_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_pointer_constraints_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_relative_pointer_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_virtual_keyboard_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_virtual_pointer_manager_v1  (Version: 2)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwlr_foreign_toplevel_manager_v1  (Version: 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wp_drm_lease_device_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_tablet_manager_v2  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_idle_inhibit_manager_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zxdg_exporter_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zxdg_importer_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zxdg_exporter_v2  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zxdg_importer_v2  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_pointer_gestures_v1  (Version: 3)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_text_input_manager_v3  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register zwp_input_method_manager_v2  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register xdg_activation_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register xwayland_shell_v1  (Version: 1)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register hyprland_toplevel_export_manager_v1  (Version: 2)
+2023/01/01 14:31:34 [DEBUG] - wlroots: interface to register wl_output  (Version: 4)
+2023/01/01 14:31:34 [DEBUG] - wlroots: |-- registered to interface wl_output (Version 1)
+2023/01/01 14:31:34 [DEBUG] - wayland: registry listeners run
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_handle_main_device called
+2023/01/01 14:31:34 [INFO] - xdpw: Using render node /dev/dri/renderD128
+XDP: loading /usr/share/xdg-desktop-portal/portals/wlr.portal
+XDP: portal implementation for wlroots, sway, Wayfire, river, phosh
+XDP: portal implementation supports org.freedesktop.impl.portal.Screenshot
+XDP: portal implementation supports org.freedesktop.impl.portal.ScreenCast
+XDP: loading /usr/share/xdg-desktop-portal/portals/hyprland.portal
+XDP: portal implementation for wlroots, Hyprland, sway, Wayfire, river
+XDP: portal implementation supports org.freedesktop.impl.portal.Screenshot
+XDP: portal implementation supports org.freedesktop.impl.portal.ScreenCast
+XDP: providing portal org.freedesktop.portal.MemoryMonitor
+XDP: providing portal org.freedesktop.portal.PowerProfileMonitor
+XDP: providing portal org.freedesktop.portal.NetworkMonitor
+XDP: providing portal org.freedesktop.portal.ProxyResolver
+XDP: providing portal org.freedesktop.portal.Trash
+XDP: providing portal org.freedesktop.portal.GameMode
+XDP: providing portal org.freedesktop.portal.Realtime
+
+(/usr/lib/xdg-desktop-portal:478104): xdg-desktop-portal-WARNING **: 14:31:34.876: No skeleton to export
+XDP: Using hyprland.portal for org.freedesktop.impl.portal.Screenshot in sway
+XDP: Using hyprland.portal for org.freedesktop.impl.portal.ScreenCast in sway
+XDP: providing portal org.freedesktop.portal.ScreenCast
+XDP: org.freedesktop.portal.Desktop acquired
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_format_table called
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_tranche_target_devices called
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_tranche_flags called
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_tranche_formats called
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_tranche_done called
+2023/01/01 14:31:34 [DEBUG] - wlroots: linux_dmabuf_feedback_handle_done called
+2023/01/01 14:31:34 [DEBUG] - wayland: xdg output listeners run
+
+# mmmmmm...
+https://bbs.archlinux.org/viewtopic.php?id=280661
+# Marking as solved, this was actually not an issue with the portals, that was just me being stupid. The issue with portals was that hyprland wiki suggested making a script that restarts these portals, which killed the original running proccesses of these, and started them directly without using systemd. They then failed to restart because they were already running.
+
+
+# https://github.com/emersion/xdg-desktop-portal-wlr/wiki/%22It-doesn't-work%22-Troubleshooting-Checklist
+Does the xdp service know your wayland socket?
+
+# env | grep '^WAYLAND_DISPLAY=' will show the value of the WAYLAND_DISPLAY environment variable set by your Wayland compositor.
+╰─λ env | grep '^WAYLAND_DISPLAY='
+WAYLAND_DISPLAY=wayland-1
+
+# < "/proc/$(pidof xdg-desktop-portal)/environ" tr '\0' '\n' | grep '^WAYLAND_DISPLAY=' should print the same value.
+# ╰─λ < "/proc/ (pidof xdg-desktop-portal)/environ" tr '\0' '\n' | grep '^WAYLAND_DISPLAY='
+echo 123 &> "/proc/ (pidof xdg-desktop-portal)/environ" tr '\0' '\n' | grep '^WAYLAND_DISPLAY=' #not working tho
+<<< "/proc/ (pidof xdg-desktop-portal)/environ" tr '\0' '\n' | grep '^WAYLAND_DISPLAY='
+fish: Expected a string, but found a redirection
+
+# If it does not print anything, import the WAYLAND_DISPLAY env var from sway into the systemd user session:
+# dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$compositor_name
+# "Replace the "$compositor_name" in XDG_CURRENT_DESKTOP=$compositor_name with the name of your compositor, according to what its called in the UseIn= line of /usr/share/xdg-desktop-portal/portals/wlr.portal."
+# but I'm using hyprland, so:
+nano /usr/share/xdg-desktop-portal/portals/hyprland.portal
+# UseIn=wlroots;sway;Wayfire;river;phosh;
+# maybe add Hyprland ?
+UseIn=wlroots;sway;Wayfire;river;phosh;Hyprland;
+# That is, XDG_CURRENT_DESKTOP=sway for sway, XDG_CURRENT_DESKTOP=Wayfire for wayfire, and XDG_CURRENT_DESKTOP=river for river.
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland   # ????
+# Replace pipewire-media-session with wireplumber if that's what you're using.
+# Stop any services that are running, so that they receive the new env var when they restart.
+# systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+systemctl --user stop xdg-desktop-portal xdg-desktop-portal-hyprland
+systemctl --user start xdg-desktop-portal xdg-desktop-portal-hyprland
+
+You should use your compositors method for autostart commands to run those commands when the compositor starts:
+    For sway, put them in a script that is execd from your sway config. Because the commands must run in sequence, you should put them in a script rather than execing them individually, since sway runs individual execd commands in parallel.
+
+    For Wayfire, add a new a0 = <command> (or another number if 0 is already taken) line under the [autostart] heading in your Wayfire config file, with <command> as the path to the script. If you prefer to use wcm, open it and add a new entry in the Autostart section with the path to the script.
+
+    For river, same as sway, you should put them on a separate script or you can put them on the last line of the overall config where it will be last executed.
+
+# # hyprland portal up, desktop portal down
+#  ╭─n30@n30 in ~
+#  ╰─λ systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal
+# ● xdg-desktop-portal-hyprland.service - Portal service (Hyprland implementation)
+#      Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal-hyprland.service; static)
+#      Active: active (running) since Sun 2023-01-01 20:20:22 CST; 1min 18s ago
+#    Main PID: 4480 (xdg-desktop-por)
+#       Tasks: 6 (limit: 38216)
+#      Memory: 12.3M
+#         CPU: 16ms
+#      CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/xdg-desktop-portal-hyprland.service
+#              └─4480 /usr/libexec/xdg-desktop-portal-hyprland
+#
+# Jan 01 20:20:22 n30-garuda systemd[826]: Starting Portal service (Hyprland implementation)...
+# Jan 01 20:20:22 n30-garuda systemd[826]: Started Portal service (Hyprland implementation).
+#
+# ○ xdg-desktop-portal.service - Portal service
+#      Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal.service; static)
+#      Active: inactive (dead)
+#
+# Jan 01 20:20:18 n30-garuda systemd[826]: Starting Portal service...
+# Jan 01 20:20:18 n30-garuda xdg-desktop-por[1428]: No skeleton to export
+# Jan 01 20:20:18 n30-garuda systemd[826]: Started Portal service.
+# Jan 01 20:20:22 n30-garuda systemd[826]: Starting Portal service...
+# Jan 01 20:20:22 n30-garuda xdg-desktop-por[4474]: No skeleton to export
+# Jan 01 20:20:22 n30-garuda systemd[826]: Started Portal service.
+#
+# # hyprland portal up, desktop portal down, fresh boot
+# ╭─n30@n30 in ~
+# ╰─λ systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal && /
+# ● xdg-desktop-portal-hyprland.service - Portal service (Hyprland implementation)
+# Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal-hyprland.service; static)
+# Active: active (running) since Sun 2023-01-01 23:44:25 CST; 1min 12s ago
+# Main PID: 3920 (xdg-desktop-por)
+# Tasks: 6 (limit: 38216)
+# Memory: 14.3M
+# CPU: 40ms
+# CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/xdg-desktop-portal-hyprland.service
+# └─3920 /usr/libexec/xdg-desktop-portal-hyprland
+#
+# Jan 01 23:44:25 n30-garuda systemd[1012]: Starting Portal service (Hyprland implementation)...
+# Jan 01 23:44:25 n30-garuda systemd[1012]: Started Portal service (Hyprland implementation).
+#
+# ○ xdg-desktop-portal.service - Portal service
+# Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal.service; static)
+# Active: inactive (dead)
+#
+# Jan 01 23:44:24 n30-garuda systemd[1012]: Starting Portal service...
+# Jan 01 23:44:24 n30-garuda xdg-desktop-por[1440]: No skeleton to export
+# Jan 01 23:44:24 n30-garuda systemd[1012]: Started Portal service.
+
+# FINALLY!!
+╭─n30@n30 in /🔒 took 23ms
+╰─λ systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal
+
+● xdg-desktop-portal-hyprland.service - Portal service (Hyprland implementation)
+Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal-hyprland.service; static)
+Active: active (running) since Sun 2023-01-01 23:44:25 CST; 1h 20min ago
+Main PID: 3920 (xdg-desktop-por)
+Tasks: 6 (limit: 38216)
+Memory: 14.2M
+CPU: 54ms
+CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/xdg-desktop-portal-hyprland.service
+└─3920 /usr/libexec/xdg-desktop-portal-hyprland
+
+Jan 01 23:44:25 n30-garuda systemd[1012]: Starting Portal service (Hyprland implementation)...
+Jan 01 23:44:25 n30-garuda systemd[1012]: Started Portal service (Hyprland implementation).
+
+● xdg-desktop-portal.service - Portal service
+Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal.service; static)
+Active: active (running) since Mon 2023-01-02 01:04:17 CST; 14s ago
+Main PID: 338312 (xdg-desktop-por)
+Tasks: 5 (limit: 38216)
+Memory: 2.0M
+CPU: 8ms
+CGroup: /user.slice/user-1000.slice/user@1000.service/session.slice/xdg-desktop-portal.service
+└─338312 /usr/lib/xdg-desktop-portal
+
+Jan 02 01:04:17 n30-garuda systemd[1012]: Starting Portal service...
+Jan 02 01:04:17 n30-garuda xdg-desktop-por[338312]: No skeleton to export
+Jan 02 01:04:17 n30-garuda systemd[1012]: Started Portal service.
+
+╭─n30@n30 in /🔒 took 3ms
+╰─λ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
+
+╭─n30@n30 in /🔒 took 2ms
+╰─λ systemctl --user stop xdg-desktop-portal
+
+╭─n30@n30 in /🔒 took 4ms
+╰─λ systemctl --user start xdg-desktop-portal
+
+╭─n30@n30 in /🔒 took 24ms
+╰─λ systemctl --user restart xdg-desktop-portal.service
+
+
+
+[n30@n30-garuda ~]$ env | grep '^WAYLAND_DISPLAY='
+WAYLAND_DISPLAY=wayland-1
+[n30@n30-garuda ~]$ < "/proc/$(pidof xdg-desktop-portal)/environ" tr '\0' '\n' | grep '^WAYLAND_DISPLAY='
+WAYLAND_DISPLAY=wayland-1
+
+# ???????????????????????????????????
+󰣇  n30 ~ ❯❯ < "/proc/$(pidof xdg-desktop-portal)/environ" tr '\0' '\n' | grep '^XDG_CURRENT_DESKTOP='                             ?2
+XDG_CURRENT_DESKTOP=sway

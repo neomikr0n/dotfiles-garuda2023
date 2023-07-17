@@ -1,0 +1,73 @@
+#!/bin/bash
+
+SCRIPTSDIR=$HOME/.config/hypr/scripts
+WALLSDIR=$HOME/Videos/Hidamari
+
+Kill already running processes
+_ps=(mpvpaper mako dunst swaync swaybg swayidle waybar mpd xdg-desktop-portal-hyprland xdg-desktop-portal xfce-polkit)
+for _prs in "${_ps[@]}"; do
+  if [[ $(pidof ${_prs}) ]]; then
+    killall -9 ${_prs}
+  fi
+done
+
+# Apply themes
+# ${SCRIPTSDIR}/gtkthemes & # TODO
+
+# daemons
+/usr/bin/numlockx on &
+exec mpd &
+xdg-user-dirs &
+foot --server &
+
+# wallpaper & effects TODO:
+# ${SCRIPTSDIR}/tools/dynamic &   # for the transitions of swww_fork??
+# ${SCRIPTSDIR}/rgb &   # TODO file missing? I'm not sure what this does lol
+# wallpaper animated waifu
+# mpvpaper DP-3 -o "--loop-file=yes --mute=yes --video-unscaled=yes" $WALLSDIR/kda-21-9.mp4 &
+
+# video wallpaper
+bash $scriptsDir/videowallpaper-change code &
+
+
+# ${SCRIPTSDIR}/wall $HOME/.config/hypr/wallpapers/dreams.png &   #static wallpaper
+
+# best .desktop/wrappers/configs to ensure as complete gaming compatibility on hyprland
+
+# TODO:
+# cd ~ || exit    # ?
+# export WLR_NO_HARDWARE_CURSORS=1
+
+
+
+# https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap
+
+# Environment Variables
+# https://wiki.hyprland.org/Configuring/Environment-variables/
+# Toolkit Backend Variables
+    GDK_BACKEND=wayland,x11 #- GTK: Use wayland if available, fall back to x11 if not.
+    QT_QPA_PLATFORM="wayland;xcb" #- QT: Use wayland if available, fall back to x11 if not.
+    SDL_VIDEODRIVER=wayland #- Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause compatibility issues
+    CLUTTER_BACKEND=wayland #- Clutter package already has wayland enabled, this variable will force Clutter applications to try and use the Wayland backend
+
+# XDG Specifications
+# XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
+    export XDG_CURRENT_DESKTOP=Hyprland
+    export XDG_SESSION_TYPE=wayland
+    export XDG_SESSION_DESKTOP=Hyprland
+    
+# QT Variables
+    export QT_AUTO_SCREEN_SCALE_FACTOR=1 #- (From the QT documentation) enables automatic scaling, based on the monitor’s pixel density
+    export QT_QPA_PLATFORM="wayland;xcb" #- Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1 #- Disables window decorations on QT applications
+    export QT_QPA_PLATFORMTHEME=qt5ct #- Tells QT based applications to pick your theme from qt5ct, use with Kvantum.
+
+# Theming Related Variables
+    export XCURSOR_SIZE=32
+
+# for flameshot:
+    # export SDL_VIDEODRIVER=wayland
+    export _JAVA_AWT_WM_NONREPARENTING=1
+
+# https://www.reddit.com/r/hyprland/comments/10ww8y7/what_are_the_best_desktopwrappersconfigs_to/
+    

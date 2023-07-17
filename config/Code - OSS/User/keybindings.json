@@ -1,0 +1,7 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+alt+meta+c",
+        "command": "workbench.action.terminal.runSelectedText"
+    }
+]

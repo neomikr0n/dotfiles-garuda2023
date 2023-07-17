@@ -1,0 +1,164 @@
+/*
+ * vim: ft=less 
+ */
+
+ @define-color font-color rgb(248, 248, 242);
+ @define-color background rgb(13, 15, 22);
+ @define-color border-color rgba(189, 147, 249, 0.8);
+ @define-color bg rgb(0, 0, 0);
+ @define-color bg-hover rgb(68, 68, 68);
+ @define-color bg-focus rgba(68, 68, 68, 0.6);
+ @define-color bg-selected rgb(0, 128, 255);
+ 
+.low {
+  background: @background;
+  border: 6px solid @background;
+  padding: 666px;
+  border-radius: 12px;
+}
+
+.normal {
+  background: @background;
+  border: 8px solid @border-color;
+  padding: 666px;
+  border-radius: 12px
+}
+
+.critical {
+  background: @background;
+  border: 8px solid red;
+  padding: 666px;
+  border-radius: 12px
+} 
+
+
+ * {
+   font-family: Iosevka Curly;
+   font-size: 1.5rem;
+ }
+ 
+ .notification-row {
+   outline: none;
+ }
+ .notification-row:focus,
+ .notification-row:hover {
+  background: transparent;
+  opacity: 1;
+  /* background: @bg-focus; */
+}
+ 
+ .notification {
+   margin: 6px 5px;
+   box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.5);
+   padding: 0;
+   border-radius: 24px;
+   transition: all 200ms ease;  
+ }
+ 
+ .notification-content {
+   background: transparent;
+   padding: 2px;
+ }
+ 
+ .close-button {
+   background: black;
+   color: white;
+   text-shadow: none;
+   padding: 0 2px;
+   box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
+ }
+ .close-button:hover {
+   background: rgb(30, 30, 30);
+   transition: all 0.15s ease-in-out;
+ }
+ 
+ .notification-default-action,
+ .notification-action {
+   padding: 4px;
+   margin: 0;
+   box-shadow: none;
+   background: @bg;
+   /* border: 4px solid @border-color; */
+   /* border-bottom: 4px solid @border-color; */
+ }
+ 
+ .notification-default-action:hover,
+ .notification-action:hover {
+   background: @bg-hover;
+ }
+ 
+ .notification-action {
+   border-top: none;
+   border-right: none;
+ }
+ 
+ .notification-action:last-child {
+   border-bottom-right-radius: 10px;
+   border-right: 3px solid @border-color;
+ }
+ 
+ .image {
+ }
+ 
+ .body-image {
+   margin-top: 6px;
+   background-color: white;
+ }
+ 
+ .summary {
+   color: @font-color;
+   text-shadow: none;
+ }
+ 
+ .time {
+   color: @font-color;
+   text-shadow: none;
+ }
+ 
+ .body {
+   background: transparent;
+   color: @font-color;
+   text-shadow: none;
+ }
+ 
+ .top-action-title {
+   color: @font-color;
+   font-size: 1.2rem;
+   text-shadow: none;
+ }
+ 
+ .control-center-clear-all {
+   color: @font-color;
+   text-shadow: none;
+   background: @bg;
+   border: 4px solid @border-color;
+   box-shadow: none;
+ }
+ .control-center-clear-all:hover {
+   background: @bg-hover;
+ }
+ 
+ .control-center-dnd {
+   background: @bg;
+   border: 4px solid @border-color;
+   box-shadow: none;
+ }
+ 
+ .control-center-dnd:checked {
+   background: @bg-selected;
+ }
+ .control-center-dnd slider {
+   background: @bg-hover;
+ }
+ 
+ .control-center {
+   background: rgba(0, 0, 0, 0.7);
+ }
+ .control-center-list {
+   background: transparent;
+ }
+ 
+ .floating-notifications {
+   background: transparent;
+ }
+ 

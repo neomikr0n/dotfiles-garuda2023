@@ -1,0 +1,10 @@
+[Unit]
+Description=Display colour temperature adjustment
+PartOf=graphical-session.target
+After=graphical-session.target NetworkManager-wait-online.service
+
+[Service]
+ExecStart=%h/.local/bin/gammastep-wrapper.sh
+
+[Install]
+WantedBy=graphical-session.target

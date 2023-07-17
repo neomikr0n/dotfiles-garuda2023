@@ -5548,6 +5548,7 @@ https://christitus.com/ext4-in-windows/
 
 ## INSTALL on LINUX shennaningas
 [QEMU/KVM for absolute beginners](https://www.youtube.com/watch?v=BgZHbCDFODk)
+[PCI passthrough via OVMF](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF)
 
 [🔴] × yayi qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
 :: openbsd-netcat and gnu-netcat are in conflict. Remove gnu-netcat? [y/N] n

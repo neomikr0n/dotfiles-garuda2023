@@ -1,0 +1,203 @@
+autostart - bspwm
+-----------------------------------------------------------------
+# Apply colorscheme to spotify (requieres spicetify https://github.com/spicetify/spicetify-cli)
+~/.bscripts/wal-spotify.sh > /dev/null&
+
+# Source the colorscheme, can change the alpha value to be used in certain scripts
+# like ~/.bscripts/rofi.sh
+echo alpha="ff" >> "${HOME}/.cache/wal/colors.sh"
+source "${HOME}/.cache/wal/colors.sh"
+
+# Sounds
+~/.bscripts/sounds.sh&
+
+# Autosuspend
+killall idle.sh
+pgrep idle.sh || ~/.bscripts/idle.sh > /dev/null 2> /dev/null&
+
+
+
+sxhkdrc
+-----------------------------------------------------------------
+
+
+
+hyprland.conf (BACKUP)
+-----------------------------------------------------------------
+# AUDIO
+bind= SUPER CTRL ALT,Kp_End,exec,pactl set-default-sink alsa_output.usb-Topping_D30-00.pro-output-0; notify-send '🎧 AUDÍGENOS 🎧'
+bind= SUPER CTRL ALT,Kp_Down,exec,pactl set-default-sink alsa_output.usb-Burr-Brown_from_TI_USB_Audio_DAC-00.iec958-stereo; notify-send "🔊 BOCINAS 🔊"
+
+bind = , XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
+bind = , XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
+bind = , XF86AudioMute, exec, pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock && notify-send -h  int:value:66 " MUTE "
+
+
+# █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄
+# █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀
+
+# █▀ █▀▀ █▀█ █▀▀ █▀▀ █▄░█ █▀ █░█ █▀█ ▀█▀
+# ▄█ █▄▄ █▀▄ ██▄ ██▄ █░▀█ ▄█ █▀█ █▄█ ░█░
+
+$screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
+bind = , Print, exec, $screenshotarea # screenshot on an area
+bind = SUPER, Print, exec, grimblast --notify --cursor copysave output  # ALL MONITOR
+bind = ALT, Print, exec, grimblast --notify --cursor copysave active    # only the current window
+# bind=,Print,exec,grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png') && notify-send 'Screenshot Saved'
+# bind=SUPER,Print,exec,grim - | wl-copy && notify-send 'Screenshot Copied to Clipboard'
+# bind=SUPERSHIFT,Print,exec,grim - | swappy -f -
+# bind=SUPERSHIFT,S,exec,slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y%m%d%H%M%S_1.png') && notify-send 'Screenshot Saved'
+
+
+# SUBMAPS (Volume + Windows Managment)
+# enters "volume mode":
+# bind= SUPER CTRL ALT, T, submap, volume # this is for testing only, ignore please
+# bind = $mainMod, equal, submap, volume
+# submap = volume
+# bind = , equal, exec, $volume --inc
+# bind = , minus, exec, $volume --dec
+# bind = , 0, exec, $volume --toggle
+# bind = , 9, exec, $volume --toggle-mic
+# bind = , escape, submap, reset
+# submap = reset
+
+# Resize
+bind = $mainMod, R, submap, resize
+submap = resize
+binde = , H, resizeactive,-50 0
+binde = , L, resizeactive,50 0
+binde = , K, resizeactive,0 -50
+binde = , J, resizeactive,0 50
+binde = , left, resizeactive,-50 0
+binde = , right, resizeactive,50 0
+binde = , up, resizeactive,0 -50
+binde = , down, resizeactive,0 50
+bind = , escape, submap, reset
+submap = reset
+
+# Move
+bind = $mainMod, M, submap, move
+submap = move
+bind = , H, movewindow, l
+bind = , L, movewindow, r
+bind = , K, movewindow, u
+bind = , J, movewindow, d
+bind = , left, movewindow, l
+bind = , right, movewindow, r
+bind = , up, movewindow, u
+bind = , down, movewindow, d
+bind = , escape, submap, reset
+submap = reset
+
+# Focus
+bind = $mainMod, F, submap, focus
+submap = focus
+bind = , left, movefocus, l
+bind = , right, movefocus, r
+bind = , up, movefocus, u
+bind = , down, movefocus, d
+bind = , H, movefocus, l
+bind = , L, movefocus, r
+bind = , K, movefocus, u
+bind = , J, movefocus, d
+bind = , escape, submap, reset
+submap = reset
+
+# The second bind is redundant but I'm used to it in DWM
+bind = $mainMod SHIFT CTRL, comma, exec, hyprctl dispatch swapactiveworkspaces 0 1
+bind = $mainMod SHIFT CTRL, period, exec, hyprctl dispatch swapactiveworkspaces 1 0
+
+# focus monitor.
+# Not tested, if monitor isn't connected, the second bind will execute
+bind = $mainMod, comma, focusmonitor, 0
+bind = $mainMod, comma, workspace, e-1
+bind = $mainMod, period, focusmonitor, 1
+bind = $mainMod, period, workspace, e+1
+
+PORTAL
+# https://bbs.archlinux.org/viewtopic.php?id=224787
+# maybe add next line to .xinitrc or .xsession ???? TODO
+# exec-once = dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # TODO
+# wiki suggests:
+# exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# exec-once = systemctl --user import-environment XAUTHORITY
+exec-once = dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DBUS_SESSION_BUS_ADDRESS DISPLAY SWAYSOCK
+exec-once = $scriptsDir/portal
+# https://bbs.archlinux.org/viewtopic.php?id=280661
+# The issue with portals was that hyprland wiki suggested making a script that restarts these portals, which killed the original running proccesses of these, and started them directly without using systemd. They then failed to restart because they were already running.
+
+autostart  (BACKUP & useless)
+-----------------------------------------------------------------
+# Start swhkd
+# ${SCRIPTSDIR}hotkeys &
+
+# Start mpd
+# exec mpd &
+
+# variables
+# config=$HOME/.config/hypr
+# scripts=$config/scripts
+
+# daemons
+/usr/bin/numlockx on &
+# mako &
+# killall dunst
+# dunst > /dev/null 2> /dev/null &.mx
+# thunar --daemon &
+
+# waybar
+# $scripts/launch_waybar &
+
+
+
+# wob... shows a bar wich fills w/ audio volume, not using any of that atm...
+# recommended way, just uncomment these lines:
+# set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+# exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+
+# one line, long unelegant way, eventually channge it for the two lines above?:
+# exec rm -f $XDG_RUNTIME_DIR/wob.sock && mkfifo $XDG_RUNTIME_DIR/wob.sock && tail -f $XDG_RUNTIME_DIR/wob.sock | wob &
+
+# or do what this says https://framagit.org/-/snippets/6723
+# exec-once = ~/.config/hypr/scripts/wob-startup.sh
+# exec = sh ~/.config/hypr/scripts/wob-startup.sh startup &
+
+
+# examples:
+# windowrule = move 100 100,^(kitty)$ # moves kitty to 100 100
+# windowrule = animation popin,^(kitty)$ # sets the animation style for kitty
+# windowrule = noblur,^(firefox)$ # disables blur for firefox
+# windowrule = move cursor -50% -50%,^(kitty)$ # moves kitty to the center of the cursor
+# windowrulev2 = bordercolor rgb(FF0000) rgb(880808),fullscreen:1 # set bordercolor to red if window is fullscreen
+# windowrulev2 = bordercolor rgb(FFFF00),title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
+# windowrule = opacity 1.0 override 0.5 override,^(kitty)$ # set opacity to 1.0 active and 0.5 inactive for kitty
+# windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
+# windowrulev2 = workspace 4, class:^(Apache Directory Studio)$
+# windowrulev2 = bordercolor rgb(abe9b3) rgb(f28fad), floating:1
+# windowrulev2 = bordercolor rgb(c4a7e7) rgb(f28fad), fullscreen:1
+# windowrulev2 = opacity 0.8 0.8, pinned:1
+# windowrulev2 = workspace 8 silent, class:^(Steam)$, title:^(Steam)$
+
+# windowrulev2 = workspace 3, class:^(Microsoft\ Teams\ -\ Preview)$
+# windowrulev2 = workspace 5, class:^(gnome-connections)$
+# windowrulev2 = fullscreen, class:^(Torchlight2.bin.x86_64)$, title:^(Torchlight II v.1.25.5.4)$
+
+# bind = $mainMod SHIFT, V, exec, hyprctl dispatch workspaceopt allfloat    # every1 floats
+# bind = $mainMod, C, exec, $menu     # wofi alternative
+# bindr = $mainMod SHIFT, C, exec, pkill bemenu || $scriptsDir/bemenu_input -l        #?
+# layoutmsg, idk
+# bind = $mainMod, J, layoutmsg, cyclenext
+# bind = $mainMod, K, layoutmsg, cycleprev
+# bind = $mainMod SHIFT, Return, layoutmsg, swapwithmaster
+# bind = $mainMod, I, layoutmsg, addmaster
+# bind = $mainMod, D, layoutmsg, removemaster
+# bind = $mainMod, L, exec, $scriptsDir/changeLayout
+# bind = $triMod, L, exec, $lock
+
+
+# bind = $mainMod, Escape, exec, $wlogout
+# // Test rofi logout... no keybinds though which sux
+# bind = $mainMod SHIFT, Escape, exec, $HOME/.config/rofi/scripts/powermenu_t3
+# bind = $mainMod, Y, exec, $term -1 --class update -T update -e cava
+# bind = $mainMod SHIFT, Y, exec, [float] $term -1 --class clock -T clock -e tty-clock -c -B -C 7 -r -s -f "%A, %B, %d"

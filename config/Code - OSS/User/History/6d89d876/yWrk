@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# by neomikr0n
+
+count() {
+timer -l "$1" | lolcat -a -d 1 -s 999 -t
+}
+
+glava() {
+glava
+}
+
+# main
+if [[ "$1" == "--count" ]]; then
+  count "$2"
+
+elif [[ "$1" == "--glava" ]]; then
+  glava
+else
+  notify_user
+fi

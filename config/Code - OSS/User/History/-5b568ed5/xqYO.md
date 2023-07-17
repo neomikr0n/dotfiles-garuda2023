@@ -1,0 +1,4252 @@
+# [**GARUDA Post Install Guide**](https://gitlab.com/garuda-linux)
+
+```
+sudo pacman -S yay
+```
+
+<!-- TODO: -->
+
+> - garuda
+> - garuda-boot-options
+> - garuda-common-settings
+> - garuda-fastfetch-git
+> - garuda-hotfixes
+> - garuda-live-portable-efi
+> - garuda-network-assistant-git
+
+- 1-general must 2-easyeffects + effects
+- wev : xev for wayland, shows keyboard keys name, pointer info and more
+- gammastep: replacment for redshift (clight, wlsunset-git, or wl-gammarelay are alternatives)
+- wl-gammarelay: developed from gammastep, a fork of redshift. It allows using keybindings to dynamically change the color temperature and software brightness, is a daemon which listens to DBus requests.
+- qpwgraph - A PipeWire Graph Qt GUI Interface
+
+```
+yay -S ocs-url solaar megasync copyq ventoy whatsapp-nativefier qcopy hyprpicker wev wl-gammarelay hyprland-scratchpad-git \
+mangohud joystickwake-git corectrl goverlay-git winetricks-git \
+caffeine-ng sddm kate sysstat swaync \
+spotify-adblock spicetify-git sox calf lsp-plugins mda.lv2 zam-plugins-lv2 pavucontrol qpwgraph-qt5 \
+oreo-cursors-git bibata-rainbow-cursor-theme layan-cursor-theme-git ttf-jetbrains-mono-nerd \
+thunar libwebp tumbler \
+cli-visualizer cava glava foot kitty the_silver_searcher
+```
+
+TODO:
+
+>> sway-audio-idle-inhibit-git  sway-alttab-bin
+>>
+
+idk if they work
+
+>> mako dunst swaync
+>>
+
+--> choose just one
+
+>> kvantum-qt5-git
+>>
+
+>> nemo nemo-emblems nemo-megasync nemo-pdf-tools nemo-previe nemo-terminal
+>>
+
+---
+
+> # **[gammarelay wl](https://github.com/jeremija/wl-gammarelay)**
+
+---
+
+This utility was developed from gammastep, a fork of redshift as well as examples from wlroots.
+It allows using keybindings to dynamically change the color temperature and software brightness.
+This used to be possible using redshift using the -P -O <temp> flags, but since wayland requires the client to keep running, I developed this tool that spins up a daemon and can be controlled via unix domain socket.
+The wl-gammarelay is a daemon which listens to DBus requests:
+
+`busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -500 busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +500 busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4000 busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500`
+
+The service can be introspected:
+`busctl --user introspect rs.wl-gammarelay / rs.wl.gammarelay`
+
+---
+
+> # [**`Geolocation`**](https://rumpelsepp.org/blog/geolocation-for-gammastep/) for [**`gammastep`**](https://gitlab.com/chinstrap/gammastep)
+
+---
+
+https://ipapi.co/
+
+gammastep -l 19.6:-101.1 -m wayland     # TODO: not working?
+
+---
+
+> # [`plymouth`](https://www.freedesktop.org/wiki/Software/Plymouth/)
+
+---
+
+🔴 JUST FOR SYSTEMD-BOOT **NOT GRUB!**
+
+##### [ARCH:](https://wiki.archlinux.org/title/Plymouth) Plymouth is a project from Fedora and now listed among the freedesktop.org's official resources providing a flicker-free graphical boot process. It relies on kernel mode setting (KMS) to set the native resolution of the display as early as possible, then provides an eye-candy splash screen leading all the way up to the login manager.
+
+- > 📽️ --> <a href="https://www.youtube.com/watch?v=GhXFYq-LYYc
+  > " target="_blank"><img src="http://img.youtube.com/vi/GhXFYq-LYYc/0.jpg" 
+  > alt= "installing plymouth and themes on a system with systemd-boot" width="240" height="180" border="10" /></a>
+  >
+- > **YT:** [ArcoLinux : 3307 Ariser - installing plymouth and themes on a system with systemd-boot](https://www.youtube.com/watch?v=GhXFYq-LYYc)
+  >
+
+```
+yay plymouth | grep sweet
+plymouth-set-default-theme -l
+sudo plymouth-set-default-theme -R garuda-purple
+
+```
+
+---
+
+> # [`nwg-look`](https://github.com/nwg-piotr/nwg-look)
+
+---
+
+Fira Sans Regular 11.5 -> JetBrainsMono
+
+Nerd Font Regular 13
+
+>>> qt5 configuration tool
+>>>
+>>
+
+Sans Serif 11 -> JetBrainsMono Nerd Font Regular 11
+
+>>> dconf
+>>>
+>>
+
+Sans Serif 10
+
+cursor size 32
+
+Layan-white-cursors
+
+hyprctl setcursor Layan-white-cursors 32
+
+set XCURSOR_SIZE 32
+env | grep -F "CURSOR"
+
+>>> `nano ~/.Xresources`
+>>>
+>>
+
+Xcursor.size: 32
+
+XCURSOR_SIZE=32 konsole
+
+---
+
+> # [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
+
+---
+
+https://manpages.ubuntu.com/manpages/lunar/man5/swaync.5.html
+
+- [Config flex muscle](https://github.com/ErikReider/SwayNotificationCenter/discussions/183) This is meant as a place to flex with your swaync dotfiles.
+- Sway Usage:
+
+>>> Notification Daemon
+>>>
+>>
+
+`exec swaync`
+
+>>> Toggle control center
+>>>
+>>
+
+`bindsym $mod+Shift+n exec swaync-client -t -sw`
+
+>>> To start the daemon (remember to kill any other notification daemon before running)
+>>>
+>>
+
+`./build/src/swaync`
+
+>>> To toggle the panel
+>>>
+>>
+
+`swaync-client -t`
+
+>>> To reload the config
+>>>
+>>
+
+`swaync-client -R`
+
+>>> To reload css after changes
+>>>
+>>
+
+`swaync-client -rs`
+
+>>> Notification Inhibition
+>>>
+>>
+
+Notifications can be inhibited through the provided swaync-client executable or through the DBus interface org.erikreider.swaync.cc.
+
+Here's an example of notification inhibition while screen sharing through xdg-desktop-portal-wlr
+
+>>> xdg-desktop-portal-wlr config
+>>>
+>>
+
+```
+[screencast]
+exec_before=swaync-client --inhibitor-add "xdg-desktop-portal-wlr"
+exec_after=swaync-client --inhibitor-remove "xdg-desktop-portal-wlr"
+```
+
+---
+
+> # [**`ulauncher`**](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
+
+---
+
+## 1. Installation
+
+```yay -s ulauncher && \
+sudo mkdir ~/.config/ulauncher/user-themes/
+```
+
+## 2. [Oficial Extensions](https://ext.ulauncher.io/)
+
+- [Emoji](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
+- etc.
+
+## 3. [Oficial Themes](https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce)
+
+- > https://draculatheme.com/ulauncher
+  >
+
+```
+sudo mkdir ~/.config/ulauncher/user-themes/dracula-ulauncher && \ 
+sudo git clone https://github.com/dracula/ulauncher.git ~/.config/ulauncher/user-themes/dracula-ulauncher
+```
+
+- > https://github.com/TechHutTV/endeavour-ulauncher-theme
+  >
+
+```
+cd ~/.config/ulauncher/user-themes/ && \
+sudo git clone https://github.com/TechHutTV/endeavour-ulauncher-theme.git
+```
+
+- > https://github.com/SirHades696/TokyoNight-Ulauncher-Theme
+  >
+
+```
+sudo git clone https://github.com/SirHades696/TokyoNight-Ulauncher-Theme \
+~/.config/ulauncher/user-themes/
+```
+
+---
+# [thunar]()
+
+## 1. Installation
+
+```
+yay -S gvfs thunar-volman tumbler ffmpegthumbnailer thunar-archive-plugin thunar-media-tags-plugin
+```
+
+##### ***Gnome Virtual File System*** — For trash support, mounting removable media, and remote filesystems
+
+##### ***Thunar Archive Plugin*** — Plugin which allows you to create and extract archive files using contextual menu items. It does not create or extract archives directly, but instead acts as a frontend for other programs
+
+##### ***Thunar Volume Manager*** — Automatic management of removeable devices
+
+##### ***Tumbler*** — External program to generate thumbnails.
+
+##### ***ffmpegthumbnailer*** - to enable video thumbnailing
+
+>>>> - failed to launc preferred application for category "terminalemulator"
+>>>>
+>>>
+>>
+
+By default, Thunar uses the exo-open command, which is configured in the XFCE settings. If you do not have the XFCE settings app installed, you can instead configure it in `~/.config/xfce4/helpers.rc:`
+
+```
+TerminalEmulator=konsole
+TerminalEmulatorDismissed=true
+```
+
+## 2. Themes
+
+- [Utterly Sweet Global Theme Global](https://store.kde.org/p/1906500/) (takes a couple minutes...)
+- [Utterly Sweet Kvantum](https://store.kde.org/p/1906474/)
+- kvantum-qt5-git
+- [Utterly Sweet Konsole Color Schemes](https://store.kde.org/p/1906466/)
+  To install, open Konsole, go to "Settings > Edit Current Profile... > Appearance > Get New..." and search for "Sweetifiedt" and install it.
+  Dont  forget to put the profile on Defaul
+  https://store.kde.org/p/1906500/
+
+https://store.kde.org/p/1906579/
+cd && sudo ./.local/share/plasma/plasmoids/org.kde.windowbuttons/lib-install.sh
+
+https://store.kde.org/p/1909598/
+To install this theme, open System Settings in Plasma and go to "Startup and Shutdown > Login Screen (SDDM)" and click the "Get New SDDM Themes..." button in the lower right corner. In the new window that appeared, search for "Utterly Sweet" and install it.
+
+```cd ~/Downloads```
+
+transmission4-gtk qbitorrent
+
+yay -S sweet-theme-full-git
+sweet-gtk-theme sweet-gtk-theme-dark sweet-theme-git sweet-gtk-theme-mars-git # TODO: add kvantum theme  sweet
+
+#keyboard Logitech k860, xbox controller tools, benchmark, amd undervolting, system staon
+
+>>> date and time
+>>>
+>>
+
+`sudo date -s "01 JAN 2023 20:23:00"`
+
+## 3. Plug-ins
+
+- Meld
+
+>>> meld requires pycairo 1.15
+>>> pip install pycairo==1.15.0
+>>>
+>>
+
+>>> [How to customize files context menu in Xubuntu XFCE Thunar file manager?](https://askubuntu.com/questions/18367/how-to-customize-files-context-menu-in-xubuntu-xfce-thunar-file-manager/193769#193769)
+>>>
+>>
+
+Didn't see this mentioned anywhere and this was one of the top search results related to adding Xfce custom actions, so...
+
+If anyone wants to add entries to Thunar's right-click/context menu BUT wants to avoid the GUI for some reason, here is what worked for me. In my case, I wanted to do this as part of a post-install setup script that could be run on multiple computers.
+
+It appears that adding things via the GUI mentioned in the other answers saves to the file `~/.config/Thunar/uca.xml`. Under Fedora 35 Xfce / Thunar 4.16.10, this had a sample entry for "Open Terminal Here" by default.
+
+For me, this file contained (before modifying):
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+    <icon>utilities-terminal</icon>
+    <name>Open Terminal Here</name>
+    <unique-id>1644974544355345-1</unique-id>
+    <command>exo-open --working-directory %f --launch TerminalEmulator</command>
+    <description>Example for a custom action</description>
+    <patterns>*</patterns>
+    <startup-notify/>
+    <directories/>
+</action>
+</actions>
+```
+
+Adding another <action>...</action> section with the appropriate details before the closing </actions> tag seemed to work as expected for me.
+
+For example, I added:
+
+```
+<action>
+    <icon>org.gnome.Meld</icon>
+    <name>Compare selected</name>
+    <unique-id>1654579259785630-2</unique-id>
+    <command>meld %F</command>
+    <description>Compares selected files or folders in Meld</description>
+    <patterns>*</patterns>
+    <directories/>
+    <text-files/>
+</action>
+```
+
+And was then able to see an option for doing Meld comparisons when I selected multiple files/folders. You might need to have the target app already installed for it to work (I already had meld installed).
+
+Thunar picked the changes up right away for me after I closed open instances but if not, then you may need to kill/restart thunar (e.g. pkill -if thunar) or restart the pc for the changes to take effect.
+
+I will likely just copy the file after I have it set up but if I decide to make a function wrapping xmlstarlet etc commands for this, then I'll try to remember to post a copy here as well.
+
+>>> [Meld custom action in Thunar](https://forum.xfce.org/viewtopic.php?id=9660)
+>>>
+>>
+
+you can create the two custom action in Thunar: for the first I choose the Name "Meld: select first", you can type what you prefer. The command is:
+
+`echo -n %f | xclip`
+
+For the second custom action I set the name "Meld: select second and compare" and the command:
+
+`xclip -o | xargs -r -I '{}' meld '{}' %f`
+
+For both, on the "Appearance Conditions" tab I set
+
+File pattern: *
+
+Appears if selection contains: Directories, Text files, Other files
+-------------------------------------------------------------------
+
+> # **`tmatrix`**
+
+---
+
+```yay -S tmatrix-git```
+
+## - Colors
+
+>>> green
+>>>
+>>
+
+```
+tmatrix -s 60 -f 0.3,0.6
+tmatrix -s 33 -f 0.3,0.6 -t THE-MATRIX -C magenta
+whereis tmatrix
+```
+
+---
+
+> # **[`swaylock`](https://www.mankier.com/1/swaylock)**
+
+---
+
+```yay -S swaylock-effects-git```
+
+>>> [betterlockscreen VS swaylock-effects](https://www.libhunt.com/compare-pavanjadhaw--betterlockscreen-vs-swaylock-effects)
+>>>
+>>
+
+> # **`Video Wallpaper Scripts`**
+
+>>> https://github.com/zeroruka/video-wallpaper-scripts
+>>>
+>>
+
+`yay -S xwinwrap-git mplayer mpv ffmpeg gifsicle xclip`
+
+>>> Wallpaper Engine (optional but recommended)
+>>>
+>>
+
+```
+cd ~/Downloads && git clone https://github.com/zeroruka/video-wallpaper-scripts.git
+cd video-wallpaper-scripts/ && DBG=1 sh install.sh
+sh setwall -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
+sh wallhelper -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
+sh setwall -a 884899737     # lol
+```
+
+> # **[`navi`](https://github.com/denisidoro/navi)**
+
+An interactive cheatsheet tool for the command-line.
+
+> # **[`HYPRLAND Sweet Dreams / aurorasaurus *_*`](https://github.com/flick0/dotfiles/tree/aurora)**
+
+---
+
+https://www.reddit.com/r/unixporn/comments/z6s20y/hyprland_aurora_modified_my_previous_rice_to_fit/
+
+>>> dependecies for hyprland
+>>>
+>>
+
+```
+yay -S xdg-desktop-portal-hyprland-git gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland python python-pip
+```
+
+>>> for the climate temperature on waybar:
+>>>
+>>
+
+`pip install requests`
+
+> # **[konsole]()**
+
+>for pokemon, add to config.fish for a custom cool konsole
+
+
+`/home/n30/.config/fish/config.fish`
+
+```
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+	pokemon-colorscripts -r1 --no-title &
+	starship init fish | source &
+	thefuck --alias | source &
+ 	~/.config/fish/tty.sh &  #idk what this does
+end
+```
+
+> Run fastfetch if session is interactive (drawing w/ G+some info)
+
+if status --is-interactive && type -q fastfetch
+fastfetch --load-config neofetch
+end
+
+alias yayi="yay -S"
+alias yayu="yay -R"
+
+
+> Examining a core dump
+sudo coredumpctl list
+coredumpctl info 123546
+
+```
+kf.kio.core: Url QUrl konsole  already represents a local file, cancelling job.
+```
+
+# installing Hyprland
+
+yay -S cava wlogout btop mako sox pamixer python rustup kitty fish wofi swaylockd grim slurp xdg-desktop-portal-wlr starship jq dunst wl-clipboard pokemon-colorscripts-git hyprland-git waybar-hyprland-git tty-clock-git swaylock-effects-git  waybar-mpris-git
+
+dependecies for nawfalmrouyan's theme: mako wlogout btop
+
+dependencies for the catppuccin theme stuff
+
+Configuration file extras
+
+screenshot manager, color picker, logout manager, gtk3 manager, konsole compliment
+
+yay -S grimblast-git hyprpicker-git wlogout nwg-look thefuck
+
+yay -S catppuccin-gtk-theme-mocha catppuccin-gtk-theme-macchiato catppuccin-gtk-theme-frappe catppuccin-gtk-theme-latte
+
+# # or clonning manually catppuccin for hyprland
+
+# cd ~/Downloads && git clone -b https://github.com/catppuccin/hyprland/
+
+# cp hyprland/themes/* ~/.config/hypr/themes
+
+# source=~/.config/hypr/mocha.conf
+
+#laptop only? idk
+
+# yay -S  xbacklight-auto-git xbacklight-notify
+
+# "https://wiki.archlinux.org/title/Hyprland"" wiki says 2022-12-31:
+
+# Note: Both xdg-desktop-portal-wlr and xdg-desktop-portal-hyprland are known to conflict with other portal implementations under Hyprland. It is recommended to remove xdg-desktop-portal-kde, xdg-desktop-portal-gnome, or xdg-desktop-portal-lxqt, if installed.
+
+# # so:     # also because slow apps????
+
+pacman -Q | grep xdg-desktop-portal-
+yay -R xdg-desktop-portal-kde xdg-desktop-portal-gtk
+
+# uninstall all but:
+
+xdg-desktop-portal-hyprland-git (currently on 2023-01-01 is r249.e47f4ce-1)
+
+# because:
+
+# https://github.com/hyprwm/xdg-desktop-portal-hyprland
+
+# "Due to reasons explained in hyprland-protocols, we have a separate desktop portal impl for Hyprland.
+
+# Although -wlr does work with Hyprland, -hyprland offers more features.""
+
+# time to uninstall them if any:
+
+sudo pacman -R xdg-desktop-portal-wlr  xdg-desktop-portal-kde xdg-desktop-portal-gtk
+
+#one command to rule them all (old):
+
+# dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY SWAYSOCK & /
+
+# dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland & /
+
+# systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY SWAYSOCK && /
+
+# sh /home/n30/.config/hypr/scripts/portal &
+
+# xdg-desktop-portal-hyprland WORKING! (1/2!!!)
+
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && /
+systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DBUS_SESSION_BUS_ADDRESS DISPLAY && /
+sh /home/n30/.config/hypr/scripts/portal & /
+sleep 8 && /
+systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal && /
+
+killall xdg-desktop-portal-hyprland xdg-desktop-portal && /
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland && /
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && /
+sh /home/n30/.config/hypr/scripts/portal & /
+sleep 8 && /
+systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal && /
+
+╭─n30@n30 in /🔒 took 2ms
+╰─λ systemctl --user stop xdg-desktop-portal
+
+╭─n30@n30 in /🔒 took 4ms
+╰─λ systemctl --user start xdg-desktop-portal
+
+╭─n30@n30 in /🔒 took 24ms
+systemctl --user restart xdg-desktop-portal.service
+systemctl --user restart xdg-desktop-portal-hyprland.service
+
+# TEST if they are active
+
+systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal
+systemctl --user status xdg-desktop-portal-hyprland
+systemctl --user status xdg-desktop-portal-wlr
+systemctl --user status xdg-desktop-portal
+ps x | grep xdg-desktop
+
+# TEST close them and reopen them verbose
+
+killall xdg-desktop-portal & /
+killall xdg-desktop-portal-hyprland && /
+/usr/libexec/xdg-desktop-portal-hyprland -l DEBUG 2>&1 | tee xdpw.log & /usr/lib/xdg-desktop-portal -vr
+
+/usr/lib/xdg-desktop-portal-wlr -l DEBUG 2>&1 | tee xdpw.log & /usr/lib/xdg-desktop-portal -vr &
+
+# restarting xdg-desktop-portal ONLY
+
+killall xdg-desktop-portal && /usr/lib/xdg-desktop-portal -vr &
+
+# TEST without DBUS_SESSION_BUS_ADDRESS
+
+# systemctl --user import-environment WAYLAND_DISPLAY DISPLAY SWAYSOCK && /
+
+dbus-update-activation-environment --systemd  DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && /
+systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY && /
+systemctl --user restart xdg-desktop-portal.service && /
+systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal && /
+
+# SWAYSOCK must be imported into the systemd user session before libinput-gestures is started. Fixed by starting libinput-gestures via the following script:
+
+systemctl --user import-environment SWAYSOCK && systemctl --user start libinput-gestures
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland && /
+systemctl --user restart xdg-desktop-portal.service && /
+
+# GOOOOOOOOOOOOOOOOOOOOOOOOOOLD
+
+Note that the systemctl commands must be run synchronously and cant be split into two exec statements, since otherwise the session target may be started before systemctl import-environment is complete, and services that require certain variables will fail to run.
+
+sway --get-socketpath       # just returns SWAYSOCK if set, and nothing otherwise. Thus it does nothing more than the simple env var check right above
+
+# https://github.com/swaywm/sway/issues/2639
+
+// We want to use socket name set by user, not existing socket from another sway instance.
+if (getenv("SWAYSOCK") != NULL && access(getenv("SWAYSOCK"), F_OK) == -1) {
+        strncpy(ipc_sockaddr->sun_path, getenv("SWAYSOCK"), sizeof(ipc_sockaddr->sun_path) - 1);
+        ipc_sockaddr->sun_path[sizeof(ipc_sockaddr->sun_path) - 1] = 0;
+}
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$compositor_name
+
+notify-send -u "critical" -t 1000 -a "test" -h string:syncronous:volume -h int:value:20  "test"
+
+# error on:
+
+# xdg-desktop-portal-wlr
+
+# warning: database file for 'DEB_Arch_Extra' does not exist (use '-Sy' to download)
+
+# so:
+
+# sudo pacman -Sy xdg-desktop-portal-wlr
+
+# cloning aurora's dotfiles
+
+# cd ~/Downloads && git clone -b aurora https://github.com/flick0/dotfiles
+
+# cd dotfiles
+
+# cp -r ./config/* ~/.config
+
+---
+
+# SWEET THEME (EliverLara)
+
+# https://github.com/EliverLara/Sweet
+
+# https://store.kde.org/u/eliverlara
+
+# https://store.kde.org/p/1294011/            # Plasma Color Schemes
+
+# https://store.kde.org/p/1294013/            # kvantum (5 files)
+
+# https://www.opendesktop.org/p/1286856/      # Plasma Window Decorations
+
+# https://store.kde.org/p/1294174/            # Plasma Themes
+
+# https://store.kde.org/p/1297008/            # Konsole Color Schemes
+
+# https://www.pling.com/p/1305251/            # Full Icon Themes #161621 #161621 e06c75
+
+gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
+gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"
+
+# clonning catppuccin for hyprland
+
+cd ~/Downloads && git clone -b https://github.com/catppuccin/hyprland/
+cp hyprland/themes/* ~/.config/hypr/themes
+
+# and include the file at the top of your hyprland.conf
+
+source=~/.config/hypr/themes/mocha.conf
+
+# When using the colors, use $COLOR e.g. $base
+
+# catppuccin cursors
+
+# https://github.com/catppuccin/cursors
+
+cd ~/Downloads && git clone https://github.com/catppuccin/cursors.git
+zip xvf ~/Downloads/cursors/cursors/Catppuccin-Latte-Pink-Cursors.zip -C /usr/share/icons/
+
+sudo cp -r -v /home/n30/Downloads/Catppuccin-Mocha-Mauve-Cursors/ /usr/share/icons/
+
+# # or compile them:
+
+# #     Install dependencies:        git        make        inkscape        xcursorgen
+
+# yay -S git make inkscape xorg-xcursorgen
+
+# #     Run the following commands as normal user:
+
+# git clone https://github.com/varlesh/volantes-cursors.git
+
+# cd volantes-cursors
+
+# make build
+
+# sudo make install
+
+#
+
+# Choose a theme in the Settings or in the Tweaks tool.
+
+# get active/open window class
+
+# since many tweaks need the window class, how can i properly get it under wayland/hyprland ?
+
+# Optionally add -j for json output and use jq to grab the class.
+
+hyprctl activewindow
+hyprctl clients | jq -r 'fire'
+hyprctl clients | grep -F "firedragon"
+
+# +---------------------------+
+
+# | HYPRLAND Configuration file |
+
+# +---------------------------+
+
+# CUSTOM binds
+
+bind=CTRL,Delete,pkill Hyprland
+
+# CUSTOM FIX-PERSONALIZATION
+
+# -----------------------------------------------------------------
+
+# neovim and other requeriments for rice
+
+# https://github.com/iamverysimp1e/dots
+
+yay -S nvim-nightly wl-clipboard
+
+# not found
+
+sudo pacman -S wlcopy
+
+# Colot themes
+
+# https://github.com/catppuccin/hyprland
+
+source=~/.config/hypr/themes/mocha.conf
+
+# Sway Color Daemon (OUTDATED)
+
+# https://github.com/Th3Whit3Wolf/sway-colord
+
+# curl -Lj https://github.com/Th3Whit3Wolf/sway-colord/releases/download/v0.1.2/sway-colord-0.1.2-x86_64.pkg.tar.zst -o sway-colord-0.1.2-x86_64.pkg.tar.zst
+
+# sudo pacman -U sway-colord-0.1.2-x86_64.pkg.tar.zst
+
+# Apps loading slow
+
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+---
+
+> # `waybar`
+
+---
+
+>>> Is there anty way I can target icons only with CSS? Often it's simply a matter of increasing their font size, but if I can't target only icons then text becomes massive in comparison.
+>>> https://github.com/Alexays/Waybar/issues/350
+>>>
+>>
+
+https://www.chordpro.org/chordpro/pango_markup/
+
+```
+"format": "<span font='12'>{icon}</span> {capacity}%"
+"<span font='22' rise='-1000'></span> ~ {}"
+```
+>>> waybar aurora restart
+>>>
+>>
+
+```
+killall -q waybar & sleep 3 && waybar -c $HOME/.config/hypr/component/waybar/config -s $HOME/.config/hypr/component/waybar/style.css &
+```
+>>> [multiple instances of a module](https://github.com/Alexays/Waybar/wiki/Configuration#multiple-instances-of-a-module)
+>>>
+>>
+
+---
+
+> # `megasync`
+
+---
+
+```
+cd ~/Downloads && \
+wget https://mega.nz/linux/repo/Arch_Extra/x86_64/megasync-4.8.1-1-x86_64.pkg.tar.zst && \
+wget https://mega.nz/linux/repo/Arch_Extra/x86_64/thunar-megasync-4.3.0-1-x86_64.pkg.tar.xz
+```
+>>> TODO: investigate wildcards with these or curl
+>>>
+>>
+
+`/usr/local/bin/wget -r -l1 -np "https://mega.nz/linux/repo/Arch_Extra/x86_64" -P ~/Downloads -A "megasync-*x86_64.pkg.tar.zst"`
+
+>>> manuall install (maybe outdated packages):
+>>>
+>>
+
+```
+sudo pacman -U megasync-4.8.1-1-x86_64.pkg.tar.zst thunar-megasync-4.3.0-1-x86_64.pkg.tar.xz
+```
+---
+
+> # `shutdown`
+
+---
+
+```
+yay -S pm-utils
+```
+###### **systemctl suspend** – Use systemd to suspend/hibernate from command line on Linux. Most modern Linux distro only needs to use the systemctl command.
+
+###### **pm-suspend** – During suspend most devices are shutdown, and system state is saved in RAM. The system still requires power in this state. Most modern systems require 3 to 5 seconds to enter and leave suspend, and most laptops can stay in suspend mode for 1 to 3 days before exhausting their battery.
+
+###### **pm-hibernate** – During hibernate the system is fully powered off, and system state is saved to disk. The system does not require power, and can stay in hibernate mode indefinitely. Most modern systems require 15 to 45 seconds to enter and leave hibernate, and entering and leaving hibernate takes longer when you have more memory.
+
+###### **pm-suspend-hybrid** – Hybrid-suspend is the process where the system does everything it needs to hibernate, but suspends instead of shutting down. This means that your computer can wake up quicker than for normal hibernation if you do not run out of power, and you can resume even if you run out of power.
+
+>>> [How to shutdown Linux at specific datetime from terminal?](https://unix.stackexchange.com/questions/120506/how-to-shutdown-linux-at-specific-datetime-from-terminal)
+>>>
+>>
+
+`shutdown -h 21:45`
+
+# configurig default terminal
+
+sudo nano ~/.config/xfce4/helpers.rc
+TerminalEmulator=terminal
+
+# mounting apgs
+
+apfs-fuse -o allow_other /dev/sda2 /media/<your userame>/macos
+
+# MOUNTING NVME SSD BLACKY
+
+---
+
+# list down all the file systems by using this command
+
+lsblk
+
+# let's do this then: sudo mount NameOfFileSystem MountPoint
+
+sudo mount /dev/nvme1n1p1 /run/media/n30/BLACKY01
+sudo umount /dev/nvme0n1p1
+
+# mount it at the startup
+
+#quick check for UUID
+
+# cat -n /etc/fstab
+
+# sudo fdisk -l
+
+sudo /sbin/tune2fs -l /dev/nvme0n1p4
+sudo /sbin/tune2fs -l /dev/nvme1n1p1
+
+# let's edit it:
+
+sudo nano /etc/fstab
+
+UUID=98265bf8-8c98-4a94-b708-c150a40606b3 /run/media/n30/BLACKY01 ext4 defaults 0 0
+UUID=cf42ea71-973a-47cd-ab6e-7e0e167fa934 /run/media/n30/nvme_chivos ext4 defaults 0 0
+
+# We always want to test the fstab before rebooting (an incorrect fstab can render a disk unbootable).  To test do:
+
+findmnt --verify
+systemctl daemon-reload
+
+AMD
+---
+
+# Dealing with display
+
+# check if the kernel headers are compiled.
+
+modinfo -F version amdgpu
+
+# which session? wayland or xorg11?
+
+echo $XDG_SESSION_TYPE
+
+#check wich is running:
+lspci -nnk | grep -iA2 vga
+
+#Checking if is already on (should'nt be)-->
+lsmod | grep amdgpu
+
+# for a far more complete info:
+
+inxi -Fxxxrz
+
+# nvidia-smi
+
+xrandr
+xrandr --listmonitors
+
+# INSTALLING AMD RADEON 6650
+
+# https://wiki.archlinux.org/title/AMDGPU#Selecting_the_right_driver
+
+# opensource
+
+#sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon
+
+# INSTALLING AMD RADEON 6650 automatically
+
+# sudo mhwd -a [pci or usb connection] [free or nonfree drivers] 0300
+
+sudo mhwd -a pci free 0300
+
+# removing useless directories *maybe* generating warnings:
+
+sudo rm -r /var/lib/mhwd/local/pci/video-nvidia-dkms/
+cd /var/lib/mhwd/db/pci/graphic_drivers/
+sudo rm -r nvidia*
+sudo rm-r optimus*
+
+# it's nvidia crap around? check w/:
+
+ls /etc/modprobe.d
+lsmod | grep nvidia
+
+# install AMDGPU_PRO (propietary) (WORSE than open source?)
+
+# https://wiki.archlinux.org/title/AMDGPU_PRO
+
+# sudo pacman -S amdgpu-pro-libgl lib32-amdgpu-pro-libgl vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro amf-amdgpu-pro obs-studio-amf
+
+# installing nouveau instead of amd (for generic support). INCOMPLETE
+
+# sudo pacman -S xf86-video-nouveau and nouveau-dri if you want, libgl.
+
+#nuke /etc/X11/xorg.conf
+sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf.backup && sudo rm /etc/X11/xorg.conf
+reboot
+
+# How to ensure you are using AMDGPU driver
+
+glxinfo | grep "OpenGL vendor string" | cut -f2 -d":" | xargs
+
+# If it returns AMD, then you are running open source driver. If it returns Advanced Micro Devices, Inc., then you are running proprietary driver.
+
+# more info
+
+sudo lspci -v -k | sed -n "/VGA compatible controller/,/Kernel modules/p"
+#this shouln't output anything:
+lsmod | grep -i nvidia
+
+# here it is the drivers folder:
+
+cd /usr/lib/xorg/modules/drivers/ && ls
+
+# if there are any nvidia related packages still installed, this will find those dependencies:
+
+sudo pacman -Qs nvidia
+#or
+pacman -Q | grep nvidia
+
+# If there are no nvidia packages installed you can remove /etc/modprobe.d/nouveau.conf it would have been overriding /usr/lib/modprobe.d/nvidia.conf owned by the nvidia package.
+
+cd /usr/lib/modprobe.d/ && ls
+
+# moar info
+
+inxi -Faz
+
+# checking the grub
+
+grep CMDLINE /etc/default/grub
+#checking dmesg
+sudo dmesg | grep -E 'amdgpu|gpu|amd|ati|radeon|pcie|PCIe'
+sudo dmesg | grep radeon
+sudo dmesg | grep gpu
+sudo dmesg | grep amdgpu
+sudo dmesg | grep nvidia
+
+# it's nvidia crap around? check w/:
+
+ls /etc/modprobe.d
+lsmod | grep nvidia
+
+# to enable FreeSync, please run the following  command:
+
+DISPLAY=:0 xrandr --output DisplayPort-0 --set "freesync" 1
+#disabling it:
+DISPLAY=:0 xrandr --output DisplayPort-# --set "freesync" 0
+******** where # is your display's number (e.g., DisplayPort-0).
+
+# TEST
+
+https://www.vsynctester.com/
+https://www.displayhz.com/
+
+mpv Config for crop the video
+-----------------------------
+
+# cropping:
+
+# https://www.reddit.com/r/mpv/comments/napl9e/hotkey_to_change_crop_the_video_to_full_screen/
+
+# On default config alt + (alt shift =) zooms in the video and alt - zooms out.
+
+# or:
+
+~/.config/mpv/input.conf
+
+# on your numpad keys, 7 zooms the video and 1 unzooms it, 9 and 3 changes the aspect ratio, 4, 8, 6 and 2 moves the video left, up, right and down, 5 resets everything
+
+# put these lines in it and save:
+
+KP7 add video-zoom .02
+KP1 add video-zoom -.02
+KP8 add video-pan-y -.02
+KP6 add video-pan-x .02
+KP2 add video-pan-y .02
+KP4 add video-pan-x -.02
+KP9 add video-aspect +0.04
+KP3 add video-aspect -0.04
+KP5 set video-pan-x 0; set video-pan-y 0; set video-zoom 0; set video-aspect 0
+
+# or use a script like this:
+
+https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autocrop.lua
+
+# which automatically removes black bars for any video at runtime, put it in the scripts folder (make it if its not already there) located in
+
+~/.config/mpv/scripts/
+
+# mpv hardware aceleration
+
+sudo nano ~/.config/mpv/mpv.conf
+
+# WARNING inside it put those values FOR NVIDIA ONLY
+
+vo=gpu
+hwdec=nvdec
+profile=gpu-hq
+gpu-context=x11
+
+#Launch CoreCtrl on session startup for undervolting
+
+# Execute this command on a terminal:
+
+cp /usr/share/applications/org.corectrl.corectrl.desktop ~/.config/autostart/org.corectrl.corectrl.desktop
+
+# Don't ask for user password
+
+#
+
+# CoreCtrl uses a helper with root privileges to control your system. In order to start the helper, the system will ask you to enter your user password. If you want to avoid being asked every time for your password, you can grant root access to the helper permanently.
+
+#
+
+# First, check your polkit version using the command:
+
+pkaction --version
+
+# Polkit version >= 0.106
+
+# Create the file /etc/polkit-1/rules.d/90-corectrl.rules with the following contents:
+
+sudo nano /etc/polkit-1/rules.d/90-corectrl.rules
+
+polkit.addRule(function(action, subject) {
+if ((action.id == "org.corectrl.helper.init" ||
+action.id == "org.corectrl.helperkiller.init") &&
+subject.local == true &&
+subject.active == true &&
+subject.isInGroup("your-user-group")) {
+return polkit.Result.YES;
+}
+});
+
+# Full AMD GPU controls
+
+#
+
+# Currently, to have full control of your AMD GPU while using the amdgpu driver, you need to append the boot parameter amdgpu.ppfeaturemask=0xffffffff to your bootloader configuration and reboot.
+
+#
+
+# NOTE: The following instructions are for guidance only. Check your distribution documentation on how to add a boot parameter before proceed.
+
+#
+
+# If your system uses Grub, edit the file (as root) /etc/default/grub and append the parameter to GRUB_CMDLINE_LINUX_DEFAULT:
+
+sudo nano /etc/default/grub
+
+GRUB_CMDLINE_LINUX_DEFAULT="<other_params>... amdgpu.ppfeaturemask=0xffffffff"
+GRUB_GFXMODE=1024x768x32,auto
+
+# Then regenerate (as root) the bootloader configuration file with the command:
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+shutdown -r now
+
+# Reboot your system. You should have more controls when you select Advanced as Performance mode.
+
+# FPS HUD OVERLAY
+
+sudo pacman -S mangohud lib32-mangohud goverlay-git
+#for use it:
+mangohud /path/to/app
+
+#for steam launch options
+mangohud %command%
+
+╭─n30@n30 in ~
+╰─λ cp /usr/share/applications/org.corectrl.corectrl.desktop ~/.config/autostart/org.corectrl.corectrl.desktop
+
+╭─n30@n30 in ~
+╰─λ cp /usr/share/applications/copyq.desktop ~/.config/autostart/copyq.desktop
+cp: cannot stat '/usr/share/applications/copyq.desktop': No such file or directory
+
+╭─n30@n30 in ~
+[🔴] × cp /usr/share/applications/com.github.hluk.copyq.desktop ~/.config/autostart/copyq.desktop
+
+# HYPRLAND cyber *_*
+
+---
+
+# Install an AUR Helper (if necessary):
+
+sudo pacman -S base-devel git
+git clone https://aur.archlinux.org/yay
+cd yay
+makepkg -si
+
+# Install all required dependencies
+
+yay -S hyprland-git eww dunst trayer mpvpaper macchina nitch nerd-fonts-inter socat
+
+rofi-lbonn-wayland-git
+#error
+rofi-lbonn-wayland geticons
+
+# Clone the repository
+
+cd ~/Downloads && git clone https://github.com/taylor85345/garden-hyprland-dotfiles.git
+
+mkdir ~/.config/hypr/themes && cd ~/.config/hypr/themes && git clone https://github.com/taylor85345/cyber-hyprland-theme cyber
+
+# Copy dotfiles into your config directory (assumptions made).
+
+cp -ri garden-hyprland-dotfiles/* $HOME/.config/
+
+# SWAY (meh)
+
+---
+
+sudo pacman -S sway sway-git-debug sway-launcher-desktop swaybg swayidle swaylock-effects garuda-sway-settings autotiling grimshot i3status-rust-git nwg-bar nwg-dock nwg-drawer nwg-launchers nwg-menu wf-recorder swayidle swaybg
+
+# error: target not found:
+
+nwg-panel redshift-wayland-git
+
+# grubvox spanish
+
+# https://www.reddit.com/r/unixporn/comments/y02asy/sway_gruvbox/
+
+# https://github.com/lolplayer69420/Mis-dots
+
+# grubvox first
+
+# https://github.com/zoro11031/dotfiles-public
+
+# dependecies for theme
+
+sudo pacman -S sqlite  bat exa ripgrep  skim sxiv mpv imagemagick
+sudo pacman -S wezterm waybar zsh neovim
+
+# not found
+
+fd-find = fd?
+
+# Desktop environment setup
+
+sudo pacman -S sway rofi waybar luajit slurp grim light playerctl pulseaudio-utils wl-clipboard papirus-icon-theme
+
+# +---------------------------+
+
+# | SwayWM Configuration file |
+
+# +---------------------------+
+
+# KP_Begin	84	65437	The center key (same key as 5) on the keypad
+
+# KP_Decimal	91	65439	Decimal (.) on the keypad
+
+# KP_Delete	91	65439	delete on the keypad
+
+# KP_Divide	112	65455	/ on the keypad
+
+# KP_Down	88	65433	↓ on the keypad
+
+# KP_End	87	65436	end on the keypad
+
+# KP_Enter	108	65421	enter on the keypad
+
+# KP_Home	79	65429	home on the keypad
+
+# KP_Insert	90	65438	insert on the keypad
+
+# KP_Left	83	65430	← on the keypad
+
+# KP_Multiply	63	65450	× on the keypad
+
+# KP_Next	89	65435	PageDown on the keypad
+
+# KP_Prior	81	65434	PageUp on the keypad
+
+# KP_Right	85	65432	→ on the keypad
+
+# KP_Subtract	82	65453	- on the keypad
+
+# KP_Up	80	65431	↑ on the keypad
+
+# XF86Calculator
+
+### Key bindings (REMEMBER)
+
+# $mod+Shift+c reload
+
+# Alt+space exec $menu
+
+# $mod+tab workspace back_and_forth
+
+# CUSTOM:
+
+#
+#
+exec swayidle -w
+timeout 2 'swaymsg "output * dpms off"'
+resume 'swaymsg "output * dpms on"'
+bindsym {
+
+# Konsole
+
+Ctrl+$mod+Alt+t exec konsole
+}
+
+# [FLAMESHOT]
+Screenshot
+
+```
+env XDG_CURRENT_DESKTOP=sway \
+XDG_SESSION_DESKTOP=sway \
+QT_QPA_PLATFORM=wayland \
+flameshot gui
+```
+```
+╰─λ flameshot -v
+Flameshot v12.1.0 (3ededae5)
+Compiled with Qt 5.15.8
+flameshot: warning: If the USE_WAYLAND_GRIM option is not activated, the dbus protocol will be used. It should be noted that using the dbus protocol under wayland is not recommended. It is recommended to recompile with the USE_WAYLAND_GRIM flag to activate the grim-based general wayland screenshot adapter
+QLayout: Attempting to add QLayout "" to SidePanelWidget "", which already has a layout
+qt.qpa.wayland: Wayland does not support QWindow::requestActivate()
+qt.qpa.wayland: Wayland does not support QWindow::requestActivate()
+qt.qpa.wayland: Wayland does not support QWindow::requestActivate()
+flameshot: info: Capture saved as /home/n30/Pictures/Screenshots/ss-2023-02-19_11-5004_garuda.png
+
+________________________________________________________
+Executed in    8.19 secs    fish           external
+usr time    2.97 secs  242.00 micros    2.97 secs
+sys time    0.07 secs   35.00 micros    0.07 secs
+```
+>>> Capture a region using the GUI, and have it automatically saved to your pictures folder when clicking the save button in GUI
+>>>
+>>
+
+```
+flameshot gui --path /home/user/Pictures
+```
+>>> Capture the active monitor and save it automatically to your pictures folder
+>>>
+>>
+
+```
+flameshot screen --path /home/user/Pictures
+```
+>>> Capture the full desktop (all monitors) and save it automatically to your pictures folder
+>>>
+>>
+
+```
+flameshot full --path /home/user/Pictures
+```
+>>> Capture the region, copy to clipboard and at the same time write to file and pin the image
+>>>
+>>
+
+```
+flameshot gui --clipboard --pin --path ~/Pictures
+```
+alternatives:
+
+* [ksnip](https://github.com/ksnip/ksnip)
+* [swappy](https://github.com/jtheoof/swappy)
+  A Wayland native snapshot and editor tool, inspired by Snappy on macOS. Works great with grim, slurp and sway
+
+```
+grim -g "$(slurp)" - | swappy -f -
+```
+
+* [Hyprshot](https://github.com/Gustash/Hyprshot)
+
+set HYPRSHOT_DIR /home/n30/Pictures/Screenshots/
+set XDG_PICTURES_DIR /home/n30/Pictures/
+  - Screenshot a window
+  bind = $mainMod, PRINT, exec, hyprshot -m window
+  - Screenshot a monitor
+  bind = , PRINT, exec, hyprshot -m output
+  - Screenshot a region
+  bind = $shiftMod, PRINT, exec, hyprshot -m region
+
+Usage: hyprshot [options ..] -m [mode] -- [command]
+Options:
+-h, --help            show help message
+-m, --mode            one of: output, window, region
+-o, --output-folder   directory in which to save screenshot
+-f, --filename        the file name of the resulting screenshot
+-d, --debug           print debug information
+-s, --silent          don't send notification when screenshot is saved
+--clipboard-only      copy screenshot to clipboard and don't save image in disk
+-- [command]          open screenshot with a command of your choosing. e.g. hyprshot -m window -- mirage
+Modes:
+output                take screenshot of an entire monitor
+window                take screenshot of an open window
+region                take screenshot of selected region
+
+* [haruhishot](https://github.com/Decodetalkers/haruhishot)
+* [sway-interactive-screenshot](https://github.com/moverest/sway-interactive-screenshot)
+* [wayland-screenshot](https://github.com/onokatio/wayland-screenshot)
+  looks lame
+* [Watershot](https://github.com/Kirottu/watershot)
+
+# rice bspwm polybar
+
+---
+
+1. First of all we need yay and git
+   pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+2. Install Dependencies:
+
+# A one time command to install most of these dependencies with your favorite AUR Helper.
+
+yay -S bspwm polybar sxhkd eww dunst rofi lsd jq checkupdates-aur
+playerctl mpd ncmpcpp mpc picom-arian8j2-git xtitle termite betterlockscreen
+ttf-jetbrains-mono nerd-fonts-jetbrains-mono ttf-terminus-nerd ttf-inconsolata
+ttf-joypixels nerd-fonts-cozette-ttf scientifica-font
+feh pamixer libwebp webp-pixbuf-loader xorg-xkill papirus-icon-theme
+
+# for xwinfo dependecies
+
+yay -S libxcb xcb-util-wm
+
+3. Cloning Dotfiles & Installing:
+   git clone --depth=1 https://github.com/gh0stzk/dotfiles.git
+
+# ⚠️ Backuupp!! your filess!!!
+
+[ -e ~/.config/bspwm ] && mv ~/.config/bspwm ~/.config/bspwm-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
+[ -e ~/.config/termite ] && mv ~/.config/termite ~/.config/termite-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
+
+# Moving new files to .config
+
+cd dotfiles
+cp -r config/bspwm ~/.config/bspwm
+cp -r config/termite ~/.config/termite
+
+# Those were the important ones. You still need to move the remaining directories in config to your ~/.config directory.
+
+# Move Fonts and the other stuff
+
+cp -r misc/fonts/* ~/.local/share/fonts/
+cp -r misc/bin ~/.local/
+cp -r misc/applications ~/.local/share/
+cp -r misc/asciiart ~/.local/share/
+fc-cache -rv
+
+# You probably MUST use your own .zsh config, but if you want to use mine, do;
+
+cp -r home/.zshrc ~/.zshrc
+cp -r config/zsh ~/.config/zsh
+
+# If you will not use my zsh config, just add to your .zshrc file, this;
+
+if [ -d "$HOME/.local/bin" ] ;
+then PATH="$HOME/.local/bin:$PATH"
+fi
+
+4. Enabling Services
+
+# For automatically launching mpd on login
+
+systemctl --user enable mpd.service
+systemctl --user start mpd.service
+
+5. You can tell the getty which user it should login as. https://wiki.archlinux.org/index.php/Getty#Automatic_login_to_virtual_console
+
+   systemctl edit getty@tty1
+
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
+
+6. Combine this with xinit to login to bspwm from boot.
+   https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login
+
+# VISUAL STUDIO
+
+---
+
+- Set Jetbrain Mono Font in Visual Studio Code
+
+  - In VS Code, use the command palette (ctrl + shift + p) to open the JSON version of the editor’s settings.
+
+  - Then set the editor.fontFamily setting to JetBrains Mono and if you want the awesome ligatures as well, set editor.fontLigatures to true:
+    ```
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    ```
+  - Save the file
+
+- still not showing the propper unicode?
+
+  - Try moving the files to (create the directory if it doesn't exist) on:
+
+  ~/.local/share/fonts/
+  /usr/share/fonts/
+
+  - then run  to refresh the fonts
+
+  fc-cache -fv
+
+  - restart vscode
+
+  - if not working, restart linux
+
+- change default browser to firedragon
+
+  - install extension "Live Server"
+
+  - open configurations, press Ctrl + ,
+
+  - search for "browser" on the extension configurations
+
+  - Live Server › Settings: Custom Browser = NULL
+
+  - Live Server › Settings: Advance Custom Browser = "Edit in settings.json" then edit these line:
+
+    `"liveServer.settings.AdvanceCustomBrowserCmdLine": "firedragon",`
+
+- ############### Run selected text ####################
+
+  To use the runSelectedText command, select text in an editor and run the command Terminal: Run Selected Text in Active Terminal via the Command Palette (Ctrl+Shift+P), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
+
+- word/line wrap
+
+  `alt + Z`
+
+- transparent
+
+  to your `/etc/pacman.conf`:
+
+```
+[archlinuxcn]
+Server = https://repo.archlinuxcn.org/$arch
+
+garuda-update && sudo pacman -S archlinuxcn-keyring
+
+yay -S archlinuxcn/code-transparent
+```
+
+## Troubleshooting
+
+
+https://aur.archlinux.org/cgit/aur.git/tree/code-transparent.install?h=code-transparent
+
+If Code is not shown transparent:
+1. Ensure color setting of Code is configured with transparent colors. (See "Config" section below)
+
+~/.config/Code - OSS/User/settings.json
+
+2. Ensure your compositor has transparency enabled.
+
+3. Open a second Code window. (Sometimes works)
+
+## Configs
+
+Although Code is transparency-enabled, Code needs to be configured with transparent colors to see the transparency effect. You can configure each color by yourself, or start with an already transparent color config. Consider copying below color config to your Code `settings.json`:
+
+```
+{
+"window.zoomLevel": 1,
+
+"workbench.colorCustomizations": {
+// non-standard, transparency patched version only
+"workbench.background": "#00000080",
+
+// VSC colors
+// ref: https://code.visualstudio.com/api/references/theme-color
+"activityBar.background": "#46575e5e",
+"button.background": "#00000040",
+"button.hoverBackground": "#00000080",
+
+"editor.background": "#00000029",
+"editor.lineHighlightBackground": "#FFFFFF15",
+"editorGroupHeader.tabsBackground": "#00000050",
+"tab.activeBackground": "#00000080",
+"tab.inactiveBackground": "#00000020",
+"tab.border": "#00000000",
+
+"list.activeSelectionBackground": "#00000040",
+"list.hoverBackground": "#00000040",
+"list.inactiveSelectionBackground": "#00000040",
+
+"panel.background": "#00000080",
+"panel.border": "#00000000",
+
+"sideBar.background": "#00000080",
+"sideBarSectionHeader.background": "#00000000",
+
+"statusBar.background": "#00000080",
+"statusBar.noFolderBackground": "#00000080",
+"terminal.background": "#0000",
+"titleBar.activeBackground": "#00000030"
+},
+
+"workbench.colorTheme": "Sweet Dracula Monokai",
+"editor.wordWrap": "on",
+"files.autoSave": "afterDelay",
+
+"debug.javascript.defaultRuntimeExecutable": {
+
+"pwa-node": "node",
+},
+"liveServer.settings.AdvanceCustomBrowserCmdLine": "firedragon",
+
+"terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+"terminal.integrated.fontSize": 16,
+"editor.fontFamily": "JetBrainsMono Nerd Font",
+"editor.fontSize": 15,
+"editor.fontLigatures": true, // TODO, maybe true? idk
+}
+```
+## base-devel package group fully installed, also git
+
+sudo pacman -S --needed base-devel
+sudo pacman -S git
+
+## let's clone AUR repository
+
+```
+cd ~/Downloads && git clone https://AUR.archlinux.org/visual-studio-code-bin.git
+
+cd visual-studio-code-bin/ && makepkg -s
+
+#Now run the following command to install the generated pacman package:
+sudo pacman -U visual-studio-code-bin-*.pkg.tar.zst
+
+#cleaning up the mess
+cd ../ && sudo rm -rfv visual-studio-code-bin/
+```
+
+## Selecting the Color Theme
+
+In VS Code, open the Color Theme picker with File > Preferences > Color Theme. Or Ctrl+K Ctrl+T to display the picker.
+Use the cursor keys to preview the colors of the theme.
+Select the theme you want and press Enter.
+
+## Color Themes from the Marketplace
+You can search for themes in the Extensions view (Ctrl+Shift+X) search box using the @category:"themes" filter.
+
+# [GRUB]()
+
+---
+
+## Tips
+
+- To extract the tar file use `tar -xvf pentract.tar.xz` Or else use the unzip filename command to extract the zip file.
+
+- To customize the font colors edit the color property in the theme.txt file
+
+- In case of permission denied right click and change the property of install.sh file to enable and run as program option.
+
+Then re-run the install.sh script
+
+- Press C in the grub bootloader screen and type vbeinfo to know the supported resolutions of the system.
+
+- Modify grub bootloader screen resolution:
+
+- First type sudo nano /etc/default/grub in the terminal
+
+- Find the line #GRUB_GFXMODE=640x480 which is the default resolution
+
+- Then remove the # and change the 640x480 with your preferred mode
+
+Example GRUB_GFXMODE=1280x960
+
+- Save it by pressing Ctrl+o and exit Ctrl+x
+
+- Then type sudo update-grub
+
+
+## Themes:
+
+1. Choose one:
+   - [Pentract](https://github.com/sarancodes/pentract-grub-theme)
+
+   cd ~/Downloads && wget https://github.com/sarancodes/pentract-grub-theme/archive/refs/heads/main.zip && unzip main.zip
+
+   To uninstall use sudo ./uninstall.sh command
+
+   - [MINECRAFT](https://github.com/Lxtharia/minegrub-theme)
+
+   cd /boot/grub/themes/ && sudo git clone https://github.com/Lxtharia/minegrub-theme.git
+
+   change/add this line in your /etc/default/grub:
+   GRUB_THEME=/boot/grub2/themes/minegrub-theme/theme.txt
+
+   sudo grub-mkconfig -o /boot/grub2/grub.cfg
+
+   - [CyberRe 1.0.0](https://store.kde.org/p/1420727)
+   mv /home/n30/Downloads/CyberRe /boot/grub/themes/
+
+2. Edit grub txt and add:
+
+    ```
+    sudo nano /etc/default/grub
+    GRUB_THEME=/boot/grub/themes/CyberRe/theme.txt
+    GRUB_GFXMODE="1920x1080x32"
+    ```
+3. "Garuda Boot" to remove splash screen (ugh!) and then apply, this should update the grub.
+
+4. Maybe force it to update is neccesary?
+
+    sudo update-grub
+
+5. Maybe rebuild grub?
+
+    sudo grub2-mkconfig -o /etc/grub2-efi.cfg --> reconfigure
+
+# [VIDEO PLAYER KEYS](https://mpv.io/manual/master/)
+
+
+Shift + W	Increase the picture cropping for the currently playing media.
+W	Decrease the picture cropping for the currently playing media.
+V	Either display or hide subtitles for the currently playing media.
+J	Select the next subtitle file available.
+
+# FIREDRAGON setup (or firefox)
+
+## General
+- JetBrainsMono Nerd Font
+  1. yay -S ttf-jetbrains-mono-nerd
+
+  2. about:preferences
+
+  3. search "font"
+
+  4. use JetBrainsMono Nerd Font
+
+- Loading ALL TABS at the beginning
+    ```
+    about:preferences
+    General > Startup
+    Open previous windows and tabs  # check this option
+    ``` 
+
+- settings need to be set to ***FALSE*** on `about:config`
+:
+  ```
+  browser.sessionstore.restore_on_demand
+  browser.sessionstore.restore_pinned_tabs_on_demand
+  services.sync.prefs.sync.browser.sessionstore.restore_on_demand
+
+  # create the entry if it doesnt exists, set it to true:
+  xdg.use-xdg-desktop-portal 
+
+  # to 0
+  widget.use-xdg-desktop-portal.file-picker 
+  
+  ```
+
+## [WAVEFOX](https://github.com/QNetITQ/WaveFox)
+
+  [[Reddit/Hyprland] Frosted Glass Everywhere](https://www.reddit.com/r/unixporn/comments/105mdur/hyprland_frosted_glass_everywhere/)
+
+
+  ```
+  about:profiles
+  /home/n30/.firedragon/sso3o2fy.default-release
+  /home/n30/.mozilla/firefox/808n0zra.default-release
+  ```
+
+  1. search for "themes" and enable "System theme - auto"
+   
+    about:addons
+
+  2. Go to `about:config` and set to ***true*** the keys below:
+
+  ```
+  about:config
+  toolkit.legacyUserProfileCustomizations.stylesheets
+  layout.css.color-mix.enabled
+  userChrome.ChromeTabs-Enabled
+  layout.css.has-selector.enabled # (Firefox 113+ && v1.5.113 Beta)
+  ```
+
+  3. Specify the desired shape of the tabs.
+
+  
+  ```
+  userChrome.TransparentToolbar-Enabled
+  ```
+    userChrome.WaveFoxTabs-Enabled
+![Wavefoxtabs](https://user-images.githubusercontent.com/85301851/180248857-fee4dd92-6d6c-4c34-8615-bf69e740f2bd.PNG)
+
+  ```
+  userChrome.AustralisTabs-Enabled  # not this, looks meh
+  userChrome.ProtonTabs-Enabled     # not this, looks meh
+  ```
+  4. Toolbar Transparency
+  !! WARNING Works only with the system theme, but works
+  ```
+  userChrome.SemiTransparentToolbar-Enabled
+  userChrome.TransparentToolbar-Enabled
+  ```
+  ```
+  idk if those are working:
+  userChrome.Toolbar.Transparency.Low.Enabled
+  userChrome.Toolbar.Transparency.Medium.Enabled
+  userChrome.Toolbar.Transparency.High.Enabled
+  userChrome.Toolbar.Transparency.VeryHigh.Enabled (Proton Tabs Only)
+  ```
+  (Allegedly "Proton Tabs" Only but works with WaveFox for e.g)
+
+  5. Linux Transparency
+
+  Transparency is active for all modes, but does not work everywhere. This may change with future browser updates. Works only with the system theme.
+  ```
+  userChrome.LinuxTransparency-Enabled
+  gfx.webrender.all
+  ```
+~~6. Tab Frame
+  The tab frame consists of type, color and saturation. Not compatible with themes that use a translucent toolbar.~~
+  
+~~7. Selected Tab Highlight
+  `userChrome.SelectedTabHighlight-Enabled`~~
+  
+  8. Tab Separators
+  
+  ```
+  userChrome.TabSeparatorsLowSaturation-Enabled
+  userChrome.TabSeparatorsMediumSaturation-Enabled
+  ```
+  9.  Restart your browser for the changes to take effect.
+
+## EliverLara /[firefox-sweet-theme](https://github.com/EliverLara/firefox-sweet-theme)
+```
+cd ~/Downloads && git clone https://github.com/EliverLara/firefox-sweet-theme && cd firefox-sweet-theme
+./scripts/install.sh
+```
+
+## firedragon only
+
+- To sync w/ Firefox account, override settings opening a terminal w/:
+
+  - /usr/lib/firedragon/firedragon.cfg
+
+  - go to:
+  identity.sync.tokenserver.uri
+
+  - modify the url for these:
+  lockPref("identity.sync.tokenserver.uri", "https://token.services.mozilla.com/1.0/sync/1.5")
+
+  - sign in
+
+- set fonts to cantarell
+
+- set new tab in home to about:newtab
+
+- install 1080p netflix and ublock orgin addons
+
+- Profile directory
+/home/n30/.firedragon/saho7tbv.default-release/
+
+## about:support <!-- TODO:  -->
+
+- **WebGL 1 Driver Renderer**	WebGL is currently disabled.
+  
+      - about:config
+      - webgl.disabled # set to "false
+      - webgl.force-enabled # set to "true"
+
+- **Desktop Environment**	hyprland
+- **Target Frame Rate**	60    #144?
+- 
+## [sweet complete theme](https://github.com/EliverLara/firefox-sweet-theme)       
+ TODO: not sure it worked, maybe the path is wrong?
+
+- -f <firedragon's folder>
+
+cd ~/Downloads/ && git clone https://github.com/EliverLara/firefox-sweet-theme && sh firefox-sweet-theme/scripts/install.sh -f ~/.firedragon/
+
+or only the colors on theme [sweet dark](https://addons.mozilla.org/es/firefox/addon/sweet-dark/) (same author):
+
+- How to [Manually Install Extensions](https://avoidthehack.com/manually-install-extensions-ungoogled-chromium) (Ungoogled Chromium, Chrome)
+
+
+1. Open any browser of your choice (doesnt have to be Chromium based)
+2. Click here https://github.com/NeverDecaf/chromium-web-store/releases
+3. Download the file Chromium.Web.Store.crx
+4. Save Chromium.Web.Store.crx
+5. Open your Chromium browser. Again, Im using Ungoogled Chromium here, but any Chromium-based browser should do the trick.
+6. In the address bar, type chrome://flags/#extension-mime-request-handling
+7. Change Handling of extension MIME type requests to Always prompt for ins. (This makes it more user friendly to install .crx files, which are the packed version of chromium extensions)
+8. Now, in the address bar, type chrome://extensions like so:
+9. ￼In the top right, enable Developer mode (hint: its enabled when you can see buttons for "Load unpacked" and "Pack extension.")
+10. Open an explorer window on your PC. Navigate to the folder where you saved Chromium.Web.Store.crx
+11. Drag Chromium.Web.Store.crx to your Chromium browser
+
+- [Can't open links with firedragon (Librewolf) when using Wayland](https://librewolf.net/docs/faq/)...
+
+  - translated to firedragon will result in the following:
+  cp /usr/share/applications/firedragon.desktop  ~/.local/share/applications/firedragon.desktop
+
+  -comment old and copy the following Exec lines on:
+
+  sudo nano ~/.local/share/applications/firedragon.desktop
+
+  -firedragon.desktop
+
+  ```
+  Exec=env GDK_BACKEND=wayland MOZ_ENABLE_WAYLAND=1 /usr/lib/firedragon/firedragon %u
+
+  Exec=env GDK_BACKEND=wayland MOZ_ENABLE_WAYLAND=1 /usr/lib/firedragon/firedragon --new-window %u
+
+  Exec=env GDK_BACKEND=wayland MOZ_ENABLE_WAYLAND=1 /usr/lib/firedragon/firedragon --private-window %u
+  ```
+
+- Allow Firefox to load multiple tabs in the background
+
+  Your version of Firefox may be using the multiprocess feature already. Follow these instructions to make sure:
+
+   about:support
+  1. In Multiprocess Windows, if the number is higher than zero (0), you already have the multiprocess feature activated.
+  2. 
+  3. If the number is zero (0), follow these instructions to turn it on:
+        1. about:config
+        2. A warning page may appear. Click Accept the Risk and Continue to go to the about:config page.
+        3. Search for browser.tabs.remote.autostart and double-click on the preference to set its value to true.
+        4. Restart Firefox to enable multiprocess.
+
+
+- firefox The download cannot be saved because an unknown error occurred.Please try again.
+
+      about:config
+      browser.download
+
+      ### showing only the modifies:
+      ```
+      browser.download.dir	/home/n30/Downloads
+      browser.download.manager.addToRecentDocs	true
+      browser.download.panel.shown	true
+      browser.download.useDownloadDir	true
+      browser.download.viewableInternally.typeWasRegistered.avif	true
+      browser.download.viewableInternally.typeWasRegistered.webp	true
+      services.sync.prefs.sync-seen.browser.download.useDownloadDir	true
+      services.sync.prefs.sync-seen.services.sync.prefs.sync.browser.download.useDownloadDir	false
+      ```
+
+      ## all settings:
+      ```
+      browser.download.alwaysOpenInSystemViewerContextMenuItem	true
+      browser.download.alwaysOpenPanel	false
+      browser.download.always_ask_before_handling_new_types	false
+      browser.download.animateNotifications	true
+      browser.download.autohideButton	false
+      browser.download.clearHistoryOnDelete	0
+      browser.download.dir	/home/n30/Downloads
+      browser.download.enable_spam_prevention	false
+      browser.download.folderList	1
+      browser.download.forbid_open_with	false
+      browser.download.improvements_to_download_panel	true
+      browser.download.loglevel	Error
+      browser.download.manager.addToRecentDocs	true
+      browser.download.manager.resumeOnWakeDelay	10000
+      browser.download.openInSystemViewerContextMenuItem	true
+      browser.download.open_pdf_attachments_inline	false
+      browser.download.panel.shown	true
+      browser.download.sanitize_non_media_extensions	true
+      browser.download.saveLinkAsFilenameTimeout	4000
+      browser.download.start_downloads_in_tmp_dir	false
+      browser.download.useDownloadDir	true
+      browser.download.viewableInternally.enabledTypes	xml,svg,webp,avif,jxl
+      browser.download.viewableInternally.typeWasRegistered.avif	true
+      browser.download.viewableInternally.typeWasRegistered.webp	true
+      services.sync.prefs.sync-seen.browser.download.useDownloadDir	true
+      services.sync.prefs.sync-seen.services.sync.prefs.sync.browser.download.useDownloadDir	false
+      services.sync.prefs.sync.browser.download.useDownloadDir	true
+      ```
+
+- [File dialogs do not open when downloading files](https://wiki.archlinux.org/title/firefox)
+
+6.33 If no file chooser is shown when downloading files, even with the option "Always ask where to save files" enabled in Firefox's preferences, then you might not have both xdg-desktop-portal and a suitable implementation. Desktop environments usually provide an implementation, but if you are using a standalone window manager such as i3, then you may need to manually install one. Install xdg-desktop-portal and for example `xdg-desktop-portal-gtk`. (Worked on Hyprland!)
+
+
+# samba sharing thunar
+
+1. Primero nos logueamos como root ejecutando el siguiente comando en la terminal:
+
+su
+
+# A continuación definimos que la variable USERSHARES_DIR tenga el valor /var/lib/samba/usershares. La ruta /var/lib/samba/usershares será en la que se montarán las carpetas que queremos compartir. Para conseguir nuestro propósito ejecutamos el siguiente comando en la terminal:
+
+export USERSHARES_DIR="/var/lib/samba/usershares"
+
+# Seguidamente definimos que la variable USERSHARES_GROUP tenga el valor sambashare. Sambashare será el grupo al que pertenecerá el directorio en el que se montarán las carpetas que queremos compartir. Para conseguir nuestro objetivo ejecutamos el siguiente comando en la terminal:
+
+export USERSHARES_GROUP="sambashare"
+
+# El siguiente paso consiste en crear la carpeta /var/lib/samba/usershares ejecutando el siguiente comando en la terminal:
+
+mkdir -p ${USERSHARES_DIR}
+
+# A continuación creamos el grupo sambashare ejecutando el siguiente comando en la terminal:
+
+groupadd ${USERSHARES_GROUP}
+
+# A la carpeta /var/lib/samba/usershares le asignamos el usuario root y el grupo sambashare introduciendo el siguiente comando en la terminal:
+
+chown root:${USERSHARES_GROUP} ${USERSHARES_DIR}
+
+# Finalmente asignamos los permisos 01770 al directorio /var/lib/samba/usershares ejecutando el siguiente comando en la terminal:
+
+chmod 01770 ${USERSHARES_DIR}
+
+# De esta forma, en el directorio /var/lib/samba/usershares únicamente podrán acceder y escribir el usuario root y los usuarios pertenecientes al grupo sambashare. Además todos los usuarios que tengan permiso de lectura y escritura tan solo podrán borrar los archivos y directorios en que ellos son los propietarios.
+
+# CONFIGURAR SAMBA PARA COMPARTIR CARPETAS CON THUNAR
+
+# Una vez configurado thunar-shares-plugin configuraremos samba. Para ello editamos el archivo smb.conf ejecutando el siguiente comando en la terminal:
+
+sudo nano /etc/samba/smb.conf
+
+# A continuación, dentro del apartado global del archivo de configuración tenemos que introducir y/o comprobar que estén disponibles los siguientes parámetros de configuración:
+
+[global]
+usershare path = /var/lib/samba/usershares
+usershare max shares = 100
+usershare allow guests = yes
+usershare owner only = yes
+
+workgroup = WORKGROUP
+
+# El significado de cada uno de los parámetros del fichero configuración es el siguiente:
+
+# Línea 1: Se define la ruta donde se montarán las carpetas que queremos compartir. En nuestro caso la ruta es /var/lib/samba/usershares
+
+# Línea 2: Se establece el número máximo de carpetas que puede compartir un usuario. En mi caso defino 100 carpetas.
+
+# Línea 3: Seleccionando el valor yes se permite que en la carpetas compartidas puedan acceder usuarios sin introducir ningún tipo de contraseña.
+
+# Línea 4: Elegimos el valor yes. De esta forma únicamente podremos compartir las carpetas en que seamos los propietarios.
+
+# Línea 5: Introducimos el nombre del grupo de trabajo de nuestros equipos Windows. Por lo tanto en mi caso elijo WORKGROUP. En vuestro caso deberéis escribir el nombre de vuestro grupo de trabajo.
+
+# Seguidamente añadimos nuestro usuario al grupo sambashare. Para ello en mi caso tengo que ejecutar el siguiente comando en la terminal:
+
+usermod -a -G ${USERSHARES_GROUP} n30
+
+# Nota: En vuestro caso deberéis reemplazar joan por vuestro nombre de usuario.
+
+# Finalmente tan solo tenemos que reiniciar samba ejecutando el siguiente comando en la terminal:
+
+sudo service smbd restart
+
+# En estos momento el proceso ha finalizado y podemos empezar a compartir carpetas:
+
+La función de cada uno de los parámetros de compartición es la siguiente:
+
+# Para compartir la carpeta en cualquier equipo Windows, Linux o en una SmartTV tenemos que tildar la opción Compartir esta carpeta.
+
+# A continuación tenemos que escribir el nombre que queramos que tenga el recurso compartido. En mi caso simplemente escribo Descargas.
+
+# En mi caso tildo la opción Permitir escritura a todos los usuarios. De esta forma todos los usuarios que accedan a la carpeta de forma remota podrán tener permisos y escritura si el administrador del servidor lo permite. Si queremos que los usuarios no tengan acceso a modificar el contenido de nuestros archivos, no los puedan borrar ni cambiar de nombre simplemente dejaremos destilada esta opción.
+
+# El cuarto paso es definir si los usuarios tienen que introducir un nombre de usuario y contraseña para acceder a la carpeta de forma remota. Como en mi caso no quiero que tengan que introducir ningún usuario ni contraseña tildo la casilla Permitir acceso a invitados.
+
+# Finalmente en comentarios podemos introducir un texto para definir el contenido de la carpeta que compartimos.
+
+## WAYDROID for Garuda
+
+---
+
+# https://wiki.archlinux.org/title/Waydroid
+
+# it's linux zen running?
+
+uname -r
+
+
+yay -S waydroid
+
+# yay -S waydroid-image-gapps
+
+# or install the images manually:
+
+# sudo mkdir -p /usr/share/waydroid-extra/images && cd ~/Downloads/
+
+# sudo cp system.img vendor.img /usr/share/waydroid-extra/images
+
+# Setting up a shared folder will allow the user to copy/paste files from the host and they appear inside waydroid/android.
+
+sudo mount --bind ~/Downloads ~/.local/share/waydroid/data/media/0/Download
+sudo mount --bind ~/Documents ~/.local/share/waydroid/data/media/0/Documents
+sudo mount --bind ~/Music ~/.local/share/waydroid/data/media/0/Music
+sudo mount --bind ~/Pictures ~/.local/share/waydroid/data/media/0/Pictures
+sudo mount --bind ~/Videos ~/.local/share/waydroid/data/media/0/Movies
+
+# sudo mount --bind <source> ~/.local/share/waydroid/data/media/0/<target>
+
+cd /var/lib/waydroid/images/
+sudo cp *.* /usr/share/waydroid-extra/images/
+
+# To init with GApps support:
+
+sudo waydroid init -s GAPPS -f
+sudo waydroid init -f
+sudo waydroid show-full-ui
+
+# Grab waydroid IP address from Android Settings-> About
+
+adb connect 192.168.240.112
+adb root
+adb shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db
+"select * from main where name = \"android_id\";"'
+
+# android_id|4148863870658807416
+
+# paste id and register, took some minutes
+
+https://www.google.com/android/uncertified/
+
+adb devices
+adb install file.apk
+
+# Next start/enable the waydroid-container.service.
+
+systemctl restart waydroid-container.service
+sudo waydroid upgrade
+
+sudo waydroid app install /home/n30/Downloads/jurassic-world-alive-2.21.32-mod-menu-5play.apk
+waydroid app list
+
+# Waydroid Extras Script
+
+# https://themagisk.com/waydroid-extras-script/
+
+sudo pacman -S lzip sqlite
+git clone https://github.com/casualsnek/waydroid_script
+cd waydroid_script
+sudo python3 -m pip install -r requirements.txt
+sudo mv main.py waydroid_extras.py
+
+# sudo python3 waydroid_extras.py [-i/-g/-n/-h]
+
+# Arm Translation
+
+# Install Libhoudini arm Translation:
+
+sudo python3 waydroid_extras.py -l
+
+# You may need to umount /dev/loop12`` and waydroid session stop``` for Libhoudini to install.
+
+# Restart Waydroid Container:
+
+sudo systemctl start waydroid-container.service
+
+# Launch Waydroid:
+
+waydroid show-full-ui
+
+waydroid session start
+
+# Android with user 0 is ready
+
+sudo python3 waydroid_extras.py -l
+
+# IOS iphone x
+
+---
+
+# https://wiki.archlinux.org/title/IOS
+
+# https://jaketrent.com/post/connect-iphone-arch-linux/
+
+yay -S gvfs-gphoto2 libimobiledevice ifuse
+systemctl status usbmuxd.service
+
+# systemctl start usbmuxd.service   # if it's not running
+
+# unlock phone and enter password, say it's trusted
+
+idevicepair pair
+idevicepair validate
+879c9f69a0e8151beb06152e967511efbb097d90
+
+sudo mkdir -p /run/media/n30/iphone
+sudo ifuse -o allow_other /run/media/n30/iphone
+
+idevicepair unpair
+sudo umount /run/media/n30/iphone
+
+---------------------------------------------------------------
+# GENYMOTION
+
+
+>## pre-requisites: install virtualbox
+- manually:
+
+  ```
+  sudo pacman -U https://archive.archlinux.org/packages/v/virtualbox/virtualbox-6.1.10-1-x86_64.pkg.tar.zst
+  ```
+- or download [here](https://download.virtualbox.org/virtualbox/6.1.36)
+
+
+  ```
+  cd ~/Downloads/ && \
+  wget https://download.virtualbox.org/virtualbox/6.1.36 \
+  chmod -x VirtualBox-*.run && \
+  sudo sh VirtualBox-*.run
+  ```
+- Machine base folder for VirtualBox
+  ```
+  nope /run/media/n30/xxx/linuxsaurio/VirtualBox
+  ```
+
+>## install genymotion:
+- automatically:
+```
+sudo pacman -S genymotion
+```
+- or manually
+```
+cd ~/Downloads/ && chmod -x genymotion-*.bin && sudo sh genymotion-*.bin
+```
+  Installing to folder `/opt/genymobile/genymotion`. Are you sure `[y/n]` ? yepity yep
+
+>## configure
+
+- install Genymotion ARM translation for 9.0
+
+  1. click on "Open GAPS" button at the side of emulator
+  2. login in on google
+  3. download chrome & keep
+
+- killing the annoying emoji keyboard
+
+settings > keyboard >keyboard & input > Virtual keyboard > android keyboard setting > Advanced > Emoji for physical keyboard
+
+- [beta testing](https://www.genymotion.com/download-beta/)
+
+
+>## uninstall (by script)
+
+- these:
+```
+sudo sh ~/Downloads/genymotion*.bin -d /opt/genymotion --uninstall
+sudo sh ~/Downloads/genymotion*.bin --uninstall
+```
+
+- or hese:
+```
+rm -r $HOME/genymotion
+sudo rm -rf /opt/genymobile
+rm -rf $HOME/.Genymobile $HOME/.config/Genymobile/Genymotion.conf
+sudo rm -f /usr/share/applications/genymobile-genymotion.desktop
+```
+>## RUN!
+1. ### Get list of vms with:
+```
+VBoxManage list vms
+```
+2. ### Start of Virtual Machines Headless
+```
+VBoxManage startvm n30 --type headless
+VBoxManage startvm mini-Mi --type headless
+sleep 3
+```
+3. ### Open Genymotion, from that GUI open the VM's
+```
+/opt/genymotion/genymotion
+```
+4. ### Time to close Genymotion UI, this comes next:
+```
+#add gps to n30 (tulipas)
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setstatus enabled"
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setlatitude 19.71230"
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setlongitude -101.20353"
+
+#add gps to mini-Mi (oxxo campestre)
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setstatus enabled"
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlatitude 19.68196"
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlongitude -101.16097"
+```
+
+5. ### set rotation angle
+```
+/opt/genymotion/genymotion-shell -r 192.168.56.101 -c "rotation setangle 270"
+/opt/genymotion/genymotion-shell -r 192.168.56.102 -c "rotation setangle 270"
+```
+
+### TEST FOR SCENTS!!!
+```
+#lokation 1
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setlatitude 19.71220"
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setlongitude -101.20462"
+
+#add gps to mini-Mi (oxxo campestre)
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlatitude 19.68196"
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlongitude -101.16097"
+#----------------------------------------------
+#lokation 2
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setlatitude 19.71227"
+/opt/genymotion/genymotion-shell -r 192.168.56.104 -c "gps setlongitude -101.20314"
+
+#add gps to mini-Mi (oxxo campestre)
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlatitude 19.68201"
+/opt/genymotion/genymotion-shell -r 192.168.56.103 -c "gps setlongitude -101.15982"
+```
+
+### TEST TEST
+
+```VBoxManage startvm gui mini-Mi
+#quickly open them
+/opt/genymotion/player --vm-name n30
+/opt/genymotion/player --vm-name mini-Mi
+```
+
+>## help
+
+/opt/genymotion/genymotion-shell -c "devices list"
+Lists available virtual devices and provides details such as current status, IP address and name.
+0 |   | On | virtual|  192.168.56.103 | mini-Mi
+1 |   | On | virtual|  192.168.56.104 | n30
+
+/opt/genymotion/genymotion-shell -c "devices select"
+Selects a virtual device. Add the ID of the virtual device you wish to select (as displayed in the device list).
+
+gps setlatitude: Sets the latitude value (and forces the activation of the GPS if deactivated). The value must range from -90° to 90°.
+gps setlongitude: Sets the longitude value (and forces the activation of the GPS if deactivated). The value must range from -180° to 180°.
+
+#You can kill it with a normal process kill:
+##ps | grep "Genymotion\.app/Contents/MacOS/player" | awk '{print $1}' | xargs kill
+
+#linux error genymotion vboxnet#, replace # w/ a number
+VBoxManage hostonlyif remove vboxnet7
+VBoxManage hostonlyif remove vboxnet6
+
+>## [uninstall manually](https://support.genymotion.com/hc/en-us/articles/360002815177-How-to-uninstall-Genymotion-Desktop-completely-purge-) genymotion
+
+```
+rm -r $HOME/genymotion
+```
+
+- If you installed Genymotion Desktop for all users, with sudo, you need to delete the /opt/genymobile folder with command
+  ```
+  sudo rm -rf /opt/genymobile
+  ```
+- Delete Genymotion Desktop local data directories by running:
+  ```
+  rm -rf $HOME/.Genymobile $HOME/.config/Genymobile/Genymotion.conf
+  ```
+- Delete Genymotion Desktop launcher:
+  ```
+  sudo rm -f /usr/share/applications/genymobile-genymotion.desktop
+  ```
+
+---------------------------------------------------------------
+# [SPOTIFY]()
+
+- install:
+
+    ```
+    yay -S spotify-adblock-git spicetify-themes-git spicetify-cli-git
+    ```
+- oneliner:
+
+    ```
+    curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+    ```
+- change permissions
+
+    ```
+    sudo chmod a+wr /opt/spotify && sudo chmod a+wr /opt/spotify/Apps -R
+    ```
+- one command to install marketplace:
+
+    ```
+    curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
+    ```
+- backup should work now...
+    ```
+  spicetify backup apply
+- add lyrics plugin
+  ```
+    spicetify config custom_apps lyrics-plus && spicetify apply
+
+## [Hyprland tweak/hack](https://wiki.hyprland.org/Useful-Utilities/App-Clients/#spotify)
+
+Spotify **does not follow window rules**. This is because the client sets its class after the window has opened, thus making it “immune” to windowrules. An alternative to Spotify’s GUI client is `spotify-tui` which can be launched in a terminal with a custom class. While limited in functionality, it is quite powerful and could be preferred over the GUI client. Another alternative is ncspot, a powerful cross-platform ncurses Spotify client written in Rust.
+
+Some users have also reported installing [spotifywm](https://github.com/amurzeau/spotifywm) has resolved the issue. The original repository by dasJ is no longer working because of some changes made in the newer Spotify version, and until the pull request gets merged, amurzeau's fork does the job.
+
+After following the installation paragraph on the README, start Spotify with:
+
+`LD_PRELOAD=/path/to/spotifywm.so spotify`
+
+The path MUST be the absolute one. If it’s not, the hack will not work.Now you can freely manage your Spotify client. Always use class to manage the window. For example:
+
+```
+windowrulev2 = tile, class:^(Spotify)$
+windowrulev2 = workspace 9, class:^(Spotify)$
+```
+
+## Motschen / [Retroblur](https://github.com/Motschen/Retroblur) NOT working!
+
+```
+cd ~/Downloads && \
+wget https://github.com/Motschen/Retroblur/archive/refs/heads/main.zip \
+cp /Retroblur ~/.config/spicetify/Themes/ \
+spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 current_theme Retroblur color_scheme purple && \
+spicetify apply
+```
+To change the color of the background, edit the link on the first line of **user.css**
+`/home/n30/.config/spicetify/Themes/Retroblur/user.css`, [like this one](https://i.pinimg.com/originals/09/64/b6/0964b64d7c0a214da7efb4e4ee7959c7.jpg):
+
+Its sadly not possible to change the background together with the color scheme automatically due to the limitations of CSS.
+
+## Themes:
+- ### [DefaultDynamic](https://github.com/JulienMaille/spicetify-dynamic-theme) for Spicetify
+```
+curl -fsSL https://raw.githubusercontent.com/JulienMaille/spicetify-dynamic-theme/master/install.sh | sh
+```
+
+- ### [Frostify](https://github.com/Ramlord/Frostify): (not worked!)
+```
+cd ~/Downloads && wget http://github.com/Ramlord/Frostify/releases/download/0.1/Frostify.zip
+cp /Frostify ~/.config/spicetify/Themes/
+spicetify config inject_css 1 replace_colors 0 overwrite_assets 1 replace_colors 0 current_theme Frostify && spicetify apply
+```
+
+spicetify backup apply
+
+nano ~/.config/spicetify/config-xpui.ini
+
+Restart Spotify
+
+- ### he4rt theme (not worked!)
+
+```
+cd ~/.config/spicetify/Themes/ && git clone https://github.com/aleDsz/he4rt-spicetifyy-theme.git he4rt
+cd he4rt
+cp he4rt.js ~/.config/spicetify/Extensions
+spicetify config extensions he4rt.js inject_css 1 replace_colors 1 overwrite_assets 1 current_theme he4rt color_scheme base && spicetify apply
+
+spicetify config extensions catppuccin-macchiato.js inject_css 1 replace_colors 1 overwrite_assets 1 current_theme catppuccin-macchiato && spicetify apply
+```
+
+
+- ### [BLoom theme](https://github.com/nimsandu/spicetify-bloom)
+
+```
+cd ~/.config/spicetify/Themes
+curl -fsSL https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/install.sh | bash
+```
+
+or installing it manually:
+```
+spicetify config current_theme bloom color_scheme purple && \
+spicetify apply
+```
+
+- ### "accented" theme:
+```
+cd "$(spicetify -c | Split-Path)\Themes"
+
+cd ~/.config/spicetify/Themes && git clone https://github.com/luximus-hunter/accented
+spicetify config current_theme accented color_scheme purple && spicetify apply
+```
+
+- ### [moar tHEMES](https://github.com/spicetify/spicetify-themes) (optional)
+ 
+```
+cd ~/Downloads && git clone https://github.com/spicetify/spicetify-themes.git && cd spicetify-themes
+```
+
+Copy the files into the Spicetify Themes folder. Run:
+```
+cp -r * ~/.config/spicetify/Themes
+spicetify config inject_css 1 replace_colors 1 overwrite_assets 1
+```
+Choose which theme to apply just by running:
+```
+spicetify config current_theme THEME_NAME
+```
+Some themes have 2 or more different color schemes. After selecting the theme you can switch between them with:
+```
+spicetify config color_scheme SCHEME_NAME
+
+spicetify config current_theme Ziro color_scheme purple-dark  && spicetify apply
+spicetify config current_theme Ziro color_scheme rose-pine-moon  && spicetify apply
+
+spicetify config current_theme Flow color_scheme Violet && spicetify apply
+
+spicetify config current_theme Sleek color_scheme Elementary  && spicetify apply
+
+spicetify config inject_css 1 replace_colors 1 overwrite_assets 1
+spicetify config extensions dribbblish.js
+spicetify config current_theme Dribbblish color_scheme purple && spicetify apply
+```
+
+--------------------------------------------------------------
+# DISCORD
+
+## Alternatives:
+
+- ### [DiscoCss](https://github.com/mlvzk/discocss)
+
+  - [Download](https://raw.githubusercontent.com/leeprky/BetterDefaultGlasscord/main/support/betterdiscord/BetterDefaultGlasscord.theme.css)
+- ### [~~WebCord~~](https://github.com/SpacingBat3/WebCord):
+
+  #### The current release in master is currently deprecated, I'm working on WebCord rewrite in next. Until then, most likely there won't any changes done to `master`, PRs might not be merged at all and there might not be any releases made.
+- ### [~~gtkcord4~~](https://github.com/diamondburned/gtkcord4):
+
+  is a Discord client written in GTK4. While it does infringe on Discord’s ToS, it’s relatively safe and doesn’t rely on any webview technologies.
+-
+- ### [betterdiscord](https://github.com/BetterDiscord/BetterDiscord)
+
+  - betterdiscordctl install
+  - [Download](https://betterdiscord.app/themes?sort=Likes&direction=descending) themes.
+  - and install them here:
+
+    ```
+    mv ~/Downloads/*.css ~/.config/BetterDiscord/themes/
+    ```
+  - Best themes: 
+    - [BetterDefaultGlasscord](https://github.com/leeprky/BetterDefaultGlasscord) (v2.0.0)
+    ```
+    cd ~/Downloads && \
+    wget https://raw.githubusercontent.com/leeprky/BetterDefaultGlasscord/main/support/betterdiscord/BetterDefaultGlasscord.theme.css && \
+    mv ~/Downloads/*.css ~/.config/BetterDiscord/themes/
+    ```
+    
+    - [Vibrant Glass](https://betterdiscord.app/theme/Vibrant%20Glass)
+    - [Frosted Glass](https://betterdiscord.app/theme/Frosted%20Glass)
+
+---------------------------------------------------------------
+# [Fractal](https://wiki.gnome.org/Apps/Fractal) (Matrix/Element)
+
+Fractal is a Matrix client written in GTK4. Much like Discord, Element is known to have a lot of problems as a result of being based on Electron. Fractal currently doesn’t support VoIP calling, but all other features are supported, including E2EE and cross-device verification.
+
+---------------------------------------------------------------
+# EVERNOTE
+
+## Install a extension called [TamperMonkey](https://addons.mozilla.org/es/firefox/addon/tampermonkey/)
+
+## Open up the TamperMonkey settings (Left click on the new icon shown top right in firefox) and Create a new script and past in the code shown below (copy paste everything):
+
+```
+ // ==UserScript==
+// @name         Evernote Outbound Clicker
+// @namespace   http://harristribe.co.uk/
+// @version      1.0
+// @description  Avoids the evernote outbound page
+// @author       Rob Harris
+// @include     https://www.evernote.com/OutboundRedirect.action*
+// @grant        none
+// @run-at       document-start
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    var urlParams = new URLSearchParams(window.location.search);
+    window.location.href = urlParams.get('dest');
+})();
+```
+> # `STEAM`
+
+---
+
+## Lutris
+
+[InstallingDrivers](https://github.com/lutris/docs/blob/master/InstallingDrivers.md)
+
+```
+sudo pacman -S --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader steam-native-runtime
+```
+---
+
+> # `wine`
+
+---
+
+>>> WARNING TAKES AN HOUR TO COMPILE
+>>> `yay -S wine-staging-git`
+>>>
+>>
+
+# GameMode
+
+# https://github.com/FeralInteractive/gamemode
+
+pacman -S meson systemd git dbus libinih
+yay -S gamemode
+
+# test it
+
+gamemoded -t
+
+# [jc141](https://github.com/jc141x/jc141-bash/tree/master/setup) scripts for gaming games
+
+## [gamemode](https://github.com/FeralInteractive/gamemode)
+
+## [optional user inteface launchers](https://github.com/jc141x/jc141-bash/blob/master/setup/launchers.md)
+
+- ### [rum](https://github.com/jc141x/rum)
+
+single purpose launcher which focuses on interface and leaving the configuration to the bash script.
+![.](https://camo.githubusercontent.com/9a2d1f37f782095f310175f87f9daa7b650d9d9d4ce4ddb212b2ade551dcd69a/68747470733a2f2f692e706f7374696d672e63632f6e4c394d4a3444662f797472797274792e706e67)
+
+```
+cd ~/Downloads && \
+git clone https://github.com/jc141x/rum.git && \
+cd rum/
+```
+```
+pnpm install
+pnpm build
+pnpm tauri build
+```
+
+- ### [heroic](https://heroicgameslauncher.com/)
+Heroic is an Open Source GOG and Epic games launcher 
+![.](https://heroicgameslauncher.com/_next/static/images/heroic_01-4864abe462a3555732f717d23f3fbfde.png.webp)
+
+## [Setup Guide - Arch](https://github.com/jc141x/jc141-bash/blob/314ecb06df3edac7acbe01be07372a6be18a0eca/setup/arch.md)
+
+###  1. add rumpowered repo and multilib
+
+- run all 7 lines at once:
+```
+echo '
+
+[rumpowered]
+Server = https://jc141x.github.io/rumpowered-packages/$arch
+Server = https://repo.rumpowered.org/$arch ' | sudo tee -a /etc/pacman.conf
+
+sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+```
+- then do one by one:
+```
+sudo pacman-key --recv-keys cc7a2968b28a04b3
+sudo pacman-key --lsign-key cc7a2968b28a04b3
+```
+- instead of: sudo pacman -Syyu
+```
+garuda-update
+```
+
+- Make sure you do not have amdvlk (having it installed will cause a lot of issues):
+```
+sudo pacman -R amdvlk
+```
+
+## 2. Add required core packages
+
+- These packages are all required for our releases to work, if you dont have them the games will not run.
+```
+sudo pacman -S --needed rumpowered/dwarfs fuse-overlayfs wine-staging wine-mono openssl-1.1
+```
+
+## 3. Add graphics packages for your set up.
+
+- GPU/APU Drivers required for AMD GPUs
+```
+sudo pacman -S --needed lib32-vulkan-radeon vulkan-radeon
+```
+
+## 4. Install additional libraries
+
+- Some games require additional libaries to run successfully. We strongly recommend the following libraries are installed.
+
+sudo pacman -S --needed lib32-alsa-lib lib32-alsa-plugins lib32-libpulse lib32-openal giflib libgphoto2 libxcrypt-compat zlib gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gstreamer-vaapi gst-libav
+
+## 5. OPTIONAL 
+- Prevent non-LAN activity by default. It is recommended that you prevent access to the WAN for our releases.
+```
+sudo pacman -S --needed rumpowered/bindtointerface rumpowered/lib32-bindtointerface
+```
+- wine-staging-tkg can be used instead of wine-staging, to the user's choice
+
+```
+sudo pacman -S --needed wine-staging wine-mono \
+lib32-giflib lib32-gnutls lib32-libxcomposite lib32-libxinerama lib32-libxslt lib32-mpg123 lib32-v4l-utils lib32-alsa-lib lib32-alsa-plugins lib32-libpulse lib32-openal lib32-zlib giflib libgphoto2 libxcrypt-compat zlib gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gstreamer-vaapi gst-libav \
+vulkan-radeon lib32-vulkan-icd-loader vulkan-icd-loader lib32-vulkan-radeon \
+fuse-overlayfs
+```
+sudo pacman -S --needed rumpowered/dwarfs # or dwarfs-bin instead?
+steal-git    # removed because dwarfs-bin causing problems
+:: wine-staging and wine-staging-git are in conflict (wine). Remove wine-staging-git? [y/N]
+
+# https://github.com/jc141x/rumpowered-packages/tree/24d3d214a7679c9eab474781516fb11e3a3daa83/pkgbuilds
+
+dwarfs dxvk-bin jc141-bash jc141-vulkan vkd3d-proton-bin windep wine-staging-tkg
+
+# Ember Knights
+
+# https://forum.winehq.org/viewtopic.php?t=33029
+
+winetricks atmlib corefonts gdiplus msxml3 msxml6 vcrun2008 vcrun2010 vcrun2012 fontsmooth-rgb gecko
+
+# https://forum.winehq.org/viewtopic.php?t=30270
+
+winetricks d3dcompiler_43
+
+[2023-02-27 19:12:43.608] [MANGOHUD] [error] [file_utils.cpp:43] Error opening directory '/sys/class/drm/card0-HDMI-A-1/device/hwmon/': No such file or directory
+[2023-02-27 19:12:43.608] [MANGOHUD] [error] [file_utils.cpp:43] Error opening directory '/sys/class/drm/card0-DP-2/device/hwmon/': No such file or directory
+[2023-02-27 19:12:43.627] [MANGOHUD] [info] [overlay.cpp:768] Uploading is disabled (permit_upload = 0)
+0114:fixme:wbemprox:client_security_SetBlanket 00000001ED4A0E80, 0000000000FA8E50, 10, 0, (null), 3, 3, 0000000000000000, 0
+0114:fixme:wbemprox:client_security_Release 00000001ED4A0E80
+0220:fixme:kernelbase:AppPolicyGetThreadInitializationType FFFFFFFFFFFFFFFA, 00000000705DFE10
+0220:fixme:avrt:AvSetMmThreadCharacteristicsW (L"Audio",00000000705DFDB8): stub
+[2023-02-27 19:12:43.831] [MANGOHUD] [error] [file_utils.cpp:43] Error opening directory '/sys/class/drm/card0-HDMI-A-1/device/hwmon/': No such file or directory
+
+DBG=1 bash /run/media/n30/Ember.Knights-jc141/start.e-w.sh
+
+# NVIDIA graphics packages add:
+
+# # sudo pacman -S --needed lib32-vulkan-icd-loader vulkan-icd-loader lib32-libglvnd lib32-nvidia-utils libglvnd nvidia
+
+# # Add nvidia-drm.modeset=1 as a kernel parameter for the best results.
+
+#
+
+# INTEL graphics packages add:
+
+# vulkan-intel lib32-vulkan-icd-loader vulkan-icd-loader lib32-vulkan-intel
+
+# optional packages
+
+# Isolates game from system display server, no desktop res changing when in use. As well as forcing games into fullscreen and scaling when necessary. Can provide AMD FidelityFX Super Resolution or NVIDIA Image Scaling support.
+
+# sudo pacman -S --needed gamescope
+
+# NVIDIA drivers may have some issues with this.
+
+# Requires full Vulkan support. (old architectures with none or semi are not compatible)
+
+# May cause failure to run from first try in certain cases.
+
+# Is not always used by scripts, testing is done to confirm that it is compatible.
+
+# bindtointerface - block non-LAN network activity by default
+
+sudo pacman -S --needed rumpowered/bindtointerface
+
+# Update vlk.sh Vulkan Update?
+
+# https://github.com/jc141x/jc141-bash/blob/314ecb06df3edac7acbe01be07372a6be18a0eca/root-scripts/files/vlk.sh
+
+# add piracy repo:
+
+echo '
+
+[pirate-arch-repo]
+SigLevel = Optional DatabaseOptional
+Server = https://raw.githubusercontent.com/AbdelrhmanNile/pirate-arch-repo/main/x86_64' | sudo tee -a /etc/pacman.conf
+
+sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+
+## (OPTIONAL)
+
+---
+
+yay -S mangohud goverlay-git
+
+* ### Steam Tinker Launch
+
+is a tool for use with the Steam client which allows customizing and start tools and options for games quickly.
+
+# https://github.com/sonic2kk/steamtinkerlaunch/wiki/Installation
+
+yay -S steamtinkerlaunch-git
+
+* ### [Proton GE](https://github.com/GloriousEggroll/proton-ge-custom)
+
+special build of Proton with various patches and fixes included.
+
+>>> WARNING (You Must run Steam at least once before installing ProtonGE).
+>>> yay -S proton-ge-custom
+>>>
+>>
+
+* ### https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher
+
+yay -S heroic-games-launcher-bin
+
+* ### https://github.com/AbdelrhmanNile/steal
+
+yay -S steal-git dwarfs-bin zpaq
+
+To run steaL, in your command line type:
+steal
+
+after first run, the directory ~/.config/steal will be created it contains 2 files `conf.json` and `library.csv`
+
+`conf.json` has two parameters:
+
+```
+{
+    "lib_path": "/home/USER/Games", <-- default path to save the downloaded games is Games dir in your user's home, change it to whatever
+    "num_of_cards": "50" <-- number of games displayed in Browse tab
+}
+```
+`library.csv` contains info about the games you download { name, cover url and launching script }
+
+Usage: just search for the game you want and download it, wait until it finish extracting {zpaq takes time to extract, be patient}
+
+after it's done just click the update button to update the library and your game will be there to launch a game just click on it.  Enjoy!!
+
+## it takes two jc141
+
+To fix the language on it takes two, run `bash settings.sh` mount-dwarfs then go to `files/groot` and edit the file `codex.cfg`. where you see `ru_RU` replace with `en_US`.
+
+The earlier torrent also had a black screen issue. you can just can the script from the new torrent and it will be fixed as well
+
+# KTIMER
+
+---
+
+install sox
+
+#--volume where 0 is muted
+sh -c "play --volume 0.4 /home/n30/Music/oven.mp3; kdialog --yesno "test" "
+play --volume 0.4 $HOME/.config/hypr/sounds/volume_notif.wav
+
+# [AUDIO wob](https://github.com/francma/wob)
+
+---
+
+`yay -S wob`
+
+Use [these](https://framagit.org/-/snippets/6723) script
+
+`~/.config/waybar/config`
+
+`~/.config/hyper/config`
+
+rm -f $XDG_RUNTIME_DIR/wob.sock && mkfifo $XDG_RUNTIME_DIR/wob.sock && tail -f $XDG_RUNTIME_DIR/wob.sock | wob &
+
+just testing where is that directory `$XDG_RUNTIME_DIR`
+
+```
+echo $XDG_RUNTIME_DIR
+```
+output is for Garuda:
+`/run/user/1000`
+
+General case (manually)
+
+# You may manage a bar for audio volume, backlight intensity, or whatever, using a named pipe. Create a named pipe, e.g. /tmp/wobpipe, on your filesystem using.
+
+mkfifo /tmp/wobpipe
+
+# Connect the named pipe to the standard input of a wob instance.
+
+tail -f /tmp/wobpipe | wob &
+
+# Set up your environment so that after updating audio volume, backlight intensity, or whatever, to a new value like 43, it writes that value into the pipe:
+
+echo 43 > /tmp/wobpipe &
+
+# Adapt this use-case to your workflow (scripts, callbacks, or keybindings handled by the window manager).
+
+# See https://github.com/francma/wob/blob/master/wob.ini.5.scd for styling and positioning options.
+
+#checking for errors
+journalctl -xe
+
+# Audio volume
+
+## AUDIO SWITCH
+
+---
+
+# Get the list w/ these:
+
+- pactl list short sinks | cut -f 2
+- pamixer --list-sources
+
+# for the actual:sonarr
+
+pactl info | grep 'Default Sink' | cut -d':' -f 2
+
+# on pavucontrol:
+
+D30 Pro = Analog Stereo Output
+USB Audio = Off
+Navi 21/23 = Off   #hdmi audio controller
+Built-in Ahdio = Analog Stereo Output
+PCM2704 16 bit = AnalogStereo Output
+
+#on settings > audio (kde?), must be:
+
+# D30 Pro: Pro Audio
+
+# Digital output(S/PDIF): Digital Stereo (IEC958)
+
+#Now add the following commands for each of the shortcuts:
+
+# Audífonos
+
+control + super + alt + KP_End
+pactl set-default-sink alsa_output.usb-Topping_D30-00.pro-output-0; notify-send 'Audígenos'
+
+# Bocinas
+
+control + super + alt + KP_Down
+
+# pactl set-default-sink alsa_output.usb-Burr-Brown_from_TI_USB_Audio_DAC-00.pro-output-0; notify-send 'Bocinas'
+
+pactl set-default-sink alsa_output.usb-Burr-Brown_from_TI_USB_Audio_DAC-00.iec958-stereo
+
+# restart audio
+
+systemctl --user restart pipewire-pulse.service && systemctl --user restart pipewire.socket && systemctl --user restart wireplumber pipewire pipewire-pulse
+
+## EQ
+
+---
+
+https://diyaudioheaven.wordpress.com/passive-filters/
+Beyerdynamic DT990 lowers 11khz peak by 7db
+
+# Sony:
+
+# https://github.com/jaakkopasanen/AutoEq/tree/master/results/oratory1990/harman_over-ear_2018/Sony%20WH-1000XM2
+
+#Beyerdynamic 990:
+
+# https://github.com/jaakkopasanen/AutoEq/tree/master/results/oratory1990/harman_over-ear_2018/Beyerdynamic%20DT%20990%20250%20Ohm%20(worn%20earpads)
+
+## Play a sound when volume is changed:
+
+any of those will work:
+
+- "canberra-gtk-play -i audio-volume-change"
+- "play --volume 0.15 $HOME/.config/hypr/sounds/volume_notif.wav"
+
+# 
+
+# [[whatsie](https://github.com/keshavbhatt/whatsie) WHATSAPP]
+
+[old](https://www.youtube.com/watch?v=c-QlxNduPLg)
+
+# Trizen AUR Package Manager: lightweight pacman wrapper and AUR helper.
+
+# install trizen
+
+# trizen whatsapp
+
+# 20?
+
+# ELDEN RING wine ------------------------------------
+
+# add in symbolic links from your WINEPREFIX to the root of a mounted drive, or subdirectory, you want to mount as a Wine virtual Windows drive.
+
+cd "${WINEPREFIX:-${HOME}/.wine}/dosdevices"
+
+ln -s "/run/media/n30/SSD_Chivos/linuxsaurio/" "y:"
+
+!!
+You can also do with the winecfg "Drives" tab.
+
+Typically all mounted system drives are also accessible via Z:\, which maps to the Unix / root directory.
+
+# ERRORS
+
+---
+
+# error: GPGME error: No data
+
+# error: failed to synchronize all databases (invalid or corrupted database (PGP signature))
+
+sudo pacman -Sy archlinux-keyring chaotic-keyring
+
+#if not:
+delete any .sig or .sig.part files for the official repos you have in /var/lib/pacman/sync/
+sudo rm /var/lib/pacman/sync/*.sig
+
+# perl: warning: Falling back to the standard locale ("C").
+
+Adding the following to /etc/environment fixed the problem for me on Debian and Ubuntu (of course, modify to mat ch the locale you want to use):
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+
+# or on a Debian base
+
+sudo locale-gen en_US en_US.UTF-8
+sudo dpkg-reconfigure locales
+
+# error: failed to synchronize all databases (unable to lock database)
+
+sudo rm /var/lib/pacman/db.lck
+
+.local//share/plasma/plasmoids/
+its ~/.config/plasmashellrc … if you cant find it in there … just move or backup/delete the file so it is regenerated with defaults.
+
+#How do I detach a process from Terminal?
+lattedock & disown
+killall latte-dock && sleep 1 && latte-dock & disown
+
+# latte stuff
+
+lattelatte-dock --replace --default-layout --cc & disown
+
+# wrong resolution (manipulate X configuration files for the NVIDIA driver)
+
+# https://manpages.ubuntu.com/manpages/trusty/man1/alt-nvidia-331-updates-xconfig.1.html
+
+sudo nvidia-xconfig
+
+# change monitor from side to side
+
+sudo nano /etc/X11/xorg.conf
++1920+0 for +0+0 and viceversa
+
+# BACKUP
+
+---
+
+Install
+firefox workrave easyeffects
+
+# Genymotion, ova, virtual machine
+
+Open VirtualBox on your source computer
+Right-click on the device you want to transfer and select Export to OCI...
+Desktop_Export_VD.gif
+Make sure to select the Open Virtualization Format 1.0 format and export the device
+On your target computer, open VirtualBox and select File > Import Appliance
+Import_Export_VD.gif
+Import the OVA file you exported earlier
+The imported device should then appear in Genymotion Desktop GUI.
+
+# Virtualbox uninstall (when installed via sh on "Downloads")
+
+cd ~/Downloads && chmod +x VirtualBox*.run && sudo ./VirtualBox*.run uninstall
+
+# Easyeffects
+
+# Backup
+
+mv ~/.config/easyeffects/output/*.json ~/<WHEREVER>
+
+#Restore
+mv ~/Downloads/*.json ~/.config/easyeffects/output/
+
+# Balena Etcher
+
+https://www.balena.io/etcher/
+
+# export custom keboard shortcuts
+
+rm ~/.mcfly/history.db
+
+AmitGolden dotfiles
+https://github.com/AmitGolden/dotfiles
+
+# paru -S hyprland-bin waybar-hyprland-git sddm sddm-sugar-candy-git wlogout wofi dunst papirus-icon-theme catppuccin-gtk-theme-mocha polkit-gnome wlsunset swayidle udev-block-notify blueman-applet brightnessctl swaylock-effects wofi-emoji wofi-calc wofi-wifi-menu-git playerctl grim slurp pipewire wireplumber xdg-desktop-portal-wlr wl-copy networkmanager
+
+catppuccin-gtk-theme-mocha polkit-gnome wlsunset swayidle udev-block-notify wofi-emoji wofi-calc wofi-wifi-menu-git playerctl wl-copy
+-> Could not find all required packages:
+wl-copy (Target)
+wofi-emoji (Target)
+
+# paru -S thunar firefox deluge-gtk kitty wdisplays discord discocss spotify spicetify timeshift eog pavucontrol celluloid file-roller
+
+wdisplays discocss eog celluloid file-roller
+
+# paru -S zsh zsh-theme-powerlevel10k zoxide neovim zsh-autosuggestions fzf lf trash-cli exa ripgrep btop zsh-autopair-git zsh-vi-mode fzf-tab-git zsh-syntax-highlighting lazygit bat lesspipe fd nodejs-neovim python-neovim
+
+zsh zsh-theme-powerlevel10k zoxide neovim zsh-autosuggestions fzf lf trash-cli exa ripgrep btop zsh-autopair-git zsh-vi-mode fzf-tab-git zsh-syntax-highlighting lazygit bat lesspipe fd nodejs-neovim python-neovim
+
+# rice's
+
+## 🍚 hyprland-dotfiles- PROxZIMA 🍚
+
+https://github.com/PROxZIMA/.dotfiles/tree/master/.config/wofi
+bind = , XF86Calculator, exec, qalculate-gtk
+
+## 🍚 hyprland-dotfiles- nawfalmrouyan 🍚
+
+### nawfalmrouyan's execs
+exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec-once = /usr/lib/xfce-polkit/xfce-polkit &
+
+### CUSTOM nawfalmrouyan
+https://github.com/nawfalmrouyan/hyprland
+
+windowrule = float, title:^(FireDragon — Sharing Indicator)$
+windowrule = move 1577 15, title:^(FireDragon — Sharing Indicator)$
+windowrulev2 = float, class:^(firedragon)$, title:^(Picture-in-Picture)$
+windowrulev2 = pin, class:^(firedragon)$, title:^(Picture-in-Picture)$
+
+### for ttyclock
+windowrulev2 = float, class:^(clock)$, title:^(clock)$
+windowrulev2 = size 33% 27%, class:^(clock)$, title:^(clock)$
+windowrulev2 = center, class:^(clock)$, title:^(clock)$
+
+# nawfalmrouyan's Screenshots
+bind = , Print, exec, $screenshot --area
+bind = CTRL, Print, exec, $screenshot --win
+bind = $mainMod CTRL, Print, exec, $screenshot --now
+# bind = $mainMod, Print, exec, $screenshot --in5
+# bind = SHIFT, Print, exec, $screenshot --in10
+
+
+## 🍚 hyprland-dotfiles- [linuxmobile](https://github.com/linuxmobile/hyprland-dots) 🍚
+
+* for waybar:
+
+"pulseaudio#microphone"
+
+"custom/weather"
+
+## 🍚 hyprland-dotfiles- [iamverysimp1e](https://github.com/iamverysimp1e/dots) 🍚
+
+- [ewww](https://www.reddit.com/r/unixporn/comments/10pn2xn/hyprland_yet_another_wayland_rice/)
+
+## 🍚 hyprland-dotfiles- [Sebastiaan76](https://github.com/Sebastiaan76/waybar_wireplumber_audio_changer) 🍚
+
+- Sebby1976 https://www.reddit.com/r/hyprland/comments/10rmv6r/i_made_a_script_to_change_audio_sinks_using_wpctl/
+
+## 🍚 hyprland-dotfiles- m4xshen 🍚
+
+- custom-alsa.sh
+
+```
+╭─n30@n30 in ~/Downloads/hyprland-dotfiles- m4xshen took 127ms
+╰─λ ag alsa.sh
+hypr/hypr/hyprland.conf
+69:bind = , xf86audioraisevolume, exec, amixer sset Master 5%+; exec pkill -SIGRTMIN+1 custom-alsa.sh
+70:bind = , xf86audiolowervolume, exec, amixer sset Master 5%-; exec pkill -SIGRTMIN+1 custom-alsa.sh
+```
+- waybar/waybar/config
+  25:      "exec": "custom-alsa.sh",
+
+🍚 hyprland-dotfiles- [wildan](https://github.com/wildan-pratama/wildan-hyprland) 🍚
+
+- https://www.youtube.com/watch?v=u7O5vAxLdNw
+
+```
+yay -S git sddm-git polkit hyprland-bin waybar-hyprland alacritty rofi nemo gvfs-mtp swayidle \
+file-roller swaybg swaylock-effects-git wl-clipboard mailcap mpv networkmanager-dmenu-git \
+mpc mpd ncmpcpp xdg-user-dirs pulsemixer pavucontrol qt5-graphicaleffects qt5-quickcontrols2 \
+pipewire wireplumber grim slurp jq dunst qt5-wayland qt6-wayland
+```
+```
+yay -S sddm-git hyprland-bin waybar-hyprland gvfs-mtp \
+swaybg swaylock-effects-git networkmanager-dmenu-git \
+xfce-polkit geany viewnior xdg-desktop-portal-hyprland-git \
+mpc mpd ncmpcpp pulsemixer \
+```
+```
+: sddm-git and sddm are in conflict. Remove sddm? [y/N] y
+```
+```
+Packages (18) audiofile-0.3.6-7  libao-1.2.2-5  libmms-0.6.4-3  libnfs-5.0.2-1
+libsidplayfp-2.4.2-1  sddm-0.19.0-9 [removal]  yajl-2.1.0-5
+zziplib-0.13.72-1  geany-1.38-3  gvfs-mtp-1.50.3-1  mpc-0.34-2
+mpd-0.23.12-1  ncmpcpp-0.9.2-10  networkmanager-dmenu-git-r165.60c12b5-1.1
+pulsemixer-1.5.1-3  sddm-git-0.19.0.200.g8f1e3df-1  swaybg-1.2.0-1
+viewnior-1.8-2
+
+Total Download Size:    9.71 MiB
+Total Installed Size:  26.96 MiB
+Net Upgrade Size:      22.51 MiB
+
+:: Packages (2) hyprland-git-r2442.f37866eb-1 [removal]  hyprland-bin-0.21.0beta-2
+:: waybar-hyprland and waybar-hyprland-git are in conflict (waybar). Remove waybar-hyprland-git? [y/N]
+```
+- Copy Configuration and stuff
+
+```
+cd wildan-hyprland
+sudo cp -a usr /
+sudo cp -a etc /
+cp -a .config ~/
+cp -a .local ~/
+```
+## 🍚 [Nebula](https://github.com/Barbaross93/Nebula) (formerly Genome) WM: Qtile 🍚
+
+- [dunstrc-nebula](https://github.com/Barbaross93/Nebula/blob/4a08d3cfd0900807aefaa9f9241a6dbf926c549b/.config/dunst/dunstrc#L77) --> configs on /home/n30/.config/dunst/
+- [rofi_notif_center.sh](https://github.com/Barbaross93/Nebula/blob/main/.local/bin/rofi_notif_center.sh)
+- [dunst_logger.sh](https://github.com/Barbaross93/Nebula/blob/main/.local/bin/dunst_logger.sh)
+
+## 🍚 MrRoy (Sway Notification Center theme) Dracula colors 🍚
+
+- SwayNC Config:
+  [config.json](https://gist.github.com/MrRoy/40f103bc34f3a58699e218c3d06d1a43)
+- SwayNC Dracula Theme:
+  [style.css](https://gist.github.com/MrRoy/3a4a0b1462921e78bf667e1b36697268)
+
+## [🍚 ldelosa | Louis DeLosSantos 🍚](https://github.com/ldelossa/dotfiles/tree/master/config/swaync): 
+
+- swaync
+  - style.css
+  - confg.json
+- gammastep
+- waybar
+  - script spotify 5% cpu consumptiontho!
+-  [rofi + kitty ssh](https://github.com/ldelossa/dotfiles/tree/master/config/rofi)
+-  
+
+## [🍚 khaneliman 🍚](https://github.com/khaneliman/dotfiles): !! uses nvidia :(
+
+[Hyprland](https://github.com/khaneliman/dotfiles/tree/main/dots/linux/hyprland)
+
+```
+# core
+yay -Sy --needed waybar-hyprland-git xdg-desktop-portal-hyprland-git swaync-git wlogout rofi-lbonn-wayland-git swayidle swaylock-effects-git hyprpaper-git blueman network-manager-applet polkit-kde-agent gnome-keyring
+# theme
+yay -Sy --needed kvantum qt5ct qt6ct
+# convenience
+yay -Sy --needed find-the-command cliphist firefox-developer-edition
+# media
+yay -Sy --needed thunar spotify playerctl wireplumber swayimg hyprpicker-git wf-recorder grim
+```
+
+- [record_screen](https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.local/bin/record_screen)
+- [xdg-desktop-portal.sh](https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.local/bin/xdg-desktop-portal.sh)
+- [Grimblast](https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.local/bin/grimblast) or [original](https://github.com/hyprwm/contrib/blob/main/grimblast/grimblast)
+a helper for screenshots within hyprland
+-   [blurredfox](https://github.com/khaneliman/blurredfox):A modern Firefox CSS Theme 
+
+- [screenshot](https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.config/hypr/binds.conf)
+```
+bind = $mainMod, x, exec, hyprpicker -a && (convert -size 32x32 xc:$(wl-paste) /tmp/color.png && notify-send "Color Code:" "$(wl-paste)" -h "string:bgcolor:$(wl-paste)" --icon /tmp/color.png -u critical -t 4000)
+```
+- [environmet](https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.config/hypr/environment.conf)
+
+
+## [🍚 psykose 🍚](https://git.ddd.rip/psykose/dotfiles/src/branch/main/swaync/config.json):
+
+- swaync
+  - [style.css](https://git.ddd.rip/psykose/dotfiles/src/branch/main/swaync/style.css)
+  - [confg.json](https://git.ddd.rip/psykose/dotfiles/src/branch/main/swaync/config.json)
+-
+
+## [🍚 nosvagor 🍚](https://github.com/nosvagor/dotfiles):
+- [bin/alert](https://github.com/nosvagor/dotfiles/blob/main/bin/alert): variables for sound of notify-send ⮯
+- [bin/change-bg](https://github.com/nosvagor/dotfiles/blob/main/bin/change-bg): videowallpaperchange
+
+- dotfiles
+# # re-size windows
+# $master_big=hyprctl dispatch resizeactive exact 1866 1955
+# $master_norm=hyprctl dispatch resizeactive exact 1012 1955
+# bind=ALT,Q,exec,$master_big
+# bind=ALT,W,exec,$master_big;$master_norm;$master_norm;$master_norm;$master_norm;$master_norm;
+# bind=ALT,F,resizeactive,exact 1870 1186
+# bind=ALTSHIFTCTRL,S,exec, hyprctl dispatch moveactive exact 2361 147; hyprctl dispatch resizeactive exact 1301 1000;
+# # spotify preferred window ⮭
+
+
+- exporting:
+```
+export HYPRLAND_LOG_WLR=1
+export XCURSOR_SIZE=24
+export XCURSOR_THEME=Nordzy-cursors-white
+export PATH="$HOME/.cargo/bin:$PATH"
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$HOME/.go/bin"
+export PAGER=nvimpager
+export EDITOR="nvim"
+export DOTS="$HOME/dotfiles"
+
+# export PISTOL_CHROMA_STYLE=catppuccin-macchiato
+
+export FZF_DEFAULT_OPTS="\
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#F5A97F \
+--color=fg:#cad3f5,header:#F5A97F,info:#8AADF4,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#8AADF4,hl+:#F5A97F"
+
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=xcb
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORMTHEME=qt5c
+
+export GDK_BACKEND="wayland,x11"
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+
+exec Hyprland
+```
+
+# amazon
+
+* 09 Dic 	AMAZON MX MARKETPLACE ANE 140618P37MX 	+$ 680.00
+
+<!-- https://www.amazon.com.mx/spr/returns/cart?_encoding=UTF8&orderId=701-5450397-6543436 -->
+
+* 07 Dic 	AMAZON MX A MESES ANE 140618P37MX 	+$ 9,540.60
+* 07 Dic 	AMAZON MX A MESES ANE 140618P37MX 	+$ 3,540.86
+* 07 Dic 	AMAZON MX A MESES M ANE 140618P37MX 	+$ 1,177.80
+* 07 Dic 	AMAZON MX ANE 140618P37MX 	         +$ 445.54
+* +$ 11,002.59
+* 16 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 7,118.91
+* 16 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 3,216.00
+* 16 Dic 	AMAZON MX A MESESANE 140618P37MX 	+$ 4,399.00
+* 21 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 3,147.35
+
+<!-- https://www.amazon.com.mx/spr/returns/cart?_encoding=UTF8&orderId=701-8312313-3482615 -->
+
+* 21 Dic 	AMAZON MX A MESES MANE 140618P37MX 	+$ 46.35
+  Gamegenic MPG GUNGNIR 110R WHITE... $3,166.53
+  https://www.amazon.com.mx/spr/returns/cart?_encoding=UTF8&orderId=701-7191623-6014607
+
+> # **[`wayab`](https://github.com/chux0519/wayab)**
+
+wayab(wayland animated background) allows user to set animated background on Linux(wayland).
+
+>>> cairo-glesv2-bin and cairo are in conflict. Remove cairo? [y/N]
+>>>
+>>
+
+Window 74b54a70 -> qBittorrent v4.5.0.10:
+at: 1187,67
+size: 2229,1350
+workspace: 5 (5)
+floating: 0
+monitor: 0
+class: org.qbittorrent.qBittorrent
+title: qBittorrent v4.5.0.10
+pid: 4465
+xwayland: 0
+pinned: 0
+fullscreen: 0
+fullscreenmode: 0
+fakefullscreen: 0
+grouped: 0
+
+Window 74cc4000 -> The.Mandalorian.S03E04.1080p.DSNP.WEBRip.DDP5.1.H.264-NTb[TGx]:
+at: 769,372
+size: 1901,695
+workspace: 2 (2)
+floating: 1
+monitor: 0
+class: org.qbittorrent.qBittorrent
+title: The.Mandalorian.S03E04.1080p.DSNP.WEBRip.DDP5.1.H.264-NTb[TGx]
+pid: 4465
+xwayland: 0
+pinned: 0
+fullscreen: 0
+fullscreenmode: 0
+fakefullscreen: 0
+grouped: 0
+swallowing: 0
+
+# evtest
+
+`yay -S evtest`
+
+To see the Wayland events generated when a key is pressed first, you'll need to determine the device node for your keyboard. You can do this by running the sudo `libinput list-devices` command and looking for your keyboard device in the list. Once you've identified the device node, you can use it with the evtest command.
+
+```
+sudo evtest /dev/input/event3
+```
+> # **[`bash tools`]()**
+
+* [ShellCheck](https://www.shellcheck.net/)
+  is a static analysis tool for shell scripts
+* [ChatGPT](https://chat.openai.com/chat) is a static analysis tool for shell scripts
+
+> # **[`keyboard tools`](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#on-screen-keyboards)**
+
+* [Binds WIKI for Hyprland:](https://wiki.hyprland.org/Configuring/Binds/)
+
+  * **Uncommon syms / binding with a keycode:** See the [xkbcommon-keysyms.h](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h) header for all the keysyms. ~~The name you should use is the one after XKB_KEY_, written in all lowercase, e.g.: `XKB_KEY_Caps_Lock` will become `caps_lock`~~
+
+    If you are unsure of what your key’s name is, you can use ~~`xev` or~~ `wev` to find that information.
+    ~~If you want to bind by a keycode, you can just input it in the KEY position with a code: prefix, e.g. for capslock: `bind=SUPER,code:66,exec,$test`~~
+  * You can **bind a mod alone** like this: `bindr=ALT,Alt_L,exec,$test`
+
+    Or for a scratchpad binded on SUPER: `bindr = $mainMod, $mainMod_L, togglespecialworkspace,`
+  * **Global Keybinds:**
+    Let’s take OBS as an example: the “Start/Stop Recording” keybind is set to SUPER + F10, and you want to make it work globally.
+    `bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$`
+  * **push-to-talk** will work flawlessly with one pass, e.g.:
+    `bind=,mouse:276,pass,^(TeamSpeak 3)$`
+    Will pass `MOUSE5` to TeamSpeak3 because "`pass`" will pass the PRESS and RELEASE events by itself, no need for a bindr.
+  *
+* [squeekboard](https://gitlab.gnome.org/World/Phosh/squeekboard) - On-screen Librem5 keyboard
+* [wvkbd](https://github.com/jjsullivan5196/wvkbd) - On-screen keyboard for wlroots that sucks less
+* [wshowkeys](https://sr.ht/~sircmpwn/wshowkeys/): Displays keypresses on screen on supported Wayland compositors
+
+```
+lojazwlr_layer_surface_v1@11: error 2: layer_surface has never been configured
+wl_display_dispatch: Protocol error
+```
+* [kmonad](https://github.com/kmonad/kmonad)
+
+KMonad is an advanced tool that lets you infinitely customize and extend the functionalities of almost any keyboard
+
+>>> https://www.reddit.com/r/hyprland/comments/11cdj3d/hide_waybar_and_show_only_with_mod_key/
+>>>
+>>
+
+* [𝑋𝑟𝑒𝑚𝑎𝑝](https://github.com/k0kubun/xremap)
+
+xremap is a key remapper for Linux. Unlike xmodmap, it supports app-specific remapping and Wayland.
+
+* [caps2esc](https://gitlab.com/interception/linux/plugins/caps2esc)
+
+transforming the most useless key ever in the most useful one
+By moving the CAPSLOCK function to the far ESC location
+
+> # **[`Locking`](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway#locking)**
+
+* [chayang](https://git.sr.ht/~emersion/chayang)
+  Gradually dim the screen. Can be used to implement a grace period before locking the session.
+
+> # **[`Avizo`](https://github.com/misterdanb/avizo)**
+>
+> ![.](https://raw.githubusercontent.com/misterdanb/avizo/master/github/screenshot.png)
+> a simple notification daemon, mainly intended to be used for multimedia keys
+
+- Hyprland config:
+
+```
+binde = , xf86audioraisevolume, exec, volumectl -u up
+binde = , xf86audiolowervolume, exec, volumectl -u down
+bind = , xf86audiomute, exec, volumectl toggle-mute
+```
+- Sway config (as guide only):
+
+```
+bindsym XF86AudioRaiseVolume exec volumectl -u up
+bindsym XF86AudioLowerVolume exec volumectl -u down
+bindsym XF86AudioMute exec volumectl toggle-mute
+bindsym XF86AudioMicMute exec volumectl -m toggle-mute
+
+bindsym XF86MonBrightnessUp exec lightctl up
+bindsym XF86MonBrightnessDown exec lightctl down
+
+exec "avizo-service"
+```
+> # **[`SwayOSD`](https://github.com/ErikReider/SwayOSD)**
+>
+> ![](https://user-images.githubusercontent.com/35975961/200685357-fb9697ae-a32d-4c60-a2ae-7791e70097b9.png)
+>
+>> A OSD window for common actions like volume and capslock.
+>>
+
+- Hyprland config:
+
+```
+binde= , xf86audioraisevolume, exec, swayosd --output-volume raise
+binde= , xf86audiolowervolume, exec, swayosd --output-volume lower
+bind= , xf86audiomute, exec, swayosd --output-volume mute-toggle
+bindr=ALT,Alt_L, exec, swayosd --caps-lock
+bind=KEY_CAPSLOCK,l, exec, $test
+```
+- Sway config (as guide only):
+
+```
+# OSD window
+exec swayosd
+
+# Sink volume raise
+bindsym XF86AudioRaiseVolume exec swayosd --output-volume raise
+# Sink volume lower
+bindsym XF86AudioLowerVolume exec  swayosd --output-volume lower
+# Sink volume toggle mute
+bindsym XF86AudioMute exec swayosd --output-volume mute-toggle
+# Source volume toggle mute
+bindsym XF86AudioMicMute exec swayosd --input-volume mute-toggle
+
+# Capslock
+bindsym --release Caps_Lock exec swayosd --caps-lock
+
+# Capslock but specific LED name (/sys/class/leds/)
+bindsym --release Caps_Lock exec swayosd --caps-lock-led input19::capslock
+
+# Brightness raise
+bindsym XF86MonBrightnessUp exec swayosd --brightness raise
+# Brightness lower
+bindsym XF86MonBrightnessDown exec swayosd --brightness lower
+```
+> # **[fnott](https://codeberg.org/dnkl/fnott)**
+
+Fnott is a keyboard driven and lightweight notification daemon for wlroots-based Wayland compositors.
+
+> ![lol](https://codeberg.org/dnkl/fnott/media/branch/master/screenshot.png)
+
+Notifications are automatically sized (with the possibility of limiting their max width and height):
+
+> ![lol](https://codeberg.org/dnkl/fnott/media/branch/master/screenshot-2.png)
+
+> ![lol](https://codeberg.org/dnkl/fnott/media/branch/master/screenshot-2.png)
+
+> # [cute-sway-recorder](https://github.com/it-is-wednesday/cute-sway-recorder) & **[`wf-recorder`](https://github.com/ammen99/wf-recorder)**
+
+> ![lol](https://github.com/it-is-wednesday/cute-sway-recorder/blob/master/screenshots/done.png?raw=true)
+
+`pip install cute-sway-recorder`
+
+>>> cute-sway-recorder
+>>>
+>>
+
+```
+╭─n30@n30 in ~ as 🧙 took 40s
+╰─λ cute-sway-recorder
+00:00:00.007 [swaymsg/main.c:491] Unable to retrieve socket path
+00:00:00.007 [swaymsg/main.c:491] Unable to retrieve socket path
+Traceback (most recent call last):
+File "/usr/bin/cute-sway-recorder", line 8, in <module>
+sys.exit(main())
+File "/home/n30/.local/lib/python3.10/site-packages/cute_sway_recorder/main.py", line 221, in main
+window = CuteRecorderQtApplication()
+File "/home/n30/.local/lib/python3.10/site-packages/cute_sway_recorder/main.py", line 74, in __init__
+self.config_area = ConfigArea(self)
+File "/home/n30/.local/lib/python3.10/site-packages/cute_sway_recorder/config_area.py", line 26, in __init__
+self.selection_box = SelectionGroup(window)
+File "/home/n30/.local/lib/python3.10/site-packages/cute_sway_recorder/group_selection.py", line 42, in __init__
+"Select screen" if len(available_screens()) > 1 else "Whole screen"
+File "/home/n30/.local/lib/python3.10/site-packages/cute_sway_recorder/common.py", line 17, in available_screens
+out = subprocess.check_output(["swaymsg", "-t", "get_outputs"], text=True)
+File "/usr/lib/python3.10/subprocess.py", line 421, in check_output
+return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+File "/usr/lib/python3.10/subprocess.py", line 526, in run
+raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['swaymsg', '-t', 'get_outputs']' returned non-zero exit status 1.
+```
+>>> pip install cute-sway-recorder
+>>>
+>>
+
+```
+╭─n30@n30 in ~ as 🧙 took 306ms
+[🔴] × pip install cute-sway-recorder
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: cute-sway-recorder in ./.local/lib/python3.10/site-packages (0.1.10)
+Requirement already satisfied: PySide6<7.0.0,>=6.0.0 in ./.local/lib/python3.10/site-packages (from cute-sway-recorder) (6.4.3)
+Requirement already satisfied: PySide6-Essentials==6.4.3 in ./.local/lib/python3.10/site-packages (from PySide6<7.0.0,>=6.0.0->cute-sway-recorder) (6.4.3)
+Requirement already satisfied: PySide6-Addons==6.4.3 in ./.local/lib/python3.10/site-packages (from PySide6<7.0.0,>=6.0.0->cute-sway-recorder) (6.4.3)
+Requirement already satisfied: shiboken6==6.4.3 in ./.local/lib/python3.10/site-packages (from PySide6<7.0.0,>=6.0.0->cute-sway-recorder) (6.4.3)
+```
+>>> **sudo** pip install cute-sway-recorder
+>>>
+>>
+
+```
+╭─n30@n30 in ~ as 🧙 took 459ms
+[🔍] × sudo pip install cute-sway-recorder
+Collecting cute-sway-recorder
+Downloading cute_sway_recorder-0.1.10-py3-none-any.whl (9.2 kB)
+Collecting PySide6<7.0.0,>=6.0.0
+Downloading PySide6-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (6.7 kB)
+Collecting PySide6-Essentials==6.4.3
+Downloading PySide6_Essentials-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (84.5 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 MB 4.1 MB/s eta 0:00:00
+Collecting PySide6-Addons==6.4.3
+Downloading PySide6_Addons-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (122.5 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 122.5/122.5 MB 6.4 MB/s eta 0:00:00
+Collecting shiboken6==6.4.3
+Downloading shiboken6-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (171 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 171.6/171.6 kB 6.6 MB/s eta 0:00:00
+Installing collected packages: shiboken6, PySide6-Essentials, PySide6-Addons, PySide6, cute-sway-recorder
+Successfully installed PySide6-6.4.3 PySide6-Addons-6.4.3 PySide6-Essentials-6.4.3 cute-sway-recorder-0.1.10 shiboken6-6.4.3
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+```
+>>> `pip install cute-sway-recorder` (first attempt)
+>>>
+>>
+
+```
+╭─n30@n30 in ~ as 🧙 took 83ms
+[🔴] × pip install cute-sway-recorder
+Defaulting to user installation because normal site-packages is not writeable
+Collecting cute-sway-recorder
+Downloading cute_sway_recorder-0.1.10-py3-none-any.whl (9.2 kB)
+Collecting PySide6<7.0.0,>=6.0.0
+Downloading PySide6-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (6.7 kB)
+Collecting PySide6-Essentials==6.4.3
+Downloading PySide6_Essentials-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (84.5 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 MB 2.9 MB/s eta 0:00:00
+Collecting PySide6-Addons==6.4.3
+Downloading PySide6_Addons-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (122.5 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 122.5/122.5 MB 6.3 MB/s eta 0:00:00
+Collecting shiboken6==6.4.3
+Downloading shiboken6-6.4.3-cp37-abi3-manylinux_2_28_x86_64.whl (171 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 171.6/171.6 kB 8.1 MB/s eta 0:00:00
+Installing collected packages: shiboken6, PySide6-Essentials, PySide6-Addons, PySide6, cute-sway-recorder
+WARNING: The scripts pyside6-assistant, pyside6-deploy, pyside6-designer, pyside6-genpyi, pyside6-linguist, pyside6-lrelease, pyside6-lupdate, pyside6-metaobjectdump, pyside6-project, pyside6-qml, pyside6-qmlformat, pyside6-qmlimportscanner, pyside6-qmllint, pyside6-qmlls, pyside6-qmltyperegistrar, pyside6-qtpy2cpp, pyside6-rcc and pyside6-uic are installed in '/home/n30/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+WARNING: The script cute-sway-recorder is installed in '/home/n30/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed PySide6-6.4.3 PySide6-Addons-6.4.3 PySide6-Essentials-6.4.3 cute-sway-recorder-0.1.10 shiboken6-6.4.3
+```
+> # **[`green-recorder`](https://github.com/dvershinin/green-recorder)**
+>
+> `yaourt -S green-recorder-git`
+
+```
+╭─n30@n30 in ~ as 🧙 took 8s
+╰─λ green-recorder
+You are recording on: wayland
+Traceback (most recent call last):
+File "/usr/bin/green-recorder", line 33, in <module>
+sys.exit(load_entry_point('green-recorder==3.2.10', 'gui_scripts', 'green-recorder')())
+File "/usr/bin/green-recorder", line 25, in importlib_load_entry_point
+return next(matches).load()
+File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+module = import_module(match.group('module'))
+File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+return _bootstrap._gcd_import(name[level:], package, level)
+File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+File "/usr/lib/python3.10/site-packages/recorder/__init__.py", line 1, in <module>
+from .recorder import main
+File "/usr/lib/python3.10/site-packages/recorder/recorder.py", line 112, in <module>
+GNOMEScreencast = bus.get('org.gnome.Shell.Screencast', '/org/gnome/Shell/Screencast')
+File "/usr/lib/python3.10/site-packages/pydbus/proxy.py", line 44, in get
+ret = self.con.call_sync(
+gi.repository.GLib.GError: g-dbus-error-quark: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.Shell.Screencast was not provided by any .service files (2)
+```
+> # **[kooha](https://flathub.org/apps/details/io.github.seadve.Kooha)**
+
+a simple screen recorder with a minimalist interface.[Gnome and software encoding only tho.](https://www.reddit.com/r/kde/comments/z1sy6a/any_working_screen_recorder_for_plasma_wayland/)
+
+> `yay -s kooha`
+
+> # **[wf-recorder](https://github.com/ammen99/wf-recorder)**
+wf-recorder is a utility program for screen recording of wlroots-based compositors 
+pacman -S wf-recorder
+
+
+> # **[nwg-displays](https://github.com/nwg-piotr/nwg-displays)**
+Output management utility for sway Wayland compositor, inspired by wdisplays and wlay.This application is a part of the [nwg-shell project](https://nwg-piotr.github.io/nwg-shell/).
+
+```
+WARNING: Couldn't find sway config directory '/home/n30/.config/sway'
+Settings: {'view-scale': 0.15, 'snap-threshold': 10, 'indicator-timeout': 500, 'custom-mode': []}
+Running on Hyprland
+wlr-randr package required, but not found, terminating.
+```
+
+`yay -S wlr-randr`
+
+:: Importing keys with gpg...
+gpg: keyserver receive failed: Server indicated a failure
+-> problem importing keys
+
+
+# [ChatGPT & REDDIT]()
+
+- ## [Right mouse click to invoke wofi menu](https://www.reddit.com/r/swaywm/comments/123pbft/right_mouse_click_to_invoke_wofi_menu/)
+
+`bindsym button3 exec wofi`
+
+I'm on Hyprland atm so I can't check it for but you can [check this wiki](https://i3wm.org/docs/userguide.html#mousebindings) for more info.
+
+I'm on Hyprland and this does the trick on the conf:
+`bind=,mouse:273,exec,yourcommand`
+
+- ## Unable to retrieve socket path
+
+```
+systemctl --user status xdg-desktop-portal-hyprland xdg-desktop-portal
+00:00:00.007 [swaymsg/main.c:491] Unable to retrieve socket path
+```
+- ## [How to jump to a desktop if the app is already running and start it otherwise?](https://www.reddit.com/r/hyprland/comments/11cmlwz/how_to_jump_to_a_desktop_if_the_app_is_already/)
+
+```
+#!/bin/sh
+hyprctl clients | grep class:.foot && \
+echo hyprctl keyword workspace $( hyprctl clients |grep class..foot -B4 && wlrctl window focus foot )
+|| foot -L
+```
+- ## [Force apps to use Wayland](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland)
+
+A lot of apps will use Wayland by default. Chromium (and other browsers based on it or electron) don’t. You need to pass `--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use `.conf` files where possible. Chromium-based browsers also should have a toggle in `chrome://flags`. Search for “ozone” and select Wayland.
+
+For most electron apps, you should put the above in `~/.config/electron-flags.conf`. VSCode is known to not work with that though.
+
+A few more environment variables for forcing Wayland mode are documented here.You can check whether an app is running in xwayland or not with `hyprctl clients`.
+
+- ## [Certain apps look blurry](https://www.reddit.com/r/hyprland/comments/122tg7x/certain_apps_look_blurry/)
+
+Xwayland + scaling = issues because x11 cannot do fractional scaling.obsidian can be forced to use wayland
+
+Edit the file `/usr/share/applications/obsidian.conf` and append the exec part with this flag:
+`--enable-features=UseOzonePlatform --ozone-platform=wayland`
+
+- ## hyprland dpms terminal command for turning off display 3
+
+To turn off a specific display connected to your Hyperland system using the DPMS (Display Power Management System), you can use the xset command.
+
+First, you need to identify the name of the display you want to turn off. You can do this by running the `xrandr` command without any arguments, which will display a list of all connected displays and their current status.
+
+Once you have identified the name of the display you want to turn off, you can use the following command to turn it off using DPMS:
+
+xset dpms force off && sleep 1 && xrandr --output DP-3 --off
+
+This command will turn off the specified display using DPMS, which puts the display into a low-power state, and then turns off the display using xrandr.
+
+Note that turning off a display using DPMS does not shut down your computer or terminate your terminal session. It only turns off the display. To turn the display back on, you can use the same xrandr command with the --auto option, or press a key or move the mouse.
+
+* 😇
+
+  `( flameshot &; ) && ( sleep 0.5s && flameshot gui )`
+
+> # **[`chezmoi`](https://www.chezmoi.io/)**
+
+Manage your dotfiles across multiple diverse machines, securely.
+
+> `yay -s chezmoi`
+> 
+> `git config --global user.email shokytox@gmail.com`
+> 
+> `git config --global user.name "neomikr0n"`
+
+## [Start using chezmoi on your current machine](https://www.chezmoi.io/quick-start/#start-using-chezmoi-on-your-current-machine)
+
+```
+chezmoi init
+```
+This will create a new git local repository in `~/.local/share/chezmoi` where chezmoi will store its source state. By default, chezmoi only modifies files in the working copy.
+
+Manage your first file with chezmoi:
+
+```
+chezmoi add ~/.bashrc
+chezmoi add ~/Documents/deleteme.md
+
+```
+This will copy `~/.bashrc` to `~/.local/share/chezmoi/dot_bashrc`.
+
+Edit the source state:
+
+```
+chezmoi edit ~/Documents/deleteme.md
+chezmoi edit ~/.bashrc
+chezmoi edit ~/.config/swaync/config.json
+
+```
+This will open `~/.local/share/chezmoi/dot_bashrc` in your `$EDITOR`. Make some changes and save the file.
+
+See what changes chezmoi would make:
+
+```
+chezmoi diff
+```
+Apply the changes:
+
+```
+chezmoi -v apply
+```
+All chezmoi commands accept the -v (verbose) flag to print out exactly what changes they will make to the file system, and the -n (dry run) flag to not make any actual changes. The combination -n -v is very useful if you want to see exactly what changes would be made.
+
+<!-- "shokytox@gmail.com" -->
+
+<!-- neomikr0n@github.com -->
+
+Next, open a shell in the source directory, to commit your changes:
+
+```
+chezmoi cd
+git add .
+git commit -m "Initial commit"
+```
+## Create a new repository on GitHub called dotfiles and then push your repo:
+
+```
+git remote add origin https://github.com/neomikr0n/dotfiles.git
+git branch -M main
+git push -u origin main
+```
+[GitHub Error: Authentication Failed from the Command Line](https://ginnyfahs.medium.com/github-error-authentication-failed-from-command-line-3a545bfd0ca8)
+
+
+neomikr0n
+Tower19861999_github
+
+1. Go to Settings >> Developer Settings >> Personal access tokens >> [Tokens](https://github.com/settings/tokens) (classic)
+2. Generate a new Personal Access Token (also classic). Make sure you copy the Personal Access Token as soon as it gets generated — you won’t be able to see it again!
+3. Paste the Personal Access Token into the “Password” field when you authenticate via the command line.
+```
+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
+```
+4. 
+
+<!-- git push -f origin main -->
+git config pull.rebase true
+git config credential.interactive false
+
+git pull -f origin main
+
+chezmoi init --apply --verbose https://github.com/neomikr0n/dotfiles.git
+
+ # **[terminal tools]()**
+
+- ## [ag](https://github.com/jarcode-foss/glava): The Silver Searcher
+  A code searching tool similar to ack, with a focus on speed.
+
+  pacman -S the_silver_searcher
+
+```
+Usage: ag [FILE-TYPE] [OPTIONS] PATTERN [PATH]
+
+Recursively search for PATTERN in PATH.
+Like grep or ack, but faster.
+
+Example:
+ag -i foo /bar/
+
+Output Options:
+--ackmate            Print results in AckMate-parseable format
+-A --after [LINES]      Print lines after match (Default: 2)
+-B --before [LINES]     Print lines before match (Default: 2)
+--[no]break          Print newlines between matches in different files
+(Enabled by default)
+-c --count              Only print the number of matches in each file.
+(This often differs from the number of matching lines)
+--[no]color          Print color codes in results (Enabled by default)
+--color-line-number  Color codes for line numbers (Default: 1;33)
+--color-match        Color codes for result match numbers (Default: 30;43)
+--color-path         Color codes for path names (Default: 1;32)
+--column             Print column numbers in results
+--[no]filename       Print file names (Enabled unless searching a single file)
+-H --[no]heading        Print file names before each file's matches
+(Enabled by default)
+-C --context [LINES]    Print lines before and after matches (Default: 2)
+--[no]group          Same as --[no]break --[no]heading
+-g --filename-pattern PATTERN
+Print filenames matching PATTERN
+-l --files-with-matches Only print filenames that contain matches
+(don't print the matching lines)
+-L --files-without-matches
+Only print filenames that don't contain matches
+--print-all-files    Print headings for all files searched, even those that
+don't contain matches
+--[no]numbers        Print line numbers. Default is to omit line numbers
+when searching streams
+-o --only-matching      Prints only the matching part of the lines
+--print-long-lines   Print matches on very long lines (Default: >2k characters)
+--passthrough        When searching a stream, print all lines even if they
+don't match
+--silent             Suppress all log messages, including errors
+--stats              Print stats (files scanned, time taken, etc.)
+--stats-only         Print stats and nothing else.
+(Same as --count when searching a single file)
+--vimgrep            Print results like vim's :vimgrep /pattern/g would
+(it reports every match on the line)
+-0 --null --print0      Separate filenames with null (for 'xargs -0')
+
+Search Options:
+-a --all-types          Search all files (doesn't include hidden files
+or patterns from ignore files)
+-D --debug              Ridiculous debugging (probably not useful)
+--depth NUM          Search up to NUM directories deep (Default: 25)
+-f --follow             Follow symlinks
+-F --fixed-strings      Alias for --literal for compatibility with grep
+-G --file-search-regex  PATTERN Limit search to filenames matching PATTERN
+--hidden             Search hidden files (obeys .*ignore files)
+-i --ignore-case        Match case insensitively
+--ignore PATTERN     Ignore files/directories matching PATTERN
+(literal file/directory names also allowed)
+--ignore-dir NAME    Alias for --ignore for compatibility with ack.
+-m --max-count NUM      Skip the rest of a file after NUM matches (Default: 10,000)
+--one-device         Don't follow links to other devices.
+-p --path-to-ignore STRING
+Use .ignore file at STRING
+-Q --literal            Don't parse PATTERN as a regular expression
+-s --case-sensitive     Match case sensitively
+-S --smart-case         Match case insensitively unless PATTERN contains
+uppercase characters (Enabled by default)
+--search-binary      Search binary files for matches
+-t --all-text           Search all text files (doesn't include hidden files)
+-u --unrestricted       Search all files (ignore .ignore, .gitignore, etc.;
+searches binary and hidden files as well)
+-U --skip-vcs-ignores   Ignore VCS ignore files
+(.gitignore, .hgignore; still obey .ignore)
+-v --invert-match
+-w --word-regexp        Only match whole words
+-W --width NUM          Truncate match lines after NUM characters
+-z --search-zip         Search contents of compressed (e.g., gzip) files
+
+File Types:
+The search can be restricted to certain types of files. Example:
+ag --html needle
+- Searches for 'needle' in files with suffix .htm, .html, .shtml or .xhtml.
+
+For a list of supported file types run:
+ag --list-file-types
+
+ag was originally created by Geoff Greer. More information (and the latest release)
+can be found at http://geoff.greer.fm/ag
+```
+
+- ## [glava](https://github.com/jarcode-foss/glava): 
+  a general-purpose, highly configurable OpenGL audio spectrum visualizer 
+
+- ## [showmethekey](https://github.com/AlynxZhou/showmethekey): 
+Show keys you typed on screen. A screenkey alternative that works under Wayland via libinput.
+
+- ## [tldr](https://github.com/tldr-pages/tldr): 
+  collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional man pages.
+
+  ```
+  yay -S tldr
+  yay -S tealdeer     # alternative writen in rust
+  tldr --update
+  ```
+- ## [gifgen](https://github.com/lukechilds/gifgen)
+
+  ```
+  Usage: gifgen [options] [input]
+
+  Options:
+  -o   Output file [input.gif]
+  -f   Frames per second [10]
+  -s   Optimize for static background
+  -v   Display verbose output from ffmpeg
+  -w   Scale output with horizontal resolution
+  -b   Begin the clip at a given timestamp (in seconds)
+  -d   Duration in seconds of the resulting gif, can be combined with at
+
+  Examples:
+  $ gifgen video.mp4
+  $ gifgen -o demo.gif SCM_1457.mp4
+  $ gifgen -sf 15 screencap.mov
+  $ gifgen -sf 15 -w 320 screencap.mov
+
+  Begin at 3.5 seconds into the video, make the gif using the next 5.5 seconds
+  $ gifgen -b 3.5 -d 5.5 screencap.mov
+  ```
+- ## [thefuck](https://github.com/nvbn/thefuck):
+  corrects errors in previous console commands.
+
+  To enable instant mode, add --enable-experimental-instant-mode to the alias initialization in .bashrc, .bash_profile or .zshrc.
+
+  For example:
+
+  eval $(thefuck --alias --enable-experimental-instant-mode)
+
+- ## [lf](https://github.com/gokcehan/lf):
+  (as in "list files") is a terminal file manager written in Go with a heavy inspiration from ranger file manager.
+
+  - ## [backgroundremover](https://github.com/nadermx/backgroundremover): The Silver Searcher
+    
+    pip install --upgrade pip
+    pip install backgroundremover
+    
+    backgroundremover -i "/path/to/image.jpeg" -o "output.png"
+    backgroundremover -i "/path/to/video.mp4" -tv -o "output.mov"
+
+    ffmpeg -i /home/n30/Pictures/welita-sandia.MOV -vcodec h264 -acodec mp2 /home/n30/Pictures/welita-sandia.mp4
+
+### Usage as a cli
+Remove the background from a local file image
+backgroundremover -i "/path/to/image.jpeg" -o "output.png"
+
+### Advance usage for image background removal
+Sometimes it is possible to achieve better results by turning on alpha matting. Example:
+backgroundremover -i "/path/to/image.jpeg" -a -ae 15 -o "output.png"
+
+change the model for diferent background removal methods between u2netp, u2net, or u2net_human_seg
+backgroundremover -i "/path/to/image.jpeg" -m "u2net_human_seg" -o "output.png"
+
+### Video
+remove background from video and make transparent mov
+backgroundremover -i "/path/to/video.mp4" -tv -o "output.mov"
+
+remove background from local video and overlay it over other video
+backgroundremover -i "/path/to/video.mp4" -tov "/path/to/videtobeoverlayed.mp4" -o "output.mov"
+
+remove background from local video and overlay it over an image
+backgroundremover -i "/path/to/video.mp4" -toi "/path/to/videtobeoverlayed.mp4" -o "output.mov"
+
+remove background from video and make transparent gif
+backgroundremover -i "/path/to/video.mp4" -tg -o "output.gif"
+
+Make matte key file (green screen overlay)
+Make a matte file for premier
+backgroundremover -i "/path/to/video.mp4" -mk -o "output.matte.mp4"
+
+### Advance usage for video
+Change the framerate of the video (default is set to 30)
+backgroundremover -i "/path/to/video.mp4" -fr 30 -tv -o "output.mov"
+
+Set total number of frames of the video (default is set to -1, ie the remove background from full video)
+backgroundremover -i "/path/to/video.mp4" -fl 150 -tv -o "output.mov"
+
+Change the gpu batch size of the video (default is set to 1)
+backgroundremover -i "/path/to/video.mp4" -gb 4 -tv -o "output.mov"
+
+Change the number of workers working on video (default is set to 1)
+backgroundremover -i "/path/to/video.mp4" -wn 4 -tv -o "output.mov"
+
+change the model for diferent background removal methods between u2netp, u2net, or u2net_human_seg and limit the frames to 150
+backgroundremover -i "/path/to/video.mp4" -m "u2net_human_seg" -fl 150 -tv -o "output.mov"
+
+
+  
+  ### [Preview Images ](https://github.com/gokcehan/lf/wiki/Previews#with-kitty-and-pistol)With Kitty and Pistol
+
+  The following setup will use kitty to display images, and fall back to pistol for everything else. This also works with the wezterm or Konsole terminal.
+
+  As usual, we'll specify a previewer and a cleaner in `~/.config/lf/lfrc`:
+  ```
+  set previewer ~/.config/lf/lf_kitty_preview
+  set cleaner ~/.config/lf/lf_kitty_clean
+  ```
+
+  The cleaner script is ~/.config/lf/lf_kitty_clean:
+  ```
+  #!/usr/bin/env bash
+
+  kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
+  ```
+  And the previewer is at ~/.config/lf/lf_kitty_preview:
+  ```
+  #!/usr/bin/env bash
+  file=$1
+  w=$2
+  h=$3
+  x=$4
+  y=$5
+
+  if [[ "$( file -Lb --mime-type "$file")" =~ ^image ]]; then
+      kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+      exit 1
+  fi
+
+  pistol "$file"
+  ```
+  Don't forget to mark the files as executable: `chmod +x ~/.config/lf/lf_kitty_{clean,preview}`
+
+  As with the setups above, you can integrate ffmpegthumbnailer into the previewer to it to support videos. The following modification, for example, uses the vidthumb script:
+  ```
+  #!/usr/bin/env bash
+  file=$1
+  w=$2
+  h=$3
+  x=$4
+  y=$5
+
+  filetype="$( file -Lb --mime-type "$file")"
+
+  if [[ "$filetype" =~ ^image ]]; then
+      kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+      exit 1
+  fi
+
+  if [[ "$filetype" =~ ^video ]]; then
+      # vidthumb is from here:
+      # https://raw.githubusercontent.com/duganchen/kitty-pistol-previewer/main/vidthumb
+      kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$(vidthumb "$file")" < /dev/null > /dev/tty
+      exit 1
+  fi
+
+  pistol "$file"
+  ```
+
+- ## [xplr](hhttps://github.com/sayanarijit/xplr):
+  xplr is a terminal UI based file explorer that aims to increase our terminal productivity
+
+- ## [spotify-tui](https://github.com/Rigellute/spotify-tui):
+  A Spotify client for the terminal written in Rust.
+
+  `yay -S spotify-tui`
+  spotify-tui needs to connect to Spotify’s API in order to find music by name, play tracks etc.
+
+
+    ### How to get setup:
+
+  1.    Go to the [Spotify dashboard](https://developer.spotify.com/dashboard/applications).
+  2.    Click Create an app
+  3.    You now can see your Client ID and Client Secret
+  4.    Now click Edit Settings
+  5.    Add `http://localhost:8888/callback` to the Redirect URIs
+  6.    Scroll down and click Save
+  7.    You are now ready to authenticate with Spotify!
+  8.    Go back to the terminal
+  9.    Run `spt`
+  10.   Enter your Client ID: `94809121fc5647909a211fd9da683186`
+  11.   Enter your Client Secret: `d995704ae27a40fbb07950cd17587b24`
+  12.   Press enter to confirm the default port (8888) or enter a custom port
+      You will be redirected to an official Spotify webpage to ask you for permissions.
+      After accepting the permissions, you'll be redirected to localhost. If all goes well, the redirect URL will be parsed automatically and now you're done. If the local webserver fails for some reason you'll be redirected to a blank webpage that might say something like "Connection Refused" since no server is running. Regardless, copy the URL and paste into the prompt in the terminal.
+      And now you are ready to use the spotify-tui tada
+
+      You can edit the config at anytime at ${HOME}/.config/spotify-tui/client.yml. ~~(for snap ${HOME}/snap/spt/current/.config/spotify-tui/client.yml)~~
+
+- ## [ranger](https://github.com/ranger/ranger):
+  Console file manager with VI key bindings.
+  More information:
+- ## [edexUI](https://github.com/GitSquared/edex-ui/blob/master/README.md)
+
+- ## [timer](https://github.com/pando85/timer)
+
+  ```
+  curl -s https://api.github.com/repos/pando85/timer/releases/latest \
+    | grep browser_download_url \
+    | grep $(uname -m) \
+    | grep linux \
+    | cut -d '"' -f 4 \
+    | xargs curl -L \
+    | tar xvz
+  sudo mv timer /usr/local/bin
+  ```
+
+ - ## [lolcat](https://github.com/busyloop/lolcat)
+timer -l 98 | lolcat -a -d 1 -s 999 -t
+
+# **[SDDM]()**
+
+## [How to start it](https://bbs.archlinux.org/viewtopic.php?id=214709):
+You need to start sddm as systemd service, not by running 'sddm' command.
+First, you need to enable sddm.service and restart Arch Linux.
+```
+systemctl enable sddm
+systemctl reboot
+```
+By enabling the 'sddm.service', sddm login greeter will always be shown.
+
+
+## [Autologin](https://wiki.archlinux.org/title/SDDM)
+
+SDDM supports automatic login through its configuration file, for example:
+
+`nano /etc/sddm.conf.d/autologin.conf`
+```
+[Autologin]
+User=n30
+Session=hyprland
+```
+Available session types can be found in /usr/share/xsessions/ for X and in /usr/share/wayland-sessions/ for Wayland.
+
+
+## [xsettingsd](https://github.com/derat/xsettingsd)
+xsettingsd is a daemon that implements the XSETTINGS specification.
+
+Some GTK applications running via XWayland, and some Java applications, need an XSettings daemon running in order to pick up the themes and font settings.
+
+One implementation [ON SWAY](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland) is xsettingsd.
+
+
+screenshot: 621*413
+
+gifgen -o /home/n30/Videos/Kooha/lol.gif /home/n30/Videos/Kooha/Kooha-2023-04-03-21-11-31.mp4
+
+Window d8385420 -> GLava:
+at: 21,-5
+size: 3403,61
+workspace: 2 (2)
+floating: 1
+monitor: 0
+class: GLava
+title: GLava
+pid: 25711
+xwayland: 1
+pinned: 0
+fullscreen: 0
+fullscreenmode: 0
+fakefullscreen: 0
+grouped: 0
+swallowing: 0
+
+Window d7fa0f90 -> cava:
+at: -7,-61
+size: 3464,110
+workspace: 2 (2)
+floating: 1
+monitor: 0
+class: kitty
+title: cava
+pid: 1113351
+xwayland: 0
+pinned: 0
+fullscreen: 0
+fullscreenmode: 0
+fakefullscreen: 0
+grouped: 0
+swallowing: 0
+
+gamescope /run/media/n30/nvme_chivos/Heroic/DyingLight/DyingLightGame.exe -AUTH_LOGIN=unused -AUTH_PASSWORD=6937¢84ba5be428898 1922124645bc12 -AUTH_TYPE=exchangecode -epicapp=04a54ed532ce4fbfbfsfd5833f60defd -epicenv=Prod -EpicPortal -epicusername=n30mikron -epicuserid=0e442¢779fd94a688e0ba07fef2b459b -epiclocale=en -epicsandboxid=2¢42520d342a46d7a6e0cfa77b4715de
+
+gamescope -w 3440 -h 1440 -f -r 144 -- heroic
+
+"dying light" communication problem with epic online services occurred
+----------------------------------
+
+For the league start on acts, alerdy tested too, the Explosive trap + Frost Blink + Heralds still fine. On lvl 32(act 3) swap the Explosive Trap with Eye of Winter + Inspiration + Cold Pen and in the end of act 4 link with Unleash.
+
+For wands, Now we need to craft the prefixes at Craft Bench and the recipes for added elemental damage to spells can be found on:
+
+The Solaris Temple Level 2 (act 3): Adds (12-16) to (23-27) Fire Damage to Spells;
+
+The Crystal Veins (act 4): Adds (10-13) to (19-22) Cold Damage to Spells;
+
+The Causeway (act 7): Adds (17-23) to (34-40) Cold Damage to Spells.
+
+It's all you need to reach A10 kitava under 6 hours and do some Heists at lvl 50-65!
+
+The character atest_III on my profile still working fine just need minor ajusts.
+
+
+
+10 aur/durian 0.6.0-2 (+0 0.00) (Orphaned)
+An open source fan-made tool for easier search of Path of Exile items.
+9 aur/oshabi-bin 0.0.28-1 (+0 0.00)
+A scanner for Path of Exile harvest horticrafting stations and sacred grove.
+8 aur/acquisition-git 0.8b.r6.gbea4121-2 (+1 0.00)
+Inventory management tool for Path of Exile.
+7 aur/exilence-next-git 1.1.7.r38.g91d273e6-1 (+4 0.27)
+Desktop application that helps you summarize your wealth in Path of Exile
+6 aur/poe-overlay-community-bin 0.8.12-1 (+3 0.00) (Orphaned)
+An overlay for Path of Exile. Built with Electron and Angular.
+5 aur/acquisition 0.8b-1 (+5 0.00)
+Inventory management tool for Path of Exile.
+4 aur/awakened-poe-trade-git 3.17.10005.r0.gda02a7d-1 (+7 0.22)
+Path of Exile trading app for price checking
+3 aur/path-of-building-git 1.4.170.r1028.37.479-4 (+1 0.00)
+An offline build planner for Path of Exile using PoBFrontent
+2 aur/path-of-building-community-git 2.23.0.r6564.60.517-2 (+22 0.99)
+An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fork
+1 chaotic-aur/path-of-building-community-git 2.26.3.r6914.60.517-1 (106.1 MiB 185.2 MiB)
+An offline build planner for Path of Exile using PoBFrontend, LocalIdentity's fork
+
+
+Item Class: Boots
+Rarity: Rare
+Entropy Spur
+Assassin's Boots
+--------
+Quality: +5% (augmented)
+Evasion Rating: 131 (augmented)
+Energy Shield: 27 (augmented)
+--------
+Requirements:
+Level: 63
+Dex: 50 (augmented)
+Int: 50 (augmented)
+--------
+Sockets: G-R B 
+--------
+Item Level: 73
+--------
+18% reduced Attribute Requirements
+Regenerate 60 Life per second
++39 to maximum Mana
+22% increased Stun and Block Recovery
+
+
+Item Class: Boots
+Rarity: Rare
+Entropy Spur
+Assassin's Boots
+--------
+Quality: +5% (augmented)
+Evasion Rating: 131 (augmented)
+Energy Shield: 27 (augmented)
+--------
+Requirements:
+Level: 63
+Dex: 50 (augmented)
+Int: 50 (augmented)
+--------
+Sockets: G-R B 
+--------
+Item Level: 73
+--------
+{ Prefix Modifier "Cerulean" (Tier: 8) — Mana }
++39(35-39) to maximum Mana
+{ Suffix Modifier "of Steel Skin" (Tier: 3) }
+22(20-22)% increased Stun and Block Recovery
+{ Suffix Modifier "of the Worthy" (Tier: 2) }
+18% reduced Attribute Requirements
+(Attributes are Strength, Dexterity, and Intelligence)
+{ Suffix Modifier "of Ryslatha" (Tier: 2) — Life }
+Regenerate 60(48.1-64) Life per second
+
+# settings for spotify-session.sh on hyprland.conf 2023-03:
+
+```
+windowrulev2 = float, title:^(spotify-kitty)$
+windowrule=move 11 1156,title:^(spotify-kitty)$
+windowrule=size 2487 276,title:^(spotify-kitty)$
+windowrule=move 367 -64,title:^(Timer Settings — KTimer)$
+windowrule=size 472 254,title:^(Timer Settings — KTimer)$
+windowrulev2 =pin, title:^(Timer Settings — KTimer)$
+windowrule=move -25 -68,title:^(screenshot_garuda_2023-02-08-18-58-26_11824.png)$
+windowrule=size 22% 33%,title:^(screenshot_garuda_2023-02-08-18-58-26_11824.png)$
+windowrulev2 = float, title:^(Spotify)$
+windowrule=move 1320 420,title:^(Spotify)$
+windowrule=size 800 600,title:^(Spotify)$
+# windowrule=move 16 70,title:^(Image Viewer)$
+```

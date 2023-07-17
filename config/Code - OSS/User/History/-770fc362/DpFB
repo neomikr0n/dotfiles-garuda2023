@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+
+killall -q swaync  & sleep 0.5 
+if [[ ! $(pidof waybar) ]]; then
+  waybar --log-level error -c ${CONFIG} -s ${STYLE}
+fi
+
+if [[ ! $(pidof swaync) ]]; then
+  swaync
+fi
+
+
+
+
+
+
+# NOTIFICATIONS (mako)
+# CONFIG="$HOME/.config/mako/config"
+
+# if [[ ! $(pidof mako) ]]; then
+#   mako -c ${CONFIG}
+# fi

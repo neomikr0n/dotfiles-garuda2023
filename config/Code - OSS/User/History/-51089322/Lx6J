@@ -1,0 +1,31 @@
+# ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░ # this goes in /etc/environment
+# ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░ # specifically for hyprland/amd tho!!
+# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░ # shouldn't be used for x11, gnome,etc.
+
+# ENVIRONMENT VARIABLES
+# loaded variables can be checked with these command:
+env | grep -iE '(desktop|kde|gnome|xfce|lxde|gtk|QT_|cursor|xdg_|GDK_BACKEND|QT_|SDL_VIDEODRIVER|_JAVA_AWT|CLUTTER_BACKEND)'
+
+# XDG Specifications
+# XDG specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
+XDG_CURRENT_DESKTOP=Hyprland
+XDG_SESSION_TYPE=wayland
+XDG_SESSION_DESKTOP=Hyprland
+
+# QT Variables
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+QT_QPA_PLATFORM="wayland;xcb"
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+QT_QPA_PLATFORMTHEME=qt5ct
+
+# Theming Related Variables
+XCURSOR_SIZE=32
+
+# for flameshot:
+SDL_VIDEODRIVER=wayland
+_JAVA_AWT_WM_NONREPARENTING=1
+
+#adendum, clean dots tho
+# https://github.com/nosvagor/dotfiles/blob/main/bin/hyprwrap
+GDK_BACKEND="wayland,x11"
+CLUTTER_BACKEND=wayland

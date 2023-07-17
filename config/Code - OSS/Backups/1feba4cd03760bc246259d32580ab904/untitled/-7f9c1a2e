@@ -1,0 +1,242 @@
+untitled:Untitled-1 {"typeId":""}
+Ivon's tribal grid
+https://github.com/casualsnek/waydroid_script
+
+🇺🇸 English websiteHomeclassificationlabelDynamic wallArchiveAbout Ivon
+￼
+Waydroid teaching: running Android APP on Arch Linux computer
+ 2023.6.6  Linux system/Virtual machine and container technology ✍ Switch body/Simplified text
+table of Contents
+0. Waydroid features
+1. Set display card and Linux core
+1.1. Switch to Wayland
+1.2. Install the binder core module
+2. Install Waydroid
+3. Register Waydroid as a Google device
+4. Install ARM translator libhoudini
+5. Waydroid related instructions
+6. Doubt miscellaneous disease about Waydroid
+6.1. Solve the problem of Nivida display card
+6.2. How to start Waydroid in X11 environment
+6.3. Don't want Waydroid APP icon to appear on the desktop
+6.4. Waydroid APP cannot write to internal storage space
+References
+Waydroid is an LXC Android container developed by Anbox with Halium technology, which can perform Android APP on GNU/Linux systems.￼
+
+Operating system: Arch Linux
+Linux core version: 6.3.2
+Waydroid image file version: LineageOS 18 (Android 11)
+CPU: Intel I5-7400
+GPU: Intel UHD 630
+
+## 0. Waydroid features
+The following are the featured features of Waydroid：
+
+Linux platform free and open source Android container solution
+Device supporting x86 and ARM architecture
+Share scrapbook with host
+Use the computer to display the hard body acceleration directly, run 3D games, and watch the movie without any problem.
+Built-in GAPPS, you can use Google Play
+Support to install ARM translators for x86 devices
+Support installation of Widevine DRM module
+Support Magisk
+
+## 1. Set display card and Linux core
+1.1. Switch to Wayland
+Waydroid must use the Wayland display agreement to use this directive to check whether the current working stage is Wayland：
+
+1
+echo $XDG_SESSION_TYPE
+If X11 is not Wayland. GNOME and KDE can switch to Wayland working stage on the incoming screen.
+
+If you want to use Waydroid during the X11 working phase, please installWeston，Refer to the end of the text.
+
+1.2. Install the binder core module
+Waydroid requires Linux core support binder core module, but Arch Linux presetlinuxThe core does not turn on this option, so it needs to be installed from AURbinder_linux-dkmsTonic.
+
+1
+yay -S binder_linux-dkms
+Load binder core module after installation
+
+1
+sudo modprobe binder_linux
+Set the turn-on automatic load into the core module
+
+1
+2
+su
+echo "binder_linux" >> /etc/modules-load.d/binder.conf
+2. Install Waydroid
+Install Waydroid from AUR：
+1
+2
+yay -S python-pyclip xclip wl-clipboard mailcap
+yay -S waydroid
+Initialize Waydroid and download the Android system image file containing GAPPS.
+1
+sudo waydroid init -s GAPPS -f
+Start Waydroid container service
+1
+2
+3
+sudo systemctl start waydroid-container
+# 開機自動啟動
+sudo systemctl enable waydroid-container
+Due to the graphics drive style, currently Waydroid only supports Intel and AMD display cards, and Nvidia display cards will have no picture. Please see the extra method at the bottom of this article.
+
+The 「Waydroid」 graph of the point selection application program list opens the main picture, or uses instructions：waydroid show-full-ui￼
+
+Waddroid has no network, allowing it to pass through the firewall：
+
+1
+2
+3
+4
+5
+sudo ufw allow 53
+sudo ufw allow 67
+sudo ufw default allow FORWARD
+sudo ufw reload
+sudo systemctl restart waydroid-container
+3. Register Waydroid as a Google device
+Waydroid may be received for the first timeDevice is not Play Protect certifiedThe notification cannot be entered into the Google account.
+￼
+
+At this time, the instruction draft produced by casualsnek is used to obtain the device ID of Waydroid. The instruction will print a long list of numbers.
+1
+2
+3
+4
+5
+6
+7
+8
+sudo pacman -S lzip sqlite python3 python-pip
+cd ~
+git clone https://github.com/casualsnek/waydroid_script
+cd ~/waydroid_script
+sudo python3 -m pip install -r requirements.txt
+
+cd ~/waydroid_script
+sudo python3 main.py certified
+turn onInstallation registration page，Sign into the Google account, enter the device ID registration, and wait an hour and a half to enter the Google account. Restart the Waydroid container service if it is still not possible：
+1
+sudo systemctl restart waydroid-container
+APP can now be installed, and Google Play and F-Droid will automatically screen out APP suitable for x86 architecture.￼
+4. Install ARM translator libhoudini
+Many APPs only build on the ARM architecture of mobile phones, but most computers are x86 architecture. For this reason, you need to install an ARM translator to execute the APP of the ARM architecture.
+
+Currently ARM→x86 translators have libhoudini and libndk, the former is more stable than the latter. libhoudini of the casualsnek instruction draft was extracted from Microsoft Android Subsytem for Windows.
+
+Install libhoudini for the instruction draft of casualsnek：
+1
+2
+cd ~/waydroid_script
+sudo python3 main.py install libhoudini
+Restart Waydroid
+1
+sudo systemctl restart waydroid-container
+Try to installSubway SurfersThis small game with only ARM architecture. If it is opened, the ARM translator is operating normally.
+5. Waydroid related instructions
+If Waydroid cannot start, please use it wellsudo systemctl status waydroid-containerwithwaydroid logwithsudo waydroid logcatView error messages.
+
+Open the Waydroid main screen with instructions
+
+1
+waydroid show-full-ui
+Start/stop Waydroid container service
+
+1
+2
+sudo systemctl start waydroid-container
+sudo systemctl stop waydroid-container
+Waydroid can enter Android shell after startup, and has Root permissions
+
+1
+sudo waydroid shell
+Waydroid install APK with this instruction
+
+1
+waydroid app install <APK檔案>.apk
+Let Waydroid turn on the multi-window mode and become like a native application program for Linux. Press F11 to switch after startup
+
+1
+2
+waydroid prop set persist.waydroid.multi_windows true
+sudo systemctl restart waydroid-container
+If you want to completely remove Waydroid：
+
+1
+2
+3
+4
+waydroid session stop
+sudo systemctl stop waydroid-container
+yay -Rsn waydroid
+sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid
+Waydroid's Android system data is placed on~/.local/share/waydroid/data/，System image file is located/var/lib/waydroid，APP illustration is located~/.local/share/applications/
+
+6. Doubt miscellaneous disease about Waydroid
+6.1. Solve the problem of Nivida display card
+Since the Nvidia graphics drive does not comply with public standards, the Waydroid display card in Nvidia cannot be started.
+
+If you want hard, edit/var/lib/waydroid/waydroid_base.prop，Add the following content and use a very poor functional molluscular rendering.
+
+1
+2
+3
+ro.hardware.gralloc=default
+ro.hardware.egl=swiftshader
+# 接著執行sudo systemctl restart waydroid-container
+6.2. How to start Waydroid in X11 environment
+Start Weston
+1
+weston
+Open the terminal at the Weston window and start the Waydroid main screen
+1
+2
+export XDG_SESSION_TYPE=wayland
+waydroid show-full-ui
+6.3. Don't want Waydroid APP icon to appear on the desktop
+Waydroid's Android APP icon is located at~/.local/share/applications/*aydroid
+
+Write an instruction to delete it after Waydroid closes.
+
+6.4. Waydroid APP cannot write to internal storage space
+If this problem occurs, use the Casualsnek instruction draft to correct the directory permissions：
+
+1
+2
+3
+cd ~/waydroid_script
+sudo python3 main.py hack nodataperm
+sudo systemctl restart waydroid-container
+References
+Waydroid-ArchWiki
+Install Instructions- Waydroid
+Waydroid container failed to start #189
+Fold ⁇ : Waydroid through ⁇ Weston under X11 ⁇ line
+Thank you for reading. Welcome to share Ivon's tribal grid (ivonblog.com ) articles, cite or reprint, please indicate the article URL and followCreative CC-name indication-non-commercial-prohibition of conversion to 4.0 internationalAuthorization clause. Please write for commercial use.
+
+￼
+If the articles on this website are helpful to you, please invite me to have a cup of pearl milk tea.
+
+Donate
+￼
+
+Arch Linux Android Waydroid
+Related articles：
+Linux system Intel is developed through to the QEMU/KVM virtual machine, not using GVT-g
+ReDroid, a method to set up an Android cloud phone on a Windows computer
+How to install WSL2 subsystem on Windows 11 (Ubuntu)
+Arch Linux method of installing Docker Desktop graphical front end
+How Arch Linux leads Nvidia GPU directly to Windows QEMU/KVM virtual machine
+Message board
+Click the button to select the message system you find convenient.
+
+￼Giscus
+This is the Giscus message board, you need to enter the Github account to leave a message. It is convenient for you to post the program code, if you want to upload a picture, please post the Imgur link. Your message will be open to everyone at Github Discussions.
+
+￼
+© 2021–2023  Ivon Huang
+The content of this station is authorized as 【Name indication-non-commercial-prohibition of conversion to 4.0 international】. Reprinting must indicate the source asThis station.
