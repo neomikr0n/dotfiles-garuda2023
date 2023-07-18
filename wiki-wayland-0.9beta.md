@@ -3336,13 +3336,11 @@ echo 43 > /tmp/wobpipe &
 #checking for errors
 journalctl -xe
 
-# Audio volume
+---
+# Audio volume SWITCH
 
 ## AUDIO SWITCH
-
----
-
-# Get the list w/ these:
+### Get the list w/ these:
 
 - pactl list short sinks | cut -f 2
 - pamixer --list-sources
@@ -3357,7 +3355,7 @@ D30 Pro = Analog Stereo Output
 USB Audio = Off
 Navi 21/23 = Off   #hdmi audio controller
 Built-in Ahdio = Analog Stereo Output
-PCM2704 16 bit = AnalogStereo Output
+PCM2704 16 bit = Analog Stereo Output
 
 #on settings > audio (kde?), must be:
 
