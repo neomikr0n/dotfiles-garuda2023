@@ -5681,3 +5681,11 @@ sudo dmesg | grep -i -e DMAR -e IOMMU
 [    0.290130] iommu: DMA domain TLB invalidation policy: lazy mode 
 [    0.351045] AMD-Vi: AMD IOMMUv2 functionality not available on this system - This is not a bug.
 
+---
+
+# nodejs-nativefier
+nativefier https://calendar.google.com/ --inject /home/n30/Downloads/Google-DarkCalendar.user.css
+
+"This app was built a long time ago. Nativefier uses the Chrome browser (through Electron), and it is dangerous to keep using an old version of it. You should rebuild this app with a recent Electron. Using the latest Nativefier will default to it, or you can pass it manually."
+
+ 

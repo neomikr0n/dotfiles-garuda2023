@@ -1,9 +1,9 @@
 {
     "output": {
-        "bass_enhancer": {
+        "bass_enhancer#0": {
             "amount": 0.0,
             "blend": 0.0,
-            "bypass": false,
+            "bypass": true,
             "floor": 20.0,
             "floor-active": false,
             "harmonics": 8.5,
@@ -11,8 +11,8 @@
             "output-gain": 0.0,
             "scope": 100.0
         },
-        "bass_loudness": {
-            "bypass": false,
+        "bass_loudness#0": {
+            "bypass": true,
             "input-gain": 0.0,
             "link": -9.1,
             "loudness": -3.1,
@@ -20,10 +20,10 @@
             "output-gain": 0.0
         },
         "blocklist": [],
-        "equalizer": {
+        "equalizer#0": {
             "balance": 0.0,
-            "bypass": true,
-            "input-gain": -6.4,
+            "bypass": false,
+            "input-gain": 0.0,
             "left": {
                 "band0": {
                     "frequency": 53.0,
@@ -216,12 +216,12 @@
             "split-channels": false
         },
         "plugins_order": [
-            "equalizer",
-            "bass_loudness",
-            "bass_enhancer",
-            "reverb"
+            "equalizer#0",
+            "bass_loudness#0",
+            "bass_enhancer#0",
+            "reverb#0"
         ],
-        "reverb": {
+        "reverb#0": {
             "amount": -10.716679676582991,
             "bass-cut": 514.079,
             "bypass": true,

@@ -5,7 +5,6 @@
 # genymotion-shell -f ~/.dotfiles/bin/genymotion-shell
 
 devices select 0
-
 gps setstatus enabled
 gps setlatitude 19.68196
 gps setlongitude -101.16097
@@ -16,6 +15,21 @@ gps setlatitude 19.68196
 gps setlongitude -101.16097
 
 devices select 2
+gps setstatus enabled
+gps setlatitude 19.68196
+gps setlongitude -101.16097
+
+devices select 3
+gps setstatus enabled
+gps setlatitude 19.68196
+gps setlongitude -101.16097
+
+devices select 4
+gps setstatus enabled
+gps setlatitude 19.68196
+gps setlongitude -101.16097
+
+devices select 5
 gps setstatus enabled
 gps setlatitude 19.68196
 gps setlongitude -101.16097
