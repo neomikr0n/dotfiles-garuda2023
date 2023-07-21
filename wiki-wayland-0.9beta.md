@@ -1098,13 +1098,17 @@ apfs-fuse -o allow_other /dev/sda2 /media/<your userame>/macos
 ## 2. let's do this then: sudo mount NameOfFileSystem MountPoint
 
 sudo mount /dev/nvme1n1p1 /run/media/n30/BLACKY01
+sudo mount /dev/sda2 /run/media/n30/chivos_4t
+
 sudo umount /dev/nvme0n1p1
+
+sudo mkdir /run/media/n30/chivos_4t
+kate /etc/fstab
 
 ## 3. mount it at the startup
 
 ### Or use these:
 cat -n /etc/fstab
-
 sudo fdisk -l
 
 sudo /sbin/tune2fs -l /dev/nvme0n1p4
@@ -1146,42 +1150,42 @@ sda
 
 ### another option, messy tho:
 `blkid`:
-
+```
 /dev/sda2: *LABEL="chivos_4t" UUID="6483-8269"* BLOCK_SIZE="512" TYPE="exfat" PARTUUID="ce0226f9-8128-42b0-b40c-40f416ee03f8"
 /dev/sda1: LABEL_FATBOOT="EFI" LABEL="EFI" UUID="67E3-17ED" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="EFI System Partition" PARTUUID="3c9e98ab-6bfd-4967-9d7b-aaef8edd0398"
 /dev/zram0: LABEL="zram0" UUID="39231984-0c1a-4865-b7f3-db863ab15fb2" TYPE="swap"
-
+```
 ### concise way when you know the device:
 `blkid /dev/sda2`
+```
 /dev/sda2: LABEL="chivos_4t" UUID="6483-8269" BLOCK_SIZE="512" TYPE="exfat" PARTUUID="ce0226f9-8128-42b0-b40c-40f416ee03f8"
-
+```
 ## 4. let's edit fstab:
-`sudo nano /etc/fstab`
-
+`kate /etc/fstab`
+```python
 UUID=98265bf8-8c98-4a94-b708-c150a40606b3 /run/media/n30/BLACKY01 ext4 defaults 0 0
 UUID=cf42ea71-973a-47cd-ab6e-7e0e167fa934 /run/media/n30/nvme_chivos ext4 defaults 0 0
-UUID=6483-8269       /run/media/n30/chivos_4t ext4 defaults 0 0
+UUID=6483-8269                            /run/media/n30/chivos_4t   exfat   defaults
+```
 
 ## 5. We always want to test the fstab before rebooting (an incorrect fstab can render a disk unbootable).  To test do:
 
+
+```
 findmnt --verify
+```
+Test it until:
+>  ╰─λ Success, no errors or warnings detected
+
+then:
+
+```
 systemctl daemon-reload
+```
 
-
-## yapoa
-
-GPT PMBR size mismatch (4294967294 != 7814037167) will be corrected by write.
-Disk /dev/sda: 3.64 TiB, 4000787030016 bytes, 7814037168 sectors
-Disk model: WDC WD42PURZ-85B
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 4096 bytes
-I/O size (minimum/optimal): 4096 bytes / 4096 bytes
-Disklabel type: gpt
-Disk identifier: DEBCEBE1-9485-4DC0-8CDE-CE87F968D1F6
-
-
-# AMD
 ---
+# AMD
+
 
 Dealing with display
 check if the kernel headers are compiled.
@@ -5688,4 +5692,88 @@ nativefier https://calendar.google.com/ --inject /home/n30/Downloads/Google-Dark
 
 "This app was built a long time ago. Nativefier uses the Chrome browser (through Electron), and it is dangerous to keep using an old version of it. You should rebuild this app with a recent Electron. Using the latest Nativefier will default to it, or you can pass it manually."
 
+ ---
+ # ESO gamelog
  
+ Game Settings: {
+	"autoInstallDxvk": true,
+	"autoInstallVkd3d": true,
+	"preferSystemLibs": false,
+	"launcherArgs": "PROTON_SET_GAME_DRIVE=1 %command%",
+	"nvidiaPrime": false,
+	"enviromentOptions": [],
+	"wrapperOptions": [],
+	"showFps": false,
+	"showMangohud": true,
+	"useGameMode": false,
+	"language": "",
+	"wineVersion": {
+		"bin": "/home/n30/.local/share/Steam/steamapps/common/Proton - Experimental/proton",
+		"name": "Proton - Proton - Experimental",
+		"type": "proton"
+	},
+	"winePrefix": "/home/n30/Games/Heroic/Prefixes/The Elder Scrolls Online",
+	"wineCrossoverBottle": ""
+}
+
+Game launched at: Thu Jul 20 2023 16:35:13 GMT-0600 (Central Standard Time)
+
+System Info:
+Heroic Version: 2.9.0 Boa Hancock
+Legendary Version:  0.20.32 Dark Energy (hotfix #6)
+GOGdl Version: 0.7.2
+Nile Version: 1.0.0 Jonathan Joestar
+
+Electron Version: 24.4.1
+Chrome Version: 112.0.5615.204
+NodeJS Version: 18.14.0
+
+OS: Garuda KERNEL: 6.4.4-zen1-1-zen ARCH: x64
+CPU: Intel Gen Intel® Core™ i5-13600K @4.22 GOVERNOR: powersave
+RAM: Total: 31.09 GiB Available: 16.25 GiB
+GRAPHICS: GPU0: Raptor Lake-S GT1 [UHD Graphics 770]  VRAM: 256MB GPU1: Navi 23 [Radeon RX 6650 XT / 6700S / 6800S] VRAM: 1MB 
+PROTOCOL: wayland
+
+Launch Command: LD_PRELOAD= STEAM_COMPAT_CLIENT_INSTALL_PATH=/home/n30/.steam/steam STEAM_COMPAT_DATA_PATH="/home/n30/Games/Heroic/Prefixes/The Elder Scrolls Online" MANGOHUD_CONFIGFILE=/home/n30/.config/MangoHud/MangoHud.conf PROTON_NO_ESYNC=1 PROTON_NO_FSYNC=1 STEAM_COMPAT_APP_ID=0 SteamAppId=0 SteamGameId=heroic-TheElderScrollsOnline PROTON_LOG_DIR=/home/n30 /usr/bin/mangohud --dlsym /opt/heroic/resources/app.asar.unpacked/build/bin/linux/legendary launch 4d0ff75b922447649057c237c0bd1545 --language en --no-wine --wrapper "'/home/n30/.local/share/Steam/steamapps/common/Proton - Experimental/proton' run"  PROTON_SET_GAME_DRIVE=1 %command%
+
+Game Log:
+[cli] INFO: Logging in...
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Checking for updates...
+[Core] INFO: Getting authentication token...
+[cli] INFO: Launching 4d0ff75b922447649057c237c0bd1545...
+
+Legendary update available!
+- New version: 0.20.33 - "Undue Alarm"
+- Release summary:
+ [*] Improved handling of SDL changes
+ [*] Added safeguards to prevent two simultaneous instances from corrupting the database
+ [*] Added support for running uninstallers
+ [*] More gracefully handles account errors
+See full changelog for additional details.
+- Release URL: https://legendary.gl/release/0.20.33
+
+- Download URL: https://legendary.gl/release/download/0.20.33/legendary
+
+EOS Overlay update available: 1.2.7++EOSSDK+Release-Overlay-CL-25975892-Windows (Current: 1.2.6++EOSSDK+Release-Overlay-CL-21323361-Windows).
+Run "legendary eos-overlay update" to update to the latest version.
+wineserver: using server-side synchronization.
+wine: Using setpriority to control niceness in the [-11,11] range
+ioctl (GFEATURE): Invalid argument
+ioctl (GFEATURE): Invalid argument
+ioctl (GFEATURE): Invalid argument
+ioctl (GFEATURE): Broken pipe
+ioctl (GFEATURE): Broken pipe
+ioctl (GFEATURE): Broken pipe
+[2023-07-20 16:35:18.599] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:18.996] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:19.401] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:19.899] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:19.899] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[S_API FAIL] SteamAPI_Init() failed; no appID found.
+Either launch the game from Steam, or put the file steam_appid.txt containing the correct appID in your game folder.
+[2023-07-20 16:35:20.313] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:20.314] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:20.789] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+[2023-07-20 16:35:21.201] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
+
