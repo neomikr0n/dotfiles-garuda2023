@@ -5,7 +5,7 @@ CONFIG="$HOME/.config/swaync/config.json"
 STYLE="$HOME/.config/swaync/style.css"
 
 # killall -9 mako dunst swaync && sleep 0.5 &&
-if [[ ! $(pidof swaync) ]]; then
+if [[ ! $(pidof swaync mpvpaper) ]]; then
   swaync -c ${CONFIG} -s ${STYLE}
 fi
 

@@ -634,17 +634,10 @@ whereis tmatrix
 >>>
 >>
 
-> # **Video Wallpaper Scripts**
-
->>> https://github.com/zeroruka/video-wallpaper-scripts
->>>
->>
-
+> # **[Video Wallpaper Scripts](https://github.com/zeroruka/video-wallpaper-scripts)**
 `yay -S xwinwrap-git mplayer mpv ffmpeg gifsicle xclip`
 
->>> Wallpaper Engine (optional but recommended)
->>>
->>
+### Wallpaper Engine (optional but recommended)
 
 ```
 cd ~/Downloads && git clone https://github.com/zeroruka/video-wallpaper-scripts.git
@@ -653,6 +646,20 @@ sh setwall -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
 sh wallhelper -a /home/n30/.config/video-wallpapers/wallpapers/1.mp4
 sh setwall -a 884899737     # lol
 ```
+This command will trim 1 second from the beginning and 1 second from the end of the video, while preserving the video quality. Just like before, ensure you have ffmpeg and bc installed.
+```
+ffmpeg -i fi.mp4 -ss 1 -t (echo (ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 fi.mp4) - 2 | bc) -an -c:v copy fifi.mp4
+```
+* -i fi.mp4: Specifies the input file name "fi.mp4."
+* -ss 1: Starts the trimming from 1 second into the video, cutting 1 second from the beginning.
+* -t (echo (ffprobe ...)): Specifies the duration to keep. The ffprobe command calculates the duration of the video, and using fish shell syntax, we subtract 2 seconds from it (1 second from the beginning and 1 second from the end).
+* -an: Disables audio processing, effectively removing the audio from the output.
+* -c:v copy: Sets the video codec to copy, which means the video stream will be copied as is without re-encoding.
+* fifi.mp4: Specifies the output file name. The trimmed video will be saved in a file named "fifi.mp4."
+
+
+
+---
 > # **[swww](https://github.com/Horus645/swww)**
 ## yay -s swww-git
 
@@ -2043,7 +2050,7 @@ Example GRUB_GFXMODE=1280x960
 
     sudo grub2-mkconfig -o /etc/grub2-efi.cfg --> reconfigure
 
-# [VIDEO PLAYER KEYS](https://mpv.io/manual/master/)
+> # [VIDEO PLAYER KEYS](https://mpv.io/manual/master/)
 
 
 Shift + W	Increase the picture cropping for the currently playing media.
@@ -2051,9 +2058,19 @@ W	Decrease the picture cropping for the currently playing media.
 V	Either display or hide subtitles for the currently playing media.
 J	Select the next subtitle file available.
 
-# [Brave]() (from Microsoft)
+> # [Brave]() (from Microsoft)
 brave://flags/#enable-system-notifications
 brave://flags/#enable-force-dark *simple HSL*
+
+## [Access Bing Chat AI on Chrome](https://pureinfotech.com/access-bing-chat-ai-chrome-firefox/)
+You only need to change the “user agent” settings to trick Bing into thinking that you are using Microsoft Edge as the browser.
+1. Open [bing](https://www.bing.com/search?q=bing&showconv=1&FORM=HDRSC2).
+2. Click the “F12” key to open the DevTools interface.
+3. Click the “Customize and control DevTools” (three-dotted) button, select the More tools menu, and choose the Network conditions option.
+4. Under the “User agent” section, clear the “Use browser default” option.
+5. Select the “Microsoft Edge (Chromium) – Windows” option to enable access to Bing Chat from Chrome.
+6. Once you complete the steps, you should now be able to use the new Bing with ChatGPT integration from Google Chrome.
+7. If you no longer need access to the chatbot, you can use the same instructions outlined above, but in step 4, check the “Use browser default” option.
 
 
 # [EDGE]() (from Microsoft)

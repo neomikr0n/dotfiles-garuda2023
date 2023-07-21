@@ -29,7 +29,7 @@ blackhole () {
     mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=-50  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/blackhole.webm" & disown
 }
 fifi () {
-    mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=0  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/fi.mp4" & disown
+    mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=0  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/fifi.mp4" & disown
 }
 
 searchanddestroy () {
