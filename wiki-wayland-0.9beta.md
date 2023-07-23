@@ -5794,3 +5794,121 @@ Either launch the game from Steam, or put the file steam_appid.txt containing th
 [2023-07-20 16:35:20.789] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
 [2023-07-20 16:35:21.201] [MANGOHUD] [info] [config.cpp:123] parsing config: '/home/n30/.config/MangoHud/MangoHud.conf'
 
+---
+# DAC / AMP
+
+🏆 $4635       $270USA
+## Fiio k7 bt + cable
+$4335 [Fiio k7 bt](https://es.aliexpress.com/item/1005004861469804.html)
+$531 ALI 5m [Litz-funda](https://bit.ly/4747DMv) 
+*it's a cable with 4.4mm connector and in the other end with a couple of headphone 3.5mm plug 2 pole ring a balanced cable?* 
+A balanced cable is a type of audio cable commonly used to reduce noise and interference in professional audio applications. It typically has two identical signal conductors, along with a shield or ground conductor, which helps eliminate common-mode noise.
+
+The "4.4" you mentioned is likely referring to the 4.4mm connector, which is commonly used in high-end audio equipment for balanced headphone connections. This connector has four contact rings, two for each channel (left and right) plus two additional rings for the ground and other functions.
+
+Now, you mentioned a "headphone plug 2 pole ring." A "2-pole" connection usually means an unbalanced connection, commonly found in consumer headphones with a 3.5mm or 6.35mm (quarter-inch) connector. These connectors have two contact points, one for each audio channel (left and right) and no additional rings for ground or other functions.
+
+If you have a cable that has a 4.4mm 4-pole balanced connector on one end and a 2-pole headphone plug on the other end, it would likely be a cable that allows you to connect high-end audio equipment with a balanced output to consumer-grade headphones with an unbalanced input.
+
+Such a cable would be an adapter cable, and it should be wired in a way that converts the balanced signals from the 4.4mm connector to an unbalanced format suitable for the 2-pole headphone plug.
+
+Please note that the specific wiring of the cable would depend on the equipment being connected and its compatibility. If you're unsure about the wiring or which equipment to use with this cable, it's always a good idea to consult the equipment's manuals or reach out to the manufacturers for guidance.
+*What if the couple of 3.5mm plugs on the other end have only 2 poles (a single ring) instead of 3 poles (a couple rings)?*
+A 2-pole 3.5mm plug, also known as a TS (Tip-Sleeve) plug, has two conductors and is generally used for mono audio signals. A balanced cable typically requires at least three conductors, one for the positive signal, one for the negative signal, and one for the ground. So, it is unlikely that a balanced cable would have 2-pole 3.5mm plugs on one end.
+
+Un conector de 3.5mm de `2 polos`, también conocido como un conector `TS (Tip-Sleeve)`, tiene `dos conductores` y generalmente se usa para señales de audio mono. Un cable balanceado normalmente requiere al menos `tres conductores`, uno para la señal positiva, uno para la señal negativa y uno para la tierra. Por lo tanto, es poco probable que un cable balanceado tenga conectores de 3.5mm de 2 polos en un extremo.
+
+$475 ALI 3m [OPENHEART-Cable de auriculares de 8 núcleos](https://bit.ly/3rGK78j)
+$839 ALI 5m [Cable de Audio HIFI](https://bit.ly/3rCNfSG)
+$298 1.5m [Balanced Cable](https://amzn.to/3rEnPE9)
+- FIIO K7 BT REVIEW *headphonia* https://www.headfonia.com/fiio-k7-bt-review/
+- Joshua Valour *TWO! $1000 Hifi headphone Systems! - Don't make this mistake!* https://www.youtube.com/watch?v=4F3W0UCS-4Y
+- *Sundara with Fiio K7 is a match made in heaven imo!* https://www.reddit.com/r/headphones/comments/yttc31/sundara_with_fiio_k7_is_a_match_made_in_heaven_imo/
+- *Fiio K7 THX Balanced Desktop Amplifier* https://www.youtube.com/watch?v=RXlxM3k0eDU
+- 
+$2116 *Amazon* [HIFIMAN HE400SE](https://bit.ly/3Ds0N6a) 
+$2116 *AliExpress* [HIFIMAN HE400SE](https://bit.ly/3Ds0N6a) 
+
+
+## 🥉 $4537     $268USA
+### Topping L50
+$2861/$2400? *SHENZHENAUDIO* [Topping L50] $169/$143?
+### Topping E30 LITE
+$1676  *LEAUDIO* [Topping E30II Lite] $99/$84??
+
+## 🥇 
+
+
+## IFI Zen Air Can
+$2164 *IFI audio* [IFI Zen Air Can](https://www.amazon.com/gp/product/B09V7TQWPZ/ref=ox_sc_act_image_1?smid=A2H1DLE1VLYNIR&psc=1) $127 (99+28)
+https://www.amazon.com.mx/IFI-Zen-Air-Can-Amplificador/dp/B09V7TQWPZ/ref=d_pd_day0_sccl_2_1/140-8906219-7840946?content-id=amzn1.sym.1c8f9346-a87e-48c7-994a-82c93e96af91&pd_rd_i=B09V7TQWPZ&psc=1
+- How LOW can you GO? \\ ifi Zen AIR https://www.youtube.com/watch?v=lDC7jdpTsXA
+
+
+## Topping EL30 stack
+- Topping E30/L30 plus an audio splitter to hook up both the speakers and the L30 to the E30.
+- *Six Upgrades With Topping L30 II Headphone Amplifier: Topping L30 II Vs L30* https://hifigo.com/blogs/guide/six-upgrades-with-topping-l30-ii-headphone-amplifier-topping-l30-ii-vs-l30
+- *Topping E30 II and L30 II - Where do they sit in the crowd?* https://www.youtube.com/watch?v=NPbZ56YXO5s
+
+## Topping Dx5 Lite
+$5900/$5k? *LEAUDIO* [Topping Dx5 Lite](https://www.amazon.com/gp/product/B0BXWG1H6R/ref=ox_sc_saved_image_1?smid=A3OGU47PDPAJIO&psc=1) $349/$296? 
+
+## Topping EL50 stack
+$2861/$2400? *SHENZHENAUDIO* [Topping L50](https://www.amazon.com/gp/product/B09F2LY6QG/ref=ox_sc_act_title_1?smid=A2Q0JVLI22BSVA&th=1) $169/$143?
+- Under $500 & ⭐⭐⭐⭐⭐ // Topping E50 & L50 _(Z Reviews)_ https://youtu.be/s-S79X89A0Y     Nov 25, 2021
+- 
+[Topping E50](https://www.youtube.com/watch?v=iNvTs31Q6dc)
+- Topping L50 is a POWERHOUSE https://www.youtube.com/watch?v=iNvTs31Q6dc
+
+
+$129/$109? $88?(used)[FiiO BTA30 Receiver Transmitter Bluetooth](https://www.amazon.com/FiiO-Transmitter-Bluetooth-Amplifier-Resolution/dp/B09J48ZPD4/ref=sr_1_3?keywords=FiiO+BTA30&sr=8-3) $2800 (2200+600)
+ 
+## Topping EL30 stack
+$1676  *LEAUDIO* [Topping E30II Lite](https://www.amazon.com/gp/product/B0C9HL5P7H/ref=ox_sc_act_image_1?smid=A3OGU47PDPAJIO&psc=1) $99/$84??
+
+
+## BLUETOOTH
+- *High-resolution Bluetooth receivers What you need to know in 2023* https://www.youtube.com/watch?v=ZtzxRSkFTvY
+- 
+## alternatives:
+- shiit syn
+- modi + magni stack
+- [SMSL C200](https://aoshida-audio.com/products/smsl-c200?DIST=RkFO) $200
+- $500 Bifrost 264
+- Geshelli J2 ESS
+- [Fiio BTA30 Pro](https://es.aliexpress.com/item/1005001677949000.html?spm=a2g0o.detail.1000060.2.61c92595zGQnaV&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.291025.0&scm_id=1007.13339.291025.0&scm-url=1007.13339.291025.0&pvid=b5dfdfa3-db31-4027-a058-9e3fb7e61e39&_t=gps-id%3ApcDetailBottomMoreThisSeller%2Cscm-url%3A1007.13339.291025.0%2Cpvid%3Ab5dfdfa3-db31-4027-a058-9e3fb7e61e39%2Ctpp_buckets%3A668%232846%238109%231935&pdp_npi=3%40dis%21MXN%212294.97%212085.52%21%21%21%21%21%402103011216900767440713734e72c7%2112000025898324667%21rec%21MX%212632905720&gatewayAdapt=glo2esp) (Bluetooth transmiter) https://www.reddit.com/r/headphones/comments/138fvvy/fiio_launch_k7_bt_dacamp_with_ldac_in_249_vs_199/
+- 
+
+
+## music:
+sara bareilles - manhattan (live at the variety playhouse)
+imagine dragons - gold
+Passenger - everything
+stevie ray vaughan - tin pan alley
+llullabye -  ben folds five
+lucas -inflatable people
+mango tree -  zac brown [jekyll hide]
+electrified - boris blank
+Anne Bison’s “September in Montreal” 
+
+
+
+## $14,376 (11,800+2,500) Topping EL70 stack
+$2861/$2400? *HIFI College* [Topping E70 DAC + Topping L70 Headphone amp](https://www.amazon.com/Topping-E70-DAC-L70-Headphone/dp/B0BMKCXCJ7/ref=sr_1_4?keywords=l70+topping&sr=8-4) $698/???
+
+## $15,000 iFi Zen Signature Set HFM Edition 
+- [ZEN Signature Set HFM](https://ifi-audio.com.mx/products/zen-signature-set-hfm?variant=41565537697953&currency=MXN&srsltid=ASuE1wSOatHmeGMczO_haKOMMUZ8NYQTmZn9Pct6-FPcuaWBJKJW0mc8er4/)
+- Jalisco, México, +52 333 650 9485
+- *iFi Zen Signature Set HFM Edition - A perfect DAC and Amp for Hifiman headphones and others?* GadgetrTech https://www.youtube.com/watch?v=bgffbXq2HbU
+- *IFI Audio Made a Headphone Amp and DAC Combo You Need to Hear!* https://www.youtube.com/watch?v=fShb7vx1BiI
+- *iFi Zen Signature Series DAC V2 & CAN HFM: Continuing what is loved from the series.* https://www.headpie.net/2023/02/ifi-zen-signature-series-dac-v2-can-hfm.html
+
+- *iFi Audio Zen Signature Set HFM Review* https://headfonics.com/ifi-audio-zen-signature-set-hfm-review/2/
+
+
+---
+/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl//:/': Unexpected end of string, incomplete parameter expansion
+__fish_git_using_command {/home/n30/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl//:/
+                         ^
+complete: -n '__fish_git_using_command } basename': Unexpected '}' for unopened brace expansion
+__fish_git_using_command } basename
