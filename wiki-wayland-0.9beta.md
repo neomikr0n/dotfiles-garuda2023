@@ -5797,9 +5797,18 @@ Either launch the game from Steam, or put the file steam_appid.txt containing th
 ---
 # DAC / AMP
 
-🏆 $4635       $270USA
+🏆 $$7500       $270USA
 ## Fiio k7 bt + cable
 $4335 [Fiio k7 bt](https://es.aliexpress.com/item/1005004861469804.html)
+
+$859 ALI 5m [16cores Earphone Cable For Hifiman](https://bit.ly/3O31VlC) 16 cores 99% Pure 7N OCC Copper and silver mixed Cable.
+$809 ALI 5m [Litz-auriculares hifi-ofc de 4 núcleos](https://bit.ly/3O31VlC) 4 Core HiFi OFC copper wire. Each Core 56pcs OFC wire. Total 224pcs OFC wires
+$1202 ALI 5m [LN007442](https://bit.ly/3Oo3P1k) Pure 99% Silver WireInside + Silver Plated OCC Shielding Wire 
+
+$475 ALI 3m [OPENHEART-Cable](https://bit.ly/3rGK78j) 8 núcleos
+$298 1.5m [Balanced Cable](https://amzn.to/3rEnPE9)
+
+$839 ALI 5m [Cable de Audio HIFI](https://bit.ly/3rCNfSG)
 $531 ALI 5m [Litz-funda](https://bit.ly/4747DMv) 
 *it's a cable with 4.4mm connector and in the other end with a couple of headphone 3.5mm plug 2 pole ring a balanced cable?* 
 A balanced cable is a type of audio cable commonly used to reduce noise and interference in professional audio applications. It typically has two identical signal conductors, along with a shield or ground conductor, which helps eliminate common-mode noise.
@@ -5818,9 +5827,7 @@ A 2-pole 3.5mm plug, also known as a TS (Tip-Sleeve) plug, has two conductors an
 
 Un conector de 3.5mm de `2 polos`, también conocido como un conector `TS (Tip-Sleeve)`, tiene `dos conductores` y generalmente se usa para señales de audio mono. Un cable balanceado normalmente requiere al menos `tres conductores`, uno para la señal positiva, uno para la señal negativa y uno para la tierra. Por lo tanto, es poco probable que un cable balanceado tenga conectores de 3.5mm de 2 polos en un extremo.
 
-$475 ALI 3m [OPENHEART-Cable de auriculares de 8 núcleos](https://bit.ly/3rGK78j)
-$839 ALI 5m [Cable de Audio HIFI](https://bit.ly/3rCNfSG)
-$298 1.5m [Balanced Cable](https://amzn.to/3rEnPE9)
+
 - FIIO K7 BT REVIEW *headphonia* https://www.headfonia.com/fiio-k7-bt-review/
 - Joshua Valour *TWO! $1000 Hifi headphone Systems! - Don't make this mistake!* https://www.youtube.com/watch?v=4F3W0UCS-4Y
 - *Sundara with Fiio K7 is a match made in heaven imo!* https://www.reddit.com/r/headphones/comments/yttc31/sundara_with_fiio_k7_is_a_match_made_in_heaven_imo/
@@ -5830,14 +5837,24 @@ $2116 *Amazon* [HIFIMAN HE400SE](https://bit.ly/3Ds0N6a)
 $2116 *AliExpress* [HIFIMAN HE400SE](https://bit.ly/3Ds0N6a) 
 
 
+
+## 🥇 (7500+)
+### HiFiMAN - Edition XS : 
+
+- *The Best Headphone for $500!* Joshua Valour https://www.youtube.com/watch?v=XQ0c1pZ2io8
+- *Best Headphone Setups for Audiophiles Under Rs. 50,000* Headphone Zone https://www.youtube.com/watch?v=bCmqwchOJgo&t
+- *Headphones we'd PERSONALLY buy - 2022 year end roundup* The HEADPHONE Show https://youtu.be/w5EhQlmD-0Q?t=682 HD6xx + Little Dot Mk2
+- *HEADPHONE TIER LIST* Joshua Valour 
+- *HiFiMAN Edition XS Review - $500 just got a lot more competitive* HEADPHONE Show https://www.youtube.com/watch?v=BiU4O0gHOcM
+- *BEST HEADPHONES OF THE YEAR* William Murdock https://youtu.be/WWtSSoLk9qY?t=784
+- 
+
+
 ## 🥉 $4537     $268USA
 ### Topping L50
 $2861/$2400? *SHENZHENAUDIO* [Topping L50] $169/$143?
 ### Topping E30 LITE
 $1676  *LEAUDIO* [Topping E30II Lite] $99/$84??
-
-## 🥇 
-
 
 ## IFI Zen Air Can
 $2164 *IFI audio* [IFI Zen Air Can](https://www.amazon.com/gp/product/B09V7TQWPZ/ref=ox_sc_act_image_1?smid=A2H1DLE1VLYNIR&psc=1) $127 (99+28)
@@ -5912,3 +5929,29 @@ __fish_git_using_command {/home/n30/.local/bin:/usr/local/sbin:/usr/local/bin:/u
                          ^
 complete: -n '__fish_git_using_command } basename': Unexpected '}' for unopened brace expansion
 __fish_git_using_command } basename
+
+---
+# hyprctl clients
+is a utility for controlling some parts of the compositor from a CLI or a script
+clients - lists all windows with their properties
+
+Window 560aa731c400 -> Qalculate!:
+	mapped: 1
+	hidden: 0
+	at: 3039,1207
+	size: 379,190
+	workspace: 2 (2)
+	floating: 1
+	monitor: 0
+	class: qalculate-gtk
+	title: Qalculate!
+	initialClass: qalculate-gtk
+	initialTitle: Qalculate!
+	pid: 1383923
+	xwayland: 0
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+	grouped: 0
+	swallowing: 0
