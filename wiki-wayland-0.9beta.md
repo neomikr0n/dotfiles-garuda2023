@@ -5071,12 +5071,20 @@ iOS/iPadOS 15.0-16.5 arm64 jailbreaking tool
 	-V, --verbose-boot			Verbose boot
 ```
   
-##  To hard reset an iPhone X, follow these steps:
-    ```
-    Press and quickly release the Volume Up button.
-    Press and quickly release the Volume Down button.
-    Press and hold the Side button until the Apple logo appears.
-    ```
+##  To hard reset an iPhone X:
+
+    - Press and quickly release the Volume Up button.
+    - Press and quickly release the Volume Down button.
+    - Press and hold the Side (Power) button until the Apple logo appears.
+
+## DFU or Waiting for devices
+Follow these steps to put your device into DFU mode:
+
+For iPhone 8 and later: 
+- Quickly press the Volume Up button, followed by the Volume Down button. 
+- Then, press and hold the Side (or Power) button until the screen goes black. 
+- After that, hold both the Side (or Power) button and the Volume Down button for about 5 seconds, 
+- and then release the Side (or Power) button while continuing to hold the Volume Down button until your device is in DFU mode.
 
 ## List of Bypass Jailbreak Detection Tweaks on iPhone
 Tweak	Repo
@@ -5797,35 +5805,37 @@ Either launch the game from Steam, or put the file steam_appid.txt containing th
 ---
 # DAC / AMP
 
-🏆 $$7500       $270USA
-## Fiio k7 bt + cable
-$4335 [Fiio k7 bt](https://es.aliexpress.com/item/1005004861469804.html)
+🏆 $$6900       $270USA
+## Fiio k7 bt + cable + HE400SE
+1. **$1922** [HIFIMAN HE400SE Stealth Magnets](https://bit.ly/44RoSPa) 
+~~$2400 [HIFIMAN HE400SE](https://www.amazon.com/gp/product/B08Z2SK5C4)~~
+1. **$4335** [Fiio k7 bt](https://es.aliexpress.com/item/1005004861469804.html)
+2. **$635** ALI 5m [Cable gris](https://tinyurl.com/2ysf27ba) 8 núcleos *TimeLess Audio Store* 8 Cores 4.4mm 4 pin Xlr 2.5mm Headphone Earphone Cable For 3.5 Hifiman Ananda sundara HE1000se HE6se he400 Z7M2 OCC unit crystal copper is a twisted balance type cable with OCC copper conductor. In addition to Polyethylene insulation as a dielectric. 8N unit crystal copper features both unique solid OCC copper materials & fine OCC copper strands twisted with the individual teflon insulation, and Air PE tube structure.
 
-$859 ALI 5m [16cores Earphone Cable For Hifiman](https://bit.ly/3O31VlC) 16 cores 99% Pure 7N OCC Copper and silver mixed Cable.
-$809 ALI 5m [Litz-auriculares hifi-ofc de 4 núcleos](https://bit.ly/3O31VlC) 4 Core HiFi OFC copper wire. Each Core 56pcs OFC wire. Total 224pcs OFC wires
-$1202 ALI 5m [LN007442](https://bit.ly/3Oo3P1k) Pure 99% Silver WireInside + Silver Plated OCC Shielding Wire 
+  - ~~$859 ALI 5m [4cores Earphone Cable For Hifiman](https://bit.ly/3O31VlC) 16 cores 99% Pure 7N OCC Copper and silver mixed Cable.~~
+  - ~~$809 ALI 5m [Litz-auriculares hifi-ofc de 4 núcleos](https://bit.ly/3O31VlC) 4 Core HiFi OFC copper wire. Each Core 56pcs OFC wire. Total 224pcs OFC wires~~
+  - ~~$1202 ALI 5m [LN007442](https://bit.ly/3Oo3P1k) Pure 99% Silver WireInside + Silver Plated OCC Shielding Wire~~
+  - ~~$475 ALI 3m [OPENHEART-Cable](https://bit.ly/3rGK78j) 8 núcleos~~
+  - ~~$298 1.5m [Balanced Cable](https://amzn.to/3rEnPE9)~~
+  - ~~$839 ALI 5m [Cable de Audio HIFI](https://bit.ly/3rCNfSG) TS~~
+  - ~~$531 ALI 5m [Litz-funda](https://bit.ly/4747DMv) TS :( it's a cable with 4.4mm connector and in the other end with a couple of headphone 3.5mm plug 2 pole ring a balanced cable?
+  - 
 
-$475 ALI 3m [OPENHEART-Cable](https://bit.ly/3rGK78j) 8 núcleos
-$298 1.5m [Balanced Cable](https://amzn.to/3rEnPE9)
+> A balanced cable is a type of audio cable commonly used to reduce noise and interference in professional audio applications. It typically has two identical signal conductors, along with a shield or ground conductor, which helps eliminate common-mode noise.
 
-$839 ALI 5m [Cable de Audio HIFI](https://bit.ly/3rCNfSG)
-$531 ALI 5m [Litz-funda](https://bit.ly/4747DMv) 
-*it's a cable with 4.4mm connector and in the other end with a couple of headphone 3.5mm plug 2 pole ring a balanced cable?* 
-A balanced cable is a type of audio cable commonly used to reduce noise and interference in professional audio applications. It typically has two identical signal conductors, along with a shield or ground conductor, which helps eliminate common-mode noise.
+> The "4.4" you mentioned is likely referring to the 4.4mm connector, which is commonly used in high-end audio equipment for balanced headphone connections. This connector has four contact rings, two for each channel (left and right) plus two additional rings for the ground and other functions.
 
-The "4.4" you mentioned is likely referring to the 4.4mm connector, which is commonly used in high-end audio equipment for balanced headphone connections. This connector has four contact rings, two for each channel (left and right) plus two additional rings for the ground and other functions.
+> Now, you mentioned a "headphone plug 2 pole ring." A "2-pole" connection usually means an unbalanced connection, commonly found in consumer headphones with a 3.5mm or 6.35mm (quarter-inch) connector. These connectors have two contact points, one for each audio channel (left and right) and no additional rings for ground or other functions.
 
-Now, you mentioned a "headphone plug 2 pole ring." A "2-pole" connection usually means an unbalanced connection, commonly found in consumer headphones with a 3.5mm or 6.35mm (quarter-inch) connector. These connectors have two contact points, one for each audio channel (left and right) and no additional rings for ground or other functions.
+> If you have a cable that has a 4.4mm 4-pole balanced connector on one end and a 2-pole headphone plug on the other end, it would likely be a cable that allows you to connect high-end audio equipment with a balanced output to consumer-grade headphones with an unbalanced input.
 
-If you have a cable that has a 4.4mm 4-pole balanced connector on one end and a 2-pole headphone plug on the other end, it would likely be a cable that allows you to connect high-end audio equipment with a balanced output to consumer-grade headphones with an unbalanced input.
+> Such a cable would be an adapter cable, and it should be wired in a way that converts the balanced signals from the 4.4mm connector to an unbalanced format suitable for the 2-pole headphone plug.
 
-Such a cable would be an adapter cable, and it should be wired in a way that converts the balanced signals from the 4.4mm connector to an unbalanced format suitable for the 2-pole headphone plug.
-
-Please note that the specific wiring of the cable would depend on the equipment being connected and its compatibility. If you're unsure about the wiring or which equipment to use with this cable, it's always a good idea to consult the equipment's manuals or reach out to the manufacturers for guidance.
+> Please note that the specific wiring of the cable would depend on the equipment being connected and its compatibility. If you're unsure about the wiring or which equipment to use with this cable, it's always a good idea to consult the equipment's manuals or reach out to the manufacturers for guidance.
 *What if the couple of 3.5mm plugs on the other end have only 2 poles (a single ring) instead of 3 poles (a couple rings)?*
 A 2-pole 3.5mm plug, also known as a TS (Tip-Sleeve) plug, has two conductors and is generally used for mono audio signals. A balanced cable typically requires at least three conductors, one for the positive signal, one for the negative signal, and one for the ground. So, it is unlikely that a balanced cable would have 2-pole 3.5mm plugs on one end.
 
-Un conector de 3.5mm de `2 polos`, también conocido como un conector `TS (Tip-Sleeve)`, tiene `dos conductores` y generalmente se usa para señales de audio mono. Un cable balanceado normalmente requiere al menos `tres conductores`, uno para la señal positiva, uno para la señal negativa y uno para la tierra. Por lo tanto, es poco probable que un cable balanceado tenga conectores de 3.5mm de 2 polos en un extremo.
+> Un conector de 3.5mm de `2 polos`, también conocido como un conector `TS (Tip-Sleeve)`, tiene `dos conductores` y generalmente se usa para señales de audio mono. Un cable balanceado normalmente requiere al menos `tres conductores`, uno para la señal positiva, uno para la señal negativa y uno para la tierra. Por lo tanto, es poco probable que un cable balanceado tenga conectores de 3.5mm de 2 polos en un extremo.
 
 
 - FIIO K7 BT REVIEW *headphonia* https://www.headfonia.com/fiio-k7-bt-review/
@@ -5838,8 +5848,12 @@ $2116 *AliExpress* [HIFIMAN HE400SE](https://bit.ly/3Ds0N6a)
 
 
 
-## 🥇 (7500+)
+## 🥇 (11k+)
 ### HiFiMAN - Edition XS : 
+$6336 *Teching* https://bit.ly/3Y67gwN
+$7913 *Yaoyaotiger HIFI Audio* https://bit.ly/3Y67gwN
+$9350 https://www.amazon.com/HIFIMAN-XS-Headphones-Audiophiles-Studio-Black/dp/B09PH1N67T
+$4335 [Fiio k7 bt](https://es.aliexpress.com/item/1005004861469804.html)
 
 - *The Best Headphone for $500!* Joshua Valour https://www.youtube.com/watch?v=XQ0c1pZ2io8
 - *Best Headphone Setups for Audiophiles Under Rs. 50,000* Headphone Zone https://www.youtube.com/watch?v=bCmqwchOJgo&t
@@ -5848,13 +5862,19 @@ $2116 *AliExpress* [HIFIMAN HE400SE](https://bit.ly/3Ds0N6a)
 - *HiFiMAN Edition XS Review - $500 just got a lot more competitive* HEADPHONE Show https://www.youtube.com/watch?v=BiU4O0gHOcM
 - *BEST HEADPHONES OF THE YEAR* William Murdock https://youtu.be/WWtSSoLk9qY?t=784
 - 
-
+### SPEAKER AMPS:
+$1358 [AIYIMA A07](https://www.amazon.com/gp/product/B08CJZGT6H) *ALIEXPRESS* https://tinyurl.com/26nlep5c
+$1221 *ALIEXPRESS* [SMSL A50](https://rb.gy/6z1q1) 
 
 ## 🥉 $4537     $268USA
 ### Topping L50
 $2861/$2400? *SHENZHENAUDIO* [Topping L50] $169/$143?
 ### Topping E30 LITE
 $1676  *LEAUDIO* [Topping E30II Lite] $99/$84??
+
+## Topping MX3s
+- *Zeos* https://www.youtube.com/watch?v=fBv87MFimbY A remote control DAC like Topping E50 and then just a power amp from Emotiva or Crown // 
+- 
 
 ## IFI Zen Air Can
 $2164 *IFI audio* [IFI Zen Air Can](https://www.amazon.com/gp/product/B09V7TQWPZ/ref=ox_sc_act_image_1?smid=A2H1DLE1VLYNIR&psc=1) $127 (99+28)
@@ -5873,15 +5893,15 @@ $5900/$5k? *LEAUDIO* [Topping Dx5 Lite](https://www.amazon.com/gp/product/B0BXWG
 ## Topping EL50 stack
 $2861/$2400? *SHENZHENAUDIO* [Topping L50](https://www.amazon.com/gp/product/B09F2LY6QG/ref=ox_sc_act_title_1?smid=A2Q0JVLI22BSVA&th=1) $169/$143?
 - Under $500 & ⭐⭐⭐⭐⭐ // Topping E50 & L50 _(Z Reviews)_ https://youtu.be/s-S79X89A0Y     Nov 25, 2021
-- 
-[Topping E50](https://www.youtube.com/watch?v=iNvTs31Q6dc)
 - Topping L50 is a POWERHOUSE https://www.youtube.com/watch?v=iNvTs31Q6dc
 
+[Topping E50](https://www.youtube.com/watch?v=iNvTs31Q6dc)
 
-$129/$109? $88?(used)[FiiO BTA30 Receiver Transmitter Bluetooth](https://www.amazon.com/FiiO-Transmitter-Bluetooth-Amplifier-Resolution/dp/B09J48ZPD4/ref=sr_1_3?keywords=FiiO+BTA30&sr=8-3) $2800 (2200+600)
+
+$129/$109? $88?(used)[FiiO BTA30 Receiver Transmitter Bluetooth](https://www.amazon.com/FiiO-Transmitter-Bluetooth-Amplifier-Resolution/dp/B09J48ZPD4/) $2800 (2200+600)
  
-## Topping EL30 stack
-$1676  *LEAUDIO* [Topping E30II Lite](https://www.amazon.com/gp/product/B0C9HL5P7H/ref=ox_sc_act_image_1?smid=A3OGU47PDPAJIO&psc=1) $99/$84??
+## Topping EL30II stack
+$1676/1430?  *LEAUDIO* [Topping E30II Lite](https://www.amazon.com/gp/product/B0C9HL5P7H/ref=ox_sc_act_image_1?smid=A3OGU47PDPAJIO&psc=1) $99/$84??
 
 
 ## BLUETOOTH
@@ -5893,7 +5913,7 @@ $1676  *LEAUDIO* [Topping E30II Lite](https://www.amazon.com/gp/product/B0C9HL5P
 - [SMSL C200](https://aoshida-audio.com/products/smsl-c200?DIST=RkFO) $200
 - $500 Bifrost 264
 - Geshelli J2 ESS
-- [Fiio BTA30 Pro](https://es.aliexpress.com/item/1005001677949000.html?spm=a2g0o.detail.1000060.2.61c92595zGQnaV&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.291025.0&scm_id=1007.13339.291025.0&scm-url=1007.13339.291025.0&pvid=b5dfdfa3-db31-4027-a058-9e3fb7e61e39&_t=gps-id%3ApcDetailBottomMoreThisSeller%2Cscm-url%3A1007.13339.291025.0%2Cpvid%3Ab5dfdfa3-db31-4027-a058-9e3fb7e61e39%2Ctpp_buckets%3A668%232846%238109%231935&pdp_npi=3%40dis%21MXN%212294.97%212085.52%21%21%21%21%21%402103011216900767440713734e72c7%2112000025898324667%21rec%21MX%212632905720&gatewayAdapt=glo2esp) (Bluetooth transmiter) https://www.reddit.com/r/headphones/comments/138fvvy/fiio_launch_k7_bt_dacamp_with_ldac_in_249_vs_199/
+- [Fiio BTA30 Pro](https://bit.ly/3DqpSyb) (Bluetooth transmiter) https://www.reddit.com/r/headphones/comments/138fvvy/fiio_launch_k7_bt_dacamp_with_ldac_in_249_vs_199/
 - 
 
 
@@ -5907,6 +5927,11 @@ lucas -inflatable people
 mango tree -  zac brown [jekyll hide]
 electrified - boris blank
 Anne Bison’s “September in Montreal” 
+lp - muddy waters
+sidetrack - tanerelle
+so handsome hello - weedkid
+all of me - posmodern jukebox cover kaya victoria
+change on the rise - avi kaplan
 
 
 
@@ -5945,13 +5970,268 @@ Window 560aa731c400 -> Qalculate!:
 	monitor: 0
 	class: qalculate-gtk
 	title: Qalculate!
-	initialClass: qalculate-gtk
-	initialTitle: Qalculate!
-	pid: 1383923
-	xwayland: 0
-	pinned: 0
-	fullscreen: 0
-	fullscreenmode: 0
-	fakefullscreen: 0
-	grouped: 0
-	swallowing: 0
+---
+
+# Keyboard Bindings
+
+_This section is modified from [philc/vimium 's](https://github.com/philc/vimium#keyboard-bindings)._
+
+Modifier keys are specified as `<c-x>`, `<m-x>`, and `<a-x>` for Ctrl+x, Meta+x, and Alt+x respectively. For Shift+X and Ctrl+Shift+X, just type `X` and `<c-s-x>`. See the next section for how to customize these bindings.
+
+Once you have Vimium C installed, you can see this list of key bindings at any time by typing `?`.
+
+Navigating the current page:
+
+| Command | Description |
+|---|---|
+| ? | Show the help dialog for a list of all available keys. |
+| h | Scroll left. |
+| j | Scroll down. |
+| k | Scroll up. |
+| l | Scroll right. |
+| gg | Scroll to the top of the page. |
+| G | Scroll to the bottom of the page. |
+| d | Scroll down half a page. |
+| u | Scroll up half a page. |
+| f | Open a link in the current tab. |
+| F | Open a link in a new tab. |
+| r | Reload the page. |
+| gs | View the source code of the page. |
+| i | Enter insert mode. All commands will be ignored until you press `Esc` to exit. |
+| yy | Copy the current URL to the clipboard. |
+| yf | Copy the URL of the currently focused link to the clipboard. |
+| gf | Cycle forward to the next frame. |
+| gF | Focus the main/top frame. |
+
+Navigating to new pages:
+| Command | Description |
+|---|---|
+| o | Open a URL, bookmark, or history entry in the current tab. |
+| O | Open a URL, bookmark, or history entry in a new tab. |
+| b | Open a bookmark. |
+| B | Open a bookmark in a new tab. |
+
+Using find:
+
+| Command | Description |
+|---|---|
+| / | Enter find mode. |
+| n | Cycle forward to the next find match. |
+| N | Cycle backward to the previous find match. |
+
+For advanced usage, see [regular expressions](https://github.com/philc/vimium/wiki/Find-Mode) on the wiki.
+
+Navigating your history:
+
+| Command | Description |
+|---|---|
+| H | Go back in history. |
+| L | Go forward in history. |
+
+
+Manipulating tabs:
+
+| Command | Description |
+|---|---|
+| J | Go one tab left. |
+| K | Go one tab right. |
+| g0 | Go to the first tab. Use `ng0` to go to the n-th tab, on `g` and a number character of `0`. |
+| g$ | Go to the last tab. |
+| ^ | Visit the previously-visited tab. |
+| t | Create a new tab. |
+| yt | Duplicate the current tab. |
+| x | Close the current tab. |
+| X | Restore a closed tab. |
+| T | Search through your open tabs. |
+| W | Move the current tab to a new window. |
+| `a-p` | Pin/unpin the current tab. |
+
+Using marks:
+| Command | Description |
+|---|---|
+| ma, mA | Set a local mark "a" (global mark "A"). |
+| `a, `A | Jump to local mark "a" (global mark "A"). |
+| `` | Jump back to the position before the previous jump. |
+
+Additional advanced browsing commands:
+
+```
+]], [[  Follow the link labeled "next or ">" ("previous" or "<">)
+          - helpful for browsing paginated sites
+<a-f>   open multiple links in a new tab
+gi      focus the first (or n-th) text input box on the page. Use <tab> to cycle through options.
+gu      go up one level in the URL hierarchy
+gU      go up to root of the URL hierarchy
+ge      edit the current URL
+gE      edit the current URL and open in a new tab
+zH      scroll all the way left
+zL      scroll all the way right
+v       enter visual mode; use p/P to paste-and-go, use y to yank
+V       enter visual line mode
+```
+
+Vimium C supports command repetition so, for example, hitting `5t` will open 5 tabs in rapid succession. `<esc>` (or `<c-[>`) will clear any partial commands in the queue and will also exit insert and find modes.
+
+There are some advanced commands which aren't documented here; refer to the help dialog (type `?`) for a full list.
+
+## Navigating the page
+
+| Command | Description |
+|---|---|
+| f | Open a link in the current tab. |
+| F | Open a link in a new tab. |
+| <a-f> | Open multiple links in a new tab. |
+| <c-e> j | Scroll down. |
+| k <c-y> | Scroll up. |
+| h | Scroll left. |
+| l | Scroll right. |
+| gg | Scroll to the top of the page. |
+| G | Scroll to the bottom of the page. |
+| zH | Scroll all the way to the left. |
+| zL | Scroll all the way to the right. |
+| d | Scroll a page down. |
+| u | Scroll a page up. |
+| r | Reload current frame. |
+| <a-r> | Reload N tabs. |
+| R | Reload N-th tab. |
+| gs | View page source. |
+| yy | Copy page's info. |
+| <s-f1> <f2> | Blur activeElement or refocus it. |
+| gi | Focus the N-th visible text box on the page and cycle using tab. |
+| yf | Copy a link URL to the clipboard. |
+| p | Open the clipboard's URL in the current tab. |
+| P | Open the clipboard's URL in N new tabs. |
+| gu | Go up the URL hierarchy. |
+| gU | Go to root of current URL hierarchy. |
+| yi | Copy image to the clipboard. |
+| yv | Select text and enter visual mode. |
+| <f1> | Simulate backspace once if focused. |
+| ]] | Follow the link labeled next or ">". |
+| [[ | Follow the link labeled previous or "<". |
+| gf | Cycle forward to the next frame on the page. |
+| gF | Select the tab's main/top frame. |
+| i | Enter insert mode. |
+| <f8> v | Enter visual mode. |
+| V | Enter visual line mode. |
+| m | Create a new mark. |
+| ` | Go to a mark. |
+
+##	Using the Vomnibar
+| Command | Description |
+|---|---|
+| o | Open URL, bookmark, or history entry in the current tab. |
+| O | Open URL, bookmark, or history entry in a new tab. |
+| b | Open a bookmark in the current tab. |
+| B | Open a bookmark in a new tab. |
+| T | Search through your open tabs. |
+| ge | Edit the current URL. |
+| gE | Edit the current URL and open in a new tab. |
+| gn | Toggle styles of vomnibar page. |
+
+## Using find
+
+| Command | Description |
+|---|---|
+| / | Enter find mode. |
+| n | Cycle forward to the next find match. |
+| N | Cycle backward to the previous find match. |
+| < a-n > | Find the second or even earlier query words. |
+
+## Navigating history
+
+| Command | Description |
+|---|---|
+| H | Go back in history. |
+| L | Go forward in history. |
+| < a-s-r > | Reopen current page. |
+
+## Manipulating tabs
+| Command | Description |
+|---|---|
+| < a-s-c > gt K < a-v > | Go one tab right. |
+| < a-c > gT J | Go one tab left. |
+| g0 | Go to the first N-th tab. |
+| g$ | Go to the last N-th tab. |
+| t < a-t > | Create new tabs. |
+| yt | Duplicate current tab for N times. |
+| x | Close N tabs. |
+| X | Restore closed tabs. |
+| W | Move tab to next window. |
+| < a-p > | Pin or unpin N tabs. |
+| < a-m > | Mute or unmute current tab. |
+| ^ | Go to previously-visited tab on current window. |
+| << | Move tab to the left. |
+| >> | Move tab to the right. |
+
+## Miscellaneous
+| Command | Description |
+|---|---|
+| ? | Show help. |
+
+---
+
+# [deadd-notification-center](https://github.com/phuhl/linux_notification_center)
+
+deadd-notification-center
+
+## configure:
+mkdir ~/.dotfiles/config/deadd
+
+cp /etc/xdg/deadd/deadd.css ~/.dotfiles/config/deadd/deadd.css
+
+touch ~/.dotfiles/config/deadd/deadd.yml
+
+ln -s ~/.dotfiles/config/deadd/ ~/.config/deadd/
+
+
+## stuff:
+Set the state of a user defined button (in this example the first button, which has `id` 0):
+
+```shell
+# turn highlighting on
+notify-send.py a --hint boolean:deadd-notification-center:true \
+               int:id:0 boolean:state:true type:string:buttons
+
+# turn highlighting off
+notify-send.py a --hint boolean:deadd-notification-center:true \
+               int:id:0 boolean:state:false type:string:buttons
+```
+
+This snippet uses [notify-send.py](https://github.com/phuhl/notify-send.py), an improved version of libnotify (notify-send).
+
+Clear all notifications
+
+```shell
+# within the notification center
+notify-send.py a --hint boolean:deadd-notification-center:true \
+               string:type:clearInCenter
+
+# popups
+notify-send.py a --hint boolean:deadd-notification-center:true \
+               string:type:clearPopups
+```
+
+Pause/Unpause popup notifications
+
+```shell
+# pause popup notifications
+notify-send.py a --hint boolean:deadd-notification-center:true \
+                 string:type:pausePopups
+
+# unpause popup notifications
+notify-send.py a --hint boolean:deadd-notification-center:true \
+                 string:type:unpausePopups
+```
+
+Reload CSS Styling file
+
+```shell
+notify-send.py a --hint boolean:deadd-notification-center:true \
+                 string:type:reloadStyle
+```
+
+Send notifications that only show up in the notification center but do not produce a popup:
+
+```shell
+notify-send.py "Does not pop up" -t 1
+```
