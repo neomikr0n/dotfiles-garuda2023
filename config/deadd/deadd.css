@@ -1,7 +1,13 @@
+/*RELOADING:*/
+/*
+notify-send.py a --hint boolean:deadd-notification-center:true \
+string:type:reloadStyle
+*/
 
 /* Notification center */
 
 .blurredBG, #main_window, .blurredBG.low, .blurredBG.normal {
+    /*background: rgba(172, 12, 161, 0.114);*/
     background: rgba(255, 255, 255, 0.5);
 }
 
@@ -12,8 +18,8 @@
 /* Notifications */
 
 .notification.content {
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .title {

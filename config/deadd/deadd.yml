@@ -50,7 +50,7 @@ notification-center:
   ### If true, the transient field in notifications will be ignored,
   ### thus the notification will be persisted in the notification
   ### center anyways
-  ignore-transient: false
+  ignore-transient: true
 
   ### Custom buttons in notification center
   buttons:
@@ -180,9 +180,9 @@ notification:
   - match:
       app-name: "Spotify"
     modify:
-      image-size: 80
+      image-size: 800
       timeout: 1
-      send-noti-closed: true
+      send-noti-closed: false
       class-name: "Spotify"
   # - match:
   #     title: Bildschirmhelligkeit
@@ -193,7 +193,7 @@ notification:
     ### Default timeout used for notifications in milli-seconds.  This can
     ### be overwritten with the "-t" option (or "--expire-time") of the
     ### notify-send command.
-    default-timeout: 50000
+    default-timeout: 7000
 
     ### Margin above/right/between notifications (in pixels). This can
     ### be used to avoid overlap between notifications and a bar such as
@@ -204,7 +204,7 @@ notification:
 
     ### Defines after how many lines of text the body will be truncated.
     ### Use 0 if you want to disable truncation.
-    max-lines-in-body: 0
+    max-lines-in-body: 2
 
     ### Monitor on which the notifications will be
     ### printed. If "follow-mouse" is set true, this does nothing.
@@ -223,3 +223,16 @@ notification:
       ### The mouse button for opening a popup with the default action.
       ### Must be either "mouse1", "mouse2", "mouse3", "mouse4", or "mouse5"
       default-action: mouse3
+
+# CUSTOM:
+.notificationInCenter.Spotify {
+    background: linear-gradient(130deg, rgba(0, 0, 0, 0.1), rgba(0, 255, 0, 0.3));
+    border-radius: 5px;
+}
+
+notification:
+  modifications:
+  - match:
+      app-name: "Spotify"
+    modify:
+      class-name: "Spotify"

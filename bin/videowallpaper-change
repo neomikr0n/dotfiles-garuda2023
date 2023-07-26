@@ -4,7 +4,8 @@
 # based on... nosvagor's:
 # https://raw.githubusercontent.com/nosvagor/dotfiles/main/bin/change-bg
 
-DISPLAY="DP-4"
+DISPLAY="HDMI-A-1"
+# DISPLAY="DP-3"
 VID_PATH="$HOME/Videos/Hidamari"
 
 background_choice=""
@@ -29,8 +30,12 @@ blackhole () {
     mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=-50  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/blackhole.webm" & disown
 }
 fifi () {
-    mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=0  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/fifi.mp4" & disown
+    mpvpaper -o "--loop --mute=yes --video-unscaled=yes --brightness=3  --contrast=10  --saturation=0  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/fifi.mp4" & disown
 }
+doggo () {
+    mpvpaper -o "--loop --mute=yes --video-unscaled=yes --brightness=3  --contrast=10  --saturation=0  --hue=-8 --gamma=-20" $DISPLAY "$VID_PATH/1080/EP05_01m.mp4" & disown
+}
+/home/n30/Videos/Hidamari/1080/
 
 searchanddestroy () {
     ps -ef | rg "mpvpaper" | rg -v rg | awk '{print $2}' | head -n -1 | xargs kill
@@ -63,6 +68,12 @@ case "$background_choice" in
         sleep 2
         searchanddestroy
     ;;
+    "doggo")
+    searchanddestroy
+    doggo & disown
+    sleep 2
+    searchanddestroy
+;;  
     "lock")
         blackhole & disown
         ps -ef | rg "record" | rg -v rg | awk '{print $2}' | xargs kill

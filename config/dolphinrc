@@ -7,7 +7,7 @@ update_info=dolphin_detailsmodesettings.upd:rename-leading-padding
 ShowCopyMoveMenu=true
 
 [DetailsMode]
-PreviewSize=16
+PreviewSize=22
 
 [General]
 AutoExpandFolders=true

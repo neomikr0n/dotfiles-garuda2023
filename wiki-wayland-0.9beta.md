@@ -1189,7 +1189,10 @@ then:
 ```
 systemctl daemon-reload
 ```
-
+## 6. changing permissions (optional)
+lsblk -f | grep --context 2 "4t"
+sudo chown n30 /dev/sda2
+sudo chmod 777 /dev/sda2
 ---
 # AMD
 
@@ -6235,3 +6238,35 @@ Send notifications that only show up in the notification center but do not produ
 ```shell
 notify-send.py "Does not pop up" -t 1
 ```
+
+---
+
+[Best 1440p Gaming Monitors of 2023 [April Update]](https://www.youtube.com/watch?v=5ae04bdURzQ)
+
+AOC Gaming U34G3XM (as low as 280€), iiyama XUB3493WQSU (around 400€) and Samsung ViewFinity S5 S34C500GAU (320€+)
+the alienware AW3423DWF/AW3423DW is pretty much the best hdr monitor at the moment. its ultrawide and uses an oled panel. be careful tho there is the AW3423DWF and AW3423DW
+Gigabyte M34WQ. An excellent 21:9 34” FLAT 144hz 3440x1440 IPS monitor with nice features such as KVM.
+
+
+[Best Gaming Monitors of 2022:](https://www.youtube.com/watch?v=Qtpbv8HUrtE) 
+34GN850-B for just 559€
+38' LG Ultrawides like the LG 38GN950-B 
+for 560€ the 34GN850-B would be my choice 
+
+Best Gaming Monitors of 2023: 
+[Gigabyte M34WQ-SA, 34" IPS](https://tinyurl.com/29sshybc)
+LG34GP83 often dips to $600 on Amazon and is basically identical to the LG34GN850 which HWU labeled the ultra wide performance king prior to OLEDs arriving not long ago. 
+I have a ViewSonic IPS 1440p 144Hz along with a Dell S3422DWG ultra wide 144Hz VA and they are both great.
+I can recommend the AOC 34G2X as VA panel. Yes, it has dark smearing like most VA panels but the depth and image quality is amazing when using picture boost and it is cheap
+For under 300€ the AOC U34G3XM/EU is great value ultrawide if gaming and regular web use is the only thing you do, colors are great but the movement of small things like editing Text makes it a bit too distracting for me
+But I went with the LG 34GN850B though, so that I don't need to change the profile on the monitor regardless of the game that I play, be it racing, RTS, shooter, whatever.
+
+[TOP 5: Best Ultrawide Monitor 2023](https://www.youtube.com/watch?v=DQQ18hj52Ic)
+AOC CU34G2X 34" VA https://tinyurl.com/29l5jeas
+
+*Type-C Tech Reviews*
+[Dell S3422DWG 34" Ultrawide Gaming Monitor Review](https://www.youtube.com/watch?v=QZpK6_eMH5Q)
+[Dell S3422DWG vs LG 34GP83A-B](https://www.youtube.com/watch?v=Z_dvA7T5t2Q&t=532s)
+[Top 5 Gaming Ultrawide Monitors](https://www.youtube.com/watch?v=FPluY-1zqH8&t=672s)
+
+

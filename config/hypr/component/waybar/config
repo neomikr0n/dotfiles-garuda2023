@@ -2,8 +2,8 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     //"height": 10, // Waybar height (to be removed for auto height)
-    "width": 3466, // Waybar width FOR WIDESCREEN 3440pX1440p
-    "spacing": 3, // Gaps between modules (4px)
+    // "width": 3466, // Waybar width FOR WIDESCREEN 3440pX1440p
+    "spacing": 1, // Gaps between modules (4px)
     "margin-bottom":-22,
     // "margin-left":25,
     // "margin-right":25,
@@ -43,11 +43,11 @@
         "pulseaudio",
         "custom/keyboard-layout",
         "custom/weather",
-        "cpu#percentage",
+        // "cpu#percentage",
         // "cpu",
         "custom/wl-gammarelay-temperature",
         "tray",
-        "custom/notification",    
+        // "custom/notification",    
         "clock#date",
         "clock"
     ],
