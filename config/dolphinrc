@@ -26,6 +26,7 @@ Places Icons Auto-resize=false
 Places Icons Static Size=22
 
 [KPropertiesDialog]
+1920x1080 screen: Window-Maximized=true
 3440x1440 screen: Window-Maximized=true
 DP-3 Window-Maximized 3440x1440 DP-3=true
 

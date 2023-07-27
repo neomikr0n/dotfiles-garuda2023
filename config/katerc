@@ -32,7 +32,7 @@ Show Url Nav Bar=true
 Show output view for message type=1
 Show text for left and right sidebar=false
 Show welcome view for new window=false
-Startup Session=manual
+Startup Session=last
 Stash new unsaved files=true
 Stash unsaved file changes=false
 Sync section size with tab positions=false
@@ -172,7 +172,8 @@ RunPrefix=
 SetEditor=false
 
 [MainWindow]
-1920x1080 screen: Window-Maximized=true
+1920x1080 screen: Height=1080
+1920x1080 screen: Width=1920
 3440x1440 screen: Height=1440
 3440x1440 screen: Width=3440
 3440x1440 screen: Window-Maximized=true

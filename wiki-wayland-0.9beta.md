@@ -1189,10 +1189,10 @@ then:
 ```
 systemctl daemon-reload
 ```
-## 6. changing permissions (optional)
-lsblk -f | grep --context 2 "4t"
-sudo chown n30 /dev/sda2
-sudo chmod 777 /dev/sda2
+## 6. changing user rw privilegies
+Dolphin (right click) --> Root actions --> Ownership to...
+
+
 ---
 # AMD
 

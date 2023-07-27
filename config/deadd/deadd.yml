@@ -50,7 +50,7 @@ notification-center:
   ### If true, the transient field in notifications will be ignored,
   ### thus the notification will be persisted in the notification
   ### center anyways
-  ignore-transient: true
+  ignore-transient: false
 
   ### Custom buttons in notification center
   buttons:
@@ -223,16 +223,3 @@ notification:
       ### The mouse button for opening a popup with the default action.
       ### Must be either "mouse1", "mouse2", "mouse3", "mouse4", or "mouse5"
       default-action: mouse3
-
-# CUSTOM:
-.notificationInCenter.Spotify {
-    background: linear-gradient(130deg, rgba(0, 0, 0, 0.1), rgba(0, 255, 0, 0.3));
-    border-radius: 5px;
-}
-
-notification:
-  modifications:
-  - match:
-      app-name: "Spotify"
-    modify:
-      class-name: "Spotify"
