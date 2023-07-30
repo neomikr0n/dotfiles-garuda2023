@@ -4,8 +4,8 @@
 # based on... nosvagor's:
 # https://raw.githubusercontent.com/nosvagor/dotfiles/main/bin/change-bg
 
-DISPLAY="HDMI-A-1"
-# DISPLAY="DP-3"
+# DISPLAY="HDMI-A-1"
+DISPLAY="DP-1"
 VID_PATH="$HOME/Videos/Hidamari"
 
 background_choice=""

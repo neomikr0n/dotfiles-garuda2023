@@ -3513,8 +3513,6 @@ sudo nano /etc/X11/xorg.conf
 
 ---
 
-Install
-firefox workrave easyeffects
 
 # Genymotion, ova, virtual machine
 
@@ -3532,12 +3530,38 @@ cd ~/Downloads && chmod +x VirtualBox*.run && sudo ./VirtualBox*.run uninstall
 
 # Easyeffects
 
-# Backup
+## Backup
 
 mv ~/.config/easyeffects/output/*.json ~/<WHEREVER>
 
 #Restore
 mv ~/Downloads/*.json ~/.config/easyeffects/output/
+
+## Presets:
+[PulseEffects/EasyEffects Loudness Equalizer Preset](https://github.com/Digitalone1/EasyEffects-Presets)
+
+
+[EasyPulse](https://github.com/p-chan5/EasyPulse)
+7 configuration profiles: classical 🎻️
+custom 
+edm 
+hifi 
+kpop 🎤️
+lofi 
+rock 
+
+```
+# AUDIO/VOLUME/PARAMETRIC EQ/PIPEWIRE (old hyprland.conf)
+# "wpctl status" & "pactl list sinks short" will output info (sinks, devices, etc).
+bind= $triMod,Kp_End,exec,pactl set-default-sink alsa_output.usb-Topping_DX3_Pro_-00.analog-stereo; notify-send -e '         🎧 Topping DX3 Pro+ 🎧'
+# alsa_output.usb-Topping_D30-00.analog-stereo
+# alsa_output.usb-Topping_MX5-00.analog-stereo
+# alsa_output.usb-Topping_DX3_Pro_-00.analog-stereo
+bind= $triMod,Kp_Down,exec,pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo.10; notify-send -e '               🎧 SONY 1000 🎧'
+bind= $triMod,Kp_Next,exec,pactl set-default-sink alsa_output.usb-Burr-Brown_from_TI_USB_Audio_DAC-00.iec958-stereo; notify-send -e "                🔊 BOCINAS 🔊"
+bind= CTRL,space,exec,pkill wofi; $scriptsDir/volume_audio_changer.py
+bind= $triMod,P,exec,systemctl --user restart pipewire-pulse.service | systemctl --user restart pipewire.socket | systemctl --user restart wireplumber pipewire pipewire-pulse     #pipewire restart
+```
 
 # Balena Etcher
 
@@ -6270,3 +6294,21 @@ AOC CU34G2X 34" VA https://tinyurl.com/29l5jeas
 [Top 5 Gaming Ultrawide Monitors](https://www.youtube.com/watch?v=FPluY-1zqH8&t=672s)
 
 
+# JELLYFIN
+
+sudo pacman -S jellyfin
+
+Enable the Jellyfin systemd service:
+sudo systemctl enable jellyfin
+
+Start the Jellyfin service:
+sudo systemctl start jellyfin
+
+Open a web browser
+http://localhost:8096
+other devices:
+192.168.1.13:8096
+
+
+Plugins:
+Opensubtitles

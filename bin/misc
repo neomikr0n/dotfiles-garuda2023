@@ -21,11 +21,11 @@ openbrowser() {
   hyprctl dispatch workspace 2
   hyprctl dispatch exec [workspace 2] brave
   # hyprctl dispatch exec [workspace 1 silent] whatsie
-  hyprctl dispatch exec [workspace 1 silent] whatsapp-nativefier
+  hyprctl dispatch exec [workspace 1 silent] whatsie
   sleep 5
   hyprctl dispatch exec [workspace special silent] google-calendar-nativefier
   hyprctl dispatch exec [workspace special silent] todoist-nativefier
-  bash ~/.dotfiles/bin/videowallpaper-change doggo
+  bash ~/.dotfiles/bin/videowallpaper-change fifi
 
 }
 
