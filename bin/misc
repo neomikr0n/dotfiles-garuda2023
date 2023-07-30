@@ -14,12 +14,13 @@ openbrowser() {
   # continuously check if the internet is available and open browser once it is
   while ! ping -c 1 google.com &> /dev/null
   do
-      notify-send -e "Internet is not available yet. Trying again in 3 seconds..."
+      notify-send -e "Internet not available yet. Trying again in 3 seconds..."
       sleep 3
   done
-  notify-send -e "Internet is available. Opening Browser :)"
+  notify-send -e "Internet is available!! Opening Browser :)"
   hyprctl dispatch workspace 2
   hyprctl dispatch exec [workspace 2] brave
+  hyprctl dispatch exec [workspace special silent] google-chrome-stable
   # hyprctl dispatch exec [workspace 1 silent] whatsie
   hyprctl dispatch exec [workspace 1 silent] whatsie
   sleep 5

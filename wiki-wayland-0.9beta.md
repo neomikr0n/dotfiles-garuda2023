@@ -273,6 +273,16 @@ The wl-gammarelay is a daemon which listens to DBus requests:
 The service can be introspected:
 `busctl --user introspect rs.wl-gammarelay / rs.wl.gammarelay`
 
+## hyprland.conf
+```
+exec= wl-gammarelay 
+bind= $triMod,Kp_Left,exec,busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500
+bind= $triMod,Kp_Begin,exec,busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500
+bind= $triMod,Kp_Right,exec,busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 2500
+# busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100        #TODO: eventually
+# busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100
+```
+
 ---
 
 > # *[Geolocation](https://rumpelsepp.org/blog/geolocation-for-gammastep/)* for **[gammastep](https://gitlab.com/chinstrap/gammastep)**
