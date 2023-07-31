@@ -25,9 +25,14 @@ Bocinas() {
   message="         BOCINAS "
   notification
 }
+XS_bass() {
+  easyeffects -l XS_bass
+  message="         🎧 XS bASS 🎧"
+  notification
+}
 HE400SE_bass() {
   easyeffects -l HE400SE_bass
-  message="         🎧 HIFIMAN HE400SE BASS 🎧"
+  message="         🎧 HIFIMAN HE400SE bASS 🎧"
   notification
 }
 HE400SE_oratory() {
@@ -43,8 +48,8 @@ elif [[ "$1" == "--HE400SE_bass" ]]; then
   HE400SE_bass
 elif [[ "$1" == "--HE400SE_oratory" ]]; then
   HE400SE_oratory
-elif [[ "$1" == "--restart" ]]; then
-  restart
+elif [[ "$1" == "--XS_bass" ]]; then
+  XS_bass
 elif [[ "$1" == "--suspend" ]]; then
   suspend
 elif [[ "$1" == "--logout" ]]; then

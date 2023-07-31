@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 ", "tooltip": "\n(brave.instance242409)"}
+{"class": "playing", "text": "Chad Lawson - Lawson: to hold the stars in the palm of your hand (solo piano) (03:12/04:03) ", "tooltip": "Lawson: to hold the stars in the palm of your hand (solo piano)\nby Chad Lawson\n(tidal-hifi)"}

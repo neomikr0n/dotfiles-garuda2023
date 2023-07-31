@@ -160,10 +160,24 @@ QPlatformTheme for a better Qt5 application inclusion in GNOME
 community/qgnomeplatform-qt6 0.9.0-10 (128.4 KiB 453.3 KiB) (Installed)
 QPlatformTheme for a better Qt6 application inclusion in GNOME
 
+> # **[ddccontrol](https://github.com/ddccontrol/ddccontrol)**
+DDCcontrol is a software used to control monitor parameters, like brightness, contrast, RGB color levels and others. dell OSD
+
+## Warning! 
+There is no support for your monitor in the database, but ddccontrol is using a basic generic profile. Many controls will not be supported, and some controls may not work as expected.
+Please update ddccontrol-db, or, if you are already using the latest version, please send the output of the following command to `ddccontrol-users@lists.sourceforge.net`:
+`LANG= LC_ALL= ddccontrol -p -c -d | tee ~/Downloads/dell-s3422dwg.txt `
+
+## [Brightness 0-100]
+ddccontrol -r 0x10 -w 90 dev:/dev/i2c-6
+## [Contrast 0-100]
+ddccontrol -r 0x12 -w 90 dev:/dev/i2c-6
 
 > # **[msigd](https://github.com/couriersud/msigd)**
+The msigd command line tool allows you to change most settings for MSI monitors which can be set in the monitor's OSD menu.
 
-MPG341QR
+Warning: Use msigd only if yo
+`MPG341QR`
 
 [🔴] × g++ --version
 g++ (GCC) 13.1.1 20230429
@@ -188,7 +202,7 @@ yay -S libusb-dev libhidapi-dev libusb-devel hidapi-devel
  -> No AUR package found for hidapi-devel
 ```
 
-2. ## This program needs root privilidges. Use with care.
+1. ## This program needs root privilidges. Use with care.
 sudo pacman -S libusb hidapi
 sudo nano /etc/udev/rules.d/51-msi-gaming-device.rules
 
