@@ -6,9 +6,9 @@
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_temperature#L45
 
 # Check the first positional argument
-if [ "$1" == "up" ]; then
+if [ "$1" == "gamma_up" ]; then
     increment=1000
-elif [ "$1" == "down" ]; then
+elif [ "$1" == "gamma_down" ]; then
     increment=-1000
 else
     echo "Invalid argument. Must be 'up' or 'down'."
@@ -69,9 +69,7 @@ noti_id=$(notify-send.py    --hint string:image-path:file://$icon \
                                    int:has-percentage:$progress_bar \
                                    boolean:transient:true \
                             -i easyeffects -t 999 -u low -a gammarelay -c gammarelay \
-                            "wlr_temperature:" "$new_temperature°K         lol=$noti_id"
-                            
- )
+                            "wlr_temperature:" "$new_temperature°K         lol=$noti_id")
                 # --replaces-process gammarelay
                 # string:x-canonical-private-synchronous:gammarelay \
                             # boolean:transient:true \
