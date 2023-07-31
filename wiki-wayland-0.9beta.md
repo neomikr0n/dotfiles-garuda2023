@@ -1559,6 +1559,7 @@ fd-find = fd?
 sudo pacman -S sway rofi waybar luajit slurp grim light playerctl pulseaudio-utils wl-clipboard papirus-icon-theme
 ```
 
+
 # +---------------------------+
 
 # | SwayWM Configuration file |

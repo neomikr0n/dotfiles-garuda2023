@@ -149,15 +149,17 @@ brightness() {
 }
 brightnessFIXED() {
     if [ "$1" == "brightnessFIXED_100" ]; then
-        increment=10
+        ddccontrol -r 0x10 -w 100 dev:/dev/i2c-6
     elif [ "$1" == "brightnessFIXED_75" ]; then
-        increment=-10
+        ddccontrol -r 0x10 -w 75 dev:/dev/i2c-6
     elif [ "$1" == "brightnessFIXED_50" ]; then
-        increment=-10
+        ddccontrol -r 0x10 -w 50 dev:/dev/i2c-6
     else
-        echo "Invalid argument. Must be 'up' or 'down'."
+        notify-send --urgency=normal --icon=firedragon -t 6666 "test..." "           ⌛0% [ █ █ █ █ █ █ █ █ █ █ █ ] 100%"
+        echo "Invalid argument."
         exit 1
-    fi  
+    fi
+
 }
 
 # MAIN:
@@ -165,7 +167,6 @@ brightnessFIXED() {
     gamma "$@"
     elif [[ "$1" == "brightness_"* ]]; then
     brightness "$@"
-    else
     elif [[ "$1" == "brightnessFIXED_"* ]]; then
     brightnessFIXED "$@"
     else
