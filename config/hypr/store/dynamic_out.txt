@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Gavin Luke - Night Walk (01:51/02:20) ", "tooltip": "Night Walk\nby Gavin Luke\n(tidal-hifi)"}
+{"class": "playing", "text": "Iannis Xenakis - Taurhiphanie / Voyage Absolu Des Unari Vers Androm\u00e8de / Gendy 3 / S.709 - Taurhiphanie (00:06/11:03) ", "tooltip": "Taurhiphanie\nby Iannis Xenakis\nfrom Taurhiphanie / Voyage Absolu Des Unari Vers Androm\u00e8de / Gendy 3 / S.709\n(tidal-hifi)"}
