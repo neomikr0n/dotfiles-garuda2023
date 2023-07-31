@@ -24,9 +24,9 @@ notification-center:
   ### Margin at the top/right/bottom of the notification center in
   ### pixels. This can be used to avoid overlap between the notification
   ### center and bars such as polybar or i3blocks.
-  # margin-top: 0
-  # margin-right: 0
-  # margin-bottom: 0
+  margin-top: 60
+  margin-right: -1000
+  margin-bottom: -50
 
   ### Width of the notification center in pixels.
   # width: 500
@@ -40,7 +40,7 @@ notification-center:
   # follow-mouse: false
 
   ### Notification center closes when the mouse leaves it
-  hide-on-mouse-leave: true
+  hide-on-mouse-leave: false
 
   ### If newFirst is set to true, newest notifications appear on the top
   ### of the notification center. Else, notifications stack, from top to
@@ -106,7 +106,7 @@ notification:
     ### If set to true: If no icon is passed by the app_icon parameter
     ### and no application "desktop-entry"-hint is present, deadd will
     ### try to guess the icon from the application name (if present).
-    guess-icon-from-name: true
+    guess-icon-from-name: false
 
     ### The display size of the application icons in the notification
     ### pop-ups and in the notification center
@@ -124,7 +124,7 @@ notification:
     margin-top: 15
     margin-bottom: 15
     margin-left: 15
-    margin-right: 0
+    margin-right: 10
 
   ### Apply modifications to certain notifications:
   ### Each modification rule needs a "match" and either a "modify" or
@@ -146,8 +146,8 @@ notification:
       ### Possible modifications
       # title: "abc"
       # body: "abc"
-      # app-name: "abc"
-      # app-icon: "file:///abc.png"
+      #app-name: "gammarelay"
+      #app-icon: "/usr/share/icons/BeautyLine/actions/scalable/contrast.svg"
       ### The timeout has three special values:
       ### timeout: 0 -> don't time out at all
       ### timeout: -1 -> use default timeout
@@ -156,7 +156,7 @@ notification:
       # timeout: 1
       # margin-right: 10
       # margin-top: 10
-      # image: "file:///abc.png"
+      #image: "/usr/share/icons/BeautyLine/actions/scalable/contrast.svg"
       # image-size: 10
       # transient: true
       # send-noti-closed: false

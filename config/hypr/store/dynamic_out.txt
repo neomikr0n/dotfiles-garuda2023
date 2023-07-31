@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Chet Faker - Low (Boys Noize Remix) - Low - Boys Noize Remix (00:18/05:39) ", "tooltip": "Low - Boys Noize Remix\nby Chet Faker\nfrom Low (Boys Noize Remix)\n(spotify)"}
+{"class": "paused", "text": "\u25b6 ", "tooltip": "\n(brave.instance242409)"}

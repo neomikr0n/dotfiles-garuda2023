@@ -24,6 +24,7 @@
 #custom-cycle_wall,
 #custom-ss,
 #custom-dynamic_pill,
+#custom-dynamic_pill_Lite,
 #custom-weather,
 #mpd {
     padding: 0 10px;
@@ -45,6 +46,11 @@ window#waybar {
     /* font-weight: bold; */
     /* font-weight: bolder; */
 }
+#custom-dynamic_pill_lite label {
+    color: #ffffff;
+    /* font-weight: bold; */
+    /* font-weight: bolder; */
+}
 
 #custom-expand {
     color: #ffffff;
@@ -56,7 +62,10 @@ window#waybar {
     color: 	#89b4fa ;
     font-weight: bolder; 
 }
-
+#custom-dynamic_pill_lite.paused label {
+    color: 	#ffffff ;
+    font-weight: bolder; 
+}
 #workspaces button label{
     color: 	#89b4fa ;
     font-weight: bolder;
@@ -176,6 +185,38 @@ window#waybar {
     background: #b4faff ;
     /* font-weight: bolder; */
     /* color: #1d35ce; */           /*not working */
+}
+/* TODO: DElete:
+#custom-dynamic_pill_lite.low{
+    background-size: 300% 300%;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    color: #fff;
+}
+#custom-dynamic_pill_lite.normal{
+    background-size: 400% 400%;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    color: #fff;
+}
+#custom-dynamic_pill_lite.critical{
+    background-size: 300% 300%;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    color: #fff;
+} */
+
+#custom-dynamic_pill_lite.playing{
+    background-size: 400% 400%;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    color: #0ca745;
+}
+
+#custom-dynamic_pill_lite.paused{
+    /* background: #b4faff ; */
+    /* font-weight: bolder; */
+    color: #16aa14;           /*not working */
 }
 
 #custom-ss{

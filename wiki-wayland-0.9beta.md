@@ -6209,17 +6209,47 @@ There are some advanced commands which aren't documented here; refer to the help
 
 # [deadd-notification-center](https://github.com/phuhl/linux_notification_center)
 
-deadd-notification-center
-
 ## configure:
 mkdir ~/.dotfiles/config/deadd
-
 cp /etc/xdg/deadd/deadd.css ~/.dotfiles/config/deadd/deadd.css
-
 touch ~/.dotfiles/config/deadd/deadd.yml
-
 ln -s ~/.dotfiles/config/deadd/ ~/.config/deadd/
 
+## testing:
+
+
+## hyprctl clients | grep --context=6 "deadd"
+	hidden: 0
+	at: 2940,10
+	size: 500,1430
+	workspace: 2 (2)
+	floating: 1
+	monitor: 0
+	class: deadd-notification-center
+	title: Notification area
+	initialClass: deadd-notification-center
+	initialTitle: Notification area
+	pid: 3827417
+	xwayland: 0
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+
+
+## hyprctl clients | grep --context=6 "special"
+Is this a notification?
+Window 56210a464dc0 -> :
+	mapped: 0
+	hidden: 0
+	at: 1573,45
+	size: 293,52
+	workspace: -99 (special)
+	floating: 1
+	monitor: 0
+	class: 
+	title: 
+	initialClass: 
+	initialTitle: 
 
 ## stuff:
 Set the state of a user defined button (in this example the first button, which has `id` 0):
@@ -6260,7 +6290,7 @@ notify-send.py a --hint boolean:deadd-notification-center:true \
                  string:type:unpausePopups
 ```
 
-Reload CSS Styling file
+Reload CSS Styling file !!!!!!!
 
 ```shell
 notify-send.py a --hint boolean:deadd-notification-center:true \
@@ -6303,7 +6333,60 @@ AOC CU34G2X 34" VA https://tinyurl.com/29l5jeas
 [Dell S3422DWG vs LG 34GP83A-B](https://www.youtube.com/watch?v=Z_dvA7T5t2Q&t=532s)
 [Top 5 Gaming Ultrawide Monitors](https://www.youtube.com/watch?v=FPluY-1zqH8&t=672s)
 
+---
+# [Tidal-Hifi](https://github.com/Mastermindzh/tidal-hifi)
 
+## lastfm fix
+- [external window not rendereding correctly for me on wayland](https://github.com/Mastermindzh/tidal-hifi/issues/4) :
+
+`tidal-hifi --no-sandbox`
+then go to options and login as normal
+
+- [rescrobbled](https://github.com/InputUsername/rescrobbled) is a music scrobbler daemon. It detects active media players running on D-Bus using MPRIS, automatically updates "now playing" status, and scrobbles songs to Last.fm or ListenBrainz-compatible services as they play. Among other things, due to sharing a Spotify account (I know, I know), I needed a way to scrobble to Last.fm without connecting the Spotify account to my Last.fm account. Rescrobbled offers a simple solution for this.
+
+## General (7 shortcuts)
+
+ [#](https://defkey.com/tidal-desktop-shortcuts#48184) 
+
+<table class="shortcutTable table"><tbody><tr id="48185" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48185"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48185, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">1</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48185, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43720"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-p" class="shortcutKey " id="Ctrl + P"><keybs>Ctrl</keybs> + <keybs>P</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Settings</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48185" shortcutarticleid="48185"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48185)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48186" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48186"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48186, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">1</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48186, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43721"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-l" class="shortcutKey " id="Ctrl + L"><keybs>Ctrl</keybs> + <keybs>L</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan"><span class="underlineOnHover">L</span>og out</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48186" shortcutarticleid="48186"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48186)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48187" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48187"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48187, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">-1</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48187, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43722"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-h" class="shortcutKey " id="Ctrl + H"><keybs>Ctrl</keybs> + <keybs>H</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan"><span class="underlineOnHover">H</span>ome</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48187" shortcutarticleid="48187"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48187)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48188" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48188"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48188, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">-2</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48188, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43723"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/backspace" class="shortcutKey " id="Backspace"><keybs><i class="icon icon-erase"></i>Backspace</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Back</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48188" shortcutarticleid="48188"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48188)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48189" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48189"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48189, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">-1</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48189, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43724"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/shift-backspace" class="shortcutKey " id="Shift + Backspace"><keybs>↑&nbsp;&nbsp;&nbsp;Shift</keybs> + <keybs><i class="icon icon-erase"></i>Backspace</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Forward</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48189" shortcutarticleid="48189"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48189)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48190" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48190"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48190, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">0</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48190, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43725"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-f" class="shortcutKey " id="Ctrl + F"><keybs>Ctrl</keybs> + <keybs>F</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Search</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48190" shortcutarticleid="48190"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48190)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48191" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48191"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48191, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">1</span></div><div class="voteStar"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48191, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43726"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-u" class="shortcutKey " id="Ctrl + U"><keybs>Ctrl</keybs> + <keybs>U</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Check for <span class="underlineOnHover">u</span>pdates</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48191" shortcutarticleid="48191"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48191)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr></tbody></table>
+
+## Playback (5 shortcuts)
+
+ [#](https://defkey.com/tidal-desktop-shortcuts#48192) 
+
+\>>1.00<<
+
+Please enable JavaScript
+
+[Hotkeys In Blender](https://humix.com/redirect?url=https%3A%2F%2Fblenderbasecamp.com%2Fhumix%2Fvideo%2F4408d574730f28d09c5450ebfc36efc5b832b93c6cc370121416e2c63486d05e)
+
+<table class="shortcutTable table"><tbody><tr id="48193" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48193"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48193, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">5</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" title="Starred"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48193, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43727"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/space" class="shortcutKey " id="Space"><keybs>Space</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Play / Pause</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48193" shortcutarticleid="48193"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48193)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48194" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48194"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48194, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">3</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" title="Starred"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48194, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43728"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-left" class="shortcutKey " id="Ctrl + Left arrow"><keybs>Ctrl</keybs> + <keybs>←</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Previous track</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48194" shortcutarticleid="48194"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48194)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48195" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48195"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48195, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">7</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" title="Starred"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48195, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43729"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-right" class="shortcutKey " id="Ctrl + Right arrow"><keybs>Ctrl</keybs> + <keybs>→</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Next track</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48195" shortcutarticleid="48195"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48195)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48196" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48196"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48196, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">-1</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48196, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43730"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-r" class="shortcutKey " id="Ctrl + R"><keybs>Ctrl</keybs> + <keybs>R</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan">Toggle <span class="underlineOnHover">r</span>epeat all / Repeat single / Repeat off</span></p></td><td class="copyButtonsTd"><div title="Copy this line and URL to clipboard" class="hoverShareButton"><div class="copyButton" id="https://defkey.com/tidal-desktop-shortcuts#48196" shortcutarticleid="48196"><i class="icon icon-docs" width="18"></i></div><div style="padding-top:7px" onclick="copyEmbedCodeButton(48196)"><a href="javascript:void(0);" data-toggle="modal" data-target="#embedModal"><i class="icon icon-code" width="18" title="Get embed code"></i></a></div></div></td></tr><tr id="48197" class="hover shortcutRow"><td class="voteTd"><div class="hoverVoteButtons" style="position:relative" id="voteButton-48197"><div class="voteProtector" onclick="removeVoteProtector(this)"></div><div title="This shortcut is useful!"><a href="javascript:void(0);" class="voteUpButton " onclick="vote(48197, 'up', this)"><i class="icon-arrow-up"></i></a></div><div class="voteParent"><div><span title="Shortcut vote points.
+Indicates most important shortcuts for this program.
+" starred"="" means="" top="" shortcuts,="" calculated="" by="" points="" and="" interaction."="" class="votePoints">2</span></div><div class="voteStar" style="visibility: visible;"><i class="icon-star" style="visibility:hidden"></i></div></div><div title="I don't like that"><a href="javascript:void(0);" class="voteDownButton " onclick="vote(48197, 'down', this)"><i class="icon-arrow-down"></i></a></div></div></td><td id="shortcut-43731"><span class="keyLine blackLink"><a href="https://defkey.com/what-means/ctrl-s" class="shortcutKey " id="Ctrl + S"><keybs>Ctrl</keybs> + <keybs>S</keybs></a></span></td><td class="shortcutDescTd"><p class="shortcutText" style="margin-top:4px"><span class="shortcutSpan"><span class="underlineOnHover">S</span>huffle</span></p></td></tr></tbody></table>
+
+---
 # JELLYFIN
 
 sudo pacman -S jellyfin

@@ -19,11 +19,11 @@
 
     "modules-left": [
         // "custom/launcher"
-        "wlr/workspaces", 
+        "wlr/workspaces",
+        "custom/dynamic_pill_lite",
         // "custom/media",
         // "custom/spotify",
         // "custom/dynamic_pill",
-        "hyprland/window",   //shows name of focused window, just in case you want to know, 'hyprctl clients' on a terminal for way more info...
         // "custom/wall",
         "custom/cava-internal"  //TODO: not working
     ],
@@ -31,6 +31,8 @@
     "modules-right": [
         // "wlr/taskbar",
         // "custom/spotify-metadata",
+        // "custom/dynamic_pill_lite",
+        "hyprland/window",   //shows name of focused window, just in case you want to know, 'hyprctl clients' on a terminal for way more info...
         "idle_inhibitor",
         "custom/garuda-update",
         // "custom/ss",
@@ -42,9 +44,9 @@
         "pulseaudio#microphone",
         "pulseaudio",
         "custom/keyboard-layout",
-        "custom/weather",
+        // "custom/weather",
         "cpu#percentage",
-        "cpu",
+        // "cpu",
         "custom/wl-gammarelay-temperature",
         "tray",
         // "custom/notification",    
@@ -117,11 +119,14 @@
 
 "hyprland/window": {
     //"format": "{}"
-    "format": "<span font='9' rise='-4444'>{}</span>"
-    // "rewrite": {
-    //     "(.*) - YouTube - Brave": "🌎 $1",
-    //     "(.*) - Mozilla Firefox": "🌎 $1",
-    //     "(.*) - fish": "> [$1]"
+    "format": "<span font='9' rise='-4444'>{}       </span>",
+    "rewrite": {    // TODO: not working :(
+        "(.*) - YouTube - Brave": "🌎 $1",
+        "(.*) - Mozilla Firefox": "🌎 $1",
+        "(.*) - fish": "> [$1]"
+    },
+    "max-length": 99
+   
 },
 
 // CUSTOM  Garuda Sway modules ////////////////
@@ -160,13 +165,20 @@
     	"tooltip": false
     },
 
-
     // CUSTOM AURORA modules ////////////////
     "custom/dynamic_pill": {
         "format": "<span color=\"#11111b\" font=\"10\" font-weight=\"400\"><big>{}</big></span>",
         "return-type": "json",
         "exec": "~/.config/hypr/scripts/tools/start_dyn",
         "escape":true
+    },
+    "custom/dynamic_pill_lite": {
+        "format": "<span color=\"#eeecce\" font=\"8\" font-weight=\"400\"><big>{}</big></span>",
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/tools/start_dyn",
+        "escape":true,
+        "max-length": 88
+
     },
 
     "custom/ss":{

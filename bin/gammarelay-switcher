@@ -58,5 +58,16 @@ new_temperature=$(echo "if ($new_temperature < 1000) 1000 else if ($new_temperat
 # Set the new brightness value
 busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q "$new_temperature"
 
+# https://github.com/phuhl/linux_notification_center#example-brightness-indicator
+# notify-send.py "lol" "$new_temperature" \
+#             --hint string:image-path:video-display boolean:transient:true \
+#             int:has-percentage:$new_temperature \
+#             --replaces-process "brightness-popup"
+progress_bar=$($new_temperature/1000)
 # notify:
-notify-send "wlr_temperature:" "$new_temperature"
+icon="/usr/share/icons/BeautyLine/actions/scalable/contrast.svg"
+notify-send.py --hint   string:image-path:file://$icon \
+                        boolean:transient:true \
+                        int:has-percentage:33 \
+                -i firedragon -t 999 -u low -a gammarelay -c notification \
+                "wlr_temperature:" "$new_temperature"
