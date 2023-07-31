@@ -106,7 +106,7 @@ notification:
     ### If set to true: If no icon is passed by the app_icon parameter
     ### and no application "desktop-entry"-hint is present, deadd will
     ### try to guess the icon from the application name (if present).
-    guess-icon-from-name: false
+    guess-icon-from-name: true
 
     ### The display size of the application icons in the notification
     ### pop-ups and in the notification center
@@ -177,13 +177,13 @@ notification:
     ### value must be '{"modify": {}, "match": {}}'. Always leave the "match"
     ### object empty (technical reasons, i.e. I am lazy).
     # script: "linux-notification-center-parse-chromium"
-  - match:
-      app-name: "Spotify"
-    modify:
-      image-size: 800
-      timeout: 1
-      send-noti-closed: false
-      class-name: "Spotify"
+  # - match:
+  #     app-name: "tidal-hifi"
+  #   modify:
+  #     image-size: 800
+  #     timeout: 1
+  #     send-noti-closed: false
+  #     class-name: "Spotify"
   # - match:
   #     title: Bildschirmhelligkeit
   #   modify:
@@ -193,7 +193,7 @@ notification:
     ### Default timeout used for notifications in milli-seconds.  This can
     ### be overwritten with the "-t" option (or "--expire-time") of the
     ### notify-send command.
-    default-timeout: 7000
+    default-timeout: 5000
 
     ### Margin above/right/between notifications (in pixels). This can
     ### be used to avoid overlap between notifications and a bar such as
@@ -204,7 +204,7 @@ notification:
 
     ### Defines after how many lines of text the body will be truncated.
     ### Use 0 if you want to disable truncation.
-    max-lines-in-body: 2
+    max-lines-in-body: 3
 
     ### Monitor on which the notifications will be
     ### printed. If "follow-mouse" is set true, this does nothing.
@@ -218,8 +218,8 @@ notification:
 
       ### The mouse button for dismissing a popup. Must be either "mouse1",
       ### "mouse2", "mouse3", "mouse4", or "mouse5"
-      dismiss: mouse1
+      dismiss: mouse3
 
       ### The mouse button for opening a popup with the default action.
       ### Must be either "mouse1", "mouse2", "mouse3", "mouse4", or "mouse5"
-      default-action: mouse3
+      default-action: mouse1

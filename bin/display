@@ -2,9 +2,35 @@
 # ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░   # BETA
 # ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░   changing gamma temperature on wayland
 # ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░
-# ORIGINAL by xfo-0:
+# original scripts by xfo-0 founded on:
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_temperature#L45
+# https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_brightness
 
+# GLOBAL FUNCTIONS:
+notification() { # Displays a message
+notify-send.py    --hint string:image-path:file://$icon \
+                                   int:has-percentage:$progress_bar \
+                                   boolean:transient:true \
+                            -i easyeffects -t 999 -u low -a gammarelay -c gammarelay \
+                            "wlr_temperature:" "                               $new_temperature°K"
+                # --replaces-process gammarelay
+                # string:x-canonical-private-synchronous:gammarelay \
+                            # boolean:transient:true \
+                            # -r "$noti_id" 
+                            
+#   h="99"    # lenght of the bar of the notification
+#   t="1900"   # how many miliseconds the notification is shown
+#   icon="/usr/share/icons/BeautyLine/preferences/scalable/preferences-desktop-notification-bell.svg"
+
+#     notify-send --app-name eq -t $t -e -h int:value:$h \
+#     -u 'normal' \
+#     -i $icon \
+#     "$message";
+}
+
+# LOCAL FUNCTIONS:
+gamma() {
+notification
 # Check the first positional argument
 if [ "$1" == "gamma_up" ]; then
     increment=1000
@@ -65,13 +91,19 @@ progress_bar="$(($progress_bar / 100))"
 # notify:
 icon="/usr/share/icons/BeautyLine/actions/scalable/contrast.svg"
 
-noti_id=$(notify-send.py    --hint string:image-path:file://$icon \
-                                   int:has-percentage:$progress_bar \
-                                   boolean:transient:true \
-                            -i easyeffects -t 999 -u low -a gammarelay -c gammarelay \
-                            "wlr_temperature:" "$new_temperature°K         lol=$noti_id")
-                # --replaces-process gammarelay
-                # string:x-canonical-private-synchronous:gammarelay \
-                            # boolean:transient:true \
-                            # -r "$noti_id" 
+notification
+}
 
+brightness() {
+lol
+}
+
+
+# main
+if [[ "$1" == "gamma_"* ]]; then
+  gamma "$@"
+elif [[ "$1" == "brightnes_"* ]]; then
+  brightnes "$@"
+else
+  notify_user
+fi
