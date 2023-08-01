@@ -41,6 +41,11 @@ galaxy () {
 delorean () {
     mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=0  --hue=-8 --gamma=-20 --video-unscaled=yes --mute=yes" DP-1 /home/n30/Videos/Hidamari/delorean.mp4 & disown
 }
+collapse_academy () {
+    mpvpaper -o "--loop --brightness=3  --contrast=6  --saturation=0  --hue=-8 --gamma=-20 --video-unscaled=yes --mute=yes" DP-1 /home/n30/Videos/Hidamari/collapse_academy.mp4 & disown
+}
+
+
 searchanddestroy () {
     ps -ef | rg "mpvpaper" | rg -v rg | awk '{print $2}' | head -n -1 | xargs kill
 }
@@ -76,22 +81,28 @@ case "$background_choice" in
         searchanddestroy
     ;;
     "doggo")
-    searchanddestroy
-    doggo & disown
-    sleep 2
-    searchanddestroy
+        searchanddestroy
+        doggo & disown
+        sleep 2
+        searchanddestroy
     ;;
     "delorean")
-    searchanddestroy
-    delorean & disown
-    sleep 2
-    searchanddestroy
+        searchanddestroy
+        delorean & disown
+        sleep 2
+        searchanddestroy
     ;;
     "galaxy")
-    searchanddestroy
-    galaxy & disown
-    sleep 2
-    searchanddestroy
+        searchanddestroy
+        galaxy & disown
+        sleep 2
+        searchanddestroy
+    ;;
+    "collapse_academy")
+        searchanddestroy
+        collapse_academy & disown
+        sleep 2
+        searchanddestroy
     ;;
     "lock")
         blackhole & disown

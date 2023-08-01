@@ -1,7 +1,8 @@
 #!/bin/bash
-# ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░   # BETA
-# ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░   changing gamma temperature on wayland
-# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░
+# ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░     # BETA
+# ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░     changing gamma, temperature, brightness 
+# ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░     on wayland linux (Hyprland)
+
 # original scripts for gamma and brightnes functions by xfo-0 founded on:
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_temperature#L45
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_brightness
