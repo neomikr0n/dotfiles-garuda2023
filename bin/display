@@ -2,7 +2,7 @@
 # ░█▀▀▄░█▀▀░▄▀▀▄░█▀▄▀█░░▀░░█░▄░█▀▀▄░█▀▀█░█▀▀▄░░   # BETA
 # ░█░▒█░█▀▀░█░░█░█░▀░█░░█▀░█▀▄░█▄▄▀░█▄▀█░█░▒█░░   changing gamma temperature on wayland
 # ░▀░░▀░▀▀▀░░▀▀░░▀░░▒▀░▀▀▀░▀░▀░▀░▀▀░█▄▄█░▀░░▀░░
-# original scripts by xfo-0 founded on:
+# original scripts for gamma and brightnes functions by xfo-0 founded on:
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_temperature#L45
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_brightness
 
@@ -151,7 +151,7 @@ brightnessFIXED() {
     if [ "$1" == "brightnessFIXED_100" ]; then
         ddccontrol -r 0x10 -w 100 dev:/dev/i2c-6
     elif [ "$1" == "brightnessFIXED_75" ]; then
-        ddccontrol -r 0x10 -w 75 dev:/dev/i2c-6
+        ddccontrol -r 0x10 -w 85 dev:/dev/i2c-6
     elif [ "$1" == "brightnessFIXED_50" ]; then
         ddccontrol -r 0x10 -w 50 dev:/dev/i2c-6
     else
@@ -159,7 +159,6 @@ brightnessFIXED() {
         echo "Invalid argument."
         exit 1
     fi
-
 }
 
 # MAIN:

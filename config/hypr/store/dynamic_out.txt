@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Iannis Xenakis - Taurhiphanie / Voyage Absolu Des Unari Vers Androm\u00e8de / Gendy 3 / S.709 - Taurhiphanie (00:06/11:03) ", "tooltip": "Taurhiphanie\nby Iannis Xenakis\nfrom Taurhiphanie / Voyage Absolu Des Unari Vers Androm\u00e8de / Gendy 3 / S.709\n(tidal-hifi)"}
+{"class": "playing", "text": "Metallica - St. Anger - Invisible Kid (04:52/05:50) ", "tooltip": "Invisible Kid\nby Metallica\nfrom St. Anger\n(tidal-hifi)"}

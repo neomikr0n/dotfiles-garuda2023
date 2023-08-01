@@ -1,8 +1,0 @@
-○ libvirtd.service - Virtualization daemon
-     Loaded: loaded (]8;;file://n30-garuda/usr/lib/systemd/system/libvirtd.service/usr/lib/systemd/system/libvirtd.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;38;5;185mdisabled[0m)
-     Active: inactive (dead)
-TriggeredBy: ○ libvirtd-ro.socket
-             ○ libvirtd.socket
-             ○ libvirtd-admin.socket
-       Docs: ]8;;man:libvirtd(8)man:libvirtd(8)]8;;
-             ]8;;https://libvirt.orghttps://libvirt.org]8;;
