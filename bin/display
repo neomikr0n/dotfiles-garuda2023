@@ -148,7 +148,7 @@ brightness() {
                                 -i easyeffects -t 999 -u low -a gammarelay -c gammarelay \
                                 "wlr_temperature:" "$new_temperature°K         test=$noti_id"
 }
-brightnessFIXED() {
+brightnessFIXED() {    # WARNING!!!!!! ddccontrol sends data over the i2c bus, which is inherently a dangerous thing to do. Most i2c devices are very low-level and very dumb, one misplaced command can be enough to brick them or at least freeze the computer. That said, DDC/CI is a somewhat standardized, quite established and quite old technology, so the risks is not too high.
     if [ "$1" == "brightnessFIXED_100" ]; then
         ddccontrol -r 0x10 -w 100 dev:/dev/i2c-6
     elif [ "$1" == "brightnessFIXED_75" ]; then

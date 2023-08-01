@@ -26,7 +26,7 @@ openbrowser() {
   sleep 5
   #hyprctl dispatch exec [workspace special silent] google-calendar-nativefier
   hyprctl dispatch exec [workspace special silent] todoist-nativefier
-  bash ~/.dotfiles/bin/videowallpaper-change fifi
+  bash ~/.dotfiles/bin/videowallpaper-change collapse_academy
 
 }
 

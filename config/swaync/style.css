@@ -19,14 +19,14 @@
 
 .normal {
   background: @background;
-  border: 10px solid @border-color;
+  border: 5px solid @border-color;
   padding: 6px;
-  border-radius: 12px
+  border-radius: 22px
 }
 
 .critical {
   background: @background;
-  border: 10px solid red;
+  border: 5px solid red;
   padding: 6px;
   border-radius: 12px
 } 

@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Metallica - St. Anger - Shoot Me Again (05:47/05:50) ", "tooltip": "Shoot Me Again\nby Metallica\nfrom St. Anger\n(tidal-hifi)"}
+{"class": "paused", "text": "\u25b6 ", "tooltip": "\n(brave.instance8531)"}

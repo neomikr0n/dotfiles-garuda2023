@@ -177,7 +177,7 @@
         "return-type": "json",
         "exec": "~/.config/hypr/scripts/tools/start_dyn",
         "escape":true,
-        "max-length": 88
+        "max-length": 150
 
     },
 

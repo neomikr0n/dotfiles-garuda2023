@@ -41,8 +41,8 @@ Tab Middle Click Close Document=true
 Tabbar Tab Limit=0
 
 [KFileDialog Settings]
-Recent Files[$e]=wiki-01-wayland,file:$HOME/.dotfiles/README.md,file:$HOME/.dotfiles/config/kate-theme-SWEET.theme
-Recent URLs[$e]=file:$HOME/Documents/,file:$HOME/.dotfiles/config/,file:$HOME/.dotfiles/
+Recent Files[$e]=wiki-01-wayland,file:///run/media/n30/chivos_4t/Movies/Guardians.of.the.Galaxy.Vol.3.2023.1080p.WEB-DL.DDP5.1.Atmos.H.264-CMRG.mkv.nfo,file:$HOME/Downloads/ddccontrol_dells3422dwg.txt,file:$HOME/.dotfiles/README.md,file:$HOME/.dotfiles/config/kate-theme-SWEET.theme
+Recent URLs[$e]=file:$HOME/Documents/,file:$HOME/.dotfiles/config/,file:$HOME/.dotfiles/,file:$HOME/Downloads/,file:///run/media/n30/chivos_4t/Movies/
 detailViewIconSize=16
 iconViewIconSize=64
 
