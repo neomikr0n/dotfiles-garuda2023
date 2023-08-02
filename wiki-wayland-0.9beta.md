@@ -1226,8 +1226,7 @@ check if the kernel headers are compiled.
 
 modinfo -F version amdgpu
 
-# which session? wayland or xorg11?
-
+## which session? wayland or xorg11?
 echo $XDG_SESSION_TYPE
 
 #check wich is running:
@@ -1242,80 +1241,70 @@ inxi -Fxxxrz
 
 # nvidia-smi
 
-xrandr
-xrandr --listmonitors
+## [INSTALLING AMD RADEON 6650](https://wiki.archlinux.org/title/AMDGPU#Selecting_the_right_driver)
 
-# INSTALLING AMD RADEON 6650
-
-# https://wiki.archlinux.org/title/AMDGPU#Selecting_the_right_driver
-
-# opensource
-
-#sudo pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon
-
-# INSTALLING AMD RADEON 6650 automatically
-
-# sudo mhwd -a [pci or usb connection] [free or nonfree drivers] 0300
+## INSTALLING AMD RADEON 6650 automatically
+sudo mhwd -a [pci or usb connection] [free or nonfree drivers] 0300
 
 sudo mhwd -a pci free 0300
 
-# removing useless directories *maybe* generating warnings:
+## removing useless *nvidia* directories *maybe* generating warnings:
 
 sudo rm -r /var/lib/mhwd/local/pci/video-nvidia-dkms/
 cd /var/lib/mhwd/db/pci/graphic_drivers/
 sudo rm -r nvidia*
 sudo rm-r optimus*
 
-# it's nvidia crap around? check w/:
-
+## it's nvidia crap around? check w/:
 ls /etc/modprobe.d
 lsmod | grep nvidia
 
-# install AMDGPU_PRO (propietary) (WORSE than open source?)
+## [install AMDGPU_PRO (propietary) (WORSE than open source?)](https://wiki.archlinux.org/title/AMDGPU_PRO)
 
-# https://wiki.archlinux.org/title/AMDGPU_PRO
+sudo pacman -S amdgpu-pro-libgl lib32-amdgpu-pro-libgl vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro amf-amdgpu-pro obs-studio-amf
 
-# sudo pacman -S amdgpu-pro-libgl lib32-amdgpu-pro-libgl vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro amf-amdgpu-pro obs-studio-amf
+## installing nouveau instead of amd (for generic support). INCOMPLETE
+sudo pacman -S xf86-video-nouveau and nouveau-dri if you want, libgl.
 
-# installing nouveau instead of amd (for generic support). INCOMPLETE
+### nuke /etc/X11/xorg.conf:
 
-# sudo pacman -S xf86-video-nouveau and nouveau-dri if you want, libgl.
+sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf.backup && sudo rm /etc/X11/xorg.
+conf
 
-#nuke /etc/X11/xorg.conf
-sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf.backup && sudo rm /etc/X11/xorg.conf
 reboot
 
-# How to ensure you are using AMDGPU driver
-
+## How to ensure you are using AMDGPU driver
 glxinfo | grep "OpenGL vendor string" | cut -f2 -d":" | xargs
 
-# If it returns AMD, then you are running open source driver. If it returns Advanced Micro Devices, Inc., then you are running proprietary driver.
+If it returns AMD, then you are running open source driver. If it returns Advanced Micro Devices, Inc., then you are running proprietary driver.
 
-# more info
+## more info
 
 sudo lspci -v -k | sed -n "/VGA compatible controller/,/Kernel modules/p"
-#this shouln't output anything:
+
+this shouln't output anything:
 lsmod | grep -i nvidia
 
-# here it is the drivers folder:
+here it is the drivers folder:
 
 cd /usr/lib/xorg/modules/drivers/ && ls
 
-# if there are any nvidia related packages still installed, this will find those dependencies:
-
+## if there are any nvidia related packages still installed, this will find those dependencies:
 sudo pacman -Qs nvidia
-#or
+
+or
+
 pacman -Q | grep nvidia
 
-# If there are no nvidia packages installed you can remove /etc/modprobe.d/nouveau.conf it would have been overriding /usr/lib/modprobe.d/nvidia.conf owned by the nvidia package.
+If there are no nvidia packages installed you can remove /etc/modprobe.d/nouveau.conf it would have been overriding /usr/lib/modprobe.d/nvidia.conf owned by the nvidia package.
 
 cd /usr/lib/modprobe.d/ && ls
 
-# moar info
+## moar info
 
 inxi -Faz
 
-# checking the grub
+## checking the grub
 
 grep CMDLINE /etc/default/grub
 #checking dmesg
@@ -1325,29 +1314,89 @@ sudo dmesg | grep gpu
 sudo dmesg | grep amdgpu
 sudo dmesg | grep nvidia
 
-# it's nvidia crap around? check w/:
+## it's nvidia crap around? check w/:
 
 ls /etc/modprobe.d
 lsmod | grep nvidia
 
-# to enable FreeSync, please run the following  command:
+# [wlr-randr](https://sr.ht/~emersion/wlr-randr/)
+```
+DP-1 "Dell Inc. DELL S3422DWG 3643TH3 (DP-1)"
+  Make: Dell Inc.
+  Model: DELL S3422DWG
+  Serial: 3643TH3
+  Physical size: 800x330 mm
+  Enabled: yes
+  Modes:
+    3440x1440 px, 59.973000 Hz (preferred, current)
+    3440x1440 px, 143.975006 Hz
+  Position: 0,0
+  Transform: normal
+  Scale: 1.000000
+  Adaptive Sync: disabled
+```
+## change the resolution and refresh rate:
+wlr-randr --output DP-1 --mode 3440x1440@143.975006Hz
+wlr-randr --output DP-1 --mode 3440x1440@59.973000Hz
 
-DISPLAY=:0 xrandr --output DisplayPort-0 --set "freesync" 1
-#disabling it:
-DISPLAY=:0 xrandr --output DisplayPort-# --set "freesync" 0
-******** where # is your display's number (e.g., DisplayPort-0).
+## hyprctl keyword monitor "name,res@hz,pos,scale"
+hyprctl keyword monitor "DP1,3440x1440@144,0x0,1"
 
-# TEST
+## TEST
 
-https://www.vsynctester.com/
-https://www.displayhz.com/
+- https://www.vsynctester.com/
+- https://www.displayhz.com/
 
-mpv Config for crop the video
+dell s3422dwg
+Supports the high refresh rates of 100 Hz and 144 Hz and a rapid response time
+of 1 ms in MPRT mode.
+NOTE: 1 ms is achievable in the MPRT mode to reduce visible motion blur and
+increased image responsiveness. However, this may introduce some slight and
+noticeable visual artifacts into the image. As every system setup and every
+gamer’s needs are different, we recommend that users experiment with the
+different modes to find the setting that is right for them.
+∞ AMD FreeSync™ Premium Pro for Tear free, stutter free, low latency HDR
+gaming.
+
+# xrandr (old, many things don't work, use ️⬆️ instead)
+xrandr --listmonitors
+```
+Monitors: 1
+ 0: +DP-1 3440/800x1440/330+0+0  DP-1
+```
+## to enable FreeSync:
+(HIDDEN)
+
+<!-- > ## to enable FreeSync:
+
+NONE WORKING!!
+DISPLAY=:0 xrandr --output DisplayPort-1 --set "freesync" 1
+
+disabling it:
+
+DISPLAY=:0 xrandr --output DisplayPort-1 --set "freesync" 0 -->
+
+## change the resolution and refresh rate for the specified monitor:
+(HIDDEN)
+<!-- 
+> ## change the resolution and refresh rate for the specified monitor:
+
+none working!!!
+
+xrandr --output <monitor_number> --mode <resolution> --refresh <refresh_rate>
+
+xrandr --output 0 --mode 3440x1440 --refresh 144
+xrandr --output DP-1 --mode 3440x1440 --refresh 144
+xrandr --output DP-1 --mode 3440x1440 --refresh 144
+
+ -->
+
+
+# mpv Config for crop the video
 -----------------------------
 
-# cropping:
-
-# https://www.reddit.com/r/mpv/comments/napl9e/hotkey_to_change_crop_the_video_to_full_screen/
+## [cropping:](https://www.reddit.com/r/mpv/comments/napl9e/hotkey_to_change_crop_the_video_to_full_screen/)
+ 
 
 # On default config alt + (alt shift =) zooms in the video and alt - zooms out.
 
@@ -6420,3 +6469,6 @@ other devices:
 
 Plugins:
 Opensubtitles
+
+[HWA Tutorial On AMD GPU](https://jellyfin.org/docs/general/administration/hardware-acceleration/amd/)
+must read!

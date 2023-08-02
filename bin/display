@@ -161,7 +161,21 @@ brightnessFIXED() {    # WARNING!!!!!! ddccontrol sends data over the i2c bus, w
         exit 1
     fi
 }
-
+profile() {    # WARNING!!!!!! ddccontrol sends data over the i2c bus, which is inherently a dangerous thing to do. Most i2c devices are very low-level and very dumb, one misplaced command can be enough to brick them or at least freeze the computer. That said, DDC/CI is a somewhat standardized, quite established and quite old technology, so the risks is not too high.
+    if [ "$1" == "profile_top" ]; then
+        ddccontrol -r 0x10 -w 100 dev:/dev/i2c-6
+        busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 10000
+        wlr-randr --output DP-1 --mode 3440x1440@143.975006Hz
+    elif [ "$1" == "profile_efficient" ]; then
+        ddccontrol -r 0x10 -w 85 dev:/dev/i2c-6
+        busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4000
+        wlr-randr --output DP-1 --mode 3440x1440@59.973000Hz
+    else
+        notify-send --urgency=normal --icon=firedragon -t 6666 "test..." "           ⌛0% [ █ █ █ █ █ █ █ █ █ █ █ ] 100%"
+        echo "Invalid argument."
+        exit 1
+    fi
+}
 # MAIN:
     if [[ "$1" == "gamma_"* ]]; then
     gamma "$@"
@@ -169,6 +183,8 @@ brightnessFIXED() {    # WARNING!!!!!! ddccontrol sends data over the i2c bus, w
     brightness "$@"
     elif [[ "$1" == "brightnessFIXED_"* ]]; then
     brightnessFIXED "$@"
+    elif [[ "$1" == "profile_"* ]]; then
+    profile "$@"
     else
     notification
     fi
