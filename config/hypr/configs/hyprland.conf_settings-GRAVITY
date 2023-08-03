@@ -24,11 +24,15 @@ input {
 }
 
 misc {
-disable_hyprland_logo = true
+disable_hyprland_logo = false
 disable_splash_rendering = true
 mouse_move_enables_dpms = true
 key_press_enables_dpms = true #TODO: not working :o
-#no_vfr = false # disables VFR (variable frame rate) - VFR increases battery life at the expense of possible issues on a few monitors.
+vfr=true
+vrr=1
+force_hypr_chan=true
+# animate_manual_resizes=true     #animate manual window resizes/moves
+# no_vfr=false  # DEPRECATED??? disables VFR (variable frame rate) - VFR increases battery life at the expense of possible issues on a few monitors.
 no_direct_scanout = true #for fullscreen games
 enable_swallow = true
 swallow_regex = ^()$

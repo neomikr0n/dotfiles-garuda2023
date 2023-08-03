@@ -172,6 +172,11 @@ Please update ddccontrol-db, or, if you are already using the latest version, pl
 ddccontrol -r 0x10 -w 90 dev:/dev/i2c-6
 ## [Contrast 0-100]
 ddccontrol -r 0x12 -w 90 dev:/dev/i2c-6
+## [DPMS 0-5] TODO: not working!!!
+The valid values for this control are 0 (Off), 1 (On), 2 (Standby), and 3 (Suspend).
+<!-- ddccontrol -r 0xd6 -w 1 dev:/dev/i2c-6
+ddccontrol -r 0xd6 -w 2 dev:/dev/i2c-6 -->
+
 
 > # **[msigd](https://github.com/couriersud/msigd)**
 The msigd command line tool allows you to change most settings for MSI monitors which can be set in the monitor's OSD menu.
@@ -1335,28 +1340,41 @@ DP-1 "Dell Inc. DELL S3422DWG 3643TH3 (DP-1)"
   Scale: 1.000000
   Adaptive Sync: disabled
 ```
-## change the resolution and refresh rate:
+> ## change the resolution and refresh rate:
+```
 wlr-randr --output DP-1 --mode 3440x1440@143.975006Hz
 wlr-randr --output DP-1 --mode 3440x1440@59.973000Hz
-
-## hyprctl keyword monitor "name,res@hz,pos,scale"
+```
+### alternative? hyprctl keyword monitor "name,res@hz,pos,scale"
+```
 hyprctl keyword monitor "DP1,3440x1440@144,0x0,1"
+```
 
 ## TEST
 
 - https://www.vsynctester.com/
 - https://www.displayhz.com/
 
-dell s3422dwg
-Supports the high refresh rates of 100 Hz and 144 Hz and a rapid response time
-of 1 ms in MPRT mode.
-NOTE: 1 ms is achievable in the MPRT mode to reduce visible motion blur and
-increased image responsiveness. However, this may introduce some slight and
-noticeable visual artifacts into the image. As every system setup and every
-gamer’s needs are different, we recommend that users experiment with the
-different modes to find the setting that is right for them.
-∞ AMD FreeSync™ Premium Pro for Tear free, stutter free, low latency HDR
-gaming.
+      dell s3422dwg
+      
+      Supports the high refresh rates of 100 Hz and 144 Hz and a rapid response time of 1 ms in MPRT mode.
+      
+      NOTE: 1 ms is achievable in the MPRT mode to reduce visible motion blur and increased image responsiveness. However, this may introduce some slight and noticeable visual artifacts into the image. As every system setup and every gamer’s needs are different, we recommend that users experiment with the different modes to find the setting that is right for them.
+      AMD FreeSync™ Premium Pro for Tear free, stutter free, low latency HDR
+      gaming.
+
+    MPRT vs "fast sync" tho :o
+
+## to enable FreeSync:
+hyprctl keyword misc:vfr true
+hyprctl keyword misc:vrr 1
+
+
+<!-- DEPRECATED
+╰─λ hyprctl keyword misc:no_vfr false
+
+      Error setting value <false> for field <misc:no_vfr>: No such field. -->
+
 
 # xrandr (old, many things don't work, use ️⬆️ instead)
 xrandr --listmonitors

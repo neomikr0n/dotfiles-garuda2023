@@ -30,4 +30,4 @@ GDK_BACKEND="wayland,x11"
 CLUTTER_BACKEND=wayland
 
 # Log WLR errors and logs to the hyprland log.
-HYPRLAND_LOG_WLR=1
+HYPRLAND_LOG_WLR=1MANGOHUD=1

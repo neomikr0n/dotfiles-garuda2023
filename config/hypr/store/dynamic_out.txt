@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Ahee, Defunk - Original Classic - I Feel It (00:02/01:56) ", "tooltip": "I Feel It\nby Ahee, Defunk\nfrom Original Classic\n(tidal-hifi)"}
+{"class": "playing", "text": "Fans of Bill Burr - Bill Burr Roasts Kevin Hart on His Own Podcast for 11 Minutes Straight (01:59/10:59) ", "tooltip": "Bill Burr Roasts Kevin Hart on His Own Podcast for 11 Minutes Straight\nby Fans of Bill Burr\n(Chrome)"}

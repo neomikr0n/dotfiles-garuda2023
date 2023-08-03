@@ -8,6 +8,7 @@
 # https://github.com/xfo-0/dot_confs/blob/f0eeb31179b120d486f4efe4e48eee86ad19fa95/bin/executable_wlr_brightness
 
 # GLOBAL FUNCTIONS:
+play="canberra-gtk-play -i audio-volume-change"    
 notification() { # Displays a message
 #TODO: unification between the functions notifications
 eventually
@@ -73,14 +74,18 @@ gamma() {
     progress_bar="$(($progress_bar / 100))"
 
     # notify:
-    icon="/usr/share/icons/BeautyLine/actions/scalable/contrast.svg"
-    notify-send.py    --hint string:image-path:file://$icon \
+    # icon="/usr/share/icons/BeautyLine/actions/scalable/contrast.svg"
+    icon="/usr/share/icons/BeautyLine/preferences/scalable/preferences-desktop-color.svg"
+    notify-send.py    --hint        string:x-canonical-private-synchronous:sys-notify \
+                                    string:image-path:file://$icon \
                                     int:has-percentage:$progress_bar \
                                     boolean:transient:true \
-                                -i easyeffects -t 999 -u low -a gammarelay -c gammarelay \
+                                -i $icon -t 999 -u low -a gammarelay -c gammarelay \
                                 "wlr_temperature:" "$new_temperature°K         test=$noti_id"
+    $play
+    # string:x-canonical-private-synchronous:sys-notify
 }
-brightness() {
+brightness() { #TODO: don't use it yet, incomplete...
     # WARNING!!!!!! ddccontrol sends data over the i2c bus, which is inherently a dangerous thing to do. Most i2c devices are very low-level and very dumb, one misplaced command can be enough to brick them or at least freeze the computer. That said, DDC/CI is a somewhat standardized, quite established and quite old technology, so the risks is not too high.
 
     # Check if the user wants to increase or decrease the brightness
@@ -165,10 +170,12 @@ profile() {    # WARNING!!!!!! ddccontrol sends data over the i2c bus, which is 
     if [ "$1" == "profile_top" ]; then
         ddccontrol -r 0x10 -w 100 dev:/dev/i2c-6
         busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 10000
+        sleep 0.5
         wlr-randr --output DP-1 --mode 3440x1440@143.975006Hz
     elif [ "$1" == "profile_efficient" ]; then
         ddccontrol -r 0x10 -w 85 dev:/dev/i2c-6
         busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4000
+        sleep 0.5
         wlr-randr --output DP-1 --mode 3440x1440@59.973000Hz
     else
         notify-send --urgency=normal --icon=firedragon -t 6666 "test..." "           ⌛0% [ █ █ █ █ █ █ █ █ █ █ █ ] 100%"
