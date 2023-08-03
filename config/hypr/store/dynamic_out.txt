@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 DMX - Party Up ", "tooltip": "Party Up\nby DMX\n(tidal-hifi)"}
+{"class": "playing", "text": "Eric Murphy - I Love Neovim, but I NEVER Use It for Coding. (08:30/08:51) ", "tooltip": "I Love Neovim, but I NEVER Use It for Coding.\nby Eric Murphy\n(Chrome)"}
