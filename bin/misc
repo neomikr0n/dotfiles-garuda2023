@@ -19,14 +19,16 @@ openbrowser() {
   done
   notify-send -e "Internet is available!! Opening Browser :)"
   hyprctl dispatch workspace 2
-  hyprctl dispatch exec [workspace 2] brave
   hyprctl dispatch exec [workspace special silent] tidal-hifi
   # hyprctl dispatch exec [workspace 1 silent] whatsie
   hyprctl dispatch exec [workspace 1 silent] whatsie
-  sleep 5
+  sleep 3
   #hyprctl dispatch exec [workspace special silent] google-calendar-nativefier
   hyprctl dispatch exec [workspace special silent] todoist-nativefier
+  hyprctl dispatch exec [workspace 2] brave
+  sleep 15
   bash ~/.dotfiles/bin/videowallpaper-change collapse_academy
+  hyprctl dispatch exec [workspace 5 silent] qbittorrent
 
 }
 

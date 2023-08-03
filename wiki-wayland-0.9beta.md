@@ -1221,7 +1221,15 @@ systemctl daemon-reload
 ## 6. changing user rw privilegies
 Dolphin (right click) --> Root actions --> Ownership to...
 
+## 4t mount:
 
+[🔴] × grep ^"n30" /etc/group
+n30:x:1001:
+
+      UUID=6483-8269 /run/media/n30/chivos_4t     exfat   rw,defaults,uid=1001,umask=000,nofail                                              0 0
+
+- will be owned by user 1001.
+- umask=000: This means that the default permissions for files created on the filesystem will be 777.
 ---
 # AMD
 

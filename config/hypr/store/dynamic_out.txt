@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Fans of Bill Burr - Bill Burr Roasts Kevin Hart on His Own Podcast for 11 Minutes Straight (01:59/10:59) ", "tooltip": "Bill Burr Roasts Kevin Hart on His Own Podcast for 11 Minutes Straight\nby Fans of Bill Burr\n(Chrome)"}
+{"class": "paused", "text": "\u25b6 DMX - Party Up ", "tooltip": "Party Up\nby DMX\n(tidal-hifi)"}
