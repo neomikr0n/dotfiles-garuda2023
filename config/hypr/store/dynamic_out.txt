@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Eric Murphy - I Love Neovim, but I NEVER Use It for Coding. (08:30/08:51) ", "tooltip": "I Love Neovim, but I NEVER Use It for Coding.\nby Eric Murphy\n(Chrome)"}
+{"class": "playing", "text": "Dire Straits - Money For Nothing (Remastered 2022) - Tunnel Of Love (Remastered 2022) (03:10/05:49) ", "tooltip": "Tunnel Of Love (Remastered 2022)\nby Dire Straits\nfrom Money For Nothing (Remastered 2022)\n(tidal-hifi)"}
