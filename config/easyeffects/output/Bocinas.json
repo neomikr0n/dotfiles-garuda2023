@@ -1,7 +1,7 @@
 {
     "output": {
         "blocklist": [],
-        "compressor": {
+        "compressor#0": {
             "attack": 130.0,
             "boost-amount": 6.0,
             "boost-threshold": -60.0,
@@ -30,8 +30,8 @@
             "threshold": -10.0,
             "wet": 0.0
         },
-        "equalizer": {
-            "balance": 0.0,
+        "equalizer#0": {
+            "balance": -40.0,
             "bypass": false,
             "input-gain": 0.0,
             "left": {
@@ -245,7 +245,7 @@
             },
             "split-channels": false
         },
-        "gate": {
+        "gate#0": {
             "attack": 2000.0,
             "bypass": false,
             "curve-threshold": -40.0,
@@ -273,8 +273,11 @@
             },
             "wet": 0.0
         },
-        "limiter": {
+        "limiter#0": {
             "alr": false,
+            "alr-attack": 5.0,
+            "alr-knee": 0.0,
+            "alr-release": 50.0,
             "attack": 5.0,
             "bypass": false,
             "dithering": "None",
@@ -290,7 +293,7 @@
             "stereo-link": 100.0,
             "threshold": -1.0
         },
-        "multiband_compressor": {
+        "multiband_compressor#0": {
             "band0": {
                 "attack-threshold": -30.0,
                 "attack-time": 50.0,
@@ -398,16 +401,112 @@
                 "split-frequency": 5000.0
             },
             "band4": {
-                "enable-band": false
+                "attack-threshold": -12.0,
+                "attack-time": 20.0,
+                "boost-amount": 6.0,
+                "boost-threshold": -72.0,
+                "compression-mode": "Downward",
+                "compressor-enable": true,
+                "enable-band": false,
+                "external-sidechain": false,
+                "knee": -6.0,
+                "makeup": 0.0,
+                "mute": false,
+                "ratio": 1.0,
+                "release-threshold": -100.0,
+                "release-time": 100.0,
+                "sidechain-custom-highcut-filter": false,
+                "sidechain-custom-lowcut-filter": false,
+                "sidechain-highcut-frequency": 8000.0,
+                "sidechain-lookahead": 0.0,
+                "sidechain-lowcut-frequency": 4000.0,
+                "sidechain-mode": "RMS",
+                "sidechain-preamp": 0.0,
+                "sidechain-reactivity": 10.0,
+                "sidechain-source": "Middle",
+                "solo": false,
+                "split-frequency": 4000.0
             },
             "band5": {
-                "enable-band": false
+                "attack-threshold": -12.0,
+                "attack-time": 20.0,
+                "boost-amount": 6.0,
+                "boost-threshold": -72.0,
+                "compression-mode": "Downward",
+                "compressor-enable": true,
+                "enable-band": false,
+                "external-sidechain": false,
+                "knee": -6.0,
+                "makeup": 0.0,
+                "mute": false,
+                "ratio": 1.0,
+                "release-threshold": -100.0,
+                "release-time": 100.0,
+                "sidechain-custom-highcut-filter": false,
+                "sidechain-custom-lowcut-filter": false,
+                "sidechain-highcut-frequency": 12000.0,
+                "sidechain-lookahead": 0.0,
+                "sidechain-lowcut-frequency": 8000.0,
+                "sidechain-mode": "RMS",
+                "sidechain-preamp": 0.0,
+                "sidechain-reactivity": 10.0,
+                "sidechain-source": "Middle",
+                "solo": false,
+                "split-frequency": 8000.0
             },
             "band6": {
-                "enable-band": false
+                "attack-threshold": -12.0,
+                "attack-time": 20.0,
+                "boost-amount": 6.0,
+                "boost-threshold": -72.0,
+                "compression-mode": "Downward",
+                "compressor-enable": true,
+                "enable-band": false,
+                "external-sidechain": false,
+                "knee": -6.0,
+                "makeup": 0.0,
+                "mute": false,
+                "ratio": 1.0,
+                "release-threshold": -100.0,
+                "release-time": 100.0,
+                "sidechain-custom-highcut-filter": false,
+                "sidechain-custom-lowcut-filter": false,
+                "sidechain-highcut-frequency": 16000.0,
+                "sidechain-lookahead": 0.0,
+                "sidechain-lowcut-frequency": 12000.0,
+                "sidechain-mode": "RMS",
+                "sidechain-preamp": 0.0,
+                "sidechain-reactivity": 10.0,
+                "sidechain-source": "Middle",
+                "solo": false,
+                "split-frequency": 12000.0
             },
             "band7": {
-                "enable-band": false
+                "attack-threshold": -12.0,
+                "attack-time": 20.0,
+                "boost-amount": 6.0,
+                "boost-threshold": -72.0,
+                "compression-mode": "Downward",
+                "compressor-enable": true,
+                "enable-band": false,
+                "external-sidechain": false,
+                "knee": -6.0,
+                "makeup": 0.0,
+                "mute": false,
+                "ratio": 1.0,
+                "release-threshold": -100.0,
+                "release-time": 100.0,
+                "sidechain-custom-highcut-filter": false,
+                "sidechain-custom-lowcut-filter": false,
+                "sidechain-highcut-frequency": 20000.0,
+                "sidechain-lookahead": 0.0,
+                "sidechain-lowcut-frequency": 16000.0,
+                "sidechain-mode": "RMS",
+                "sidechain-preamp": 0.0,
+                "sidechain-reactivity": 10.0,
+                "sidechain-source": "Middle",
+                "solo": false,
+                "split-frequency": 16000.0
             },
             "bypass": false,
             "compressor-mode": "Modern",
@@ -418,11 +517,11 @@
             "wet": 0.0
         },
         "plugins_order": [
-            "gate",
-            "compressor",
-            "multiband_compressor",
-            "equalizer",
-            "limiter"
+            "gate#0",
+            "compressor#0",
+            "multiband_compressor#0",
+            "equalizer#0",
+            "limiter#0"
         ]
     }
 }

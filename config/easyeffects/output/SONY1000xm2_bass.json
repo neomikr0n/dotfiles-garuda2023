@@ -12,14 +12,6 @@
             "scope": 80.0
         },
         "blocklist": [],
-        "convolver#0": {
-            "autogain": true,
-            "bypass": false,
-            "input-gain": -7.9,
-            "ir-width": 100,
-            "kernel-path": "/home/n30/.config/easyeffects/irs/Razor Surround ((48k Z-Edition)) 2.Stereo +20 bass.irs",
-            "output-gain": 0.0
-        },
         "crossfeed#0": {
             "bypass": false,
             "fcut": 700,
@@ -458,7 +450,7 @@
             "split-channels": false
         },
         "maximizer#0": {
-            "bypass": false,
+            "bypass": true,
             "ceiling": 0.0,
             "input-gain": 0.0,
             "output-gain": 0.0,
@@ -468,7 +460,6 @@
         "plugins_order": [
             "equalizer#0",
             "equalizer#1",
-            "convolver#0",
             "bass_enhancer#0",
             "crossfeed#0",
             "reverb#0",
@@ -477,7 +468,7 @@
         "reverb#0": {
             "amount": -10.716679676582991,
             "bass-cut": 514.079,
-            "bypass": true,
+            "bypass": false,
             "decay-time": 1.10354,
             "diffusion": 0.69,
             "dry": 0.0,

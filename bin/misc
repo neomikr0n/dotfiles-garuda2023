@@ -27,6 +27,8 @@ openbrowser() {
   hyprctl dispatch exec [workspace special silent] todoist-nativefier
   hyprctl dispatch exec [workspace 2] brave
   sleep 15
+  killall mpvpaper
+  sleep .5
   bash ~/.dotfiles/bin/videowallpaper-change collapse_academy
   hyprctl dispatch exec [workspace 5 silent] qbittorrent
 

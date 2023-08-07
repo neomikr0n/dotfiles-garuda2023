@@ -40,7 +40,11 @@ HE400SE_oratory() {
   message="         🎧 HIFIMAN HE400SE ORATORY  🎧"
   notification
 }
-
+SONY1000xm2_bass() {
+  easyeffects -l SONY1000xm2_bass
+  message="         🎧 SONY 1000XM2 bASS  🎧"
+  notification
+}
 # Execute functions accordingly
 if [[ "$1" == "--Bocinas" ]]; then
   Bocinas
@@ -50,6 +54,8 @@ elif [[ "$1" == "--HE400SE_oratory" ]]; then
   HE400SE_oratory
 elif [[ "$1" == "--XS_bass" ]]; then
   XS_bass
+elif [[ "$1" == "--SONY1000xm2_bass" ]]; then
+  SONY1000xm2_bass
 elif [[ "$1" == "--suspend" ]]; then
   suspend
 elif [[ "$1" == "--logout" ]]; then

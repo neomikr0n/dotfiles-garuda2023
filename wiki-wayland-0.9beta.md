@@ -1673,9 +1673,44 @@ Ctrl+$mod+Alt+t exec konsole
 }
 ```
 
-# **[watershot](https://github.com/Kirottu/watershot)**
-watershot -c path ~/Pictures/Screenshots/ss_$Y-$M-$D_$h-$m_$s_garuda.png directory ~/Pictures/Screenshots/ss_$Y-$M-$D_$h-$m_$s_garuda.png
+> # **[watershot](https://github.com/Kirottu/watershot)**
+A simple wayland native screenshot tool inspired by [Flameshot](https://flameshot.org/).
 
+```
+cd ~/Documents/forks/
+<!-- git clone https://github.com/Kirottu/watershot.git -->
+git clone -b feat/hyprland-window-selection https://github.com/Syndelis/watershot.git
+cargo install --path ~/Documents/forks/watershot
+```
+`
+'/home/n30/Documents/forks/watershot/target/release/watershot' -h
+`
+
+    Usage: watershot [OPTIONS] [COMMAND]
+
+    Commands:
+      path       The path to save the image to
+      directory  The directory to save the image to with a generated name
+      help       Print this message or the help of the given subcommand(s)
+
+    Options:
+      -c, --copy                           Copy the screenshot after exit
+      -s, --stdout                         Output the screenshot into stdout in PNG format
+      -g, --grim <GRIM>                    Path to the `grim` executable
+          --window-search <WINDOW_SEARCH>  Pre-selects a window by its class, title or initial versions of the two. The value passed can be a regex. Examples: "class=Alacritty" , "title=.*Visual Studio Code.*"
+          --window-under-cursor            Pre-selects the window under the mouse cursor
+          --active-window                  Pre-selects the currently-focused window
+          --auto-capture                   Automatically captures the pre-selected window, skipping interactive mode
+      -h, --help                           Print help
+      -V, --version                        Print version
+
+'/home/n30/Documents/forks/watershot/target/release/watershot' -c path ~/Pictures/Screenshots/test.png
+
+## custom paths? 🤔
+'/home/n30/Documents/forks/watershot/target/release/watershot' -c path ~/Pictures/Scree
+nshots/ss_(date "+%Y-%m-%d_%H-%M_%S")_garuda.png
+<!-- 
+watershot -c path ~/Pictures/Screenshots/ss_$Y-$M-$D_$h-$m_$s_garuda.png directory ~/Pictures/Screenshots/ss_$Y-$M-$D_$h-$m_$s_garuda.png -->
 
 
 # **[ksnip](https://github.com/ksnip/ksnip)**
@@ -2152,6 +2187,214 @@ Example GRUB_GFXMODE=1280x960
 5. Maybe rebuild grub?
 
     sudo grub2-mkconfig -o /etc/grub2-efi.cfg --> reconfigure
+
+> # [Power managment](https://wiki.archlinux.org/title/Power_management)
+
+## Processors with Intel HWP (Intel Hardware P-state) support
+
+The available energy preferences of a HWP supported processor are `default, performance, balance_performance, balance_power, power`.
+
+This can be validated by running:
+`
+cat /sys/devices/system/cpu/cpufreq/policy?/energy_performance_available_preferences
+`
+```
+File: /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences
+default performance balance_performance balance_power power 
+...
+File: /sys/devices/system/cpu/cpufreq/policy9/energy_performance_available_preferences
+default performance balance_performance balance_power power 
+```
+
+- **default** - This is the default power management mode. It provides a balance between performance and power consumption.
+- **performance** - This mode prioritizes performance over power consumption. It is useful for tasks that require a lot of CPU power, such as gaming or video editing.
+balance_performance - This mode balances performance and power consumption. It is a good choice for general use.
+- **balance_power** - This mode prioritizes power consumption over performance. It is useful for tasks that do not require a lot of CPU power, such as web browsing or document editing.
+- **power** - This mode minimizes power consumption. It is useful for tasks that need to run for a long time on battery power, such as watching movies or listening to music.
+
+## powerprofilesctl
+Control [Power Profiles daemon](https://gitlab.freedesktop.org/hadess/power-profiles-daemon) using a dedicated command-line utility.
+
+`
+sudo powerprofilesctl get
+`
+
+balanced
+
+      Usage:
+        powerprofilesctl COMMAND [ARGS…]
+
+      Commands:
+        help       Print help
+        version    Print version
+        get        Print the currently active power profile
+        set        Set the currently active power profile
+        list       List available power profiles
+        list-holds List current power profile holds
+        launch     Launch a command while holding a power profile
+`
+sudo powerprofilesctl list
+`
+
+        performance:
+          Driver:     intel_pstate
+          Degraded:   no
+
+      * balanced:
+          Driver:     intel_pstate
+
+        power-saver:
+          Driver:     intel_pstate
+
+## Temporarily change the power profile
+Launch a command while holding a specific power profile:
+`
+powerprofilesctl launch --profile performance --reason "performance profile for 5 minutes" --appid "sleep - $$"  sleep 300
+`
+
+Display active alterations.
+
+`
+powerprofilesctl list-holds
+`
+
+    Hold:
+      Profile:         performance
+      Application ID:  sleep - 1567353
+      Reason:          performance profile for 5 minutes
+
+## [Any ideas what does powerprofilesctl performace profile does?](https://www.reddit.com/r/Fedora/comments/r0mtb0/powerprofilesctl/) 2021-09
+
+Ok, CPU power management on Linux is confusing with several different API. In your case `powerprofilectl` sets up CPU P-State using Intel P-State driver aaaand it's different from `cpufreq governor`. You can check current P-State with this command: `cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference`
+
+On my machine `performance` ramps up CPU to maximum frequency.
+
+## [cpufreq governor](https://g.co/bard/share/f7e751c31a92)
+
+The CPU governor in Wayland is responsible for managing the frequency of the CPU cores. It can be set to a variety of different modes, each of which has a different effect on performance and power consumption.
+
+Some of the most common CPU governors for Wayland include:
+
+- **performance:** This mode sets the CPU frequency to the maximum possible speed, which provides the best possible performance. However, it also consumes the most power.
+- **ondemand:** This mode sets the CPU frequency to the minimum possible speed when the system is idle, and then increases the frequency as needed when the system is under load. This mode provides a good balance between performance and power consumption.
+- **powersave:** This mode sets the CPU frequency to the minimum possible speed at all times, which consumes the least amount of power. However, it also provides the worst possible performance.
+
+`
+cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+`
+
+      File: /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+      powersave
+      ...
+      File: /sys/devices/system/cpu/cpu19/cpufreq/scaling_governor
+      powersave
+
+Here is an example of how to change the CPU governor to "powersave":
+
+```
+CPUFREQ_GOVERNOR="powersave"
+``` 
+
+After you have changed the CPU governor, you need to restart the CPUfreq daemon by running the following command:
+
+```
+sudo systemctl restart cpufreqd
+```
+
+## ~~powertop (deprecated)~~
+<!-- 
+      Usage: powertop [OPTIONS]
+
+          --auto-tune	sets all tunable options to their GOOD setting
+      -c, --calibrate	runs powertop in calibration mode
+      -C, --csv[=filename]	generate a csv report
+          --debug		run in "debug" mode
+          --extech[=devnode]	uses an Extech Power Analyzer for measurements
+      -r, --html[=filename]	generate a html report
+      -i, --iteration[=iterations] number of times to run each test
+      -q, --quiet		suppress stderr output
+      -s, --sample[=seconds]	interval for power consumption measurement
+      -t, --time[=seconds]	generate a report for 'x' seconds
+      -w, --workload[=workload] file to execute for workload
+      -V, --version		print version information
+      -h, --help		print this help menu
+
+  to set the low power mode, run the following command: `powertop --set-default <mode>`
+
+  For example, to set the low power mode to balance_performance, you would use the following command:
+
+  `
+  powertop --set-default balance_performance
+  `
+
+  The powertop command also provides a graphical interface that you can use to set the low power mode. To launch the graphical interface, run the following command:
+
+
+  powertop
+  Once you have set the low power mode, your system will automatically switch to that mode when you log in. You can also switch to a different power mode at any time by running the `systemctl set-default power_profile=<mode>` command. -->
+
+
+---
+> # boot targets
+```
+sudo systemctl get-default
+sudo systemctl set-default xxx.target
+```
+default is `graphical.target`
+
+| Target | Description |
+| --- | --- |
+| graphical.target | Boots into graphical mode |
+| multi-user.target | Boots into text mode |
+| default.target | The default target, which is usually graphical.target |
+| initrd.target | The initial RAM disk target, which is used to load the kernel and initramfs |
+| rescue.target | A rescue target, which is used for troubleshooting |
+| emergency.target | An emergency target, which is used for recovering from a system crash |
+
+`
+sudo systemctl set-default xxx.target
+`
+## bing dix it:
+```
+#!/bin/bash
+# Define los nombres de los perfiles
+PROFILE_BALANCED="balanceado"
+PROFILE_POWER_SAVER="ahorro"
+
+# Define las opciones para cpufreq governor y powerprofilesctl
+CPUFREQ_GOVERNOR_BALANCED="ondemand"
+CPUFREQ_GOVERNOR_POWER_SAVER="powersave"
+POWERPROFILESCTL_BALANCED="balanced"
+POWERPROFILESCTL_POWER_SAVER="power-saver"
+
+# Comprueba si se ha proporcionado un argumento
+if [ $# -eq 0 ]; then
+    echo "Por favor, proporciona el nombre del perfil como argumento."
+    exit 1
+fi
+
+# Obtén el nombre del perfil del primer argumento
+PROFILE_NAME=$1
+
+# Cambia al perfil especificado
+if [ "$PROFILE_NAME" == "$PROFILE_BALANCED" ]; then
+    # Cambia a perfil balanceado
+    cpufreq-set -g $CPUFREQ_GOVERNOR_BALANCED
+    powerprofilesctl set $POWERPROFILESCTL_BALANCED
+    echo "Cambiado al perfil balanceado."
+elif [ "$PROFILE_NAME" == "$PROFILE_POWER_SAVER" ]; then
+    # Cambia a perfil de ahorro de energía
+    cpufreq-set -g $CPUFREQ_GOVERNOR_POWER_SAVER
+    powerprofilesctl set $POWERPROFILESCTL_POWER_SAVER
+    echo "Cambiado al perfil de ahorro de energía."
+else
+    # Nombre de perfil no válido
+    echo "Nombre de perfil no válido. Los perfiles disponibles son: $PROFILE_BALANCED, $PROFILE_POWER_SAVER"
+    exit 1
+fi
+
+exit 0
+```
 
 > # [VIDEO PLAYER KEYS](https://mpv.io/manual/master/)
 
@@ -6498,3 +6741,250 @@ Opensubtitles
 
 [HWA Tutorial On AMD GPU](https://jellyfin.org/docs/general/administration/hardware-acceleration/amd/)
 must read!
+
+---
+
+---
+I tried to install...  
+`cargo install --path .`  
+but:
+
+```
+  Installing watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/watershot)
+    Updating crates.io index
+   Compiling watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/watershot)
+error[E0432]: unresolved import `wgpu_text::section`
+ --> src/rendering.rs:4:16
+  |
+4 | use wgpu_text::section::{HorizontalAlign, Layout, OwnedSection, OwnedText,...
+  |                ^^^^^^^ could not find `section` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `font` in `wgpu_text`
+  --> src/runtime_data.rs:50:26
+   |
+50 |     pub font: wgpu_text::font::FontArc,
+   |                          ^^^^ could not find `font` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `font` in `wgpu_text`
+   --> src/runtime_data.rs:139:30
+    |
+139 |             font: wgpu_text::font::FontArc::try_from_vec(
+    |                              ^^^^ could not find `font` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `section` in `wgpu_text`
+   --> src/types.rs:111:33
+    |
+111 | impl From<Color> for wgpu_text::section::Color {
+    |                                 ^^^^^^^ could not find `section` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `font` in `wgpu_text`
+  --> src/rendering.rs:64:48
+   |
+64 |     pub brush: wgpu_text::TextBrush<wgpu_text::font::FontArc>,
+   |                                                ^^^^ could not find `font` in `wgpu_text`
+```
+
+So, I consult ChatGPT4 and he/she spitted:
+
+```
+The error messages you are seeing are related to the wgpu_text crate. The error messages error[E0432]: unresolved import and error[E0433]: failed to resolve indicate that the compiler is unable to find the specified modules or types within the wgpu_text crate.
+
+There could be several reasons for this issue. One possibility is that the version of wgpu_text specified in the Cargo.toml file of the watershot project is not compatible with the code in the project. Another possibility is that there have been changes to the wgpu_text crate that have not been reflected in the watershot project.
+
+You could try updating the version of wgpu_text specified in the Cargo.toml file to the latest version and see if that resolves the issue.
+```
+
+Then I did a `cargo update` :  
+Updating wgpu\_text v0.8.1 -> v0.8.3
+
+Updated the `Cargo.toml` to reflect the changes:  
+`cargo add wgpu_text`
+
+```
+Updating crates.io index
+Adding wgpu_text v0.8.3 to dependencies.
+```
+
+Resulting in `wgpu_text = "0.8.3"` but still same error.
+
+I'm using:
+
+- Garuda Linux
+- Hyprland.
+- cargo 1.71.1
+
+Thanks in advance. :)
+---
+
+Commands: path The path to save the image to directory The directory to save the image to with a generated name help Print this message or the help of the given subcommand(s) Options: -c, --copy Copy the screenshot after exit -s, --stdout Output the screenshot into stdout in PNG format -g, --grim <GRIM> Path to the \`grim\` executable -h, --help Print help -V, --version Print version
+
+[🔴] × cargo install --path .
+  Installing watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/watershot)
+    Updating crates.io index
+   Compiling watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/watershot)
+error[E0432]: unresolved import `wgpu_text::section`
+ --> src/rendering.rs:4:16
+  |
+4 | use wgpu_text::section::{HorizontalAlign, Layout, OwnedSection, OwnedText,...
+  |                ^^^^^^^ could not find `section` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `font` in `wgpu_text`
+  --> src/runtime_data.rs:50:26
+   |
+50 |     pub font: wgpu_text::font::FontArc,
+   |                          ^^^^ could not find `font` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `font` in `wgpu_text`
+   --> src/runtime_data.rs:139:30
+    |
+139 |             font: wgpu_text::font::FontArc::try_from_vec(
+    |                              ^^^^ could not find `font` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `section` in `wgpu_text`
+   --> src/types.rs:111:33
+    |
+111 | impl From<Color> for wgpu_text::section::Color {
+    |                                 ^^^^^^^ could not find `section` in `wgpu_text`
+
+error[E0433]: failed to resolve: could not find `font` in `wgpu_text`
+  --> src/rendering.rs:64:48
+   |
+64 |     pub brush: wgpu_text::TextBrush<wgpu_text::font::FontArc>,
+   |                                                ^^^^ could not find `font` in `wgpu_text`
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `watershot` (bin "watershot") due to 5 previous errors
+error: failed to compile `watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/watershot)`, intermediate artifacts can be found at `/home/n30/MEGAsync/Documents/forks/watershot/target`
+
+---
+
+[🔴] × cargo update
+    Updating crates.io index
+    Updating addr2line v0.19.0 -> v0.20.0
+      Adding android-tzdata v0.1.1
+      Adding anstream v0.3.2
+      Adding anstyle v1.0.1
+      Adding anstyle-parse v0.2.1
+      Adding anstyle-query v1.0.0
+      Adding anstyle-wincon v1.0.1
+    Updating backtrace v0.3.67 -> v0.3.68
+    Updating bitflags v2.3.2 -> v2.3.3
+    Updating bumpalo v3.11.1 -> v3.13.0
+    Updating calloop v0.10.5 -> v0.10.6
+    Updating cc v1.0.78 -> v1.0.81
+    Updating chrono v0.4.23 -> v0.4.26
+    Updating clap v4.0.32 -> v4.3.19
+      Adding clap_builder v4.3.19
+    Updating clap_derive v4.0.21 -> v4.3.12
+    Updating clap_lex v0.3.0 -> v0.5.0
+      Adding colorchoice v1.0.0
+    Updating core-foundation-sys v0.8.3 -> v0.8.4
+    Updating crossbeam-channel v0.5.6 -> v0.5.8
+    Updating crossbeam-deque v0.8.2 -> v0.8.3
+    Updating crossbeam-epoch v0.9.13 -> v0.9.15
+    Updating crossbeam-utils v0.8.14 -> v0.8.16
+    Removing cxx v1.0.87
+    Removing cxx-build v1.0.87
+    Removing cxxbridge-flags v1.0.87
+    Removing cxxbridge-macro v1.0.87
+      Adding d3d12 v0.7.0
+    Updating dlib v0.5.0 -> v0.5.2
+    Updating either v1.8.0 -> v1.9.0
+    Updating errno v0.2.8 -> v0.3.2
+    Updating fastrand v1.8.0 -> v2.0.0
+      Adding fdeflate v0.3.0
+    Updating flate2 v1.0.25 -> v1.0.26
+      Adding foreign-types v0.5.0
+      Adding foreign-types-macros v0.2.3
+      Adding foreign-types-shared v0.3.1
+    Updating getrandom v0.2.8 -> v0.2.10
+      Adding glob v0.3.1
+    Updating glow v0.12.2 -> v0.12.3
+      Adding gpu-alloc v0.6.0
+      Adding gpu-alloc-types v0.3.0
+    Updating heck v0.4.0 -> v0.4.1
+    Removing hermit-abi v0.1.19
+    Removing hermit-abi v0.2.6
+      Adding hermit-abi v0.3.2
+    Updating iana-time-zone v0.1.53 -> v0.1.57
+    Updating iana-time-zone-haiku v0.1.1 -> v0.1.2
+    Updating image v0.24.5 -> v0.24.6
+    Updating indexmap v1.9.2 -> v1.9.3
+    Removing instant v0.1.12
+    Updating io-lifetimes v1.0.3 -> v1.0.11
+    Updating is-terminal v0.4.2 -> v0.4.9
+    Updating libc v0.2.138 -> v0.2.147
+    Updating libwebp-sys v0.4.2 -> v0.9.2
+    Removing link-cplusplus v1.0.8
+    Updating linux-raw-sys v0.1.4 -> v0.4.5
+    Updating lock_api v0.4.9 -> v0.4.10
+    Removing memmap2 v0.5.8
+      Adding memmap2 v0.5.10
+      Adding memmap2 v0.7.1
+      Adding memoffset v0.9.0
+      Adding metal v0.26.0
+    Updating miniz_oxide v0.6.2 -> v0.7.1
+    Removing naga v0.12.2
+      Adding naga v0.12.3
+      Adding naga v0.13.0
+    Updating nix v0.26.1 -> v0.26.2
+    Updating nom v7.1.2 -> v7.1.3
+    Updating num-traits v0.2.15 -> v0.2.16
+    Updating num_cpus v1.14.0 -> v1.16.0
+    Updating object v0.30.4 -> v0.31.1
+    Updating once_cell v1.16.0 -> v1.18.0
+    Updating os_pipe v1.1.2 -> v1.1.4
+    Removing os_str_bytes v6.4.1
+      Adding paste v1.0.14
+    Updating petgraph v0.6.2 -> v0.6.3
+    Updating pkg-config v0.3.26 -> v0.3.27
+    Updating png v0.17.7 -> v0.17.9
+    Removing proc-macro-error v1.0.4
+    Removing proc-macro-error-attr v1.0.4
+    Updating proc-macro2 v1.0.63 -> v1.0.66
+    Updating profiling v1.0.8 -> v1.0.9
+    Updating quick-xml v0.23.1 -> v0.28.2
+    Updating quote v1.0.28 -> v1.0.32
+    Updating rayon v1.6.1 -> v1.7.0
+    Updating rayon-core v1.10.1 -> v1.11.0
+    Removing redox_syscall v0.2.16
+    Removing remove_dir_all v0.5.3
+    Updating rustix v0.36.6 -> v0.38.7
+    Updating scopeguard v1.1.0 -> v1.2.0
+    Removing scratch v1.0.3
+    Updating serde v1.0.152 -> v1.0.181
+    Updating serde_derive v1.0.152 -> v1.0.181
+      Adding simd-adler32 v0.3.7
+    Updating smallvec v1.10.0 -> v1.11.0
+    Removing syn v1.0.107
+    Removing syn v2.0.22
+      Adding syn v1.0.109
+      Adding syn v2.0.28
+    Updating tempfile v3.3.0 -> v3.7.0
+    Updating termcolor v1.1.3 -> v1.2.0
+    Updating thiserror v1.0.38 -> v1.0.44
+    Updating thiserror-impl v1.0.38 -> v1.0.44
+    Updating unicode-ident v1.0.6 -> v1.0.11
+      Adding utf8parse v0.2.1
+    Updating wayland-protocols v0.30.0 -> v0.30.1
+    Updating wayland-scanner v0.30.0 -> v0.30.1
+    Updating webp v0.2.2 -> v0.2.5
+    Removing wgpu v0.16.1
+      Adding wgpu v0.16.3
+      Adding wgpu v0.17.0
+      Adding wgpu-core v0.17.0
+    Removing wgpu-hal v0.16.1
+      Adding wgpu-hal v0.16.2
+      Adding wgpu-hal v0.17.0
+    Removing wgpu-types v0.16.0
+      Adding wgpu-types v0.16.1
+      Adding wgpu-types v0.17.0
+    Updating wgpu_text v0.8.1 -> v0.8.3
+      Adding windows v0.48.0
+    Removing windows-sys v0.42.0
+    Updating windows-targets v0.48.0 -> v0.48.1
+    Updating xkbcommon v0.5.0 -> v0.5.1
+    Updating xml-rs v0.8.4 -> v0.8.16
+
+---

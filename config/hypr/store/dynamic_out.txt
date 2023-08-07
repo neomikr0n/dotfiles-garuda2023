@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Dire Straits - Money For Nothing (Remastered 2022) - Tunnel Of Love (Remastered 2022) (03:10/05:49) ", "tooltip": "Tunnel Of Love (Remastered 2022)\nby Dire Straits\nfrom Money For Nothing (Remastered 2022)\n(tidal-hifi)"}
+{"class": "paused", "text": "\u25b6 (1) Garuda Dragonized KDE Plasma - YouTube (00:02/16:20) ", "tooltip": "(1) Garuda Dragonized KDE Plasma - YouTube\n(brave.instance1063478)"}
