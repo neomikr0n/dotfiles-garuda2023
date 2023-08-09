@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 (1) Garuda Dragonized KDE Plasma - YouTube (00:02/16:20) ", "tooltip": "(1) Garuda Dragonized KDE Plasma - YouTube\n(brave.instance1063478)"}
+{"class": "playing", "text": "The Chemical Brothers - No Geography - We've Got To Try (00:08/04:40) ", "tooltip": "We've Got To Try\nby The Chemical Brothers\nfrom No Geography\n(tidal-hifi)"}

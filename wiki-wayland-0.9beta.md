@@ -446,14 +446,9 @@ exec_before=swaync-client --inhibitor-add "xdg-desktop-portal-wlr"
 exec_after=swaync-client --inhibitor-remove "xdg-desktop-portal-wlr"
 ```
 
----
-
-
-> # [****](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
-
 
 ---
-> # **[ulauncher**](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)**
+> # **[ulauncher**](https://ulauncher.io)**
 
 ---
 
@@ -466,6 +461,13 @@ sudo mkdir ~/.config/ulauncher/user-themes/
 ## 2. [Oficial Extensions](https://ext.ulauncher.io/)
 
 - [Emoji](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
+- [Timer](https://github.com/ulauncher/ulauncher-timer)
+- [Todois](https://github.com/cmuench/ulauncher-todoist)
+- [Youtube search](https://github.com/NastuzziSamy/ulauncher-youtube-search)
+- [Looks.wtf](https://github.com/commarla/ulauncher-looks-wtf)
+- [English Dictionary ](https://github.com/mepowerleo10/ulauncher-dict-en)
+- [File search](https://github.com/brpaz/ulauncher-file-search)
+- 
 - etc.
 
 ## 3. [Oficial Themes](https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce)
@@ -493,6 +495,11 @@ sudo git clone https://github.com/TechHutTV/endeavour-ulauncher-theme.git
 sudo git clone https://github.com/SirHades696/TokyoNight-Ulauncher-Theme \
 ~/.config/ulauncher/user-themes/
 ```
+
+## 4. settings
+
+Install package wmctrl (needed to activate app focus)
+bind= CTRL,space,exec,ulauncher-toggle
 
 ---
 # [thunar]()
@@ -3913,7 +3920,12 @@ https://www.balena.io/etcher/
 ## export custom keboard shortcuts
 rm ~/.mcfly/history.db
 
-# [SWHKD](https://github.com/waycrate/swhkdd)
+# [SWHKD](https://github.com/waycrate/swhkd)
+Simple Wayland HotKey Daemon
+
+swhkd is a display protocol-independent hotkey daemon made in Rust. swhkd uses an easy-to-use configuration system inspired by sxhkd, so you can easily add or remove hotkeys.
+
+It also attempts to be a drop-in replacement for sxhkd, meaning your sxhkd config file is also compatible with swhkd.
 
 ## - To have systemd automatically start swhkd for you:
   -  Copy hotkeys.sh into your preferred directory

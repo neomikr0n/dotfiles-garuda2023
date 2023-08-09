@@ -105,7 +105,7 @@ dwindle {
 
 master {
 # https://wiki.hyprland.org/Configuring/Master-Layout/
-    special_scale_factor=0.88
+    special_scale_factor=0.9
 
 }
 

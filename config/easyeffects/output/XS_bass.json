@@ -1,12 +1,12 @@
 {
     "output": {
         "bass_enhancer#0": {
-            "amount": 2.0,
-            "blend": 2.0,
+            "amount": 4.0,
+            "blend": 0.0,
             "bypass": false,
             "floor": 20.0,
             "floor-active": false,
-            "harmonics": 7.5,
+            "harmonics": 8.5,
             "input-gain": 0.0,
             "output-gain": 0.0,
             "scope": 85.0
@@ -273,7 +273,7 @@
         "reverb#0": {
             "amount": -10.716679676582991,
             "bass-cut": 514.079,
-            "bypass": true,
+            "bypass": false,
             "decay-time": 1.10354,
             "diffusion": 0.69,
             "dry": 0.0,
