@@ -468,7 +468,7 @@
         "reverb#0": {
             "amount": -10.716679676582991,
             "bass-cut": 514.079,
-            "bypass": false,
+            "bypass": true,
             "decay-time": 1.10354,
             "diffusion": 0.69,
             "dry": 0.0,

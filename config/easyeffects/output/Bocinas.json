@@ -31,7 +31,7 @@
             "wet": 0.0
         },
         "equalizer#0": {
-            "balance": -40.0,
+            "balance": -55.0,
             "bypass": false,
             "input-gain": 0.0,
             "left": {

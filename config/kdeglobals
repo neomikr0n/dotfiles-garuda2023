@@ -95,7 +95,7 @@ ForegroundVisited=179,13,191
 
 [DirSelect Dialog]
 DirSelectDialog Size=842,594
-History Items[$e]=file:///run/media/n30/chivos_4t/Movies,file:///run/media/n30/chivos_4t/Downloads/VA - 2023 - 70th Anniversary Blues Anthology (FLAC),file:///run/media/n30/chivos_4t/Downloads_4t,file:///run/media/n30/chivos_4t/Downloads,file:///run/media/n30/nvme_chivos/linuxsaurio,file:///run/media/n30/nvme_chivos/linuxsaurio/Skyrim.Special.Edition-jc141,file:///run/media/n30/efi-usb,file:///run/media/n30/Chivos/LINUX_backups,file:$HOME/Pictures/Screenshots
+History Items[$e]=file:///run/media/n30/chivos_4t/Movies,file:///run/media/n30/nvme_chivos,file:$HOME/Videos,file:///run/media/n30/chivos_4t/Downloads/VA - 2023 - 70th Anniversary Blues Anthology (FLAC),file:///run/media/n30/chivos_4t/Downloads_4t,file:///run/media/n30/chivos_4t/Downloads,file:///run/media/n30/nvme_chivos/linuxsaurio,file:///run/media/n30/nvme_chivos/linuxsaurio/Skyrim.Special.Edition-jc141,file:///run/media/n30/efi-usb,file:///run/media/n30/Chivos/LINUX_backups,file:$HOME/Pictures/Screenshots
 
 [General]
 BrowserApplication=firedragon.desktop
@@ -126,7 +126,7 @@ widgetStyle=kvantum-dark
 Allow Expansion=false
 Automatically select filename extension=true
 Breadcrumb Navigation=false
-Decoration position=0
+Decoration position=2
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
 Show Bookmarks=false
@@ -140,7 +140,7 @@ Sort directories first=true
 Sort hidden files last=false
 Sort reversed=true
 Speedbar Width=137
-View Style=Detail
+View Style=Simple
 
 [PreviewSettings]
 MaximumRemoteSize=0

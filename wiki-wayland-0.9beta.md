@@ -35,6 +35,47 @@ thunar libwebp tumbler \
 cli-visualizer cava glava foot kitty the_silver_searcher
 ```
 
+# **[Crashes and Bugs](https://wiki.hyprland.org/Crashes-and-Bugs/)**
+
+## [Getting the log](https://wiki.hyprland.org/Crashes-and-Bugs/#getting-the-log "Anchor to: Getting the log")
+
+If you are in a TTY, and the hyprland session that crashed was the last one you launched, the log will be printed with
+
+```sh
+cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
+```
+
+feel free to save it to a file, save, copy, etc.
+
+if you are in a Hyprland session, and you want the log of the last session, use
+
+```sh
+cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
+```
+
+## [Crashes at launch](https://wiki.hyprland.org/Crashes-and-Bugs/#crashes-at-launch "Anchor to: Crashes at launch")
+
+Diagnose the issue by what is in the log:
+
+- `sWLRBackend was NULL!` -> launch in the TTY and refer to the wlr logs in RED.
+- `Monitor X has NO PREFERRED MODE, and an INVALID one was requested` -> your monitor is bork.
+- Other -> see the coredump. Use `coredumpctl`, find the latest one’s PID and do `coredumpctl info PID`.
+- failing on a driver (e.g. `radeon`) -> try compiling with `make legacyrenderer`, if that doesn’t help, report an issue.
+- failing on `wlr-xxx` -> try compiling with `make legacyrenderer`, if that doesn’t help, report an issue, and also refer to the TTY wlr logs in RED like in the first point.
+- failing on `Hyprland` -> report an issue.
+
+## [Crashes not at launch](https://wiki.hyprland.org/Crashes-and-Bugs/#crashes-not-at-launch "Anchor to: Crashes not at launch")
+
+Report an issue on GitHub or on the Discord server.
+
+## [Bugs](https://wiki.hyprland.org/Crashes-and-Bugs/#bugs "Anchor to: Bugs")
+
+First of all, **_READ THE [FAQ PAGE](https://wiki.hyprland.org/FAQ)_**
+
+If your bug is not listed there, you can ask on the Discord server or open an issue on GitHub.
+
+
+
 
 # **[Environment Variables](https://wiki.hyprland.org/Configuring/Environment-variables/)**
 You can use the env keyword to set environment variables prior to the initialization of the Display Server, e.g.:
@@ -448,15 +489,18 @@ exec_after=swaync-client --inhibitor-remove "xdg-desktop-portal-wlr"
 
 
 ---
-> # **[ulauncher**](https://ulauncher.io)**
+> # **[ulauncher](https://ulauncher.io)**
 
 ---
 
 ## 1. Installation
 
-```yay -s ulauncher && \
+```
+yay -s ulauncher wmctrl && \
 sudo mkdir ~/.config/ulauncher/user-themes/
 ```
+- wmctrl needed to activate app focus
+- create the user themes folder
 
 ## 2. [Oficial Extensions](https://ext.ulauncher.io/)
 
@@ -498,8 +542,15 @@ sudo git clone https://github.com/SirHades696/TokyoNight-Ulauncher-Theme \
 
 ## 4. settings
 
-Install package wmctrl (needed to activate app focus)
-bind= CTRL,space,exec,ulauncher-toggle
+
+
+## 5. errors
+
+### ulauncher PermissionError: [Errno 13] Permission denied
+
+sudo chown -R n30 '/home/n30/.dotfiles/config/ulauncher/user-themes'
+sudo chmod -R 777 '~/.dotfiles/config/ulauncher/user-themes'
+
 
 ---
 # [thunar]()
@@ -551,6 +602,7 @@ To install this theme, open System Settings in Plasma and go to "Startup and Shu
 ```cd ~/Downloads```
 
 transmission4-gtk qbitorrent
+6 aur/qbittorrent-enhanced-qt5-git 4.4.3.12.r0.g683ecc7a7-1 (+1 0.00) (Installed: 4.5.0.10.r2.gc2ecddd38-1)
 
 yay -S sweet-theme-full-git
 sweet-gtk-theme sweet-gtk-theme-dark sweet-theme-git sweet-gtk-theme-mars-git # TODO: add kvantum theme  sweet
@@ -559,7 +611,8 @@ sweet-gtk-theme sweet-gtk-theme-dark sweet-theme-git sweet-gtk-theme-mars-git # 
 
 >>> date and time
 >>>
->>
+>
+  
 
 `sudo date -s "01 JAN 2023 20:23:00"`
 
@@ -4572,6 +4625,9 @@ sudo pacman-key --init
 
 sudo pacman-key --populate
 
+
+
+
 # [ChatGPT & REDDIT]()
 
 - ## [Right mouse click to invoke wofi menu](https://www.reddit.com/r/swaywm/comments/123pbft/right_mouse_click_to_invoke_wofi_menu/)
@@ -5948,6 +6004,29 @@ Si tienes dudas puedes entrar en contacto con Amazon.com.mx en https://www.amazo
 
 Términos y Condiciones
 Promoción exclusiva para miembros Prime. Para hacer válida la promoción deberás ordenar al menos $1,000 pesos en Tarjetas de Regalo Digitales Amazon vendidas por Amazon México. Al realizar un pedido de $1,000 pesos o más en Tarjetas de Regalo Digitales Amazon México, recibirás $200 pesos de saldo promocional que serán acreditados a tu cuenta 2 días posteriores a la notificación del envío de tu pedido. Una vez cumplido el período de espera, recibirás vía e-mail una notificación sobre el cargo del saldo promocional a tu cuenta. El saldo promocional no será visible en tu cuenta, pero estará disponible para aplicarse en tus próximos pedidos de productos vendidos y enviados por Amazon México. El saldo promocional de $200 podrás redimirlo a partir de la fecha de su acreditación hasta las 23:59 horas (tiempo del Centro de México) del 31 de agosto de 2023. Esta es una promoción válida por tiempo limitado. Amazon se reserva el derecho de modificar o cancelar la promoción en cualquier momento, lo cual se comunicará en https://www.amazon.com.mx/b?ie=UTF8&node=117030933011. Promoción exclusiva para miembros Prime. Para participar en la promoción, el pedido de la Tarjeta de Regalo deberá ser realizado entre las 00:00 horas (tiempo del Centro de México) del 11 de julio de 2023 y las 23:59 horas (tiempo del Centro de México) del 16 de julio de 2023 o hasta agotar existencias. La promoción es aplicable una sola vez por cuenta. Si realizas varios pedidos de $1,000 pesos o más en Tarjetas de Regalo Digitales vendidas por Amazon México, sólo recibirás $200 pesos de descuento. La promoción aplica únicamente en Amazon.com.mx, al realizar un pedido de $1,000 pesos o más en una Tarjeta de Regalo Digital Amazon vendidas por Amazon México incluidos en esta sección https://www.amazon.com.mx/b?ie=UTF8&node=117030933011. No aplica para Tarjetas de regalo de otras marcas, productos en pre-venta, productos no disponibles, productos vendidos por Amazon EE.UU., terceros vendedores o en cualquier otra página web accesible a través de www.amazon.com.mx. Busca la etiqueta “Vendido y enviado por Amazon México” en la página de detalles del producto. La promoción aplica únicamente a productos comprados en un solo pedido. Esta promoción no puede combinarse con otras promociones basadas en códigos promocionales, promociones bancarias, ni como Ofertas del Día, Ofertas relámpago y Ofertas Destacadas de productos vendidos y enviados por Amazon México. Si alguno de los productos se devuelve, tu reembolso será igual al monto pagado por el producto, sujeto a las políticas de devoluciones aplicables. En caso de devolución total, no serás elegible para participar en la promoción. En caso de devolución parcial, únicamente se bonificará el porcentaje correspondiente al total de los productos no devueltos. Participan casi todas las formas de pago aceptadas en Amazon.com.mx, incluyendo tarjetas de crédito y débito, tarjeta de débito Amazon Recargable. No participan las Tarjetas de Regalo, Prepago con Amazon Cash o Paga en Efectivo en Oxxo. La promoción no es transferible y no podrá ser utilizada para reventa, canjeada por efectivo o tarjetas de regalo. Esta promoción no tendrá efectos en caso de existir restricciones legales y/o administrativas que le resulten aplicables. Si infringes los términos y condiciones de la promoción, no serás elegible para la promoción.
+
+
+
+---
+> # **[Youtube](https://github.com/couriersud/msigd)**
+
+## youtube-dl-2021.12.17-2
+[🔴] × youtube-dl -x --audio-format mp3 'https://www.youtube.com/watch?v=MTNBM5umHUw'
+
+[🔴] × youtube-dl --format "best[height<=480]" 'https://www.youtube.com/watch?v=oHg5SJYRHA0'
+
+
+## you-get-0.4.1650-2
+[🔴] × you-get --info https://www.youtube.com/watch?v=oHg5SJYRHA0
+
+
+## clipgrab-3.9.7-2
+
+
+
+## youtubedl-gui-3.0-1.3
+
+
 
 ---
 # KVM

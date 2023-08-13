@@ -3,7 +3,7 @@
         "bass_enhancer#0": {
             "amount": 4.0,
             "blend": 0.0,
-            "bypass": false,
+            "bypass": true,
             "floor": 20.0,
             "floor-active": false,
             "harmonics": 8.5,
@@ -13,24 +13,16 @@
         },
         "bass_enhancer#1": {
             "amount": 5.5,
-            "blend": 0.0,
-            "bypass": true,
+            "blend": -5.0,
+            "bypass": false,
             "floor": 20.0,
-            "floor-active": true,
-            "harmonics": 7.0,
+            "floor-active": false,
+            "harmonics": 8.5,
             "input-gain": 0.0,
             "output-gain": 0.0,
             "scope": 105.0
         },
         "blocklist": [],
-        "convolver#0": {
-            "autogain": true,
-            "bypass": true,
-            "input-gain": -2.0,
-            "ir-width": 100,
-            "kernel-path": "/home/n30/.config/easyeffects/irs/Accudio ((48kHz Z.E.)) Earpods HIFI.irs",
-            "output-gain": 0.0
-        },
         "crossfeed#0": {
             "bypass": true,
             "fcut": 700,
@@ -45,7 +37,7 @@
             "left": {
                 "band0": {
                     "frequency": 105.0,
-                    "gain": 5.5,
+                    "gain": 0.5,
                     "mode": "APO (DR)",
                     "mute": false,
                     "q": 0.699999988079071,
@@ -263,7 +255,6 @@
         },
         "plugins_order": [
             "equalizer#1",
-            "convolver#0",
             "bass_enhancer#1",
             "bass_enhancer#0",
             "crossfeed#0",
