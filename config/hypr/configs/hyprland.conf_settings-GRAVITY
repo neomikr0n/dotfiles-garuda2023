@@ -44,13 +44,22 @@ general {
     gaps_in=1
     gaps_out=13
     border_size=4
-    # col.active_border=rgba(cba6f7ff) rgba(89b4faff) rgba(94e2d5ff) 10deg
-    # col.active_border= rgba(89b4faff) rgba(ffffff00) rgba(ffffff00) rgba(cba6f7ff) rgba(ffffff00) rgba(ffffff00) rgba(89b4faff) 30deg
-    col.active_border= rgba(cba6f7ff) rgba(89b4faff) rgba(cba6f7ff) rgba(89b4faff) rgba(cba6f7ff) 30deg
-
-    col.inactive_border=0xff45475
     apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-    layout = dwindle        #TODO: change for master? 🤔
+    layout = dwindle        #TODO: change for master? 🤔    
+    col.inactive_border=43ff641a        #43ff641a a.k.a. transparent
+    col.active_border= rgba(e689faff) rgba(89b4faff) rgba(cba6f7ff) rgba(89b4faff) rgba(e689faff) 30deg 
+    # #e689faff #89b4faff #e689faff #89b4faff #e689faff 
+    # https://www.rgbtohex.net/rgb/230-137-250
+    # Complements: #e689fa#fa8c89#89fab9  Triad: #e689fa#fae689#89fae6  Tetrad #e689fa#faad89#9dfa89#89d5fa  
+    # Monochromatic #e689fa#221525#4a2c50#71437a#985aa5#bf72cf       Analogous #e689fa#b989fa#cf89fa#e689fa#fa89f7#fa89e1
+
+    # OLD    
+    # col.active_border=rgba(cba6f7ff) rgba(89b4faff) rgba(94e2d5ff) 10deg
+    # col.active_border= rgba(89b4faff) rgba(ffffff00) rgba(ffffff00) rgba(cba6f7ff) rgba(ffffff00) rgba(ffffff00) rgba(89b4faff) 30deg 
+    # col.active_border= rgba(cba6f7ff) rgba(89b4faff) rgba(cba6f7ff) rgba(89b4faff) rgba(cba6f7ff) 30deg
+    
+    # col.active_border= rgba(cba6f7ff) rgba(89b4faff) rgba(cba6f7ff) rgba(89b4faff) rgba(cba6f7ff) 30deg 
+    # #cba6f7ff #89b4faff #cba6f7ff #89b4faff #cba6f7ff #e689faff   
 }
 
 decoration {
@@ -113,3 +122,61 @@ gestures {
     workspace_swipe= yes
     workspace_swipe_fingers= 4
 }
+
+
+# █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀▄▀█ ▄▀█ █▄░█ ▄▀█ █▀▀ █▀▄▀█ █▀▀ █▄░█ ▀█▀
+# ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █░▀░█ █▀█ █░▀█ █▀█ █▄█ █░▀░█ ██▄ █░▀█ ░█░
+$mainMod= SUPER
+
+# Special workspace scratchpad
+bindr= $mainMod, $mainMod_L, togglespecialworkspace,
+bind= ALT,bar,movetoworkspacesilent,special
+
+bind= SUPER,1,workspace,1
+bind= SUPER,2,workspace,2
+bind= SUPER,3,workspace,3
+bind= SUPER,4,workspace,4
+bind= SUPER,5,workspace,5
+bind= SUPER,6,workspace,6
+bind= SUPER,7,workspace,7
+bind= SUPER,8,workspace,8
+bind= SUPER,9,workspace,9
+bind= SUPER,0,workspace,10
+
+bind= SUPER,left,movefocus,l
+bind= SUPER,right,movefocus,r
+bind= SUPER,up,movefocus,u
+bind= SUPER,down,movefocus,d
+
+bind= ALT,1,movetoworkspacesilent,1
+bind= ALT,2,movetoworkspacesilent,2
+bind= ALT,3,movetoworkspacesilent,3
+bind= ALT,4,movetoworkspacesilent,4
+bind= ALT,5,movetoworkspacesilent,5
+bind= ALT,6,movetoworkspacesilent,6
+bind= ALT,7,movetoworkspacesilent,7
+bind= ALT,8,movetoworkspacesilent,8
+bind= ALT,9,movetoworkspacesilent,9
+bind= ALT,0,movetoworkspacesilent,10
+# bind = $mainMod SHIFT, bracketleft, movetoworkspacesilent, -1
+# bind = $mainMod SHIFT, bracketright, movetoworkspacesilent, +1
+
+bind= SHIFTALT,1, movetoworkspace, 1
+bind= SHIFTALT,2, movetoworkspace, 2
+bind= SHIFTALT,3, movetoworkspace, 3
+bind= SHIFTALT,4, movetoworkspace, 4
+bind= SHIFTALT,5, movetoworkspace, 5
+bind= SHIFTALT,6, movetoworkspace, 6
+bind= SHIFTALT,7, movetoworkspace, 7
+bind= SHIFTALT,8, movetoworkspace, 8
+bind= SHIFTALT,9, movetoworkspace, 9
+bind= SHIFTALT,0, movetoworkspace, 10
+bind= SHIFTALT,bracketleft, movetoworkspace, -1
+bind= SHIFTALT,bracketright, movetoworkspace, +1
+
+# Scroll through existing workspaces with mainMod + scroll
+bind= SUPER,mouse_down,workspace,e+1
+bind= SUPER,mouse_up,workspace,e-1
+
+bind= SUPER,g,togglegroup
+bind= SUPER,tab,focusUrgentOrLast    #allows to switch back and forth (toggle) between the currently focused and the previously focused window across workspaces or within the same workspace.

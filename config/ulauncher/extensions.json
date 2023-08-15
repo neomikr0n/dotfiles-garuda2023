@@ -1,1 +1,107 @@
-{}
+{
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2023-08-13T12:28:22.835105",
+        "last_commit": "4c6af50d1c9a24d5aad2c597634ff0c634972a5c",
+        "last_commit_time": "2021-08-08T19:19:59"
+    },
+    "com.github.ulauncher.ulauncher-timer": {
+        "id": "com.github.ulauncher.ulauncher-timer",
+        "url": "https://github.com/ulauncher/ulauncher-timer",
+        "updated_at": "2023-08-13T12:29:14.631925",
+        "last_commit": "2d3fe82fe1e38670e6eb8887cd2a4b4d1c2baa79",
+        "last_commit_time": "2023-03-25T08:07:41"
+    },
+    "com.github.cmuench.ulauncher-todoist": {
+        "id": "com.github.cmuench.ulauncher-todoist",
+        "url": "https://github.com/cmuench/ulauncher-todoist",
+        "updated_at": "2023-08-13T12:29:47.036461",
+        "last_commit": "57f73bfe0314bd6d371eee24b43fd484b50d4e80",
+        "last_commit_time": "2023-01-12T14:14:32"
+    },
+    "com.github.nastuzzisamy.ulauncher-youtube-search": {
+        "id": "com.github.nastuzzisamy.ulauncher-youtube-search",
+        "url": "https://github.com/NastuzziSamy/ulauncher-youtube-search",
+        "updated_at": "2023-08-13T12:30:37.170159",
+        "last_commit": "fe855811358b2f15ec6ed69ca18e20639874fa28",
+        "last_commit_time": "2021-03-27T11:29:18"
+    },
+    "com.github.commarla.ulauncher-looks-wtf": {
+        "id": "com.github.commarla.ulauncher-looks-wtf",
+        "url": "https://github.com/commarla/ulauncher-looks-wtf",
+        "updated_at": "2023-08-13T12:32:09.141005",
+        "last_commit": "3cbb0c5f53e67b3024f52642bfaf2674e07ce6e9",
+        "last_commit_time": "2023-08-03T12:03:09"
+    },
+    "com.github.mepowerleo10.ulauncher-dict-en": {
+        "id": "com.github.mepowerleo10.ulauncher-dict-en",
+        "url": "https://github.com/mepowerleo10/ulauncher-dict-en",
+        "updated_at": "2023-08-13T12:32:20.968550",
+        "last_commit": "78babcd05dff825a580a7192fc14ee73775784f2",
+        "last_commit_time": "2023-04-03T09:26:35"
+    },
+    "com.github.brpaz.ulauncher-file-search": {
+        "id": "com.github.brpaz.ulauncher-file-search",
+        "url": "https://github.com/brpaz/ulauncher-file-search",
+        "updated_at": "2023-08-13T12:32:28.366455",
+        "last_commit": "0ea61c2049b27f1ddfa81d1844876f21dd9d6e7b",
+        "last_commit_time": "2020-07-03T13:30:16"
+    },
+    "com.github.abhishekmj303.ulauncher-playerctl": {
+        "id": "com.github.abhishekmj303.ulauncher-playerctl",
+        "url": "https://github.com/abhishekmj303/ulauncher-playerctl",
+        "updated_at": "2023-08-13T13:06:20.001149",
+        "last_commit": "5f52e6c949ee9793ba60b5385df4744b134c3369",
+        "last_commit_time": "2023-06-23T15:13:13"
+    },
+    "com.github.jonathanvisser.ulauncher-thesaurus": {
+        "id": "com.github.jonathanvisser.ulauncher-thesaurus",
+        "url": "https://github.com/jonathanvisser/ulauncher-thesaurus",
+        "updated_at": "2023-08-13T13:07:46.718204",
+        "last_commit": "fb5c9b7bc11a9529dab7aa410186d3a2911e6df3",
+        "last_commit_time": "2022-03-29T08:54:04"
+    },
+    "com.github.rootwork.ulauncher-symbol": {
+        "id": "com.github.rootwork.ulauncher-symbol",
+        "url": "https://github.com/rootwork/ulauncher-symbol",
+        "updated_at": "2023-08-13T13:08:16.007682",
+        "last_commit": "c5d7ab5c94c1b418cb1f8a9161be169a29c65658",
+        "last_commit_time": "2022-02-24T01:17:09"
+    },
+    "com.github.diggit.ulauncher-lolcate": {
+        "id": "com.github.diggit.ulauncher-lolcate",
+        "url": "https://github.com/diggit/ulauncher-lolcate",
+        "updated_at": "2023-08-13T13:10:32.300507",
+        "last_commit": "8f24b7c898a89e42ca36525f6b833cccee387a23",
+        "last_commit_time": "2021-10-17T17:27:07"
+    },
+    "com.github.ikorjefocur.ulauncher-commandrunner": {
+        "id": "com.github.ikorjefocur.ulauncher-commandrunner",
+        "url": "https://github.com/IkorJefocur/ulauncher-commandrunner",
+        "updated_at": "2023-08-13T13:10:54.509324",
+        "last_commit": "c306301468cbaba23625bf0ef0639b7ad6602783",
+        "last_commit_time": "2022-03-01T19:34:35"
+    },
+    "com.github.sebastian-correa.ulauncher-rae-dle": {
+        "id": "com.github.sebastian-correa.ulauncher-rae-dle",
+        "url": "https://github.com/sebastian-correa/ulauncher-rae-dle",
+        "updated_at": "2023-08-13T13:11:48.864309",
+        "last_commit": "74334beaca7b284166dd8f41a769e037ee83bd32",
+        "last_commit_time": "2021-08-06T19:43:51"
+    },
+    "com.github.ulauncher.ulauncher-kill": {
+        "id": "com.github.ulauncher.ulauncher-kill",
+        "url": "https://github.com/Ulauncher/ulauncher-kill",
+        "updated_at": "2023-08-13T13:14:47.964965",
+        "last_commit": "00ffe8266dbb6c2aea7d86a6363e51cec4b1981f",
+        "last_commit_time": "2022-11-26T16:15:05"
+    },
+    "com.github.msaistaken.ulauncher-translator": {
+        "id": "com.github.msaistaken.ulauncher-translator",
+        "url": "https://github.com/msaistaken/ulauncher-translator",
+        "updated_at": "2023-08-13T13:19:10.539651",
+        "last_commit": "824037cd06fb56162c0d629020bdc4b70ce3d77e",
+        "last_commit_time": "2021-07-25T18:22:55"
+    }
+}

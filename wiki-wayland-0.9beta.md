@@ -39,10 +39,20 @@ cli-visualizer cava glava foot kitty the_silver_searcher
 
 ## [Getting the log](https://wiki.hyprland.org/Crashes-and-Bugs/#getting-the-log "Anchor to: Getting the log")
 
+on hyprland.conf:
+
+env= HYPRLAND_LOG_WLR,1
+
+or in an script:
+
+export HYPRLAND_LOG_WLR=1
+
 If you are in a TTY, and the hyprland session that crashed was the last one you launched, the log will be printed with
 
+~~cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log~~
+
 ```sh
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
+cat /tmp/hypr/$(exa -t /tmp/hypr/ | head -n 1)/hyprland.log
 ```
 
 feel free to save it to a file, save, copy, etc.
@@ -50,9 +60,9 @@ feel free to save it to a file, save, copy, etc.
 if you are in a Hyprland session, and you want the log of the last session, use
 
 ```sh
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
+cat /tmp/hypr/$(exa -t /tmp/hypr/ | head -n 1 | tail -n 1)/hyprland.log
 ```
-
+5624298668
 ## [Crashes at launch](https://wiki.hyprland.org/Crashes-and-Bugs/#crashes-at-launch "Anchor to: Crashes at launch")
 
 Diagnose the issue by what is in the log:
@@ -502,6 +512,9 @@ sudo mkdir ~/.config/ulauncher/user-themes/
 - wmctrl needed to activate app focus
 - create the user themes folder
 
+hyprland.conf: 
+`bind= CTRL,space,exec,ulauncher-toggle`
+
 ## 2. [Oficial Extensions](https://ext.ulauncher.io/)
 
 - [Emoji](https://ext.ulauncher.io/-/github-ulauncher-ulauncher-emoji)
@@ -511,6 +524,13 @@ sudo mkdir ~/.config/ulauncher/user-themes/
 - [Looks.wtf](https://github.com/commarla/ulauncher-looks-wtf)
 - [English Dictionary ](https://github.com/mepowerleo10/ulauncher-dict-en)
 - [File search](https://github.com/brpaz/ulauncher-file-search)
+- [Thesaurus Big Huge](https://github.com/jonathanvisser/ulauncher-thesaurus)
+- [Symbol search](https://github.com/rootwork/ulauncher-symbol)
+- [search files using lolcate](https://github.com/diggit/ulauncher-lolcate)
+- [Command runner](https://github.com/IkorJefocur/ulauncher-commandrunner)
+- [Diccionario de la Lengua Española de la RAE](https://github.com/sebastian-correa/ulauncher-rae-dle)
+- [Process Killer](https://github.com/Ulauncher/ulauncher-kill)
+- [Translator](https://github.com/msaistaken/ulauncher-translator)
 - 
 - etc.
 
