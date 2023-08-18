@@ -7099,3 +7099,155 @@ error: failed to compile `watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/w
     Updating xml-rs v0.8.4 -> v0.8.16
 
 ---
+
+HSBCBS23
+FASHIONMP
+
+Victrix Gambit
+---
+
+<!-- 
+  Window 55afd72afc50 -> Path of Exile:
+	mapped: 1
+	hidden: 0
+	at: 0,0
+	size: 3440,1440
+	workspace: 1 (1)
+	floating: 1
+	monitor: 0
+	class: steam_app_238960
+	title: Path of Exile
+	initialClass: steam_app_238960
+	initialTitle: Path of Exile
+	pid: 1607345
+	xwayland: 1
+	pinned: 0
+	fullscreen: 1
+	fullscreenmode: 0
+	fakefullscreen: 0 
+-->
+
+  ---
+
+Window 555cadcb8760 -> *Awakened PoE Trade*:
+	mapped: 1
+	hidden: 0
+	at: 1725,36
+	size: 1698,1387
+	workspace: 4 (4)
+	floating: 0
+	monitor: 0
+	class: awakened-poe-trade
+	title: Awakened PoE Trade
+	initialClass: awakened-poe-trade
+	initialTitle: Awakened PoE Trade
+	pid: 1845941
+	xwayland: 1
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+	grouped: 0
+
+Window 555cadcdfca0 -> *Path of Exile*:
+	mapped: 1
+	hidden: 0
+	at: -3,35
+	size: 2575,1407
+	workspace: 4 (4)
+	floating: 1
+	monitor: 0
+	class: steam_app_238960
+	title: Path of Exile
+	initialClass: steam_app_238960
+	initialTitle: Path of Exile
+	pid: 1850931
+	xwayland: 1
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+
+<!-- two for more pleasure -->
+Window 555cadbd0740 -> ~: *foot x2*
+	mapped: 1
+	hidden: 0
+	at: 763,36
+	size: 1330,1387
+	workspace: 4 (4)
+	floating: 0
+	monitor: 0
+	class: foot
+	title: ~
+	initialClass: foot
+	initialTitle: foot
+	pid: 2063972
+	xwayland: 0
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+	grouped: 0
+	swallowing: 0
+
+Window 555cadb8b140 -> ~:
+	mapped: 1
+	hidden: 0
+	at: 17,36
+	size: 736,1387
+	workspace: 4 (4)
+	floating: 0
+	monitor: 0
+	class: foot
+	title: ~
+	initialClass: foot
+	initialTitle: foot
+	pid: 2088859
+	xwayland: 0
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+
+  <!-- just one -->
+Window 555cadbd0740 -> ~: *foot*
+	mapped: 1
+	hidden: 0
+	at: 17,36
+	size: 1698,1387
+	workspace: 4 (4)
+	floating: 0
+	monitor: 0
+	class: foot
+	title: ~
+	initialClass: foot
+	initialTitle: foot
+	pid: 2063972
+	xwayland: 0
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+
+---
+
+# notify
+Sends a notification using the built-in Hyprland notification system.
+
+hyprctl notify [ICON] [TIME_MS] [COLOR] [MESSAGE]
+For example:
+
+hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
+
+Icon of -1 means “No icon”
+Color of 0 means “Default color for icon”
+
+Icon list:
+
+WARNING = 0
+INFO = 1
+HINT = 2
+ERROR = 3
+CONFUSED = 4
+OK = 5
+Info

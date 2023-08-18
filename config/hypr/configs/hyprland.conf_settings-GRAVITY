@@ -108,7 +108,7 @@ dwindle {
     #col.group_border=0xff89dceb
     #col.group_border_active=0xfff9e2af
     preserve_split = true       # https://wiki.hyprland.org/Configuring/Dwindle-Layout/
-    special_scale_factor=0.88
+    special_scale_factor=0.92
 
 }
 

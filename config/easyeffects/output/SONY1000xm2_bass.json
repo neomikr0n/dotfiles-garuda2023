@@ -450,7 +450,7 @@
             "split-channels": false
         },
         "maximizer#0": {
-            "bypass": true,
+            "bypass": false,
             "ceiling": 0.0,
             "input-gain": 0.0,
             "output-gain": 0.0,

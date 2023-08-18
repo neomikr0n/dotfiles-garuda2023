@@ -3,7 +3,7 @@
         "bass_enhancer#0": {
             "amount": 4.0,
             "blend": 0.0,
-            "bypass": true,
+            "bypass": false,
             "floor": 20.0,
             "floor-active": false,
             "harmonics": 8.5,
@@ -37,7 +37,7 @@
             "left": {
                 "band0": {
                     "frequency": 105.0,
-                    "gain": 1.5,
+                    "gain": 0.5,
                     "mode": "APO (DR)",
                     "mute": false,
                     "q": 0.699999988079071,
@@ -246,7 +246,7 @@
             "split-channels": true
         },
         "maximizer#0": {
-            "bypass": true,
+            "bypass": false,
             "ceiling": -2.7755575615628914e-17,
             "input-gain": 0.0,
             "output-gain": 0.0,

@@ -1,1 +1,1 @@
-{"class": "playing", "text": "Alice In Chains - Facelift - Man in the Box (04:04/02:31) ", "tooltip": "Man in the Box\nby Alice In Chains\nfrom Facelift\n(tidal-hifi)"}
+{"class": "paused", "text": "\u25b6 ", "tooltip": "\n(brave.instance8740)"}

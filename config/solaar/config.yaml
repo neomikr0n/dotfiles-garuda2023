@@ -1,8 +1,8 @@
-- 1.1.8
+- 1.1.9
 - _NAME: Wireless Keyboard ERGO K860
   _absent: [hi-res-scroll, lowres-scroll-mode, hires-smooth-invert, hires-smooth-resolution, hires-scroll-mode, scroll-ratchet, smart-shift, thumb-scroll-invert,
     thumb-scroll-mode, onboard_profiles, report_rate, pointer_speed, dpi, speed-change, backlight, backlight-timed, reprogrammable-keys, persistent-remappable-keys,
-    crown-smooth, divert-crown, divert-gkeys, m-key-leds, mr-key-led, gesture2-gestures, gesture2-divert, gesture2-params, sidetone, equalizer]
+    crown-smooth, divert-crown, divert-gkeys, m-key-leds, mr-key-led, gesture2-gestures, gesture2-divert, gesture2-params, sidetone, equalizer, adc_power_management]
   _battery: 4096
   _modelId: B35940880000
   _sensitive: {fn-swap: false, multiplatform: false}
@@ -15,3 +15,19 @@
     235: 0, 236: 0, 256: 0, 257: 0}
   fn-swap: true
   multiplatform: 0
+- _NAME: LIFT VERTICAL ERGONOMIC MOUSE
+  _absent: [hi-res-scroll, hires-smooth-invert, hires-smooth-resolution, hires-scroll-mode, scroll-ratchet, smart-shift, thumb-scroll-invert, thumb-scroll-mode,
+    onboard_profiles, report_rate, pointer_speed, speed-change, backlight, backlight-timed, fn-swap, persistent-remappable-keys, disable-keyboard-keys,
+    crown-smooth, divert-crown, divert-gkeys, m-key-leds, mr-key-led, multiplatform, gesture2-gestures, gesture2-divert, gesture2-params, sidetone, equalizer,
+    adc_power_management]
+  _battery: 4100
+  _modelId: B03100000000
+  _sensitive: {dpi: true, lowres-scroll-mode: false, reprogrammable-keys: true}
+  _serial: 5D7A072F
+  _unitId: 5D7A072F
+  _wpid: B031
+  change-host: null
+  divert-keys: {82: 0, 83: 0, 86: 0, 253: 0}
+  dpi: 2200
+  lowres-scroll-mode: false
+  reprogrammable-keys: {82: 82, 83: 83, 86: 86, 253: 253}
