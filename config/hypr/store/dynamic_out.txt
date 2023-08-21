@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 ", "tooltip": "\n(brave.instance8740)"}
+{"class": "paused", "text": "\u25b6 (6) hyprland (00:56/00:59) ", "tooltip": "(6) hyprland\n(brave.instance8642)"}

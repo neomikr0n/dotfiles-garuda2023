@@ -7,7 +7,7 @@ count() {
 }
 
 glava() {
-  glava
+  glava & disown
 }
 
 openbrowser() {

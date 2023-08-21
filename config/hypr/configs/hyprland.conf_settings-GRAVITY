@@ -39,13 +39,14 @@ swallow_regex = ^()$
 }
 
 general {
+    layout = dwindle        #TODO: change for master/dwindle? 🤔    
+
 #    sensitivity=1.0 # for mouse cursor, Prefer using input:sensitivity over general:sensitivity to avoid bugs, especially with Wine/Proton apps.
 #     main_mod=SUPER
     gaps_in=1
     gaps_out=13
     border_size=4
     apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-    layout = dwindle        #TODO: change for master? 🤔    
     col.inactive_border=43ff641a        #43ff641a a.k.a. transparent
     col.active_border= rgba(e689faff) rgba(89b4faff) rgba(cba6f7ff) rgba(89b4faff) rgba(e689faff) 30deg 
     # #e689faff #89b4faff #e689faff #89b4faff #e689faff 
@@ -115,7 +116,15 @@ dwindle {
 master {
 # https://wiki.hyprland.org/Configuring/Master-Layout/
     special_scale_factor=0.9
-
+    #TODO:
+# https://github.com/kronikpillow/hyprland-dotfiles/blob/main/.config/hypr/hyprland.conf :
+    mfact = 0.75
+    new_is_master = false
+    new_on_top = false
+    no_gaps_when_only = false
+    orientation = left
+    inherit_fullscreen = true
+    always_center_master = true
 }
 
 gestures {

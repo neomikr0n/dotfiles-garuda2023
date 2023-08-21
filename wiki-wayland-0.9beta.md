@@ -7251,3 +7251,28 @@ ERROR = 3
 CONFUSED = 4
 OK = 5
 Info
+
+---
+# Glava for scratchpad
+Window 55b5212e1e80 -> *GLava*:
+	mapped: 1
+	hidden: 0
+	at: -40,1376
+	size: 3482,94
+	workspace: -99 (special)
+	floating: 1
+	monitor: 0
+	class: GLava
+	title: GLava
+	initialClass: GLava
+	initialTitle: GLava
+	pid: 370175
+	xwayland: 1
+	pinned: 0
+	fullscreen: 0
+	fullscreenmode: 0
+	fakefullscreen: 0
+	grouped: 0
+	swallowing: 0
+
+  Que te parece si tu cedes un poco y yo otro tanto, que quede en $14k, ni tu ni yo, pero que el envío sea hoy mismo, si te parece bien, en cuanto hagas el cambio hacemos el trato.
