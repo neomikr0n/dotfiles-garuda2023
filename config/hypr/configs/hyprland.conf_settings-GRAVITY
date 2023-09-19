@@ -40,6 +40,7 @@ swallow_regex = ^()$
 
 general {
     layout = dwindle        #TODO: change for master/dwindle? 🤔    
+# enable_compositing=true
 
 #    sensitivity=1.0 # for mouse cursor, Prefer using input:sensitivity over general:sensitivity to avoid bugs, especially with Wine/Proton apps.
 #     main_mod=SUPER

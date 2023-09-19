@@ -7,7 +7,7 @@ count() {
 }
 
 glava() {
-  glava & disown
+  glava & disown 
 }
 
 openbrowser() {
@@ -31,6 +31,8 @@ openbrowser() {
   sleep .5
   bash ~/.dotfiles/bin/videowallpaper-change collapse_academy
   hyprctl dispatch exec [workspace 6 silent] qbittorrent
+  hyprctl dispatch exec [workspace 1 silent] easyeffects
+
 
 }
 

@@ -42,12 +42,12 @@ done
 closing() {
   hyprctl dispatch closewindow thunar
   hyprctl dispatch closewindow firedragon
+  hyprctl dispatch closewindow brave-browser
   hyprctl dispatch closewindow brave
-  # hyprctl dispatch closewindow microsoft-edge-stable
+  hyprctl dispatch closewindow microsoft-edge-stable
   hyprctl dispatch closewindow code
   hyprctl dispatch closewindow dolphin
-
-}
+ }
 
 exiting() {
 if [ "$(date +%s)" -ge $end_time ]; then
@@ -72,6 +72,13 @@ shutdown() {
   check
   closing # TODO:
   exiting
+
+  # https://www.reddit.com/r/hyprland/comments/12dhbuk/how_to_exitlogout_of_hyprland/
+  # close all client windows
+  # # required for graceful exit since many apps aren't good SIGNAL citizens
+  # HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+  # hyprctl --batch "$HYPRCMDS" >> /tmp/hypr/hyprexitwithgrace.log 2>&1
+  # sudo shutdown now >> /tmp/hypr/hyprexitwithgrace.log 2>&1
 }
 
 restart() {

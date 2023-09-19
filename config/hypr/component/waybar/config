@@ -19,7 +19,7 @@
 
     "modules-left": [
         // "custom/launcher"
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "custom/dynamic_pill_lite",
         // "custom/media",
         // "custom/spotify",
@@ -292,7 +292,7 @@
             "unlocked": ""
         }
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "<span font='9' font-weight=\"900\">{icon}</span>",
         "format-active": "<span font='9'> {icon} </span>",
         "on-click": "activate",

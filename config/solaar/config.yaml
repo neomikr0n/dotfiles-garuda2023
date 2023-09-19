@@ -28,6 +28,6 @@
   _wpid: B031
   change-host: null
   divert-keys: {82: 0, 83: 0, 86: 0, 253: 0}
-  dpi: 2200
+  dpi: 1900
   lowres-scroll-mode: false
   reprogrammable-keys: {82: 82, 83: 83, 86: 86, 253: 253}

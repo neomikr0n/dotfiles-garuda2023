@@ -7,7 +7,7 @@ sudo pacman -S yay
 ```
 
 You can clean the cached packages by running 
-`sudo pacman -Sc`
+``
 
 <!-- TODO: -->
 
@@ -370,7 +370,24 @@ I used the following on hyprconf for a long time:
 # exec = busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q $temperature
 ```
 ---
+> # [solaar]()
+https://wiki.archlinux.org/title/Logitech_Unifying_Receiver
 
+Solaar has a GUI and CLI. Example CLI pairing session:
+
+solaar unpair mouse
+Unpaired 1: Wireless Mouse M525 \[M525:DAFA335E\]
+solaar pair
+Pairing: turn your new device on (timing out in 20 seconds).
+Paired device 1: Wireless Mouse M525 \[M525:DAFA335E\]
+solaar show
+-: Unifying Receiver \[/dev/hidraw0:08D89AA6\] with 1 devices
+1: Wireless Mouse M525 \[M525:DAFA335E\]
+
+To disable autostart of Solaar, remove `/etc/xdg/autostart/solaar.desktop`.
+
+
+---
 > # [plymouth](https://www.freedesktop.org/wiki/Software/Plymouth/)
 
 ---
@@ -1504,16 +1521,16 @@ xrandr --output DP-1 --mode 3440x1440 --refresh 144
 ## [cropping:](https://www.reddit.com/r/mpv/comments/napl9e/hotkey_to_change_crop_the_video_to_full_screen/)
  
 
-# On default config alt + (alt shift =) zooms in the video and alt - zooms out.
+On default config alt + (alt shift =) zooms in the video and alt - zooms out.
 
-# or:
+or:
 
 ~/.config/mpv/input.conf
 
-# on your numpad keys, 7 zooms the video and 1 unzooms it, 9 and 3 changes the aspect ratio, 4, 8, 6 and 2 moves the video left, up, right and down, 5 resets everything
+on your numpad keys, 7 zooms the video and 1 unzooms it, 9 and 3 changes the aspect ratio, 4, 8, 6 and 2 moves the video left, up, right and down, 5 resets everything
 
-# put these lines in it and save:
-
+put these lines in it and save:
+```
 KP7 add video-zoom .02
 KP1 add video-zoom -.02
 KP8 add video-pan-y -.02
@@ -1523,50 +1540,49 @@ KP4 add video-pan-x -.02
 KP9 add video-aspect +0.04
 KP3 add video-aspect -0.04
 KP5 set video-pan-x 0; set video-pan-y 0; set video-zoom 0; set video-aspect 0
+```
 
-# or use a script like this:
+or use a script like this:
 
 https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autocrop.lua
 
-# which automatically removes black bars for any video at runtime, put it in the scripts folder (make it if its not already there) located in
+which automatically removes black bars for any video at runtime, put it in the scripts folder (make it if its not already there) located in
 
 ~/.config/mpv/scripts/
 
-# mpv hardware aceleration
+## mpv hardware aceleration
 
 sudo nano ~/.config/mpv/mpv.conf
 
-# WARNING inside it put those values FOR NVIDIA ONLY
+## WARNING inside it put those values FOR NVIDIA ONLY
 
 vo=gpu
 hwdec=nvdec
 profile=gpu-hq
 gpu-context=x11
 
-#Launch CoreCtrl on session startup for undervolting
+> # **[CoreCtrl](https://github.com/shadywack/corectrl)**
+CoreCtrl is a Free and Open Source GNU/Linux application that allows you to control with ease your computer hardware using application profiles. It aims to be flexible, comfortable and accessible to regular users.
 
-# Execute this command on a terminal:
+
+## Launch CoreCtrl on session startup for a undervolting session:
 
 cp /usr/share/applications/org.corectrl.corectrl.desktop ~/.config/autostart/org.corectrl.corectrl.desktop
 
-# Don't ask for user password
+## Don't ask for user password
 
-#
+CoreCtrl uses a helper with root privileges to control your system. In order to start the helper, the system will ask you to enter your user password. If you want to avoid being asked every time for your password, you can grant root access to the helper permanently.
 
-# CoreCtrl uses a helper with root privileges to control your system. In order to start the helper, the system will ask you to enter your user password. If you want to avoid being asked every time for your password, you can grant root access to the helper permanently.
-
-#
-
-# First, check your polkit version using the command:
+- First, check your polkit version using the command:
 
 pkaction --version
 
-# Polkit version >= 0.106
+ Polkit version >= 0.106
 
-# Create the file /etc/polkit-1/rules.d/90-corectrl.rules with the following contents:
+- Create the file /etc/polkit-1/rules.d/90-corectrl.rules with the following contents:
 
 sudo nano /etc/polkit-1/rules.d/90-corectrl.rules
-
+```
 polkit.addRule(function(action, subject) {
 if ((action.id == "org.corectrl.helper.init" ||
 action.id == "org.corectrl.helperkiller.init") &&
@@ -1576,42 +1592,7 @@ subject.isInGroup("your-user-group")) {
 return polkit.Result.YES;
 }
 });
-
-# Full AMD GPU controls
-
-#
-
-# Currently, to have full control of your AMD GPU while using the amdgpu driver, you need to append the boot parameter amdgpu.ppfeaturemask=0xffffffff to your bootloader configuration and reboot.
-
-#
-
-# NOTE: The following instructions are for guidance only. Check your distribution documentation on how to add a boot parameter before proceed.
-
-#
-
-# If your system uses Grub, edit the file (as root) /etc/default/grub and append the parameter to GRUB_CMDLINE_LINUX_DEFAULT:
-
-sudo nano /etc/default/grub
-
-GRUB_CMDLINE_LINUX_DEFAULT="<other_params>... amdgpu.ppfeaturemask=0xffffffff"
-GRUB_GFXMODE=1024x768x32,auto
-
-# Then regenerate (as root) the bootloader configuration file with the command:
-
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-shutdown -r now
-
-# Reboot your system. You should have more controls when you select Advanced as Performance mode.
-
-# FPS HUD OVERLAY
-
-sudo pacman -S mangohud lib32-mangohud goverlay-git
-#for use it:
-mangohud /path/to/app
-
-#for steam launch options
-mangohud %command%
+```
 
 ╭─n30@n30 in ~
 ╰─λ cp /usr/share/applications/org.corectrl.corectrl.desktop ~/.config/autostart/org.corectrl.corectrl.desktop
@@ -1622,6 +1603,46 @@ cp: cannot stat '/usr/share/applications/copyq.desktop': No such file or directo
 
 ╭─n30@n30 in ~
 [🔴] × cp /usr/share/applications/com.github.hluk.copyq.desktop ~/.config/autostart/copyq.desktop
+
+## Full AMD GPU controls
+
+Currently, to have full control of your AMD GPU while using the amdgpu driver, you need to append the boot parameter amdgpu.ppfeaturemask=0xffffffff to your bootloader configuration and reboot.
+
+NOTE: The following instructions are for guidance only. Check your distribution documentation on how to add a boot parameter before proceed.
+
+If your system uses Grub, edit the file (as root) /etc/default/grub and append the parameter to GRUB_CMDLINE_LINUX_DEFAULT:
+`
+sudo nano /etc/default/grub
+`
+
+GRUB_CMDLINE_LINUX_DEFAULT="<other_params>... amdgpu.ppfeaturemask=0xffffffff"
+GRUB_GFXMODE=1024x768x32,auto
+
+Then regenerate (as root) the bootloader configuration file with the command:
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+shutdown -r now
+
+Reboot your system. You should have more controls when you select Advanced as Performance mode.
+
+> # **[mangohud](https://github.com/flightlessmango/MangoHud)**
+A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more.
+
+`
+sudo pacman -S mangohud lib32-mangohud goverlay-git
+`
+
+## use it:
+mangohud /path/to/app
+
+## steam launch options
+mangohud %command%
+
+
+> # **[AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher)**
+
+
 
 # HYPRLAND cyber *_*
 
@@ -7100,12 +7121,6 @@ error: failed to compile `watershot v0.2.0 (/home/n30/MEGAsync/Documents/forks/w
 
 ---
 
-HSBCBS23
-FASHIONMP
-
-Victrix Gambit
----
-
 <!-- 
   Window 55afd72afc50 -> Path of Exile:
 	mapped: 1
@@ -7275,4 +7290,161 @@ Window 55b5212e1e80 -> *GLava*:
 	grouped: 0
 	swallowing: 0
 
-  Que te parece si tu cedes un poco y yo otro tanto, que quede en $14k, ni tu ni yo, pero que el envío sea hoy mismo, si te parece bien, en cuanto hagas el cambio hacemos el trato.
+---
+
+# [Choppy gameplay with high fps in Hyprland?](https://www.reddit.com/r/hyprland/comments/15vh179/choppy_gameplay_with_high_fps_in_hyprland/)
+
+ ╭─n30@n30 in ~ 
+ ╰─λ *gamescope -w 3440 -h 1440 -f -r 144 -- steam steam://rungameid/238960*
+No CAP_SYS_NICE, falling back to regular-priority compute and threads.
+Performance will be affected.
+wlserver: [backend/headless/backend.c:68] Creating headless backend
+
+ ╭─n30@n30 in ~ 
+ ╰─λ vulkan: selecting physical device 'AMD Radeon RX 6650 XT (RADV NAVI23)': queue family 1
+
+```
+vulkan: physical device supports DRM format modifiers
+vulkan: supported DRM formats for sampling usage:
+vulkan:   AR24 (0x34325241)
+vulkan:   XR24 (0x34325258)
+vulkan:   AB24 (0x34324241)
+vulkan:   XB24 (0x34324258)
+vulkan:   NV12 (0x3231564E)
+vulkan:   AB4H (0x48344241)
+vulkan:   XB4H (0x48344258)
+vulkan:   AB48 (0x38344241)
+vulkan:   XB48 (0x38344258)
+vulkan:   AB30 (0x30334241)
+vulkan:   XB30 (0x30334258)
+vulkan:   AR30 (0x30335241)
+vulkan:   XR30 (0x30335258)
+wlserver: [wayland] unable to lock lockfile /run/user/1000/gamescope-0.lock, maybe another compositor is running
+wlserver: Running compositor on wayland display 'gamescope-1'
+wlserver: [backend/headless/backend.c:16] Starting headless backend
+wlserver: [xwayland/sockets.c:63] Failed to bind socket @/tmp/.X11-unix/X0: Address already in use
+wlserver: [xwayland/server.c:108] Starting Xwayland on :3
+wlserver: [types/wlr_compositor.c:673] New wlr_surface 0x560e7a4c4790 (res 0x560e7a77d580)
+wlserver: [xwayland/server.c:273] Xserver is ready
+pipewire: stream state changed: connecting
+pipewire: stream state changed: paused
+pipewire: stream available on node ID: 150
+pipewire: renegotiating stream params (size: 1280x720)
+steam.sh[341447]: Running Steam on garuda Soaring 64-bit
+steam.sh[341447]: STEAM_RUNTIME is enabled automatically
+setup.sh[341523]: Steam runtime environment up-to-date!
+steam.sh[341447]: Steam client's requirements are satisfied
+
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+vblankmanager: write failed: Resource temporarily unavailable
+```
+
+---
+
+# Remove orphaned packages (installed as dependencies but not required by any package):
+
+      yay -Yc
+
+  Show statistics for installed packages and system health:
+
+      yay -Ps
+
+
+ ╭─n30@n30 in ~ as 🧙 took 4ms
+ ╰─λ yay -Yc
+checking dependencies...
+
+Packages (29) appstream-glib-0.8.2-3  boost-1.81.0-7  check-0.15.2-2  dkms-3.0.11-1  egl-wayland-2:1.1.12-1
+              eglexternalplatform-1.1-2  js78-78.15.0-4  liblzf-3.6-4  libsidplay-1.36.59-10  libtpms-0.9.6-1
+              lua53-5.3.6-1  nvm-0.39.4-1  onevpl-2023.3.1-1  python-argparse-1.4.0-14  python-keyutils-0.6-9
+              ruby-diff-lcs-1.5.0-1  ruby-rainbow-3.1.1-1  ruby-rspec-3.12.0-1  ruby-rspec-core-3.12.0-1
+              ruby-rspec-expectations-3.12.0-1  ruby-rspec-mocks-3.12.0-1  ruby-rspec-support-3.12.0-1
+              ruby-sync-0.5.0-6  ruby-term-ansicolor-1.7.1-2  ruby-tins-1.32.1-1  scdoc-1.11.2-5
+              tinycompress-1.2.8-2  virtualbox-host-dkms-7.0.10-2  zsync-0.6.2-5
+
+Total Removed Size:  263.08 MiB
+
+:: Do you want to remove these packages? [Y/n] 
+
+---
+
+# openrazer
+
+https://itsfoss.com/set-up-razer-devices-linux/
+
+yay openrazer-meta-git polychromatic-git 
+```bash
+
+********************************************
+* To complete installation, please run:    *
+* # sudo gpasswd -a <yourUsername> plugdev *
+* and reboot.                              *
+*                                          *
+* Please note, that you have to have the   *
+* kernel headers for your current kernel   *
+* installed for dkms to work correctly!    *
+
+********************************************
+```
+sudo gpasswd -a n30 plugdev
+
+
+Alternatively, you can try RazerGenie, Snake, or OpenRGB (meant for changing the colors) to tweak the mouse color or any other settings.
+
+---
