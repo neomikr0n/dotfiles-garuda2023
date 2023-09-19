@@ -1,1 +1,1 @@
-{"class": "playing", "text": "The Who - Getting In Tune (Remastered 2022) (03:03/04:51) ", "tooltip": "Getting In Tune (Remastered 2022)\nby The Who\n(chromium.instance9392)"}
+{"class": "playing", "text": "The Who - Pure And Easy (Lifehouse Chronicles / Home Studio Mix / Remastered 2022) (00:24/08:39) ", "tooltip": "Pure And Easy (Lifehouse Chronicles / Home Studio Mix / Remastered 2022)\nby The Who\n(tidal-hifi)"}

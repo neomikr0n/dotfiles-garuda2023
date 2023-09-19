@@ -7,13 +7,13 @@
 ; mode = normal
 
 # Accepts only non-negative values.
-; framerate = 60
+framerate = 90
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
 ; autosens = 1
-; overshoot = 20
+; overshoot = 10
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
@@ -93,12 +93,6 @@
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
 ; method = ncurses
 
-# Orientation of the visualization. Can be 'bottom', 'top', 'left' or 'right'.
-# Default is 'bottom'. Other orientations are only supported on sdl and ncruses
-# output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
-# which can make ncurses not look right.
-; orientation = bottom
-
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
 # 'mono' outputs left to right lowest to highest frequencies.
@@ -123,7 +117,7 @@
 # Ascii delimiters. In ascii format each bar and frame is separated by a delimiters.
 # Use decimal value in ascii table (i.e. 59 = ';' and 10 = '\n' (line feed)).
 ; bar_delimiter = 59
-; frame_delimiter = 100
+; frame_delimiter = 10
 
 # sdl window size and position. -1,-1 is centered.
 ; sdl_width = 1000
@@ -131,43 +125,35 @@
 ; sdl_x = -1
 ; sdl_y= -1
 
-# set label on bars on the x-axis. Can be 'frequency' or 'none'. Default: 'none'
-# 'frequency' displays the lower cut off frequency of the bar above.
-# Only supported on ncurses and noncurses output.
-; xaxis = none
-
-# enable alacritty synchronized updates. 1 = on, 0 = off
-# removes flickering in alacritty terminal emeulator.
-# defaults to off since the behaviour in other terminal emulators is unknown
-; alacritty_sync = 0
-
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires
-# a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# ncurses output method and a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# if supported, ncurses mode will be forced on if user defined colors are used.
 # default is to keep current terminal color
 ; background = default
 ; foreground = default
 
 # SDL only support hex code colors, these are the default:
 ; background = '#111111'
-; foreground = '#33cccc'
+foreground = '#E6ECFE'
 
 
-# Gradient mode, only hex defined colors are supported,
-# background must also be defined in hex or remain commented out. 1 = on, 0 = off.
+# Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
+# background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-gradient = 0
+gradient = 1
 gradient_count = 8
-gradient_color_1 = '#59cc33'
-gradient_color_2 = '#80cc33'
-gradient_color_3 = '#a6cc33'
-gradient_color_4 = '#cccc33'
-gradient_color_5 = '#cca633'
-gradient_color_6 = '#cc8033'
-gradient_color_7 = '#cc5933'
-gradient_color_8 = '#cc3333'
+
+gradient_color_1 = '#8aadf4'
+gradient_color_2 = '#7dc4e4'
+gradient_color_3 = '#91d7e3'
+gradient_color_4 = '#cad3f5'
+gradient_color_5 = '#c6a0f6'
+gradient_color_6 = '#f5bde6'
+gradient_color_7 = '#ee99a0'
+gradient_color_8 = '#ed8796'
 
 
 
@@ -195,7 +181,7 @@ gradient_color_8 = '#cc3333'
 # Noise reduction, float 0 - 1. default 0.77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
 # 1 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 0.77
+; noise_reduction = 0.99
 
 
 [eq]
@@ -203,6 +189,8 @@ gradient_color_8 = '#cc3333'
 # This one is tricky. You can have as much keys as you want.
 # Remember to uncomment more then one key! More keys = more precision.
 # Look at readme.md on github for further explanations and examples.
+# DEPRECATED as of 0.8.0 can be brought back by popular request, open issue at:
+# https://github.com/karlstav/cava
 ; 1 = 1 # bass
 ; 2 = 1
 ; 3 = 1 # midtone
