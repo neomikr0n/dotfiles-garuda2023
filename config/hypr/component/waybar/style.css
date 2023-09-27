@@ -26,6 +26,7 @@
 #custom-dynamic_pill,
 #custom-dynamic_pill_Lite,
 #custom-weather,
+/* #custom-updates, */
 #mpd {
     padding: 0 10px;
     border-radius: 15px;
@@ -378,6 +379,42 @@ window#waybar {
     font-weight: bolder;
     /* font-size: 15px */
 }
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+ 
+ #custom-updates {
+    background-color: rgba(9, 12, 27, 0.155);
+     /* font-size: 16px;
+     color: @background;
+     border-radius: 12px;
+     padding: 2px 10px 0px 10px;
+     margin: 5px 15px 5px 0px; */
+     /* opacity:0.1; */
+ }
+ #custom-updates.green {
+    background-color:  rgb(30,30,46);
+    
+}
+#custom-updates.yellow {
+    background-color: rgba(9, 12, 27, 0.155);
+    color: #dbde0a;
+}
+#custom-updates.red {
+    background-color: rgba(9, 12, 27, 0.155);
+    color: #b40909;
+ /* #custom-updates.green {
+     background-color: #FFFFFF;
+ }
+ #custom-updates.yellow {
+     background-color: #ff9a3c;
+     color: #ffffff;
+ }
+ #custom-updates.red {
+     background-color: #dc2f2f;
+     color: #ffffff; */
+ }
 
 #pulseaudio {
  /*    background-color:  	#be29ec;e1c4ff*/

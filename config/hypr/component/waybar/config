@@ -14,6 +14,8 @@
         // "custom/music",
         // "clock",
         "custom/music"
+        // "hyprland/window"   //shows name of focused window, just in case you want to know, 'hyprctl clients' on a terminal for way more info...
+
         // "mpd"
     ],
 
@@ -34,7 +36,8 @@
         // "custom/dynamic_pill_lite",
         "hyprland/window",   //shows name of focused window, just in case you want to know, 'hyprctl clients' on a terminal for way more info...
         "idle_inhibitor",
-        "custom/garuda-update",
+        "custom/updates",
+        // "custom/garuda-update",
         // "custom/ss",
         // "custom/cycle_wall",
         // "custom/expand",
@@ -66,9 +69,9 @@
         "exec": "~/.config/hypr/scripts/caway -b 22 -f 33",
         "return-type": "json",
         // "on-click": "playerctl play-pause",
-        // "on-scroll-up": "playerctl next",
-        // "on-scroll-down": "playerctl previous",
-        "max-length": 95
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "max-length": 30
     },
 
     // swaync
@@ -117,30 +120,54 @@
 //     "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
 //   }
 
+// Hyprland Window
 "hyprland/window": {
-    //"format": "{}"
-    "format": "<span font='9' rise='-4444'>{}       </span>",
-    "rewrite": {    // TODO: not working :(
+    // "format": "<span font='9' rise='-4444'>{}       </span>",
+    // "format": "{}  ",
+    // "tooltip-format": "{}",
+    "rewrite": {
+        "(.*) - Brave": "🌎 $1",
+        "(.*) - Code - OSS": "📝 $1",
+        "(.*) - Chromium": "🌎 $1",
+        "(.*) - Brave Search": "🌎 $1",
+        "(.*) - Outlook": "$1",
+        "(.*) Microsoft Teams": "$1",
         "(.*) - YouTube - Brave": "🌎 $1",
         "(.*) - Mozilla Firefox": "🌎 $1",
-        "(.*) - fish": "> [$1]"
+        "(.*) - fish": "> $1",
+        "(.*)~": "🧑‍💻>             $1"
     },
-    "max-length": 99
-   
+    "separate-outputs": true
 },
 
 // CUSTOM  Garuda Sway modules ////////////////
-    "custom/garuda-update": {
-        "format": "<span font='25'></span> <span font='10' rise='+4444'>{} </span>",   //   
-        // "restart-interval": 600,                     // 600=every 10 minutes.
-        "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and details on tooltip
-        "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "kitty --title garuda-update -e garuda-update; pkill -SIGRTMIN+8 waybar; notify-send -u 'normal' -t 9 'The system has been updated  💯' ",
-        "signal": 1,
-        "max-length": 11,        // enough for 999 updates
-        "interval": 60,
-        "on-click-right": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'"
+    // "custom/garuda-update": {
+    //     "format": "<span font='25'></span> <span font='10' rise='+4444'>{} </span>",   //   
+    //     // "exec": "~/.dotfiles/bin/updates.sh",
+    //     "restart-interval": 60,
+    //     "exec-if": "exit 0",                  // always run; consider advanced run conditions
+    //     "on-click": "kitty --title garuda-update -e garuda-update; pkill -SIGRTMIN+8 waybar; notify-send -u 'normal' -t 9 'The system has been updated  💯' ",
+    //     "signal": 1,
+    //     "max-length": 11,        // enough for 999 updates
+    //      "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and details on tooltip
+
+    //     // "interval": 60,
+    //     "on-click-right": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'"
+    // },
+
+    "custom/updates": {
+    // "format": "  {}",
+    "format": "<span font='25'></span> <span font='10' rise='+4444'>{} </span>",   //   
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",       
+    "exec": "/home/n30/.dotfiles/bin/updates.sh; i=$(checkupdates)",
+    "restart-interval": 60,
+    "tooltip": false,
+    "on-click": "kitty --title garuda-update -e garuda-update; pkill -SIGRTMIN+8 waybar; notify-send -u 'normal' -t 9 'The system has been updated  💯' ",
+    // "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
     },
+
 
     "custom/power": {
         "format": " <span color='#6a92d7'>⏻ </span>",

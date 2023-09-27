@@ -1,1 +1,1 @@
-{"class": "playing", "text": "(11:21/17:45) ", "tooltip": "\n(brave.instance10649)"}
+{"class": "playing", "text": "SinEmbargo Al Aire - #EnVivo | #LosPeriodistas | Samuel en campa\u00f1a: millones del erario en redes | Ayotzinapa, 9 a\u00f1os (54:37/152:45) ", "tooltip": "#EnVivo | #LosPeriodistas | Samuel en campa\u00f1a: millones del erario en redes | Ayotzinapa, 9 a\u00f1os\nby SinEmbargo Al Aire\n(Chrome)"}
