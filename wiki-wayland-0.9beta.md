@@ -3767,46 +3767,49 @@ Console-based Audio Visualizer for Alsa. Development version.
 
 `aur/cava-git r738.bed649f-5 (+16 0.02)` (Installed: r902.01233e2-1)
 
+## bug?
+  `sudo modprobe snd_aloop`
+
 ## TwistedRisers config for waybar:
-https://www.reddit.com/r/hyprland/comments/16kw3jv/waybar_and_cava/
+  https://www.reddit.com/r/hyprland/comments/16kw3jv/waybar_and_cava/
 
-Install this font: https://fontstruct.com/fontstructions/show/37128/bargraph
+  Install this font: https://fontstruct.com/fontstructions/show/37128/bargraph
 
-In your cava.conf make sure you have:
-```
-data_format = ascii
-ascii_max_range = 9
-I also tweeked with:
-noise_reduction = 0.77
-bars = 12
-```
+  In your cava.conf make sure you have:
+  ```
+  data_format = ascii
+  ascii_max_range = 9
+  I also tweeked with:
+  noise_reduction = 0.77
+  bars = 12
+  ```
 
 
-Then my config.jsonc:
-```
+  Then my config.jsonc:
+  ```
 
-"custom/cava": {
-    "exec": "sleep 3 && cava -p /home/username/.config/cava/cava.conf | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'"
-},
-```
+  "custom/cava": {
+      "exec": "sleep 3 && cava -p /home/username/.config/cava/cava.conf | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'"
+  },
+  ```
 
-And my style.css:
+  And my style.css:
 
-add to the section with all the other modules:
+  add to the section with all the other modules:
 
-#custom-cava,
-And at the bottom add:
+  #custom-cava,
+  And at the bottom add:
 
-```
-#custom-cava {
-    color: #8FBC8F;
-    border-left: 0px;
-    border-right: 0px;
-    padding-bottom: 6px;
-    font-family: "bargraph";
-    font-size: 22px;
-}
-```
+  ```
+  #custom-cava {
+      color: #8FBC8F;
+      border-left: 0px;
+      border-right: 0px;
+      padding-bottom: 6px;
+      font-family: "bargraph";
+      font-size: 22px;
+  }
+  ```
 
 # [AUDIO wob](https://github.com/francma/wob)
 
@@ -4904,7 +4907,7 @@ chezmoi init --apply --verbose https://github.com/neomikr0n/dotfiles.git
 
  # **[terminal tools]()**
 
-- ## [ag](https://github.com/jarcode-foss/glava): The Silver Searcher
+- ## [ag](): The Silver Searcher
   A code searching tool similar to ack, with a focus on speed.
   ```
   pacman -S the_silver_searcher

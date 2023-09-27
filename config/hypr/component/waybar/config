@@ -63,11 +63,11 @@
         },
         "escape": true,
         "tooltip": true,
-        "exec": "~/.config/hypr/scripts/caway -b 20 -f 35",
+        "exec": "~/.config/hypr/scripts/caway -b 22 -f 33",
         "return-type": "json",
-        "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
+        // "on-click": "playerctl play-pause",
+        // "on-scroll-up": "playerctl next",
+        // "on-scroll-down": "playerctl previous",
         "max-length": 95
     },
 
@@ -353,7 +353,7 @@
         "format": "<span ></span>",
         "show-passive-items": true,
         "icon-size": 19,
-        "spacing": 10
+        "spacing": 5
         // "margin-right":25
 
     },
