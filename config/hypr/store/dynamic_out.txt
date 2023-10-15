@@ -1,1 +1,1 @@
-{"class": "playing", "text": "SinEmbargo Al Aire - #EnVivo | #LosPeriodistas | Samuel en campa\u00f1a: millones del erario en redes | Ayotzinapa, 9 a\u00f1os (54:37/152:45) ", "tooltip": "#EnVivo | #LosPeriodistas | Samuel en campa\u00f1a: millones del erario en redes | Ayotzinapa, 9 a\u00f1os\nby SinEmbargo Al Aire\n(Chrome)"}
+{"class": "playing", "text": "Ja.KooLit - My Hyprland Dotfiles - I used for Arch Fedora Debian Ubuntu and Gentoo (08:27/37:40) ", "tooltip": "My Hyprland Dotfiles - I used for Arch Fedora Debian Ubuntu and Gentoo\nby Ja.KooLit\n(Chrome)"}

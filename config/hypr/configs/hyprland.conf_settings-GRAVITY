@@ -67,7 +67,7 @@ general {
 decoration {
     dim_inactive = 0
     rounding = 16
-    multisample_edges = true
+    #multisample_edges = true       #drepecated?
     inactive_opacity = .95
     drop_shadow = true
     shadow_range=19

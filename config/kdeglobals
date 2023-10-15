@@ -95,7 +95,7 @@ ForegroundVisited=179,13,191
 
 [DirSelect Dialog]
 DirSelectDialog Size=849,594
-History Items[$e]=file:///run/media/n30/nvme_chivos/linuxsaurio,file:///run/media/n30/chivos_4t/Movies,file:///run/media/n30/chivos_4t/Music,file:///run/media/n30/nvme_chivos,file:$HOME/Videos,file:///run/media/n30/chivos_4t/Downloads/VA - 2023 - 70th Anniversary Blues Anthology (FLAC),file:///run/media/n30/chivos_4t/Downloads_4t,file:///run/media/n30/chivos_4t/Downloads,file:///run/media/n30/nvme_chivos/linuxsaurio/Skyrim.Special.Edition-jc141,file:///run/media/n30/efi-usb,file:///run/media/n30/Chivos/LINUX_backups,file:$HOME/Pictures/Screenshots
+History Items[$e]=file:///run/media/n30/chivos_4t/Music,file:///run/media/n30/nvme_chivos/linuxsaurio,file:$HOME/Downloads,file:///run/media/n30/chivos_4t/Movies,file:///run/media/n30/nvme_chivos,file:$HOME/Videos,file:///run/media/n30/chivos_4t/Downloads/VA - 2023 - 70th Anniversary Blues Anthology (FLAC),file:///run/media/n30/chivos_4t/Downloads_4t,file:///run/media/n30/chivos_4t/Downloads,file:///run/media/n30/nvme_chivos/linuxsaurio/Skyrim.Special.Edition-jc141,file:///run/media/n30/efi-usb,file:///run/media/n30/Chivos/LINUX_backups,file:$HOME/Pictures/Screenshots
 
 [General]
 BrowserApplication=firedragon.desktop

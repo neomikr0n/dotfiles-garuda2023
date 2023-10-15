@@ -1,2 +1,8 @@
 {
+    "Audio": {
+        "save_path": "/run/media/n30/chivos_4t/Music"
+    },
+    "Game": {
+        "save_path": "/run/media/n30/nvme_chivos/linuxsaurio"
+    }
 }
